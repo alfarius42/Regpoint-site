@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "lang": "en",
+    "brand": "Reg.Point"
+  },
+  "nav": {
+    "products": "Products",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "demo": "Request Demo / Quote"
+  },
+  "home": {
+    "heroTitle": "Event registration — on your server, not someone else's SaaS",
+    "heroLead": "Reg.Point is a licensed box platform for event agencies and organizers."
+  }
+}

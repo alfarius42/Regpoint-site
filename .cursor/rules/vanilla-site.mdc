@@ -1,0 +1,39 @@
+---
+description: Стандарты production-сайта (HTML, CSS, JS)
+globs: "{index.html,404.html,**/*.html,css/**,js/**,img/**,i18n/**}"
+alwaysApply: false
+---
+
+# Vanilla site standards
+
+## CSS
+
+- Токены только в `css/tokens.css` (цвета Рег.Поинт: `--color-primary: #243954`, `--color-accent: #e1eff2`)
+- Порядок: reset → fonts → tokens → layout → components → pages
+- Grid/Flex по умолчанию; см. **`.cursor/rules/responsive-layout.mdc`**
+- CTA primary: navy фон, white text; secondary: accent фон, navy text
+
+## JavaScript
+
+- Vanilla JS, IIFE или `<script defer>` — как в существующих файлах
+- MPA: обычные `<a href>`, без SPA-роутера
+- i18n: `i18n/ru.json`, `i18n/en.json` + `js/i18n.js` (Sprint 4)
+- Jivo: `js/contact.js` → `jivo_api.open()`
+- Аналитика: `js/analytics.js`; не вызывать `ym()` до cookie consent
+
+## HTML
+
+- Семантика: `header`, `main`, `footer`, `nav`, `section`, `article`
+- `lang="ru"` / `lang="en"` на `<html>`
+- `#demo` — якорь формы Jivo на `/contacts`
+- Meta title/description по шаблону `MARKETING_SITE_SPEC.md` §6.2
+
+## Jivo
+
+- Script async в `<body>`; widget ID из `config.jivoWidgetId`
+- Умная кнопка → модалка → чат / Telegram / demo
+
+## Яндекс.Метрика
+
+- ID в `js/config.js` → `yandexMetrikaId`
+- Pageview после consent

@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+prototype/node_modules/
+tests/node_modules/
+tests/test-results/
+tests/playwright-report/
+test-results/
+
+# Build
+dist/
+regpoint-site.zip
+prototype/dist/
+.cache/
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+*.log
+
+# Env & secrets (never commit real widget IDs in .env)
+.env
+.env.local
+.env.*.local
+
+# Local overrides
+*.local.html
+
+# Image sources before optimization
+ImageSources/

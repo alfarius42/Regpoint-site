@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Ubuntu'), local('Ubuntu Regular');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold');
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}

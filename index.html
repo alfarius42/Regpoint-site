@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Рег.Поинт — регистрация на мероприятия и промоакции на вашем сервере</title>
+    <meta
+      name="description"
+      content="Коробочная платформа для регистрации участников, check-in и промо с чеками ФНС. Данные на VPS клиента, 152-ФЗ из коробки. Запросите демо."
+    />
+    <link rel="canonical" href="https://reg.point/" />
+    <meta property="og:title" content="Рег.Поинт — регистрация на мероприятия на вашем сервере" />
+    <meta property="og:description" content="Коробочная платформа для регистрации участников, check-in и промо с чеками ФНС. Данные на VPS клиента, 152-ФЗ из коробки." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://reg.point/" />
+    <meta property="og:locale" content="ru_RU" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+  </head>
+  <body data-page="home">
+    <header class="site-header">
+      <div class="site-header__inner container">
+        <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">☰</button>
+        <a class="site-header__logo" href="/">
+          <span>Рег.Поинт</span>
+        </a>
+        <nav class="site-header__nav" aria-label="Основная навигация">
+          <a href="/products/">Продукты</a>
+          <a href="/pricing/">Цены</a>
+          <a href="/technology/">Технологии</a>
+          <a href="/contacts/">Контакты</a>
+        </nav>
+        <div class="site-header__actions">
+          <button type="button" class="btn btn--ghost-on-dark" data-action="contact">Связаться</button>
+          <a class="btn btn--secondary" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="site-drawer" id="site-drawer" hidden>
+      <div class="site-drawer__panel">
+        <button type="button" data-drawer-close aria-label="Закрыть меню" class="btn btn--ghost-on-dark" style="margin-bottom: 1rem">✕</button>
+        <a class="site-drawer__link" href="/products/">Продукты</a>
+        <a class="site-drawer__link" href="/pricing/">Цены</a>
+        <a class="site-drawer__link" href="/technology/">Технологии</a>
+        <a class="site-drawer__link" href="/compliance-152fz/">152-ФЗ</a>
+        <a class="site-drawer__link" href="/faq/">FAQ</a>
+        <a class="site-drawer__link" href="/contacts/">Контакты</a>
+        <button type="button" class="btn btn--secondary" style="width: 100%; margin-top: 1rem" data-action="contact">Связаться</button>
+        <a class="btn btn--primary" href="/contacts/#demo" style="width: 100%; margin-top: 0.5rem">Запросить КП / Демо</a>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__grid">
+          <div>
+            <h1 class="hero__title font-heading">
+              Регистрация на мероприятия — на <strong>вашем</strong> сервере, не в облаке чужого SaaS
+            </h1>
+            <p class="hero__lead">
+              <strong>Рег.Поинт</strong> — коробочная платформа для event-агентств и организаторов: онлайн-запись, QR check-in, промоакции с проверкой чеков, билеты. Устанавливается на VPS клиента через Docker.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="/contacts/#demo">Запросить КП / Демо</a>
+              <button type="button" class="btn btn--secondary" data-action="contact">Связаться</button>
+            </div>
+            <div class="trust-grid">
+              <div class="trust-grid__item">
+                <strong class="font-heading" style="color: var(--color-primary)">Self-hosted</strong>
+                <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.5rem">Docker на VPS клиента; вы владеете БД и бэкапами</p>
+              </div>
+              <div class="trust-grid__item">
+                <strong class="font-heading" style="color: var(--color-primary)">152-ФЗ</strong>
+                <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.5rem">Шифрование, audit log, согласия на каждое мероприятие</p>
+              </div>
+              <div class="trust-grid__item">
+                <strong class="font-heading" style="color: var(--color-primary)">Модульно</strong>
+                <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.5rem">Платите только за нужные модули: от регистрации до билетов</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" id="not-saas">
+        <div class="container">
+          <h2 class="section__title font-heading">Почему коробка, а не подписка на чужой облачный сервис</h2>
+          <p style="color: var(--color-text-muted); max-width: 48rem">
+            SaaS-регистраторы хранят базу участников у себя. <strong>Рег.Поинт</strong> поставляется как лицензия + Docker-compose: развёртывание на вашем VPS, данные под вашим контролем.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div>
+            <p class="font-heading" style="font-size: 1.25rem; font-weight: 700">Рег.Поинт</p>
+            <p style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.5rem">Коробочная платформа регистрации на мероприятия</p>
+          </div>
+          <div>
+            <p style="font-weight: 600; margin-bottom: 0.75rem">Продукты</p>
+            <a href="/products/reg-point/" style="display: block; font-size: 0.875rem; opacity: 0.85; margin-bottom: 0.5rem">Рег.Поинт</a>
+            <a href="/products/promo-pro/" style="display: block; font-size: 0.875rem; opacity: 0.85">Промо.Про</a>
+          </div>
+          <div>
+            <p style="font-weight: 600; margin-bottom: 0.75rem">Компания</p>
+            <a href="/pricing/" style="display: block; font-size: 0.875rem; opacity: 0.85; margin-bottom: 0.5rem">Цены</a>
+            <a href="/contacts/" style="display: block; font-size: 0.875rem; opacity: 0.85">Контакты</a>
+          </div>
+          <div>
+            <p style="font-weight: 600; margin-bottom: 0.75rem">Правовая информация</p>
+            <a href="/privacy/" style="display: block; font-size: 0.875rem; opacity: 0.85">Политика конфиденциальности</a>
+          </div>
+        </div>
+        <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 2rem; text-align: center">© 2026 Рег.Поинт</p>
+      </div>
+    </footer>
+
+    <div class="modal" id="contact-modal" hidden role="dialog" aria-labelledby="contact-modal-title" aria-modal="true">
+      <div class="modal__backdrop"></div>
+      <div class="modal__dialog">
+        <div class="modal__header">
+          <h2 class="modal__title font-heading" id="contact-modal-title">Написать в поддержку</h2>
+          <button type="button" class="modal__close" data-modal-close aria-label="Закрыть">✕</button>
+        </div>
+        <div class="modal__body">
+          <button type="button" class="modal__option" data-action="jivo-chat">
+            <span>
+              <span class="modal__option-title">💬 Онлайн-чат</span>
+              <span class="modal__option-desc">Ответим в рабочее время</span>
+            </span>
+          </button>
+          <button type="button" class="modal__option" data-action="telegram">
+            <span>
+              <span class="modal__option-title">✈️ Telegram</span>
+              <span class="modal__option-desc">t.me/regpoint</span>
+            </span>
+          </button>
+          <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 1rem">Нужно КП или демо? <a href="/contacts/#demo">Запросить КП / Демо</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <div class="container cookie-banner__inner">
+        <p class="cookie-banner__text">
+          Мы используем cookie и Яндекс.Метрику для аналитики. Продолжая, вы соглашаетесь с
+          <a href="/privacy/">политикой конфиденциальности</a>.
+        </p>
+        <button type="button" class="btn btn--primary" id="cookie-accept">Принять</button>
+      </div>
+    </div>
+
+    <script src="/js/config.js"></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/contact.js" defer></script>
+    <script src="/js/analytics.js" defer></script>
+    <script src="/js/cookies.js" defer></script>
+    <script src="/js/bootstrap.js" defer></script>
+  </body>
+</html>

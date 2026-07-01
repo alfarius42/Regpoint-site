@@ -1,0 +1,31 @@
+.section--accent {
+  background: var(--color-accent);
+}
+
+.section--muted {
+  background: var(--color-bg-muted);
+}
+
+.section {
+  padding: var(--space-12) 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-16) 0;
+  }
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-6);
+}
+
+.page-stub {
+  padding: var(--space-16) 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}

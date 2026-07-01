@@ -1,0 +1,38 @@
+---
+description: Git и GitHub — работа агента с репозиторием Regpoint-site
+alwaysApply: true
+---
+
+# Git workflow
+
+## Репозиторий
+
+- **Remote:** `https://github.com/alfarius42/Regpoint-site.git`
+- **develop** — основная ветка разработки (полный репозиторий)
+- **main** — production-only (без `prototype/`, `docs/`, `.cursor/`, `tests/`)
+- Подробнее: `docs/BRANCHES.md`, `docs/PR_WORKFLOW.md`
+
+## Действия агента
+
+1. Перед коммитом: `git status`, `git diff`, `git log -1 --oneline`
+2. Разработка — коммиты в **develop** (если пользователь не указал иное)
+3. Коммит — **только по явной просьбе** пользователя
+4. Push — **только по явной просьбе**; первый push: `git push -u origin develop` и `git push -u origin main`
+5. Не коммитить: `.env`, реальные ID Jivo/Метрики в секретных файлах
+6. Не использовать: `git push --force` на main, `git reset --hard`, amend без условий из user rules
+
+## PR
+
+- Feature → **develop**; релиз → PR **develop → main**
+- Перед merge: CI green + responsive checklist (`docs/PR_WORKFLOW.md`)
+- Для PR — `gh pr create` по запросу пользователя
+
+## Релиз в production
+
+- `python scripts/build-prod.py` → `dist/` + `regpoint-site.zip`
+- Деплой FTP — содержимое `dist/` с ветки **main**
+
+## Сообщения коммитов
+
+- На русском или английском — как в репо
+- Фокус на «зачем», одно предложение

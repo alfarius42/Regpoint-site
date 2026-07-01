@@ -1,0 +1,54 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [develop]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install test dependencies
+        working-directory: tests
+        run: npm ci
+
+      - name: Install Playwright browsers
+        working-directory: tests
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright e2e (incl. responsive)
+        working-directory: tests
+        run: npm test
+
+  build-dist:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Node (for esbuild minify)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build production dist
+        run: python scripts/build-prod.py
+
+      - name: Verify dist artifacts
+        run: test -f dist/index.html && test -f regpoint-site.zip
