@@ -81,4 +81,62 @@ test.describe('Products & Pricing — Sprint 2', () => {
       expect(overflow).toBe(false);
     }
   });
+
+  test('products overview matches reference layout hooks', async ({ page }) => {
+    await page.goto('/products/');
+    await expect(page.locator('.page-hero--products')).toBeVisible();
+    await expect(page.locator('.products-module-grid .module-card')).toHaveCount(4);
+    await expect(page.locator('.products-cta__btn')).toBeVisible();
+  });
+
+  test('product detail page matches reference layout hooks', async ({ page }) => {
+    await page.goto('/products/reg-point/');
+    await expect(page.locator('.page-hero--product-detail')).toBeVisible();
+    await expect(page.locator('.product-detail__title')).toHaveText('Рег.Поинт');
+    await expect(page.locator('.product-sidebar .btn--outline')).toBeVisible();
+    await expect(page.locator('.article-card--product-ref')).toHaveCount(3);
+    await expect(page.locator('.article-card--product-ref .article-card__read')).toHaveCount(0);
+  });
+
+  test('products grid is 1/2/4 columns by breakpoint', async ({ page }) => {
+    await page.goto('/products/');
+    const grid = page.locator('.products-module-grid');
+
+    await page.setViewportSize({ width: 375, height: 812 });
+    const cols375 = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
+    expect(cols375.split(' ').length).toBe(1);
+
+    await page.setViewportSize({ width: 768, height: 900 });
+    const cols768 = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
+    expect(cols768.split(' ').length).toBe(2);
+
+    await page.setViewportSize({ width: 1280, height: 900 });
+    const cols1280 = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
+    expect(cols1280.split(' ').length).toBe(4);
+  });
+
+  test('pricing page matches reference layout hooks', async ({ page }) => {
+    await page.goto('/pricing/');
+    await expect(page.locator('.page-hero--pricing')).toBeVisible();
+    await expect(page.locator('.pricing-table--license')).toBeVisible();
+    await expect(page.locator('.pricing-block-cta__btn')).toBeVisible();
+    await expect(page.locator('.pricing-block-head')).toHaveCount(6);
+  });
+
+  test('pricing dev grid is 1/2/3 columns by breakpoint', async ({ page }) => {
+    await page.goto('/pricing/');
+    const grid = page.locator('.pricing-dev-grid');
+
+    await page.setViewportSize({ width: 375, height: 812 });
+    const cols375 = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
+    expect(cols375.split(' ').length).toBe(1);
+
+    await page.setViewportSize({ width: 768, height: 900 });
+    const cols768 = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
+    expect(cols768.split(' ').length).toBe(2);
+
+    await page.setViewportSize({ width: 1280, height: 900 });
+    const cols1280 = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
+    expect(cols1280.split(' ').length).toBe(3);
+  });
 });

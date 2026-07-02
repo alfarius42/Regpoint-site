@@ -96,17 +96,17 @@
 
     
     <main>
-      <section class="page-hero">
+      <section class="page-hero page-hero--product-detail">
         <div class="container">
           <a class="product-back" href="/products/">← Все продукты</a>
           <div class="product-layout">
             <div>
-              <h1 class="page-hero__title font-heading">Тикет.Поинт</h1>
+              <h1 class="product-detail__title font-heading">Тикет.Поинт</h1>
               <p class="product-tagline">Продажа билетов на мероприятия</p>
               <p class="product-intro">Модуль add-on: несколько категорий билетов, редактор шаблона, оплата через магазин ЮKassa заказчика (комиссия провайдера — на стороне клиента).</p>
               <div class="product-status"><strong>Статус:</strong> В разработке (backlog). Запишитесь на уведомление о релизе.</div>
               <h2 class="product-subtitle font-heading">Возможности</h2>
-              <ul class="check-list">
+              <ul class="check-list check-list--product">
                   <li>Несколько категорий билетов</li>
                   <li>Редактор шаблона билета</li>
                   <li>Оплата через ЮKassa заказчика</li>
@@ -118,7 +118,7 @@
               <p class="product-sidebar__note">требует активный Рег.Поинт на том же инстансе</p>
               <div class="product-sidebar__actions">
                 <a class="btn btn--primary" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
-                <a class="btn btn--secondary" href="/pricing/">Все цены и апгрейды</a>
+                <a class="btn btn--outline" href="/pricing/">Все цены и апгрейды</a>
               </div>
               <div class="product-sidebar__trust">
                 <div class="product-sidebar__trust-item">1-й год поддержки включён</div>
@@ -133,7 +133,7 @@
         <div class="container">
           <div class="notify-section__inner">
             <h2 class="product-subtitle font-heading">Уведомить о релизе</h2>
-            <p class="product-intro" style="margin-bottom: 1.25rem">Тикет.Поинт в разработке. Оставьте email — пришлём уведомление при выходе и предложим beta-доступ.</p>
+            <p class="product-intro notify-section__lead">Тикет.Поинт в разработке. Оставьте email — пришлём уведомление при выходе и предложим beta-доступ.</p>
             <form class="notify-form" action="#" method="post">
               <input class="notify-form__input" type="email" name="email" required placeholder="your@company.ru" autocomplete="email" />
               <button class="btn btn--primary" type="submit">Уведомить меня</button>
@@ -146,33 +146,30 @@
           </div>
         </div>
       </section>
-      <section class="section section--muted">
+      <section class="section section--muted section--product-articles">
         <div class="container">
           <h2 class="product-subtitle font-heading">Статьи по теме</h2>
           <div class="card-grid card-grid--3">
-            <a class="article-card" href="/articles/tickets-yukassa/">
+            <a class="article-card article-card--product-ref" href="/articles/tickets-yukassa/">
               <div class="article-card__meta">
                 <span class="article-card__tag article-card__tag--muted">билеты</span>
                 <span class="article-card__date">20 июня 2026 · 8 мин</span>
               </div>
               <h3 class="article-card__title">Продажа билетов через ЮKassa на своём сервере</h3>
-              <span class="article-card__read">Читать →</span>
             </a>
-            <a class="article-card" href="/articles/qr-check-in/">
+            <a class="article-card article-card--product-ref" href="/articles/qr-check-in/">
               <div class="article-card__meta">
-                <span class="article-card__tag article-card__tag--blue">check-in</span>
+                <span class="article-card__tag article-card__tag--accent">check-in</span>
                 <span class="article-card__date">28 мая 2026 · 6 мин</span>
               </div>
               <h3 class="article-card__title">QR check-in на конференции: пошаговое руководство</h3>
-              <span class="article-card__read">Читать →</span>
             </a>
-            <a class="article-card" href="/articles/cost-of-registration/">
+            <a class="article-card article-card--product-ref" href="/articles/cost-of-registration/">
               <div class="article-card__meta">
                 <span class="article-card__tag article-card__tag--muted">цены</span>
                 <span class="article-card__date">25 июня 2026 · 6 мин</span>
               </div>
               <h3 class="article-card__title">Сколько стоит программа регистрации на мероприятие</h3>
-              <span class="article-card__read">Читать →</span>
             </a>
           </div>
         </div>

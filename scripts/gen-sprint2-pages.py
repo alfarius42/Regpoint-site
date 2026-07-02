@@ -77,16 +77,16 @@ def build_page(path: str, meta: dict, body_page: str, main: str, extra_scripts: 
 
 
 PRODUCTS_MAIN = """    <main>
-      <section class="page-hero">
+      <section class="page-hero page-hero--products">
         <div class="container">
           <p class="section-label">Линейка продуктов</p>
           <h1 class="page-hero__title font-heading">Модули платформы <span class="page-hero__title-accent">Рег.Поинт</span></h1>
           <p class="page-hero__lead">Одна кодовая база — четыре лицензируемых модуля. Включайте только то, что нужно: от регистрации до билетов.</p>
         </div>
       </section>
-      <section class="section section--muted">
+      <section class="section section--muted products-section">
         <div class="container">
-          <div class="card-grid card-grid--2 card-grid--4">
+          <div class="card-grid card-grid--2 card-grid--4 products-module-grid">
             <article class="module-card">
               <div class="module-card__head">
                 <h2 class="module-card__name">Рег.Поинт</h2>
@@ -186,7 +186,7 @@ PRODUCTS_MAIN = """    <main>
           </div>
           <div class="products-cta">
             <p class="products-cta__hint">Не знаете, какой модуль выбрать?</p>
-            <a class="btn btn--primary btn--lg" href="/contacts/#demo" data-action="demo">Запросить консультацию</a>
+            <a class="btn btn--primary products-cta__btn" href="/contacts/#demo" data-action="demo">Запросить консультацию</a>
           </div>
         </div>
       </section>
@@ -196,13 +196,13 @@ PRODUCTS_MAIN = """    <main>
 PRODUCTS_MAIN = PRODUCTS_MAIN.replace('aria-label="Дa"', 'aria-label="Да"')
 
 ARTICLES = {
-    "qr-check-in": ("QR check-in на конференции: пошаговое руководство", "check-in", "28 мая 2026 · 6 мин", "article-card__tag--blue"),
-    "import-participants": ("Импорт участников из Excel и CSV без ошибок", "check-in", "1 июня 2026 · 5 мин", "article-card__tag--blue"),
+    "qr-check-in": ("QR check-in на конференции: пошаговое руководство", "check-in", "28 мая 2026 · 6 мин", "article-card__tag--accent"),
+    "import-participants": ("Импорт участников из Excel и CSV без ошибок", "check-in", "1 июня 2026 · 5 мин", "article-card__tag--accent"),
     "152fz-checklist": ("152-ФЗ на мероприятии: чеклист для организатора", "152-ФЗ", "20 мая 2026 · 9 мин", "article-card__tag--blue"),
     "self-hosted-vs-saas": ("Self-hosted vs SaaS: как выбрать регистрацию на мероприятие", "self-hosted", "15 мая 2026 · 7 мин", "article-card__tag--dark"),
     "consent-pd": ("Согласие на обработку ПД: что указать на странице регистрации", "152-ФЗ", "18 июня 2026 · 10 мин", "article-card__tag--blue"),
-    "promo-fns": ("Промоакция с чеком: как работает проверка ФНС", "promo", "5 июня 2026 · 8 мин", "article-card__tag--blue"),
-    "ocr-fallback": ("OCR чеков в промо: когда нужен fallback", "promo", "10 июня 2026 · 6 мин", "article-card__tag--blue"),
+    "promo-fns": ("Промоакция с чеком: как работает проверка ФНС", "promo", "5 июня 2026 · 8 мин", "article-card__tag--accent"),
+    "ocr-fallback": ("OCR чеков в промо: когда нужен fallback", "promo", "10 июня 2026 · 6 мин", "article-card__tag--accent"),
     "cost-of-registration": ("Сколько стоит программа регистрации на мероприятие", "цены", "25 июня 2026 · 6 мин", "article-card__tag--muted"),
     "tickets-yukassa": ("Продажа билетов через ЮKassa на своём сервере", "билеты", "20 июня 2026 · 8 мин", "article-card__tag--muted"),
 }
@@ -309,13 +309,12 @@ def articles_block(slugs):
     for slug in slugs:
         title, tag, date, tag_class = ARTICLES[slug]
         cards.append(
-            f"""            <a class="article-card" href="/articles/{slug}/">
+            f"""            <a class="article-card article-card--product-ref" href="/articles/{slug}/">
               <div class="article-card__meta">
                 <span class="article-card__tag {tag_class}">{tag}</span>
                 <span class="article-card__date">{date}</span>
               </div>
               <h3 class="article-card__title">{title}</h3>
-              <span class="article-card__read">Читать →</span>
             </a>"""
         )
     return "\n".join(cards)
@@ -352,7 +351,7 @@ def product_main(slug: str) -> str:
         <div class="container">
           <div class="notify-section__inner">
             <h2 class="product-subtitle font-heading">Уведомить о релизе</h2>
-            <p class="product-intro" style="margin-bottom: 1.25rem">Тикет.Поинт в разработке. Оставьте email — пришлём уведомление при выходе и предложим beta-доступ.</p>
+            <p class="product-intro notify-section__lead">Тикет.Поинт в разработке. Оставьте email — пришлём уведомление при выходе и предложим beta-доступ.</p>
             <form class="notify-form" action="#" method="post">
               <input class="notify-form__input" type="email" name="email" required placeholder="your@company.ru" autocomplete="email" />
               <button class="btn btn--primary" type="submit">Уведомить меня</button>
@@ -367,16 +366,16 @@ def product_main(slug: str) -> str:
       </section>"""
 
     return f"""    <main>
-      <section class="page-hero">
+      <section class="page-hero page-hero--product-detail">
         <div class="container">
           <a class="product-back" href="/products/">← Все продукты</a>
           <div class="product-layout">
             <div>
-              <h1 class="page-hero__title font-heading">{d['name']}</h1>
+              <h1 class="product-detail__title font-heading">{d['name']}</h1>
               <p class="product-tagline">{d['tagline']}</p>
               <p class="product-intro">{d['intro']}</p>{status}
               <h2 class="product-subtitle font-heading">Возможности</h2>
-              <ul class="check-list">
+              <ul class="check-list check-list--product">
 {features}
               </ul>{not_included}
             </div>
@@ -385,7 +384,7 @@ def product_main(slug: str) -> str:
               <p class="product-sidebar__note">{d['priceNote']}</p>
               <div class="product-sidebar__actions">
                 <a class="btn btn--primary" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
-                <a class="btn btn--secondary" href="/pricing/">Все цены и апгрейды</a>
+                <a class="btn btn--outline" href="/pricing/">Все цены и апгрейды</a>
               </div>
               <div class="product-sidebar__trust">
                 <div class="product-sidebar__trust-item">1-й год поддержки включён</div>
@@ -396,7 +395,7 @@ def product_main(slug: str) -> str:
           </div>
         </div>
       </section>{notify}
-      <section class="section section--muted">
+      <section class="section section--muted section--product-articles">
         <div class="container">
           <h2 class="product-subtitle font-heading">Статьи по теме</h2>
           <div class="card-grid card-grid--3">
@@ -418,20 +417,22 @@ PRICING_MAIN = """    <main>
           <a class="btn btn--white" href="/contacts/#demo" data-action="demo">Запросить КП</a>
         </div>
       </div>
-      <section class="page-hero">
+      <section class="page-hero page-hero--pricing">
         <div class="container">
           <p class="section-label">Прозрачное ценообразование</p>
           <h1 class="page-hero__title font-heading">Цены и лицензии <span class="page-hero__title-accent">Рег.Поинт</span></h1>
-          <p class="page-hero__lead section__prose" style="margin-bottom: 1rem">Фиксированные цены на модули — без скрытых платежей SaaS. <strong>1-й год</strong> обновлений и базовой поддержки <strong>включён в лицензию</strong>. Данные на VPS клиента; <strong>152-ФЗ</strong> — во всех пакетах без доплат.</p>
+          <p class="page-hero__lead">Фиксированные цены на модули — без скрытых платежей SaaS. <strong>1-й год</strong> обновлений и базовой поддержки <strong>включён в лицензию</strong>. Данные на VPS клиента; <strong>152-ФЗ</strong> — во всех пакетах без доплат.</p>
           <p class="page-hero__disclaimer">Цены ориентировочные на 2026 год, не являются публичной офертой. Итоговая стоимость — в коммерческом предложении с учётом выбранных модулей и услуг.</p>
         </div>
       </section>
       <section class="section section--muted">
         <div class="container">
-          <p class="pricing-block__label">Блок 1</p>
-          <h2 class="pricing-block__title font-heading">Лицензии модулей (разово)</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 1</p>
+            <h2 class="pricing-block__title font-heading">Лицензии модулей (разово)</h2>
+          </div>
           <div class="table-scroll">
-            <table class="pricing-table">
+            <table class="pricing-table pricing-table--license">
               <caption class="visually-hidden">Лицензии модулей Рег.Поинт</caption>
               <thead>
                 <tr>
@@ -442,10 +443,10 @@ PRICING_MAIN = """    <main>
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="pricing-table__module">Рег.Поинт</td><td class="pricing-table__price">100 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td>от 35 000 ₽/год</td></tr>
-                <tr><td class="pricing-table__module">Промо.Поинт</td><td class="pricing-table__price">80 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td>от 30 000 ₽/год</td></tr>
-                <tr><td class="pricing-table__module">Промо.Про</td><td class="pricing-table__price">180 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td>от 55 000 ₽/год</td></tr>
-                <tr><td class="pricing-table__module">Тикет.Поинт (add-on)</td><td class="pricing-table__price">+80 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td>от 30 000 ₽/год</td></tr>
+                <tr><td class="pricing-table__module">Рег.Поинт</td><td class="pricing-table__price">100 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td class="pricing-table__sub">от 35 000 ₽/год</td></tr>
+                <tr><td class="pricing-table__module">Промо.Поинт</td><td class="pricing-table__price">80 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td class="pricing-table__sub">от 30 000 ₽/год</td></tr>
+                <tr><td class="pricing-table__module">Промо.Про</td><td class="pricing-table__price">180 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td class="pricing-table__sub">от 55 000 ₽/год</td></tr>
+                <tr><td class="pricing-table__module">Тикет.Поинт (add-on)</td><td class="pricing-table__price">+80 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td class="pricing-table__sub">от 30 000 ₽/год</td></tr>
               </tbody>
             </table>
           </div>
@@ -467,13 +468,15 @@ PRICING_MAIN = """    <main>
               <div class="pricing-combo-row"><div><div class="pricing-combo-row__scenario">Билеты + регистрация</div><div class="pricing-combo-row__module">Рег.Поинт + Тикет.Поинт</div></div><div class="pricing-combo-row__price">180 000 ₽</div></div>
             </div>
           </div>
-          <div class="section__cta-wrap"><a class="btn btn--primary btn--lg" href="/contacts/#demo" data-action="demo">Запросить КП / Демо →</a></div>
+          <div class="pricing-block-cta"><a class="btn btn--primary pricing-block-cta__btn" href="/contacts/#demo" data-action="demo">Запросить КП / Демо →</a></div>
         </div>
       </section>
       <section class="section">
         <div class="container">
-          <p class="pricing-block__label">Блок 2</p>
-          <h2 class="pricing-block__title font-heading">Апгрейды — расширить уже купленный модуль</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 2</p>
+            <h2 class="pricing-block__title font-heading">Апгрейды — расширить уже купленный модуль</h2>
+          </div>
           <div class="table-scroll">
             <table class="pricing-table pricing-table--accent-head">
               <thead><tr><th>Услуга</th><th>Цена</th><th class="pricing-table__note-col">Когда нужно</th></tr></thead>
@@ -491,8 +494,10 @@ PRICING_MAIN = """    <main>
       </section>
       <section class="section section--muted">
         <div class="container">
-          <p class="pricing-block__label">Блок 3</p>
-          <h2 class="pricing-block__title font-heading">Внедрение на ваш VPS</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 3</p>
+            <h2 class="pricing-block__title font-heading">Внедрение на ваш VPS</h2>
+          </div>
           <div class="table-scroll">
             <table class="pricing-table pricing-table--accent-head">
               <thead><tr><th>Услуга</th><th>Цена</th><th class="pricing-table__note-col">Примечание</th></tr></thead>
@@ -511,8 +516,10 @@ PRICING_MAIN = """    <main>
       </section>
       <section class="section">
         <div class="container">
-          <p class="pricing-block__label">Блок 4</p>
-          <h2 class="pricing-block__title font-heading">Доработки под ваш процесс</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 4</p>
+            <h2 class="pricing-block__title font-heading">Доработки под ваш процесс</h2>
+          </div>
           <div class="pricing-dev-grid">
             <div class="pricing-dev-card"><span class="pricing-dev-card__name">Кастомное поле / валидация</span><span class="pricing-dev-card__price">от 35 000 ₽</span></div>
             <div class="pricing-dev-card"><span class="pricing-dev-card__name">Кастомный отчёт / экспорт</span><span class="pricing-dev-card__price">от 45 000 ₽</span></div>
@@ -526,11 +533,13 @@ PRICING_MAIN = """    <main>
       </section>
       <section class="section section--muted">
         <div class="container">
-          <p class="pricing-block__label">Блок 5</p>
-          <h2 class="pricing-block__title font-heading">Обучение и расширенная поддержка</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 5</p>
+            <h2 class="pricing-block__title font-heading">Обучение и расширенная поддержка</h2>
+          </div>
           <div class="pricing-support-grid">
             <div>
-              <table class="pricing-table pricing-table--accent-head">
+              <table class="pricing-table pricing-table--accent-head pricing-table--compact">
                 <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
                 <tbody>
                   <tr><td>Обучение команды (2 ч, online)</td><td class="pricing-table__price">12 000 ₽</td></tr>
@@ -541,9 +550,9 @@ PRICING_MAIN = """    <main>
                 </tbody>
               </table>
             </div>
-            <div>
+            <div class="pricing-support-consult">
               <p class="pricing-support__title font-heading">Консалтинг по 152-ФЗ <span class="pricing-support__subtitle">(не заменяет юридическое заключение)</span></p>
-              <table class="pricing-table pricing-table--accent-head">
+              <table class="pricing-table pricing-table--accent-head pricing-table--compact">
                 <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
                 <tbody>
                   <tr><td>Шаблоны текстов согласий (3 типа мероприятий)</td><td class="pricing-table__price">25 000 ₽</td></tr>
@@ -556,8 +565,10 @@ PRICING_MAIN = """    <main>
       </section>
       <section class="section">
         <div class="container">
-          <p class="pricing-block__label">FAQ по ценам</p>
-          <h2 class="pricing-block__title font-heading">Частые вопросы о стоимости</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">FAQ по ценам</p>
+            <h2 class="pricing-block__title font-heading">Частые вопросы о стоимости</h2>
+          </div>
           <div class="accordion" data-accordion>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false">Почему нет помесячной подписки как у SaaS?<span class="accordion__icon" aria-hidden="true">▾</span></button>

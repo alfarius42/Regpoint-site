@@ -106,20 +106,22 @@
           <a class="btn btn--white" href="/contacts/#demo" data-action="demo">Запросить КП</a>
         </div>
       </div>
-      <section class="page-hero">
+      <section class="page-hero page-hero--pricing">
         <div class="container">
           <p class="section-label">Прозрачное ценообразование</p>
           <h1 class="page-hero__title font-heading">Цены и лицензии <span class="page-hero__title-accent">Рег.Поинт</span></h1>
-          <p class="page-hero__lead section__prose" style="margin-bottom: 1rem">Фиксированные цены на модули — без скрытых платежей SaaS. <strong>1-й год</strong> обновлений и базовой поддержки <strong>включён в лицензию</strong>. Данные на VPS клиента; <strong>152-ФЗ</strong> — во всех пакетах без доплат.</p>
+          <p class="page-hero__lead">Фиксированные цены на модули — без скрытых платежей SaaS. <strong>1-й год</strong> обновлений и базовой поддержки <strong>включён в лицензию</strong>. Данные на VPS клиента; <strong>152-ФЗ</strong> — во всех пакетах без доплат.</p>
           <p class="page-hero__disclaimer">Цены ориентировочные на 2026 год, не являются публичной офертой. Итоговая стоимость — в коммерческом предложении с учётом выбранных модулей и услуг.</p>
         </div>
       </section>
       <section class="section section--muted">
         <div class="container">
-          <p class="pricing-block__label">Блок 1</p>
-          <h2 class="pricing-block__title font-heading">Лицензии модулей (разово)</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 1</p>
+            <h2 class="pricing-block__title font-heading">Лицензии модулей (разово)</h2>
+          </div>
           <div class="table-scroll">
-            <table class="pricing-table">
+            <table class="pricing-table pricing-table--license">
               <caption class="visually-hidden">Лицензии модулей Рег.Поинт</caption>
               <thead>
                 <tr>
@@ -130,10 +132,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="pricing-table__module">Рег.Поинт</td><td class="pricing-table__price">100 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td>от 35 000 ₽/год</td></tr>
-                <tr><td class="pricing-table__module">Промо.Поинт</td><td class="pricing-table__price">80 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td>от 30 000 ₽/год</td></tr>
-                <tr><td class="pricing-table__module">Промо.Про</td><td class="pricing-table__price">180 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td>от 55 000 ₽/год</td></tr>
-                <tr><td class="pricing-table__module">Тикет.Поинт (add-on)</td><td class="pricing-table__price">+80 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td>от 30 000 ₽/год</td></tr>
+                <tr><td class="pricing-table__module">Рег.Поинт</td><td class="pricing-table__price">100 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td class="pricing-table__sub">от 35 000 ₽/год</td></tr>
+                <tr><td class="pricing-table__module">Промо.Поинт</td><td class="pricing-table__price">80 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td class="pricing-table__sub">от 30 000 ₽/год</td></tr>
+                <tr><td class="pricing-table__module">Промо.Про</td><td class="pricing-table__price">180 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td class="pricing-table__sub">от 55 000 ₽/год</td></tr>
+                <tr><td class="pricing-table__module">Тикет.Поинт (add-on)</td><td class="pricing-table__price">+80 000 ₽</td><td><span class="feature-matrix__check" aria-label="Включено">✓</span></td><td class="pricing-table__sub">от 30 000 ₽/год</td></tr>
               </tbody>
             </table>
           </div>
@@ -155,13 +157,15 @@
               <div class="pricing-combo-row"><div><div class="pricing-combo-row__scenario">Билеты + регистрация</div><div class="pricing-combo-row__module">Рег.Поинт + Тикет.Поинт</div></div><div class="pricing-combo-row__price">180 000 ₽</div></div>
             </div>
           </div>
-          <div class="section__cta-wrap"><a class="btn btn--primary btn--lg" href="/contacts/#demo" data-action="demo">Запросить КП / Демо →</a></div>
+          <div class="pricing-block-cta"><a class="btn btn--primary pricing-block-cta__btn" href="/contacts/#demo" data-action="demo">Запросить КП / Демо →</a></div>
         </div>
       </section>
       <section class="section">
         <div class="container">
-          <p class="pricing-block__label">Блок 2</p>
-          <h2 class="pricing-block__title font-heading">Апгрейды — расширить уже купленный модуль</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 2</p>
+            <h2 class="pricing-block__title font-heading">Апгрейды — расширить уже купленный модуль</h2>
+          </div>
           <div class="table-scroll">
             <table class="pricing-table pricing-table--accent-head">
               <thead><tr><th>Услуга</th><th>Цена</th><th class="pricing-table__note-col">Когда нужно</th></tr></thead>
@@ -179,8 +183,10 @@
       </section>
       <section class="section section--muted">
         <div class="container">
-          <p class="pricing-block__label">Блок 3</p>
-          <h2 class="pricing-block__title font-heading">Внедрение на ваш VPS</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 3</p>
+            <h2 class="pricing-block__title font-heading">Внедрение на ваш VPS</h2>
+          </div>
           <div class="table-scroll">
             <table class="pricing-table pricing-table--accent-head">
               <thead><tr><th>Услуга</th><th>Цена</th><th class="pricing-table__note-col">Примечание</th></tr></thead>
@@ -199,8 +205,10 @@
       </section>
       <section class="section">
         <div class="container">
-          <p class="pricing-block__label">Блок 4</p>
-          <h2 class="pricing-block__title font-heading">Доработки под ваш процесс</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 4</p>
+            <h2 class="pricing-block__title font-heading">Доработки под ваш процесс</h2>
+          </div>
           <div class="pricing-dev-grid">
             <div class="pricing-dev-card"><span class="pricing-dev-card__name">Кастомное поле / валидация</span><span class="pricing-dev-card__price">от 35 000 ₽</span></div>
             <div class="pricing-dev-card"><span class="pricing-dev-card__name">Кастомный отчёт / экспорт</span><span class="pricing-dev-card__price">от 45 000 ₽</span></div>
@@ -214,11 +222,13 @@
       </section>
       <section class="section section--muted">
         <div class="container">
-          <p class="pricing-block__label">Блок 5</p>
-          <h2 class="pricing-block__title font-heading">Обучение и расширенная поддержка</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">Блок 5</p>
+            <h2 class="pricing-block__title font-heading">Обучение и расширенная поддержка</h2>
+          </div>
           <div class="pricing-support-grid">
             <div>
-              <table class="pricing-table pricing-table--accent-head">
+              <table class="pricing-table pricing-table--accent-head pricing-table--compact">
                 <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
                 <tbody>
                   <tr><td>Обучение команды (2 ч, online)</td><td class="pricing-table__price">12 000 ₽</td></tr>
@@ -229,9 +239,9 @@
                 </tbody>
               </table>
             </div>
-            <div>
+            <div class="pricing-support-consult">
               <p class="pricing-support__title font-heading">Консалтинг по 152-ФЗ <span class="pricing-support__subtitle">(не заменяет юридическое заключение)</span></p>
-              <table class="pricing-table pricing-table--accent-head">
+              <table class="pricing-table pricing-table--accent-head pricing-table--compact">
                 <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
                 <tbody>
                   <tr><td>Шаблоны текстов согласий (3 типа мероприятий)</td><td class="pricing-table__price">25 000 ₽</td></tr>
@@ -244,8 +254,10 @@
       </section>
       <section class="section">
         <div class="container">
-          <p class="pricing-block__label">FAQ по ценам</p>
-          <h2 class="pricing-block__title font-heading">Частые вопросы о стоимости</h2>
+          <div class="pricing-block-head">
+            <p class="section-label">FAQ по ценам</p>
+            <h2 class="pricing-block__title font-heading">Частые вопросы о стоимости</h2>
+          </div>
           <div class="accordion" data-accordion>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false">Почему нет помесячной подписки как у SaaS?<span class="accordion__icon" aria-hidden="true">▾</span></button>

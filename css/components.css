@@ -33,6 +33,16 @@
   border-color: var(--color-primary);
 }
 
+.btn--outline {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-primary);
+}
+
 .btn--ghost-on-dark {
   background: transparent;
   color: var(--color-text-on-dark);
@@ -404,6 +414,23 @@
   background: var(--color-bg-muted);
   color: var(--color-text-muted);
   border: 1px solid var(--color-border);
+}
+
+.article-card__tag--accent {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+.article-card--product-ref {
+  padding: var(--space-5);
+}
+
+.article-card--product-ref .article-card__read {
+  display: none;
+}
+
+.article-card--product-ref .article-card__title {
+  margin-bottom: 0;
 }
 
 .article-card__date {

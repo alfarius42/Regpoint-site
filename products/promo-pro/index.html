@@ -96,16 +96,16 @@
 
     
     <main>
-      <section class="page-hero">
+      <section class="page-hero page-hero--product-detail">
         <div class="container">
           <a class="product-back" href="/products/">← Все продукты</a>
           <div class="product-layout">
             <div>
-              <h1 class="page-hero__title font-heading">Промо.Про</h1>
+              <h1 class="product-detail__title font-heading">Промо.Про</h1>
               <p class="product-tagline">Промоакции с проверкой чеков ФНС</p>
               <p class="product-intro">Для акций «купи — зарегистрируй чек — получи приз». Автоматическая верификация через API ФНС (kkt-online) с OCR fallback.</p>
               <h2 class="product-subtitle font-heading">Возможности</h2>
-              <ul class="check-list">
+              <ul class="check-list check-list--product">
                   <li>Всё из Рег.Поинт и Промо.Поинт</li>
                   <li>Проверка чека через API ФНС</li>
                   <li>OCR fallback (Tesseract.js)</li>
@@ -118,7 +118,7 @@
               <p class="product-sidebar__note">лицензия, 1-й год поддержки включён</p>
               <div class="product-sidebar__actions">
                 <a class="btn btn--primary" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
-                <a class="btn btn--secondary" href="/pricing/">Все цены и апгрейды</a>
+                <a class="btn btn--outline" href="/pricing/">Все цены и апгрейды</a>
               </div>
               <div class="product-sidebar__trust">
                 <div class="product-sidebar__trust-item">1-й год поддержки включён</div>
@@ -129,33 +129,30 @@
           </div>
         </div>
       </section>
-      <section class="section section--muted">
+      <section class="section section--muted section--product-articles">
         <div class="container">
           <h2 class="product-subtitle font-heading">Статьи по теме</h2>
           <div class="card-grid card-grid--3">
-            <a class="article-card" href="/articles/promo-fns/">
+            <a class="article-card article-card--product-ref" href="/articles/promo-fns/">
               <div class="article-card__meta">
-                <span class="article-card__tag article-card__tag--blue">promo</span>
+                <span class="article-card__tag article-card__tag--accent">promo</span>
                 <span class="article-card__date">5 июня 2026 · 8 мин</span>
               </div>
               <h3 class="article-card__title">Промоакция с чеком: как работает проверка ФНС</h3>
-              <span class="article-card__read">Читать →</span>
             </a>
-            <a class="article-card" href="/articles/ocr-fallback/">
+            <a class="article-card article-card--product-ref" href="/articles/ocr-fallback/">
               <div class="article-card__meta">
-                <span class="article-card__tag article-card__tag--blue">promo</span>
+                <span class="article-card__tag article-card__tag--accent">promo</span>
                 <span class="article-card__date">10 июня 2026 · 6 мин</span>
               </div>
               <h3 class="article-card__title">OCR чеков в промо: когда нужен fallback</h3>
-              <span class="article-card__read">Читать →</span>
             </a>
-            <a class="article-card" href="/articles/cost-of-registration/">
+            <a class="article-card article-card--product-ref" href="/articles/cost-of-registration/">
               <div class="article-card__meta">
                 <span class="article-card__tag article-card__tag--muted">цены</span>
                 <span class="article-card__date">25 июня 2026 · 6 мин</span>
               </div>
               <h3 class="article-card__title">Сколько стоит программа регистрации на мероприятие</h3>
-              <span class="article-card__read">Читать →</span>
             </a>
           </div>
         </div>
