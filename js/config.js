@@ -25,6 +25,7 @@ window.SITE_CONFIG = {
 
   nav: [
     { label: 'Продукты', href: '/products/', children: [
+      { label: 'Все модули — обзор', href: '/products/' },
       { label: 'Рег.Поинт', href: '/products/reg-point/' },
       { label: 'Промо.Поинт', href: '/products/promo-point/' },
       { label: 'Промо.Про', href: '/products/promo-pro/' },
@@ -34,7 +35,9 @@ window.SITE_CONFIG = {
     { label: 'Технологии', href: '/technology/' },
     { label: '152-ФЗ', href: '/compliance-152fz/' },
     { label: 'Как работает', href: '/how-it-works/' },
+    { label: 'Сценарии', href: '/scenarios/' },
     { label: 'FAQ', href: '/faq/' },
+    { label: 'Статьи', href: '/articles/' },
     { label: 'Контакты', href: '/contacts/' },
   ],
 

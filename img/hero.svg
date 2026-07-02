@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Деловая конференция — регистрация участников">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2d43"/>
+      <stop offset="100%" stop-color="#243954"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g opacity="0.35" fill="#e1eff2">
+    <circle cx="120" cy="140" r="48"/>
+    <circle cx="280" cy="220" r="32"/>
+    <circle cx="520" cy="160" r="56"/>
+    <circle cx="680" cy="280" r="40"/>
+    <rect x="80" y="360" width="640" height="8" rx="4"/>
+    <rect x="120" y="390" width="560" height="6" rx="3"/>
+    <rect x="160" y="416" width="480" height="6" rx="3"/>
+  </g>
+  <g fill="#ffffff" opacity="0.9">
+    <rect x="48" y="480" width="220" height="88" rx="4" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="158" y="520" text-anchor="middle" font-family="Ubuntu, sans-serif" font-size="28" font-weight="700" fill="#fff">4</text>
+    <text x="158" y="548" text-anchor="middle" font-family="Ubuntu, sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.75">модуля</text>
+    <rect x="290" y="480" width="220" height="88" rx="4" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="400" y="520" text-anchor="middle" font-family="Ubuntu, sans-serif" font-size="28" font-weight="700" fill="#fff">152</text>
+    <text x="400" y="548" text-anchor="middle" font-family="Ubuntu, sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.75">ФЗ из коробки</text>
+    <rect x="532" y="480" width="220" height="88" rx="4" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="642" y="520" text-anchor="middle" font-family="Ubuntu, sans-serif" font-size="28" font-weight="700" fill="#fff">VPS</text>
+    <text x="642" y="548" text-anchor="middle" font-family="Ubuntu, sans-serif" font-size="14" fill="#ffffff" fill-opacity="0.75">клиента</text>
+  </g>
+</svg>

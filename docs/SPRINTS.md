@@ -11,7 +11,7 @@
 | Sprint | Фокус | Готовность после | Статус |
 |--------|-------|------------------|--------|
 | 0 | Docs, CI, skeleton | ~15% | 🟡 logo/favicon baseline; email — позже |
-| 1 | Chrome: header, footer, home | ~20% | ⬜ |
+| 1 | Chrome: header, footer, home | ~20% | ✅ |
 | 2 | Products + pricing | ~40% | ⬜ |
 | 3 | Content pages + contacts | ~55% | ⬜ |
 | 4 | Privacy, legal, shared JS | ~65% | ⬜ |

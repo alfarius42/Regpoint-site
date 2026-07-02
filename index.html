@@ -31,18 +31,37 @@
       <div class="site-header__inner container">
         <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">☰</button>
         <a class="site-header__logo" href="/">
-          <img class="site-header__logo-mark" src="/img/logo-mark.svg" width="32" height="32" alt="" />
           <span class="site-header__logo-text">Рег.Поинт</span>
         </a>
         <nav class="site-header__nav" aria-label="Основная навигация">
-          <a href="/products/">Продукты</a>
+          <div class="site-header__dropdown" id="nav-products">
+            <button type="button" class="site-header__nav-toggle" id="nav-products-toggle" aria-expanded="false" aria-controls="nav-products-menu">
+              Продукты ▾
+            </button>
+            <div class="site-header__dropdown-menu" id="nav-products-menu" hidden>
+              <a href="/products/">Все модули — обзор</a>
+              <a href="/products/reg-point/">Рег.Поинт</a>
+              <a href="/products/promo-point/">Промо.Поинт</a>
+              <a href="/products/promo-pro/">Промо.Про</a>
+              <a href="/products/ticket-point/">Тикет.Поинт</a>
+            </div>
+          </div>
           <a href="/pricing/">Цены</a>
           <a href="/technology/">Технологии</a>
+          <a href="/compliance-152fz/">152-ФЗ</a>
+          <a href="/how-it-works/">Как работает</a>
+          <a href="/scenarios/">Сценарии</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/articles/">Статьи</a>
           <a href="/contacts/">Контакты</a>
         </nav>
         <div class="site-header__actions">
-          <button type="button" class="btn btn--ghost-on-dark" data-action="contact">Связаться</button>
-          <a class="btn btn--secondary" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="site-header__contact-link" data-action="contact">Связаться</button>
+          <a class="btn btn--white btn--header-demo" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
         </div>
       </div>
     </header>
@@ -50,82 +69,375 @@
     <div class="site-drawer" id="site-drawer" hidden>
       <div class="site-drawer__panel">
         <button type="button" data-drawer-close aria-label="Закрыть меню" class="btn btn--ghost-on-dark" style="margin-bottom: 1rem">✕</button>
+        <a class="site-drawer__link" href="/">Главная</a>
         <a class="site-drawer__link" href="/products/">Продукты</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/reg-point/">Рег.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-point/">Промо.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-pro/">Промо.Про</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/ticket-point/">Тикет.Поинт</a>
         <a class="site-drawer__link" href="/pricing/">Цены</a>
         <a class="site-drawer__link" href="/technology/">Технологии</a>
         <a class="site-drawer__link" href="/compliance-152fz/">152-ФЗ</a>
+        <a class="site-drawer__link" href="/how-it-works/">Как работает</a>
+        <a class="site-drawer__link" href="/scenarios/">Сценарии</a>
         <a class="site-drawer__link" href="/faq/">FAQ</a>
+        <a class="site-drawer__link" href="/articles/">Статьи</a>
         <a class="site-drawer__link" href="/contacts/">Контакты</a>
-        <button type="button" class="btn btn--secondary" style="width: 100%; margin-top: 1rem" data-action="contact">Связаться</button>
-        <a class="btn btn--primary" href="/contacts/#demo" style="width: 100%; margin-top: 0.5rem">Запросить КП / Демо</a>
+        <div class="site-drawer__footer">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="btn btn--white" data-action="contact">Связаться</button>
+          <a class="btn btn--secondary" href="/contacts/#demo">КП / Демо</a>
+        </div>
       </div>
     </div>
 
     <main>
-      <section class="hero">
-        <div class="container hero__grid">
-          <div>
-            <h1 class="hero__title font-heading">
-              Регистрация на мероприятия — на <strong>вашем</strong> сервере, не в облаке чужого SaaS
-            </h1>
-            <p class="hero__lead">
-              <strong>Рег.Поинт</strong> — коробочная платформа для event-агентств и организаторов: онлайн-запись, QR check-in, промоакции с проверкой чеков, билеты. Устанавливается на VPS клиента через Docker.
-            </p>
-            <div class="hero__actions">
-              <a class="btn btn--primary" href="/contacts/#demo">Запросить КП / Демо</a>
-              <button type="button" class="btn btn--secondary" data-action="contact">Связаться</button>
+      <section class="home-hero">
+        <div class="container">
+          <div class="hero__main">
+            <div>
+              <p class="section-label">Self-hosted · Docker · 152-ФЗ · Event &amp; BTL</p>
+              <h1 class="hero__title font-heading">
+                Регистрация на мероприятия — на <span class="hero__highlight">вашем</span> сервере, не в облаке чужого SaaS
+              </h1>
+              <p class="hero__lead">
+                <strong>Рег.Поинт</strong> — коробочная платформа для event-агентств и организаторов: онлайн-запись, QR check-in, промоакции с проверкой чеков, билеты. Устанавливается на VPS клиента через Docker. Персональные данные не покидают инфраструктуру заказчика.
+              </p>
+              <div class="hero__actions">
+                <a class="btn btn--primary btn--lg" href="/contacts/#demo" data-action="demo">Запросить КП / Демо →</a>
+                <button type="button" class="btn btn--secondary btn--lg" data-action="contact">Связаться</button>
+              </div>
             </div>
-            <div class="trust-grid">
-              <div class="trust-grid__item">
-                <strong class="font-heading" style="color: var(--color-primary)">Self-hosted</strong>
-                <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.5rem">Docker на VPS клиента; вы владеете БД и бэкапами</p>
+            <div class="hero__media">
+              <div class="hero__media-frame">
+                <img src="/img/hero.jpg" width="592" height="444" alt="Деловая конференция — регистрация участников" />
+                <div class="hero__media-stats" aria-hidden="true">
+                  <div class="hero__media-stats-grid">
+                    <div class="hero__media-stat"><strong>4</strong><span>модуля</span></div>
+                    <div class="hero__media-stat"><strong>152</strong><span>ФЗ из коробки</span></div>
+                    <div class="hero__media-stat"><strong>VPS</strong><span>клиента</span></div>
+                  </div>
+                </div>
               </div>
-              <div class="trust-grid__item">
-                <strong class="font-heading" style="color: var(--color-primary)">152-ФЗ</strong>
-                <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.5rem">Шифрование, audit log, согласия на каждое мероприятие</p>
+            </div>
+          </div>
+          <div class="trust-grid">
+            <div class="trust-grid__item">
+              <div class="trust-grid__icon" aria-hidden="true">
+                <img src="/img/icons/trust-server.svg" width="20" height="20" alt="" />
               </div>
-              <div class="trust-grid__item">
-                <strong class="font-heading" style="color: var(--color-primary)">Модульно</strong>
-                <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-top: 0.5rem">Платите только за нужные модули: от регистрации до билетов</p>
+              <div class="trust-grid__body">
+                <strong class="trust-grid__title font-heading">Self-hosted</strong>
+                <p class="trust-grid__desc">Docker на VPS клиента; вы владеете БД и бэкапами</p>
+              </div>
+            </div>
+            <div class="trust-grid__item">
+              <div class="trust-grid__icon" aria-hidden="true">
+                <img src="/img/icons/trust-shield.svg" width="20" height="20" alt="" />
+              </div>
+              <div class="trust-grid__body">
+                <strong class="trust-grid__title font-heading">152-ФЗ</strong>
+                <p class="trust-grid__desc">Шифрование, audit log, согласия на каждое мероприятие</p>
+              </div>
+            </div>
+            <div class="trust-grid__item">
+              <div class="trust-grid__icon" aria-hidden="true">
+                <img src="/img/icons/trust-package.svg" width="20" height="20" alt="" />
+              </div>
+              <div class="trust-grid__body">
+                <strong class="trust-grid__title font-heading">Модульно</strong>
+                <p class="trust-grid__desc">Платите только за нужные модули: от регистрации до билетов</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--muted" id="not-saas">
+      <section class="section section--accent" id="not-saas">
+        <div class="container split-grid">
+          <div>
+            <p class="section-label">Архитектура</p>
+            <h2 class="section__title font-heading">Почему коробка, а не подписка на чужой облачный сервис</h2>
+            <p class="section__prose">SaaS-регистраторы хранят базу участников у себя. Для многих заказчиков — банки, госкорпорации, pharma, крупные агентства — это неприемлемо: персональные данные должны оставаться на серверах клиента или его провайдера в РФ. <strong>Рег.Поинт</strong> поставляется как <strong>лицензия + Docker-compose</strong>: развёртывание на вашем VPS, обновления по подписке, данные под вашим контролем.</p>
+            <ul class="check-list">
+              <li>База MySQL на VPS заказчика — не shared multi-tenant</li>
+              <li>Соглашение об обработке ПД настраивается на каждое мероприятие</li>
+              <li>Роли director / manager с изоляцией доступа</li>
+              <li>Offline-capable check-in на площадке</li>
+            </ul>
+          </div>
+          <div class="code-panel">
+            <pre class="code-panel__pre"><span class="highlight">$ docker-compose up -d</span>
+<span style="opacity:0.4">services:</span>
+  <span style="opacity:0.4">app:</span>
+    image: <span class="highlight">regpoint/app:latest</span>
+    ports: ["3000:3000"]
+  <span style="opacity:0.4">db:</span>
+    image: <span class="highlight">mysql:8</span>
+    volumes:
+      - ./data:/var/lib/mysql</pre>
+            <ul class="code-panel__list">
+              <li>VPS клиента, Linux, 2+ GB RAM</li>
+              <li>MySQL 8 — данные только на сервере заказчика</li>
+              <li>HTTPS + Let's Encrypt</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
         <div class="container">
-          <h2 class="section__title font-heading">Почему коробка, а не подписка на чужой облачный сервис</h2>
-          <p style="color: var(--color-text-muted); max-width: 48rem">
-            SaaS-регистраторы хранят базу участников у себя. <strong>Рег.Поинт</strong> поставляется как лицензия + Docker-compose: развёртывание на вашем VPS, данные под вашим контролем.
+          <p class="section-label">Линейка продуктов</p>
+          <h2 class="section__title font-heading">Четыре модуля — одна платформа</h2>
+          <p class="section__subtitle">Одна кодовая база — четыре лицензируемых модуля. Включайте только то, что нужно.</p>
+          <div class="card-grid card-grid--2 card-grid--4">
+            <article class="product-card">
+              <h3 class="product-card__name">Рег.Поинт</h3>
+              <p class="product-card__price">от 100 000 ₽</p>
+              <p class="product-card__desc">Онлайн-запись + QR check-in + импорт списков</p>
+              <a class="product-card__link" href="/products/reg-point/">Подробнее →</a>
+            </article>
+            <article class="product-card">
+              <h3 class="product-card__name">Промо.Поинт</h3>
+              <p class="product-card__price">от 80 000 ₽</p>
+              <p class="product-card__desc">Промо-формы, кастом-поля, брендинг акции</p>
+              <a class="product-card__link" href="/products/promo-point/">Подробнее →</a>
+            </article>
+            <article class="product-card">
+              <h3 class="product-card__name">Промо.Про</h3>
+              <p class="product-card__price">180 000 ₽</p>
+              <p class="product-card__desc">Промо + проверка чека через API ФНС и OCR</p>
+              <a class="product-card__link" href="/products/promo-pro/">Подробнее →</a>
+            </article>
+            <article class="product-card">
+              <h3 class="product-card__name">Тикет.Поинт</h3>
+              <p class="product-card__price">+80 000 ₽</p>
+              <p class="product-card__desc">Продажа билетов, шаблоны, ЮKassa на стороне клиента</p>
+              <a class="product-card__link" href="/products/ticket-point/">Подробнее →</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--dark">
+        <div class="container split-grid split-grid--center">
+          <div>
+            <p class="section-label section-label--light">Compliance</p>
+            <h2 class="section__title section__title--light font-heading">Соответствие 152-ФЗ — в каждом модуле, без доплат</h2>
+            <p class="section__prose section__prose--on-dark">Шифрование AES-256-GCM, журнал доступа к ПД, запрос удаления данных участником, маскирование для менеджеров, настраиваемый срок хранения.</p>
+            <a class="btn btn--outline-light" href="/compliance-152fz/">Подробнее о compliance →</a>
+          </div>
+          <div class="card-grid card-grid--2">
+            <div class="feature-tile">
+              <div class="feature-tile__label">AES-256-GCM</div>
+              <div class="feature-tile__desc">Шифрование ПД</div>
+            </div>
+            <div class="feature-tile">
+              <div class="feature-tile__label">Audit Log</div>
+              <div class="feature-tile__desc">Журнал доступа</div>
+            </div>
+            <div class="feature-tile">
+              <div class="feature-tile__label">Согласия</div>
+              <div class="feature-tile__desc">На каждое мероприятие</div>
+            </div>
+            <div class="feature-tile">
+              <div class="feature-tile__label">Удаление ПД</div>
+              <div class="feature-tile__desc">По запросу участника</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <p class="section-label">Целевая аудитория</p>
+          <h2 class="section__title font-heading">Кому подходит Рег.Поинт</h2>
+          <div class="card-grid card-grid--2 card-grid--3">
+            <article class="audience-card">
+              <h3 class="audience-card__title">Event- и BTL-агентства</h3>
+              <p class="audience-card__desc">Обслуживаете нескольких заказчиков — разворачиваете Рег.Поинт на VPS каждого клиента или на своей инфраструктуре с изоляцией данных.</p>
+            </article>
+            <article class="audience-card">
+              <h3 class="audience-card__title">Корпоративные организаторы</h3>
+              <p class="audience-card__desc">Банки, pharma, госкорпорации — у вас требования по локализации ПД. Self-hosted закрывает требования ИБ-отдела без согласования с SaaS-провайдером.</p>
+            </article>
+            <article class="audience-card">
+              <h3 class="audience-card__title">MICE-площадки и конгресс-бюро</h3>
+              <p class="audience-card__desc">Регулярные конференции, форумы, деловые встречи. Лицензия окупается за 2–3 мероприятия по сравнению с поштучной платой SaaS.</p>
+            </article>
+            <article class="audience-card">
+              <h3 class="audience-card__title">Маркетинговые агентства (BTL)</h3>
+              <p class="audience-card__desc">Промо с чеками ФНС, sampling, розыгрыши — Промо.Про закрывает весь стек верификации без сторонних API-прокси.</p>
+            </article>
+            <article class="audience-card">
+              <h3 class="audience-card__title">DevOps / Digital-отделы заказчика</h3>
+              <p class="audience-card__desc">Получаете Docker-compose + runbook. Деплой занимает 1–2 часа. Обновления — по расписанию вашей команды.</p>
+            </article>
+            <article class="audience-card">
+              <h3 class="audience-card__title">Агентства с требованиями 152-ФЗ</h3>
+              <p class="audience-card__desc">Согласие per-event, audit log, удаление ПД по запросу участника — без доработок и доп. тарифов.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted">
+        <div class="container">
+          <p class="section-label">Быстрый старт</p>
+          <h2 class="section__title font-heading">Три шага до первого мероприятия</h2>
+          <div class="steps-grid">
+            <div class="step-item">
+              <div class="step-item__num">01</div>
+              <div class="step-item__body">
+                <h3 class="step-item__title">Запросите демо</h3>
+                <p class="step-item__desc">Покажем сценарий под вашу задачу</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-item__num">02</div>
+              <div class="step-item__body">
+                <h3 class="step-item__title">Получите лицензию и Docker-пакет</h3>
+                <p class="step-item__desc">Runbook для вашего DevOps или нашего внедрения</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-item__num">03</div>
+              <div class="step-item__body">
+                <h3 class="step-item__title">Запустите регистрацию</h3>
+                <p class="step-item__desc">Публичная страница /event/:id за минуты</p>
+              </div>
+            </div>
+          </div>
+          <div class="section__cta-wrap">
+            <a class="btn btn--primary btn--lg" href="/contacts/#demo" data-action="demo">Запросить демо →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <p class="section-label">FAQ</p>
+          <h2 class="section__title font-heading">Частые вопросы</h2>
+          <div class="faq-grid">
+            <div class="faq-grid__item">
+              <div class="faq-grid__q">Это SaaS?</div>
+              <div class="faq-grid__a">Нет. Коробка на VPS клиента.</div>
+            </div>
+            <div class="faq-grid__item">
+              <div class="faq-grid__q">Где хранятся персональные данные?</div>
+              <div class="faq-grid__a">В MySQL на сервере заказчика.</div>
+            </div>
+            <div class="faq-grid__item">
+              <div class="faq-grid__q">Нужен ли программист для установки?</div>
+              <div class="faq-grid__a">Docker-compose + runbook; внедрение — опциональный SKU.</div>
+            </div>
+            <div class="faq-grid__item">
+              <div class="faq-grid__q">Можно ли начать с одного модуля?</div>
+              <div class="faq-grid__a">Да, лицензия по модулям.</div>
+            </div>
+          </div>
+          <p class="section__link-wrap">
+            <a class="text-link" href="/faq/">Все вопросы и ответы →</a>
           </p>
+        </div>
+      </section>
+
+      <section class="section section--muted">
+        <div class="container">
+          <div class="section-header-row">
+            <div>
+              <p class="section-label">Экспертиза</p>
+              <h2 class="section__title font-heading">Последние статьи</h2>
+            </div>
+            <a class="text-link" href="/articles/">Все статьи →</a>
+          </div>
+          <div class="card-grid card-grid--3">
+            <a class="article-card" href="/articles/self-hosted-vs-saas/">
+              <div class="article-card__meta">
+                <span class="article-card__tag article-card__tag--dark">self-hosted</span>
+                <span class="article-card__date">15 мая 2026 · 7 мин</span>
+              </div>
+              <h3 class="article-card__title">Self-hosted vs SaaS: как выбрать регистрацию на мероприятие</h3>
+              <span class="article-card__read">Читать →</span>
+            </a>
+            <a class="article-card" href="/articles/152fz-checklist/">
+              <div class="article-card__meta">
+                <span class="article-card__tag article-card__tag--blue">152-ФЗ</span>
+                <span class="article-card__date">20 мая 2026 · 9 мин</span>
+              </div>
+              <h3 class="article-card__title">152-ФЗ на мероприятии: чеклист для организатора</h3>
+              <span class="article-card__read">Читать →</span>
+            </a>
+            <a class="article-card" href="/articles/cost-of-registration/">
+              <div class="article-card__meta">
+                <span class="article-card__tag article-card__tag--muted">цены</span>
+                <span class="article-card__date">25 июня 2026 · 6 мин</span>
+              </div>
+              <h3 class="article-card__title">Сколько стоит программа регистрации на мероприятие</h3>
+              <span class="article-card__read">Читать →</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <div class="site-footer__grid">
+      <div class="site-footer__cta">
+        <div class="container site-footer__cta-inner">
           <div>
-            <p class="font-heading" style="font-size: 1.25rem; font-weight: 700">Рег.Поинт</p>
-            <p style="font-size: 0.875rem; opacity: 0.8; margin-top: 0.5rem">Коробочная платформа регистрации на мероприятия</p>
+            <h2 class="site-footer__cta-title font-heading">Готовы обсудить ваш сценарий?</h2>
+            <p class="site-footer__cta-desc">Подберём модули и услуги внедрения — пришлём КП в течение 1–2 рабочих дней.</p>
           </div>
-          <div>
-            <p style="font-weight: 600; margin-bottom: 0.75rem">Продукты</p>
-            <a href="/products/reg-point/" style="display: block; font-size: 0.875rem; opacity: 0.85; margin-bottom: 0.5rem">Рег.Поинт</a>
-            <a href="/products/promo-pro/" style="display: block; font-size: 0.875rem; opacity: 0.85">Промо.Про</a>
-          </div>
-          <div>
-            <p style="font-weight: 600; margin-bottom: 0.75rem">Компания</p>
-            <a href="/pricing/" style="display: block; font-size: 0.875rem; opacity: 0.85; margin-bottom: 0.5rem">Цены</a>
-            <a href="/contacts/" style="display: block; font-size: 0.875rem; opacity: 0.85">Контакты</a>
-          </div>
-          <div>
-            <p style="font-weight: 600; margin-bottom: 0.75rem">Правовая информация</p>
-            <a href="/privacy/" style="display: block; font-size: 0.875rem; opacity: 0.85">Политика конфиденциальности</a>
+          <div class="site-footer__cta-actions">
+            <a class="btn btn--white btn--footer-demo" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
+            <button type="button" class="btn btn--footer-outline" data-action="contact">Связаться</button>
           </div>
         </div>
-        <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 2rem; text-align: center">© 2026 Рег.Поинт</p>
+      </div>
+      <div class="site-footer__body">
+        <div class="container">
+          <div class="site-footer__grid">
+            <div class="site-footer__col site-footer__col--brand">
+              <p class="site-footer__brand-name">Рег.Поинт</p>
+              <p class="site-footer__brand-desc">Коробочная платформа для регистрации на мероприятия и промоакции. Self-hosted на VPS клиента.</p>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Продукты</p>
+              <ul class="site-footer__links">
+                <li><a href="/products/reg-point/">Рег.Поинт</a></li>
+                <li><a href="/products/promo-point/">Промо.Поинт</a></li>
+                <li><a href="/products/promo-pro/">Промо.Про</a></li>
+                <li><a href="/products/ticket-point/">Тикет.Поинт</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Компания</p>
+              <ul class="site-footer__links">
+                <li><a href="/pricing/">Цены</a></li>
+                <li><a href="/technology/">Технологии</a></li>
+                <li><a href="/compliance-152fz/">152-ФЗ</a></li>
+                <li><a href="/how-it-works/">Как работает</a></li>
+                <li><a href="/articles/">Статьи</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Правовое</p>
+              <ul class="site-footer__links">
+                <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/contacts/">Контакты</a></li>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/scenarios/">Сценарии</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__bottom">
+            <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
+          </div>
+        </div>
       </div>
     </footer>
 
@@ -149,7 +461,15 @@
               <span class="modal__option-desc">@ZaharMishiev</span>
             </span>
           </button>
-          <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 1rem">Нужно КП или демо? <a href="/contacts/#demo">Запросить КП / Демо</a></p>
+          <div style="border-top: 1px solid var(--color-border); padding-top: var(--space-3); margin-top: var(--space-2)">
+            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: var(--space-3)">Нужно КП или демо?</p>
+            <button type="button" class="modal__option modal__option--primary" data-action="demo-modal">
+              <span>
+                <span class="modal__option-title">📄 Запросить КП / Демо</span>
+              </span>
+            </button>
+          </div>
+          <p class="modal__footer-note">Вне рабочих часов — ответим в течение 4 часов в следующий рабочий день</p>
         </div>
       </div>
     </div>
@@ -167,6 +487,7 @@
     <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <script src="/js/lang.js" defer></script>
     <script src="/js/contact.js" defer></script>
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>

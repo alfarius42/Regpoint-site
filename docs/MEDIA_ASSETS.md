@@ -53,16 +53,16 @@ img/
 
 ## Фavicon и logo (baseline)
 
-Создано по **прототипу** (`App.tsx`: текст «Рег.Поинт», Ubuntu bold, `#243954`, accent `#e1eff2`):
+Создано по **референсу заказчика** и прототипу (`App.tsx`: wordmark «Рег.Поинт», Ubuntu bold, `#243954`):
 
 | Файл | Назначение |
 |------|------------|
-| `logo-mark.svg` | Mark «Р» + точка (Reg.Point) в header |
-| `logo.svg` / `logo-on-dark.svg` | Полный логотип RU |
+| `logo.svg` / `logo-on-dark.svg` | Wordmark «Рег.Поинт» (navy / white) |
 | `logo-en.svg` | Reg.Point |
-| `favicon.*` | PNG/ICO/SVG — `python scripts/generate-favicons.py` |
+| `logo-mark.svg` | Квадрат с буквой **Р** (как favicon) |
+| `favicon.*` | Белая **Р** на `#243954` — `python scripts/generate-favicons.py` |
 
-**Перед финальным релизом:** заменить экспортом из Figma при pixel-perfect сверке.
+**Header:** текст «Рег.Поинт» (Ubuntu bold, white) — как в прототипе и Figma-референсе.
 
 ---
 

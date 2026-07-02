@@ -34,9 +34,9 @@
 
 ## 4. UI / UX
 
-- [ ] Header: nav, dropdown продуктов, RU/EN, CTA (прототип)
-- [ ] Footer: 4 col + CTA band
-- [ ] Contact modal → Jivo + Telegram
+- [x] Header: nav, dropdown продуктов, RU/EN, CTA (прототип)
+- [x] Footer: 4 col + CTA band
+- [x] Contact modal → Jivo + Telegram
 - [ ] Cookie banner
 - [ ] Responsive 375 / 768 / 1280 — без horizontal scroll
 - [ ] Pixel-perfect сверка ключевых страниц с Figma
@@ -91,4 +91,4 @@
 | EN | 10% |
 | QA + deploy | 10% |
 
-Текущая оценка: **~8%** (Sprint 0 skeleton + docs).
+Текущая оценка: **~20%** (Sprint 1: chrome + home RU).

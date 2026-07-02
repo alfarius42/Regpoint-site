@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate PNG/ICO favicons from brand mark (prototype tokens #243954)."""
+"""Generate PNG/ICO favicons — bold Cyrillic Р on #243954 (logo reference)."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -10,14 +10,16 @@ ROOT = Path(__file__).resolve().parent.parent
 IMG = ROOT / "img"
 
 PRIMARY = (36, 57, 84)
-ACCENT = (225, 239, 242)
 WHITE = (255, 255, 255)
 
 
 def load_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     candidates = (
-        Path("C:/Windows/Fonts/arialbd.ttf"),
+        Path("C:/Windows/Fonts/ubuntub.ttf"),
+        Path("C:/Windows/Fonts/Ubuntu-B.ttf"),
         Path("C:/Windows/Fonts/segoeuib.ttf"),
+        Path("C:/Windows/Fonts/arialbd.ttf"),
+        Path("/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf"),
         Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"),
     )
     for path in candidates:
@@ -29,27 +31,15 @@ def load_font(size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
 def draw_mark(size: int) -> Image.Image:
     img = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
-    radius = max(2, size // 8)
-    draw.rounded_rectangle((0, 0, size - 1, size - 1), radius=radius, fill=PRIMARY)
+    draw.rectangle((0, 0, size - 1, size - 1), fill=PRIMARY)
 
-    dot_r = max(2, size // 9)
-    draw.ellipse(
-        (
-            size * 0.62 - dot_r,
-            size * 0.22 - dot_r,
-            size * 0.62 + dot_r,
-            size * 0.22 + dot_r,
-        ),
-        fill=ACCENT,
-    )
-
-    font = load_font(max(8, size // 2))
-    text = "R"
+    font = load_font(max(10, int(size * 0.68)))
+    text = "Р"
     bbox = draw.textbbox((0, 0), text, font=font)
     tw = bbox[2] - bbox[0]
     th = bbox[3] - bbox[1]
     draw.text(
-        ((size - tw) / 2 - size * 0.04, (size - th) / 2 - size * 0.02),
+        ((size - tw) / 2, (size - th) / 2 - size * 0.06),
         text,
         font=font,
         fill=WHITE,
