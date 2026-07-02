@@ -16,7 +16,7 @@ Workflow: `.github/workflows/ci.yml`
 | Gate | Команда локально | Когда обязателен |
 |------|------------------|------------------|
 | E2E | `cd tests; npm test` | Любой PR в `develop` |
-| Responsive | включено в e2e (375 / 768 / 1280) | Любая правка `css/`, HTML |
+| Responsive | viewport **375 / 768 / 1280** (`docs/BREAKPOINTS.md`) | Любая правка `css/`, HTML |
 | Build dist (опц.) | `python scripts/build-prod.py` | PR `develop` → `main`, не для dev |
 
 CI **не зелёный** → merge запрещён (solo workflow: агент сообщает пользователю).
@@ -25,7 +25,7 @@ CI **не зелёный** → merge запрещён (solo workflow: агент
 
 - [ ] Изменения соответствуют `MARKETING_SITE_SPEC.md` или спека обновлена в том же PR
 - [ ] **Figma:** сверка через MCP + pixel-perfect (если менялся UI)
-- [ ] **Адаптивная вёрстка:** проверены viewport 375, 768, 1280 (см. `.cursor/rules/responsive-layout.mdc`)
+- [ ] **Адаптивная вёрстка:** viewport **375 / 768 / 1280** — `docs/BREAKPOINTS.md`, `.cursor/rules/responsive-layout.mdc`
 - [ ] Нет кода из `prototype/` (TSX/Tailwind/React) в production
 - [ ] `js/config.js` — только placeholders, без реальных секретов
 - [ ] Playwright e2e проходит локально

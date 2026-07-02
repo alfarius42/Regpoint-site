@@ -15,13 +15,13 @@ alwaysApply: true
 ## CI (`.github/workflows/ci.yml`)
 
 - Playwright e2e на PR/push в `develop`
-- Responsive tests: 375, 768, 1280 px
+- Responsive tests: viewport **375 / 768 / 1280** — `docs/BREAKPOINTS.md`
 - `build-prod.py` на PR в `main`
 
 ## Агент перед «готово»
 
 1. Запустить `tests/` если менялись HTML/CSS/JS
-2. Проверить responsive rules
+2. Проверить responsive rules — **`docs/BREAKPOINTS.md`**
 3. Обновить `MARKETING_SITE_SPEC.md` если менялись тексты/маршруты/интеграции
 4. Вывести summary Lint/Tests/Build; спросить Proceed (lint-ci-mandatory skill)
 

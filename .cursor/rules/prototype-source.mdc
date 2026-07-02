@@ -15,7 +15,7 @@ alwaysApply: true
 - **Изображения (до экспорта Figma)** — URL в `App.tsx` (hero, article covers); финал → `img/` из Figma
 - **Бизнес-логика UI** — CTA, формы, modals, сценарии
 - **Поведение** — drawer, dropdown, accordion, tag filters
-- **Вёрстка-референс** — breakpoints, grid, компоненты
+- **Вёрстка-референс** — layout-tier **375 / 768 / 1280** (`docs/BREAKPOINTS.md`), grid, компоненты
 
 Production переписывает на **MPA HTML + CSS + JS**. **Тексты переносить из прототипа**, не выдумывать заново.
 
@@ -43,7 +43,7 @@ npm run dev
 
 | Из прототипа | В production (MPA) |
 |--------------|-------------------|
-| Tailwind breakpoints | `@media (min-width: …)` + `css/tokens.css` |
+| Tailwind breakpoints | `@media (min-width: 768px)` / `1280px` + `css/tokens.css` — **`docs/BREAKPOINTS.md`** |
 | ContactModal / DemoModal | `js/contact.js` + семантический HTML |
 | React `page` state | отдельные HTML-файлы + `<a href>` |
 | Inline colors `#243954` | CSS custom properties |

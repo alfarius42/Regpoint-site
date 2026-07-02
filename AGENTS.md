@@ -14,6 +14,7 @@
 2. Figma MCP — `.cursor/rules/figma-design.mdc`.
 3. `prototype/` — UX/поведение, не код — `.cursor/rules/prototype-source.mdc`.
 4. `js/config.js` — ID интеграций.
+5. **Breakpoints:** **375 / 768 / 1280** — `docs/BREAKPOINTS.md`, responsive gate в PR.
 
 ## Локальный просмотр (PowerShell)
 

@@ -44,16 +44,21 @@ EN: `/en/…` — Sprint 4.
 
 ---
 
-## 3. Breakpoints (Tailwind → CSS)
+## 3. Breakpoints (Tailwind → production CSS)
 
-| Tailwind | CSS min-width | Использование в прототипе |
-|----------|---------------|---------------------------|
-| sm | 640px | px-6, grid 2 col |
-| md | 768px | hero subtitle, 2–3 col grids |
-| lg | 1024px | hero 2 columns |
-| xl | 1280px | desktop nav, hide burger |
+**Канон production:** **375 / 768 / 1280** — `docs/BREAKPOINTS.md`.
 
-**Обязательно** воспроизвести поведение на всех breakpoints — см. `.cursor/rules/responsive-layout.mdc`.
+Прототип (Tailwind) → переносим **поведение**, media query только на **768** и **1280**:
+
+| Уровень | px | Прототип (Tailwind) | Production |
+|---------|-----|---------------------|------------|
+| Mobile | **375** (QA) | base, `< md` | 1 col, burger, stack |
+| Tablet | **768** | `md:` | 2–3 col, footer 2 col |
+| Desktop | **1280** | `xl:` | inline nav, hero 2 col, footer 4 col |
+
+Tailwind `sm` (640) / `lg` (1024) — **не** дублировать в новом CSS; fluid между 375↔768↔1280.
+
+**QA:** Playwright viewport **375 / 768 / 1280** — `.cursor/rules/responsive-layout.mdc`.
 
 ---
 

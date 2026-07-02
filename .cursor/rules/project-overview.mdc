@@ -20,7 +20,7 @@ alwaysApply: true
 
 `scripts/build-prod.py` — **опциональная** упаковка (копия + minify → `dist/`), не сборка приложения.
 
-Подробнее: `docs/ARCHITECTURE.md`.
+Подробнее: `docs/ARCHITECTURE.md`, `docs/BREAKPOINTS.md` (375 / 768 / 1280).
 
 ## Стек production-сайта
 

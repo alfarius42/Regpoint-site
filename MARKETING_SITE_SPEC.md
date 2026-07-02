@@ -23,7 +23,7 @@
 | 8 | Языки | RU + EN (переключатель; продуктовые имена и лого — локализованные) |
 | 9 | SEO | Продающие тексты + meta/OG/schema с первого дня |
 | 10 | Блог | Раздел **«Статьи»** — органический трафик, экспертиза 152-ФЗ |
-| 11 | Адаптивность | **Обязательна** на всех страницах: mobile-first, breakpoints 640 / 768 / 1024 / 1280 px; QA 375 / 768 / 1280 |
+| 11 | Адаптивность | **Обязательна:** mobile-first, **канон breakpoints 375 / 768 / 1280** (fluid между ними); QA только на этих viewport — `docs/BREAKPOINTS.md` |
 | 12 | Сборка сайта | **Нет.** MPA: правим HTML/CSS/JS в корне; деплой — статика на FTP. npm/Vite **только** в `prototype/` и `tests/` |
 
 ---
@@ -859,7 +859,7 @@ A: Заявки и переписка обрабатываются через **
 | Новая цена / апсейл SKU | §7.7, §5.1, ESC-Promo `BUSINESS_MODEL.md` §3–§5 |
 | Смена chat/form vendor | §4.2, §4.4, `/privacy`, `docs/INTEGRATIONS.md` |
 | Новая статья | §9.3 + sitemap |
-| Изменение layout / breakpoints | §13, `prototype/guidelines/HANDOFF.md`, `.cursor/rules/responsive-layout.mdc` |
+| Изменение layout / breakpoints | `docs/BREAKPOINTS.md`, §13.1, `prototype/guidelines/HANDOFF.md`, `.cursor/rules/responsive-layout.mdc` |
 
 ---
 
@@ -869,15 +869,15 @@ A: Заявки и переписка обрабатываются через **
 
 ### 13.1 Breakpoints (обязательные)
 
-| CSS | px | Поведение |
-|-----|-----|-----------|
-| base | &lt;640 | 1 col, burger nav, hero stack |
-| `--bp-sm` | 640 | padding 24px, sm grids |
-| `--bp-md` | 768 | 2–3 col trust/modules, footer 2 col |
-| `--bp-lg` | 1024 | hero 2 col |
-| `--bp-xl` | 1280 | desktop nav, hide burger |
+**Канон:** **375 / 768 / 1280** — три фиксированных уровня макета. Между ними — fluid-вёрстка. Подробно: **`docs/BREAKPOINTS.md`**.
 
-**Acceptance:** Playwright `tests/e2e/responsive.spec.js` — без horizontal scroll на 375 / 768 / 1280.
+| Уровень | px | CSS | Поведение |
+|---------|-----|-----|-----------|
+| Mobile | **375** (эталон QA) | base, `<768px` | 1 col, burger nav, hero stack |
+| Tablet | **768** | `min-width: 768px` | 2–3 col trust/modules, footer 2 col, padding 24px |
+| Desktop | **1280** | `min-width: 1280px` | inline nav, hero 2 col, footer 4 col |
+
+**Acceptance:** Playwright — без horizontal scroll на viewport **375 / 768 / 1280**.
 
 ### 13.2 Глобальный chrome
 

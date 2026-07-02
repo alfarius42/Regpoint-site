@@ -17,7 +17,8 @@ alwaysApply: false
 
 - Токены только в `css/tokens.css` (цвета Рег.Поинт: `--color-primary: #243954`, `--color-accent: #e1eff2`)
 - Порядок: reset → fonts → tokens → layout → components → pages
-- Grid/Flex по умолчанию; см. **`.cursor/rules/responsive-layout.mdc`**
+- Grid/Flex по умолчанию; breakpoints **375 / 768 / 1280** — `docs/BREAKPOINTS.md`, `.cursor/rules/responsive-layout.mdc`
+- `@media` только `min-width: 768px` и `min-width: 1280px` в новом коде
 - CTA primary: navy фон, white text; secondary: accent фон, navy text
 
 ## Архитектура (MPA)

@@ -16,11 +16,13 @@
   --font-body: 'Times New Roman', Times, serif;
   --font-ui: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --bp-sm: 640px;
-  --bp-md: 768px;
-  --bp-lg: 1024px;
-  --bp-xl: 1280px;
-  --bp-nav-desktop: 1280px;
+  /* Breakpoints — канон проекта: QA 375 / tablet 768 / desktop 1280 (docs/BREAKPOINTS.md) */
+  --bp-mobile: 375px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1280px;
+  --bp-md: var(--bp-tablet);
+  --bp-xl: var(--bp-desktop);
+  --bp-nav-desktop: var(--bp-desktop);
 
   --container-max: 80rem;
   --header-height: 64px;

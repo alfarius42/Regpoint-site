@@ -20,6 +20,7 @@
 - **BRANCHES.md** — `develop` / `main`, FTP, `dist/`, zip.
 - **PR_WORKFLOW.md** — правила PR, CI gates, responsive checklist.
 - **SPRINTS.md** — roadmap и статус спринтов.
+- **TEST_CASES_SPRINT1.md**, **TEST_CASES_SPRINT2.md**, **TEST_CASES_SPRINT3.md** — спеки и тест-кейсы по спринтам.
 - **ARCHITECTURE.md** — MPA без сборки.
 - **CONTENT_SOURCES.md** — Figma + прототип = канон текстов и изображений.
 - **SITE_MAP.md** — все URL и статус страниц.
@@ -27,8 +28,8 @@
 - **OPEN_QUESTIONS.md** — блокеры (Metrika ID, email, FTP Masterhost).
 - **LEGAL_ENTITY.md** — ИП Мельникова, реквизиты, контакты.
 - **DEPLOY_MASTERHOST.md** — деплой zip через панель Masterhost.
-- **LOCAL_DEV.md** — PowerShell команды.
-- **MEDIA.md** — медиа, OG, favicon.
+- **BREAKPOINTS.md** — **канон 375 / 768 / 1280** (адаптив + фиксация layout-tier).
+- **MEDIA_ASSETS.md** — медиа, OG, favicon.
 
 ---
 

@@ -65,4 +65,6 @@ npx --yes serve .
 
 - `.cursor/rules/project-overview.mdc` — архитектура MPA
 - `.cursor/rules/vanilla-site.mdc` — стандарты HTML/CSS/JS
+- `.cursor/rules/responsive-layout.mdc` — **375 / 768 / 1280**
+- `docs/BREAKPOINTS.md` — канон breakpoints
 - `MARKETING_SITE_SPEC.md` §4.1

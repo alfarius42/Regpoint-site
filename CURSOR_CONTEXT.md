@@ -36,7 +36,9 @@
 - **`docs/CONTENT_SOURCES.md`** — **канон текстов/изображений:** Figma + прототип.
 - **`docs/SITE_MAP.md`** — MPA URL и статус.
 - **`docs/PRODUCTION_READINESS.md`** — DoD 100%.
-- **`docs/OPEN_QUESTIONS.md`** — блокеры (email, Metrika, FTP).
+- **`docs/BREAKPOINTS.md`** — **канон 375 / 768 / 1280**, fluid между уровнями.
+- **`docs/OPEN_QUESTIONS.md`** — блокеры (email, FTP).
+- **`docs/LOCAL_DEV.md`** — PowerShell команды.
 - **`docs/LEGAL_ENTITY.md`** — ИП, реквизиты, Jivo/Telegram.
 
 ### Процесс и Git
