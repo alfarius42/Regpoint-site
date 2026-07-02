@@ -6,10 +6,6 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 
 HEADER_DEMO = '          <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">'
-HEADER_WITH_CONTACT = (
-    '          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>\n'
-    + HEADER_DEMO
-)
 CONTACTS_MAIN = """    <main>
       <section class="page-hero page-hero--content">
         <div class="container">
@@ -138,9 +134,6 @@ def patch_html(path: Path) -> bool:
         start = text.index('<main>')
         end = text.index('</main>') + len('</main>')
         text = text[:start] + CONTACTS_MAIN + text[end:]
-
-    if 'site-header__contact-link' not in text and HEADER_DEMO in text:
-        text = text.replace(HEADER_DEMO, HEADER_WITH_CONTACT, 1)
 
     if text != orig:
         path.write_text(text, encoding='utf-8')

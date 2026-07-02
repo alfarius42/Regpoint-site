@@ -3,6 +3,7 @@ import { test, expect } from '@playwright/test';
 async function mockJivo(page) {
   await page.addInitScript(() => {
     localStorage.setItem('cookie-consent', 'accepted');
+    localStorage.setItem('jivo-pd-consent', '1');
     window.__jivoOpenCount = 0;
     window.jivo_api = {
       open: () => {
@@ -52,17 +53,12 @@ test.describe('Home — Sprint 1', () => {
 
   test('articles teaser shows three cards', async ({ page }) => {
     await expect(page.locator('.article-card')).toHaveCount(3);
-    await expect(page.getByRole('link', { name: /Self-hosted vs SaaS/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Промо-акция с чеком/ })).toBeVisible();
   });
 
   test('header demo button opens Jivo chat', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.getByRole('button', { name: 'Запросить КП / Демо' }).first().click();
-    await expect(page.evaluate(() => window.__jivoOpenCount)).resolves.toBe(1);
-  });
-
-  test('chat fab opens Jivo chat', async ({ page }) => {
-    await page.locator('#chat-fab').click();
     await expect(page.evaluate(() => window.__jivoOpenCount)).resolves.toBe(1);
   });
 

@@ -39,6 +39,7 @@ test.describe('Products & Pricing — Sprint 2', () => {
 
   test('ticket-point notify CTA opens Jivo', async ({ page }) => {
     await page.addInitScript(() => {
+      localStorage.setItem('jivo-pd-consent', '1');
       window.__jivoOpenCount = 0;
       window.jivo_api = { open: () => { window.__jivoOpenCount += 1; } };
     });
@@ -64,6 +65,7 @@ test.describe('Products & Pricing — Sprint 2', () => {
 
   test('pricing page has demo CTA that opens Jivo', async ({ page }) => {
     await page.addInitScript(() => {
+      localStorage.setItem('jivo-pd-consent', '1');
       window.__jivoOpenCount = 0;
       window.jivo_api = { open: () => { window.__jivoOpenCount += 1; } };
     });

@@ -3,14 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Как работает Рег.Поинт — от лицензии до первого check-in</title>
-    <meta name="description" content="Лицензия → Docker на VPS → настройка мероприятия → публичная регистрация → check-in. Пошаговая схема коробочного внедрения." />
+    <title>Как работает Рег.Поинт — промо, мероприятия, внедрение</title>
+    <meta name="description" content="Промо с чеками и регистрация на мероприятия: пошаговые сценарии для участника и организатора. Self-hosted внедрение на VPS клиента." />
     <link rel="canonical" href="https://reg-point.ru/how-it-works/" />
-    <meta property="og:title" content="Как работает Рег.Поинт — от лицензии до первого check-in" />
-    <meta property="og:description" content="Лицензия → Docker на VPS → настройка мероприятия → публичная регистрация → check-in. Пошаговая схема коробочного внедрения." />
+    <meta property="og:title" content="Как работает Рег.Поинт — промо, мероприятия, внедрение" />
+    <meta property="og:description" content="Промо с чеками и регистрация на мероприятия: пошаговые сценарии для участника и организатора. Self-hosted внедрение на VPS клиента." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://reg-point.ru/how-it-works/" />
     <meta property="og:locale" content="ru_RU" />
+    <meta property="og:image" content="https://reg-point.ru/img/hero.svg" />
+    <meta property="og:image:alt" content="Рег.Поинт — регистрация на мероприятия на вашем сервере" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -52,11 +55,12 @@
           <a href="/contacts/">Контакты</a>
         </nav>
         <div class="site-header__actions">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
-          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          -->
           <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
         </div>
         <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
@@ -83,10 +87,12 @@
         <a class="site-drawer__link" href="/articles/">Статьи</a>
         <a class="site-drawer__link" href="/contacts/">Контакты</a>
         <div class="site-drawer__footer">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
+          -->
           <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
         </div>
       </div>
@@ -99,12 +105,182 @@
         <div class="container">
           <p class="section-label">Процесс</p>
           <h1 class="page-hero__title font-heading">Как это работает</h1>
-          <p class="page-hero__lead">От лицензии до первого check-in — пошаговая схема коробочного внедрения</p>
+          <p class="page-hero__lead">Промо с чеками, регистрация на мероприятия и коробочное внедрение — пошагово для участника и организатора</p>
         </div>
       </section>
       <section class="section section--muted">
         <div class="container container--narrow">
-          <ol class="steps-list">
+          <div class="how-value" aria-label="Ключевые выгоды для агентств">
+            <div class="how-value__item">
+              <p class="how-value__metric">152-ФЗ</p>
+              <p class="how-value__text">Сохраняете compliance и снижаете риск штрафов</p>
+            </div>
+            <div class="how-value__item">
+              <p class="how-value__metric">до 1 мин</p>
+              <p class="how-value__text">Регистрация участника через QR без ручной анкеты</p>
+            </div>
+            <div class="how-value__item">
+              <p class="how-value__metric">-30–50%</p>
+              <p class="how-value__text">Меньше промоутеров на стойке за счёт автоматизации</p>
+            </div>
+          </div>
+          <div class="filter-chips" role="tablist" aria-label="Сценарий" data-filter-group="how-it-works-tabs">
+            <button type="button" class="filter-chip is-active" role="tab" aria-selected="true" data-filter="promo" data-filter-value="promo">Промо и чеки</button>
+            <button type="button" class="filter-chip" role="tab" aria-selected="false" data-filter="events" data-filter-value="events">Мероприятия</button>
+            <button type="button" class="filter-chip" role="tab" aria-selected="false" data-filter="deploy" data-filter-value="deploy">Внедрение</button>
+          </div>
+
+          <div class="how-it-works-panel" data-filter-item="promo" data-audience="promo" role="tabpanel">
+            <p class="how-it-works-panel__lead">Чековая промо-акция без стоек и очередей — от QR на витрине до подтверждённого участника за минуту.</p>
+            <h2 class="how-it-works-panel__heading font-heading">Путь участника</h2>
+            <ol class="steps-list">
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">01</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">QR-коды повсюду</h3>
+                  <p class="step-card__desc">Участник сканирует QR на тейбл-тентах, афишах, экранах ТЦ или витринах — без поиска промо-стойки.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">02</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Быстрый старт</h3>
+                  <p class="step-card__desc">Брендированная страница акции: телефон, имя, e-mail и явное согласие на обработку ПД по 152-ФЗ.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">03</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Сканирование чека</h3>
+                  <p class="step-card__desc">Камера считывает QR на кассовом чеке. Суммы и даты вводить вручную не нужно.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">04</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Успешная регистрация</h3>
+                  <p class="step-card__desc">Система проверяет чек через ФНС. Участник в розыгрыше; на e-mail — подтверждение.</p>
+                </div>
+              </li>
+            </ol>
+            <h2 class="how-it-works-panel__heading font-heading">Настройка для организатора</h2>
+            <ol class="steps-list">
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">01</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Параметры акции</h3>
+                  <p class="step-card__desc">Период, брендинг, белый список ИНН заказчиков, лимиты на участника. Минимальная сумма чека — любая или без порога.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">02</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Размещение QR</h3>
+                  <p class="step-card__desc">Генерация QR для точек контакта: фудкорт, входы, витрины, digital-экраны.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">03</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Мониторинг</h3>
+                  <p class="step-card__desc">Дашборд в реальном времени: регистрации по дням, активность, отказы и причины.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">04</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Розыгрыш и отчёт</h3>
+                  <p class="step-card__desc">Чистая база без дублей. Выгрузка статистики и портрета аудитории. Поддержка участников — в рамках SLA внедрения.</p>
+                </div>
+              </li>
+            </ol>
+            <p class="how-it-works-panel__note">Подробнее: <a class="text-link" href="/articles/promo-receipt-automation/">статья о чековых промо</a> · модуль <a class="text-link" href="/products/promo-pro/">Промо.Про</a></p>
+          </div>
+
+          <div class="how-it-works-panel" data-filter-item="events" data-audience="events" role="tabpanel" hidden>
+            <p class="how-it-works-panel__lead">Онлайн-запись, QR на входе, отчёт attendance. Данные на сервере заказчика, 152-ФЗ из коробки.</p>
+            <h2 class="how-it-works-panel__heading font-heading">Путь участника</h2>
+            <ol class="steps-list">
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">01</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Ссылка или QR регистрации</h3>
+                  <p class="step-card__desc">Переход по ссылке из рассылки, сайта или QR на афише и в программе мероприятия.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">02</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Онлайн-анкета</h3>
+                  <p class="step-card__desc">Имя, e-mail, компания, категория билета и согласие на обработку ПД. Подтверждение — на e-mail.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">03</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">QR-билет</h3>
+                  <p class="step-card__desc">В письме — уникальный QR для входа. Можно распечатать или показать с телефона.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">04</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Check-in на площадке</h3>
+                  <p class="step-card__desc">Волонтёр сканирует QR — система фиксирует прибытие за секунду. Без бумажных списков.</p>
+                </div>
+              </li>
+            </ol>
+            <h2 class="how-it-works-panel__heading font-heading">Настройка для организатора</h2>
+            <ol class="steps-list">
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">01</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Выбор модулей</h3>
+                  <p class="step-card__desc">Регистрация и check-in; при необходимости — билеты через Тикет.Поинт.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">02</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Лицензия и развёртывание</h3>
+                  <p class="step-card__desc">Активация на VPS заказчика через Docker-compose — ваш DevOps или turnkey-внедрение.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">03</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Настройка мероприятия</h3>
+                  <p class="step-card__desc">Брендинг, поля регистрации, compliance-блок 152-ФЗ, роли команды.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">04</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Импорт или открытая регистрация</h3>
+                  <p class="step-card__desc">CSV/Excel от заказчика или публичная форма по ссылке.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">05</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">День мероприятия</h3>
+                  <p class="step-card__desc">QR check-in на планшетах; offline-режим при сбое связи.</p>
+                </div>
+              </li>
+              <li class="step-card">
+                <span class="step-card__num font-heading" aria-hidden="true">06</span>
+                <div class="step-card__body">
+                  <h3 class="step-card__title font-heading">Отчёт</h3>
+                  <p class="step-card__desc">Attendance, CSV-экспорт, процент явки — для заказчика и post-event аналитики.</p>
+                </div>
+              </li>
+            </ol>
+            <p class="how-it-works-panel__note">Подробнее: <a class="text-link" href="/articles/event-registration-no-queues/">статья о регистрации без очередей</a> · модуль <a class="text-link" href="/products/reg-point/">Рег.Поинт</a></p>
+          </div>
+
+          <div class="how-it-works-panel" data-filter-item="deploy" data-audience="deploy" role="tabpanel" hidden>
+            <p class="how-it-works-panel__lead">От лицензии до первого check-in — пошаговая схема коробочного внедрения на VPS клиента.</p>
+            <ol class="steps-list">
             <li class="step-card">
               <span class="step-card__num font-heading" aria-hidden="true">01</span>
               <div class="step-card__body">
@@ -148,6 +324,7 @@
               </div>
             </li>
           </ol>
+          </div>
           <div class="section-cta">
             <button type="button" class="btn btn--primary" data-action="jivo">Запросить демо</button>
           </div>
@@ -233,6 +410,7 @@
               <p class="site-footer__col-title">Правовое</p>
               <ul class="site-footer__links">
                 <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/privacy/marketing-consent/">Согласие на маркетинговые рассылки</a></li>
                 <li><a href="/contacts/">Контакты</a></li>
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/scenarios/">Сценарии</a></li>
@@ -241,6 +419,7 @@
           </div>
           <div class="site-footer__bottom">
             <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__legal">ИП Мельникова Ксения Антоновна · ИНН 644917769371 · ОГРНИП 325508100578539</p>
             <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
           </div>
         </div>
@@ -251,7 +430,7 @@
         <p class="cookie-banner__text">
           Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
           <a href="/privacy/">Политике конфиденциальности</a>.
-          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
+          Обращения в чате обрабатываются через Jivo (ООО «Живой Сайт», РФ).
         </p>
         <div class="cookie-banner__actions">
           <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
@@ -263,11 +442,15 @@
             <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>
-    <script src="/js/contact.js" defer></script>
+    -->
+            <script src="/js/contact.js" defer></script>
+    <script src="/js/filter.js" defer></script>
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>
     <script src="/js/seo.js" defer></script>
+    <script src="/js/breadcrumbs.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
   </body>
 </html>

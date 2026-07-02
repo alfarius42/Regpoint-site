@@ -17,7 +17,9 @@ CHROME_TAIL = index[footer_start:script_start]
 SCRIPTS_BASE = """    <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>
+    -->
     <script src="/js/contact.js" defer></script>"""
 
 SCRIPTS_END = """

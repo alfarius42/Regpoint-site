@@ -7,19 +7,19 @@ test.describe('Articles — Sprint 5', () => {
     });
   });
 
-  test('listing page has hero, 10 cards and tag filters', async ({ page }) => {
+  test('listing page has hero, 12 cards and tag filters', async ({ page }) => {
     await page.goto('/articles/');
     await expect(page.getByRole('heading', { level: 1, name: 'Статьи' })).toBeVisible();
-    await expect(page.locator('.article-card--listing')).toHaveCount(10);
+    await expect(page.locator('.article-card--listing')).toHaveCount(12);
     await expect(page.locator('.filter-chip')).toHaveCount(7);
   });
 
   test('tag filter hides non-matching cards', async ({ page }) => {
     await page.goto('/articles/');
     await page.locator('.filter-chip[data-filter="152-ФЗ"]').click();
-    await expect(page.locator('.article-card--listing:not([hidden])')).toHaveCount(2);
+    await expect(page.locator('.article-card--listing:visible')).toHaveCount(2);
     await page.locator('.filter-chip[data-filter="all"]').click();
-    await expect(page.locator('.article-card--listing:not([hidden])')).toHaveCount(10);
+    await expect(page.locator('.article-card--listing:visible')).toHaveCount(12);
   });
 
   test('article detail page loads with FAQ and CTA', async ({ page }) => {
@@ -33,9 +33,11 @@ test.describe('Articles — Sprint 5', () => {
 
   test('article links from home teaser work', async ({ page }) => {
     await page.goto('/');
-    await page.locator('.article-card[href="/articles/self-hosted-vs-saas/"]').click();
-    await expect(page).toHaveURL(/\/articles\/self-hosted-vs-saas\//);
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Self-hosted vs SaaS');
+    const teaserCard = page.locator('.section--muted .article-card').first();
+    await expect(teaserCard).toBeVisible();
+    await teaserCard.click();
+    await expect(page).toHaveURL(/\/articles\/.+\//);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 
   test('product ref block links to product page', async ({ page }) => {

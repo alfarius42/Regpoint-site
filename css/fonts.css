@@ -1,19 +1,13 @@
-@font-face {
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Ubuntu'), local('Ubuntu Regular');
-}
-
-@font-face {
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Ubuntu Bold'), local('Ubuntu-Bold');
-}
-
+/* Заголовки и UI — system-ui (см. tokens.css) */
 .font-heading {
   font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.font-ui {
+  font-family: var(--font-ui);
+}
+
+.font-body {
+  font-family: var(--font-body);
 }

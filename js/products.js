@@ -14,8 +14,10 @@
       var success = document.querySelector('.notify-form__success');
       if (success) success.hidden = false;
 
-      if (window.jivo_api && typeof window.jivo_api.open === 'function') {
-        window.jivo_api.open();
+      if (window.SiteContact && typeof window.SiteContact.requestJivo === 'function') {
+        window.SiteContact.requestJivo();
+      } else if (window.jivo_api && typeof window.jivo_api.open === 'function') {
+        window.jivo_api.open({ start: 'chat' });
       }
     });
   }

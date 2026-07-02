@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+# Служебные и dev-пути (на production отсутствуют)
+Disallow: /prototype/
+Disallow: /tests/
+Disallow: /docs/
+
 Sitemap: https://reg-point.ru/sitemap.xml
+Host: https://reg-point.ru

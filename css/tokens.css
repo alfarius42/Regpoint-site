@@ -12,9 +12,26 @@
   --color-border: #b3b3b3;
   --color-destructive: #d4183d;
 
-  --font-heading: 'Ubuntu', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Times New Roman', Times, serif;
-  --font-ui: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* System font stack — без внешних/web-шрифтов */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Segoe UI Mono', Consolas, monospace;
+  --font-heading: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-ui: var(--font-sans);
+
+  /* Type scale — base и sm одинаковые (14px) по всему сайту */
+  --text-2xs: 0.6875rem;   /* 11px — очень мелкие служебные подписи */
+  --text-xs: 0.75rem;      /* 12px — метки, подписи, badge */
+  --text-sm: 0.875rem;     /* 14px — основной текст, nav, кнопки */
+  --text-base: 0.875rem;   /* 14px — = sm, основной текст */
+  --text-lg: 1rem;         /* 16px — подзаголовки секций */
+  --text-xl: 1.125rem;     /* 18px — заголовки карточек */
+  --text-2xl: 1.25rem;     /* 20px — h2 секций */
+  --text-3xl: 1.625rem;    /* 26px — заголовки секций */
+  --text-4xl: 2rem;        /* 32px — page hero desktop */
+  --text-5xl: 2.25rem;     /* 36px — 404, крупные акценты */
+  --text-6xl: 2.625rem;    /* 42px — hero tablet */
+  --text-7xl: 3rem;        /* 48px — hero desktop */
 
   /* Breakpoints — канон проекта: QA 375 / tablet 768 / desktop 1280 (docs/BREAKPOINTS.md) */
   --bp-mobile: 375px;
@@ -42,9 +59,46 @@
 
 body {
   font-family: var(--font-body);
+  font-size: var(--text-base);
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p,
+li,
+dd {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+small,
+.text-xs {
+  font-size: var(--text-xs);
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-base {
+  font-size: var(--text-base);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
 }
 
 .container {

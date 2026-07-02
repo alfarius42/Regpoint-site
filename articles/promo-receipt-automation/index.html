@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Импорт участников из Excel и CSV без ошибок — Рег.Поинт</title>
-    <meta name="description" content="Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что дел…" />
-    <link rel="canonical" href="https://reg-point.ru/articles/import-participants/" />
-    <meta property="og:title" content="Импорт участников из Excel и CSV без ошибок — Рег.Поинт" />
-    <meta property="og:description" content="Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что дел…" />
+    <title>Промо-акция с чеком: как убрать очереди и получить точные данные — Рег.Поинт</title>
+    <meta name="description" content="Классическая промо-стойка в ТЦ превращает участие в квест: найти инфо-зону, постоять в очереди, заполнить анкету, сохранить бумажный чек до финала. Цифрово…" />
+    <link rel="canonical" href="https://reg-point.ru/articles/promo-receipt-automation/" />
+    <meta property="og:title" content="Промо-акция с чеком: как убрать очереди и получить точные данные — Рег.Поинт" />
+    <meta property="og:description" content="Классическая промо-стойка в ТЦ превращает участие в квест: найти инфо-зону, постоять в очереди, заполнить анкету, сохранить бумажный чек до финала. Цифрово…" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://reg-point.ru/articles/import-participants/" />
-    <meta property="og:image" content="https://reg-point.ru/img/articles/cover-check-in.jpg" />
+    <meta property="og:url" content="https://reg-point.ru/articles/promo-receipt-automation/" />
+    <meta property="og:image" content="https://reg-point.ru/img/articles/cover-promo.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Импорт участников из Excel и CSV без ошибок", "description": "Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что делать, если структура нестандартная.", "datePublished": "2026-06-01", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-check-in.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/import-participants/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли обновить запись, если участник уже зарегистрировался онлайн?", "acceptedAnswer": {"@type": "Answer", "text": "Нет автоматического слияния. Дубль по email пропускается. Изменить данные можно вручную в карточке участника."}}, {"@type": "Question", "name": "Сколько участников можно импортировать за раз?", "acceptedAnswer": {"@type": "Answer", "text": "До 10 000 строк в одном файле. Для больших мероприятий рекомендуется разбивать на пакеты."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Промо-акция с чеком: как убрать очереди и получить точные данные", "description": "Классическая промо-стойка в ТЦ превращает участие в квест: найти инфо-зону, постоять в очереди, заполнить анкету, сохранить бумажный чек до финала. Цифровой путь через QR и автоматическую проверку чека снимает барьеры — и даёт организатору аналитику без ручного ввода в таблицы.", "datePublished": "2026-07-02", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-promo.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/promo-receipt-automation/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Работает ли проверка для чеков из любого магазина?", "acceptedAnswer": {"@type": "Answer", "text": "Только для ИНН из белого списка акции — обычно это заказчики-партнёры по условиям промо."}}, {"@type": "Question", "name": "Что если чек «не найден» в ФНС?", "acceptedAnswer": {"@type": "Answer", "text": "Часто чек ещё не попал в реестр (задержка до 2 часов). Предусмотрите повторную попытку или статус «на проверке»."}}, {"@type": "Question", "name": "Нужны ли промоутеры на стойках?", "acceptedAnswer": {"@type": "Answer", "text": "Нет для регистрации — достаточно QR-материалов. Персонал может помогать на инфо-точках, но данные не вбиваются вручную."}}, {"@type": "Question", "name": "Обязательна ли минимальная сумма чека?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Порог участия настраивается на любое значение или отключается — в зависимости от механики акции."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="/css/components.css" />
     <link rel="stylesheet" href="/css/pages.css" />
   </head>
-  <body data-page="article-import-participants">
+  <body data-page="article-promo-receipt-automation">
 <header class="site-header">
       <div class="site-header__inner container">
         <a class="site-header__logo" href="/">
@@ -104,55 +104,71 @@
     
     <main>
       <div class="article-cover">
-        <img src="/img/articles/cover-check-in.jpg" alt="" width="1200" height="400" class="article-cover__img" />
+        <img src="/img/articles/cover-promo.jpg" alt="" width="1200" height="400" class="article-cover__img" />
       </div>
       <section class="article-header">
         <div class="container container--article">
           <a class="article-back" href="/articles/">← Все статьи</a>
           <div class="article-header__meta">
-            <span class="article-card__tag article-card__tag--accent">check-in</span>
-            <span class="article-header__date">1 июня 2026</span>
-            <span class="article-header__time">· 5 мин</span>
+            <span class="article-card__tag article-card__tag--accent">promo</span>
+            <span class="article-header__date">2 июля 2026</span>
+            <span class="article-header__time">· 8 мин</span>
           </div>
-          <h1 class="article-header__title font-heading">Импорт участников из Excel и CSV без ошибок</h1>
-          <p class="article-lead">Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что делать, если структура нестандартная.</p>
+          <h1 class="article-header__title font-heading">Промо-акция с чеком: как убрать очереди и получить точные данные</h1>
+          <p class="article-lead">Классическая промо-стойка в ТЦ превращает участие в квест: найти инфо-зону, постоять в очереди, заполнить анкету, сохранить бумажный чек до финала. Цифровой путь через QR и автоматическую проверку чека снимает барьеры — и даёт организатору аналитику без ручного ввода в таблицы.</p>
         </div>
       </section>
       <section class="article-body">
         <div class="container container--article">
           <div class="article-sections">
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Какой формат принимает Рег.Поинт</h2>
-              <p class="article-section__body">CSV (UTF-8 или Windows-1251) и XLSX/XLS. Минимальный набор колонок: имя (или отдельно имя/фамилия), email. Телефон, должность, компания и любые кастомные поля добавляются опционально. Порядок колонок — произвольный: при загрузке вы указываете соответствие полей через интерфейс маппинга.</p>
+              <h2 class="article-section__title font-heading">Почему классические промо теряют участников</h2>
+              <p class="article-section__body">Типичный путь участника сегодня: поиск физической промо-стойки в большом ТЦ; очередь и многостраничная анкета с согласиями на ПД; бумажный купон, который легко потерять; необходимость хранить выцветающий чек неделями до розыгрыша; формат, который не цепляет аудиторию, привыкшую к мобильным сценариям. Итог — низкая конверсия в регистрацию и раздражение посетителей вместо лояльности.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Подготовка файла: типичные ошибки</h2>
-              <p class="article-section__body">1) Разные форматы телефона в одном файле (+7, 8, без кода) — нормализуйте к единому перед загрузкой. 2) Email с пробелами или опечатками — система выделяет невалидные. 3) Дубликаты по email — по умолчанию дубли пропускаются, оригинальная запись сохраняется. 4) Кириллица в заголовках колонок — допустима, но лучше использовать латиницу для надёжности.</p>
+              <h2 class="article-section__title font-heading">Что меняет автоматизация</h2>
+              <p class="article-section__body">Промо.Про (модуль проверки чеков ФНС в экосистеме Рег.Поинт) заменяет ручной процесс цифровым: участник регистрируется со смартфона — без промоутера и Google-таблиц; чек верифицируется автоматически по QR ФНС — дата, ИНН, сумма; один чек нельзя зарегистрировать дважды — антифрод встроен; персональные данные собираются и хранятся с учётом 152-ФЗ на сервере заказчика; организатор видит динамику акции онлайн. Для акций без проверки чека (sampling, простые розыгрыши по анкете) достаточно Промо.Поинт — та же логика QR и формы, но без модуля ФНС.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Процесс импорта шаг за шагом</h2>
-              <p class="article-section__body">Перейдите в мероприятие → вкладка «Участники» → «Импорт». Загрузите файл, укажите соответствие колонок, просмотрите превью (первые 5 строк), подтвердите. Система покажет статистику: добавлено, пропущено (дубли), ошибки (невалидный email). Частичный импорт не откатывается — убедитесь в качестве файла заранее.</p>
+              <h2 class="article-section__title font-heading">Что входит «из коробки»</h2>
+              <p class="article-section__body">Фильтр заказчиков — включайте и исключайте категории магазинов или конкретные ИНН по условиям акции. Порог участия — минимальная сумма чека настраивается на любое значение или отключается вовсе. Онлайн-мониторинг — дашборд регистраций в реальном времени. Масштаб — неограниченное число участников и чеков на корпоративных нагрузках. Поддержка — помощь участникам и промо-персоналу в рамках SLA внедрения при нестандартных ситуациях с чеками.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Что происходит с ПД при импорте</h2>
-              <p class="article-section__body">Импортированные данные сразу шифруются AES-256-GCM на сервере клиента. Audit log фиксирует факт импорта: кто, когда, сколько записей. Менеджеры видят только маскированные данные — полный доступ только у director.</p>
+              <h2 class="article-section__title font-heading">Точность данных и защита от фрода</h2>
+              <p class="article-section__body">Ручной ввод — источник ошибок и мошенничества. Автоматическая проверка сверяет чек с реестром ФНС, проверяет ИНН продавца по белому списку акции, отсекает повторные регистрации одного чека и исключает накрутку статистики. Данные попадают в защищённую базу на VPS заказчика напрямую — без промежуточных таблиц и человеческого фактора.</p>
+            </section>
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Геймификация и аналитика (кастомизация)</h2>
+              <p class="article-section__body">Платформу можно адаптировать под маркетинговые задачи заказчика — как опцию кастомизации: мини-игры вроде «Колеса фортуны» с моментальным призом после чека; программы лояльности — больше чеков, выше баллы и шансы на главный приз; короткие опросы при регистрации для качественной обратной связи; выгрузка расширенной статистики, в том числе портрета посетителя.</p>
+            </section>
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Кому подходит</h2>
+              <p class="article-section__body">Управляющие компании и маркетинг ТЦ; promo-агентства (BTL, розыгрыши, чековые акции); ритейл-сети с акцией «купи — зарегистрируй чек — выиграй»; бренды с промо в нескольких точках одновременно.</p>
             </section>
           </div>
           <div class="article-faq">
             <h2 class="article-faq__title font-heading">FAQ</h2>
             <div class="article-faq__list">
               <div class="article-faq__item">
-                <p class="article-faq__q font-heading">Можно ли обновить запись, если участник уже зарегистрировался онлайн?</p>
-                <p class="article-faq__a">Нет автоматического слияния. Дубль по email пропускается. Изменить данные можно вручную в карточке участника.</p>
+                <p class="article-faq__q font-heading">Работает ли проверка для чеков из любого магазина?</p>
+                <p class="article-faq__a">Только для ИНН из белого списка акции — обычно это заказчики-партнёры по условиям промо.</p>
               </div>
               <div class="article-faq__item">
-                <p class="article-faq__q font-heading">Сколько участников можно импортировать за раз?</p>
-                <p class="article-faq__a">До 10 000 строк в одном файле. Для больших мероприятий рекомендуется разбивать на пакеты.</p>
+                <p class="article-faq__q font-heading">Что если чек «не найден» в ФНС?</p>
+                <p class="article-faq__a">Часто чек ещё не попал в реестр (задержка до 2 часов). Предусмотрите повторную попытку или статус «на проверке».</p>
+              </div>
+              <div class="article-faq__item">
+                <p class="article-faq__q font-heading">Нужны ли промоутеры на стойках?</p>
+                <p class="article-faq__a">Нет для регистрации — достаточно QR-материалов. Персонал может помогать на инфо-точках, но данные не вбиваются вручную.</p>
+              </div>
+              <div class="article-faq__item">
+                <p class="article-faq__q font-heading">Обязательна ли минимальная сумма чека?</p>
+                <p class="article-faq__a">Нет. Порог участия настраивается на любое значение или отключается — в зависимости от механики акции.</p>
               </div>
             </div>
           </div>
           <div class="article-cta">
-            <h2 class="article-cta__title font-heading">Нужен импорт участников на вашем сервере?</h2>
+            <h2 class="article-cta__title font-heading">Нужна промоакция с проверкой чеков ФНС?</h2>
             <p class="article-cta__desc">Рег.Поинт — коробочная платформа. Данные на вашем сервере, 152-ФЗ из коробки.</p>
             <div class="article-cta__actions">
               <button type="button" class="btn btn--primary" data-action="demo">Запросить КП / Демо →</button>

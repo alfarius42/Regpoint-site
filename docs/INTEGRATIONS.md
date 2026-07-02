@@ -13,7 +13,8 @@
 | Script | `<script src="//code.jivo.ru/widget/COp1zDxNwg" async></script>` — только фронт |
 | Загрузка | `js/jivo.js` читает `config.jivoWidgetId`, inject в `<body>` |
 | Открытие чата | `window.jivo_api.open()` |
-| CTA | Все «Связаться», «Запросить КП / Демо», FAB → `data-action="jivo"` → `jivo_api.open()` |
+| Ярлык | Стандартный ярлык Jivo (виджет `js/jivo.js`) |
+| CTA | Все «Связаться», «Запросить КП / Демо» → `data-action="jivo"` → `jivo_api.open()` |
 | `/contacts#demo` | Блок с кнопкой «Написать в чат», без HTML-формы |
 | Config | `js/config.js` → `jivoWidgetId` |
 | Реализация | `js/contact.js` |
@@ -36,7 +37,7 @@
 
 - `demo_request` — клик «Запросить КП / Демо»
 - `contact_open` — «Связаться»
-- `jivo_chat` — открытие чата (FAB и CTA)
+- `jivo_chat` — открытие чата (CTA)
 - `lang_switch` — смена RU/EN
 
 ---

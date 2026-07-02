@@ -8,8 +8,21 @@
       '@context': 'https://schema.org',
       '@type': 'WebPage',
       name: 'Политика конфиденциальности',
-      description: 'Политика обработки персональных данных сайта Рег.Поинт.',
+      description: 'Политика обработки персональных данных сайта Рег.Поинт. Оператор, цели, Jivo, cookie, Яндекс.Метрика, права субъекта.',
       url: (cfg.siteUrl || 'https://reg-point.ru') + '/privacy/',
+      inLanguage: 'ru-RU',
+      isPartOf: {
+        '@type': 'WebSite',
+        name: cfg.siteName || 'Рег.Поинт',
+        url: cfg.siteUrl || 'https://reg-point.ru',
+      },
+    },
+    'marketing-consent': {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'Согласие на обработку персональных данных в маркетинговых целях',
+      description: 'Текст согласия на маркетинговые рассылки сайта Рег.Поинт.',
+      url: (cfg.siteUrl || 'https://reg-point.ru') + '/privacy/marketing-consent/',
       inLanguage: 'ru-RU',
       isPartOf: {
         '@type': 'WebSite',

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -11,6 +11,9 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://reg-point.ru/scenarios/" />
     <meta property="og:locale" content="ru_RU" />
+    <meta property="og:image" content="https://reg-point.ru/img/hero.svg" />
+    <meta property="og:image:alt" content="Рег.Поинт — регистрация на мероприятия на вашем сервере" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -52,11 +55,12 @@
           <a href="/contacts/">Контакты</a>
         </nav>
         <div class="site-header__actions">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
-          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          -->
           <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
         </div>
         <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
@@ -83,10 +87,12 @@
         <a class="site-drawer__link" href="/articles/">Статьи</a>
         <a class="site-drawer__link" href="/contacts/">Контакты</a>
         <div class="site-drawer__footer">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
+          -->
           <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
         </div>
       </div>
@@ -104,15 +110,49 @@
       </section>
       <section class="section section--muted">
         <div class="container">
-          <div class="filter-chips" role="group" aria-label="Фильтр по модулю">
-            <button type="button" class="filter-chip is-active" data-filter="all">Все сценарии</button>
-            <button type="button" class="filter-chip" data-filter="Рег.Поинт">Рег.Поинт</button>
-            <button type="button" class="filter-chip" data-filter="Промо.Поинт">Промо.Поинт</button>
-            <button type="button" class="filter-chip" data-filter="Промо.Про">Промо.Про</button>
-            <button type="button" class="filter-chip" data-filter="Тикет.Поинт">Тикет.Поинт</button>
+          <div class="filter-chips" role="group" aria-label="Фильтр по модулю" data-filter-group="scenarios-modules">
+            <button type="button" class="filter-chip is-active" data-filter="all" data-filter-value="all">Все сценарии</button>
+            <button type="button" class="filter-chip" data-filter="Рег.Поинт" data-filter-value="Рег.Поинт">Рег.Поинт</button>
+            <button type="button" class="filter-chip" data-filter="Промо.Поинт" data-filter-value="Промо.Поинт">Промо.Поинт</button>
+            <button type="button" class="filter-chip" data-filter="Промо.Про" data-filter-value="Промо.Про">Промо.Про</button>
+            <button type="button" class="filter-chip" data-filter="Тикет.Поинт" data-filter-value="Тикет.Поинт">Тикет.Поинт</button>
           </div>
           <div class="scenario-list" id="scenario-list">
-            <article class="scenario-card" data-module="Рег.Поинт">
+            <article class="scenario-card" data-module="Промо.Про" data-filter-item="Промо.Про">
+              <div class="scenario-card__grid">
+                <div class="scenario-card__col scenario-card__col--title">
+                  <p class="scenario-card__tag">promo · чеки · ТЦ</p>
+                  <h2 class="scenario-card__title font-heading">Чековая промо в торговом центре</h2>
+                  <a class="scenario-card__module" href="/products/promo-pro/">Промо.Про →</a>
+                </div>
+                <div class="scenario-card__col">
+                  <p class="scenario-card__label">Что даёт</p>
+                  <ul class="check-list check-list--scenario"><li>QR вместо промо-стойки — регистрация со смартфона за минуту</li><li>Автопроверка чека через ФНС: дата, ИНН, сумма, антидубли</li><li>Фильтр заказчиков по ИНН; порог суммы — любой или без порога</li><li>Дашборд регистраций в реальном времени</li><li>152-ФЗ и данные на VPS заказчика, не у SaaS</li></ul>
+                </div>
+                <div class="scenario-card__col scenario-card__col--compliance">
+                  <p class="scenario-card__label">152-ФЗ / Контроль</p>
+                  <p class="scenario-card__compliance">Без ручного ввода в таблицы — audit trail для отчётности перед заказчиком акции</p>
+                </div>
+              </div>
+            </article>
+            <article class="scenario-card" data-module="Рег.Поинт" data-filter-item="Рег.Поинт">
+              <div class="scenario-card__grid">
+                <div class="scenario-card__col scenario-card__col--title">
+                  <p class="scenario-card__tag">event · check-in · конференция</p>
+                  <h2 class="scenario-card__title font-heading">Регистрация на мероприятие без очередей</h2>
+                  <a class="scenario-card__module" href="/products/reg-point/">Рег.Поинт →</a>
+                </div>
+                <div class="scenario-card__col">
+                  <p class="scenario-card__label">Что даёт</p>
+                  <ul class="check-list check-list--scenario"><li>Онлайн-регистрация и QR-билет на e-mail</li><li>Check-in на входе в 3–5 раз быстрее бумажного списка</li><li>Импорт CSV/Excel или открытая форма</li><li>Offline check-in при сбое WiFi на площадке</li><li>Отчёт attendance и CSV для заказчика</li></ul>
+                </div>
+                <div class="scenario-card__col scenario-card__col--compliance">
+                  <p class="scenario-card__label">152-ФЗ / Контроль</p>
+                  <p class="scenario-card__compliance">Self-hosted: ПД на инфраструктуре заказчика, согласие per-event</p>
+                </div>
+              </div>
+            </article>
+            <article class="scenario-card" data-module="Рег.Поинт" data-filter-item="Рег.Поинт">
               <div class="scenario-card__grid">
                 <div class="scenario-card__col scenario-card__col--title">
                   <p class="scenario-card__tag">B2B · корпоратив · форум</p>
@@ -129,7 +169,7 @@
                 </div>
               </div>
             </article>
-            <article class="scenario-card" data-module="Промо.Поинт">
+            <article class="scenario-card" data-module="Промо.Поинт" data-filter-item="Промо.Поинт">
               <div class="scenario-card__grid">
                 <div class="scenario-card__col scenario-card__col--title">
                   <p class="scenario-card__tag">BTL · промо · sampling</p>
@@ -146,7 +186,7 @@
                 </div>
               </div>
             </article>
-            <article class="scenario-card" data-module="Промо.Про">
+            <article class="scenario-card" data-module="Промо.Про" data-filter-item="Промо.Про">
               <div class="scenario-card__grid">
                 <div class="scenario-card__col scenario-card__col--title">
                   <p class="scenario-card__tag">promo · ФНС · антифрод</p>
@@ -163,7 +203,7 @@
                 </div>
               </div>
             </article>
-            <article class="scenario-card" data-module="Тикет.Поинт">
+            <article class="scenario-card" data-module="Тикет.Поинт" data-filter-item="Тикет.Поинт">
               <div class="scenario-card__grid">
                 <div class="scenario-card__col scenario-card__col--title">
                   <p class="scenario-card__tag">билеты · ЮKassa · платёж</p>
@@ -180,7 +220,7 @@
                 </div>
               </div>
             </article>
-            <article class="scenario-card" data-module="Рег.Поинт">
+            <article class="scenario-card" data-module="Рег.Поинт" data-filter-item="Рег.Поинт">
               <div class="scenario-card__grid">
                 <div class="scenario-card__col scenario-card__col--title">
                   <p class="scenario-card__tag">regulated · 152-ФЗ · enterprise</p>
@@ -198,7 +238,7 @@
               </div>
             </article>
           </div>
-          <p class="scenario-empty" id="scenario-empty" hidden>Нет сценариев для выбранного модуля. <button type="button" class="scenario-empty__reset" data-filter="all">Показать все</button></p>
+          <p class="scenario-empty" id="scenario-empty" hidden>Нет сценариев для выбранного модуля. <button type="button" class="scenario-empty__reset" data-filter="all" data-filter-reset="all">Показать все</button></p>
           <div class="module-matrix-wrap">
             <div class="module-matrix-wrap__head">
               <h2 class="module-matrix-wrap__title font-heading">Быстрый выбор модуля по задаче</h2>
@@ -274,6 +314,7 @@
               <p class="site-footer__col-title">Правовое</p>
               <ul class="site-footer__links">
                 <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/privacy/marketing-consent/">Согласие на маркетинговые рассылки</a></li>
                 <li><a href="/contacts/">Контакты</a></li>
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/scenarios/">Сценарии</a></li>
@@ -282,6 +323,7 @@
           </div>
           <div class="site-footer__bottom">
             <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__legal">ИП Мельникова Ксения Антоновна · ИНН 644917769371 · ОГРНИП 325508100578539</p>
             <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
           </div>
         </div>
@@ -292,7 +334,7 @@
         <p class="cookie-banner__text">
           Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
           <a href="/privacy/">Политике конфиденциальности</a>.
-          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
+          Обращения в чате обрабатываются через Jivo (ООО «Живой Сайт», РФ).
         </p>
         <div class="cookie-banner__actions">
           <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
@@ -304,12 +346,16 @@
             <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>
+    -->
     <script src="/js/contact.js" defer></script>
+    <script src="/js/filter.js" defer></script>
     <script src="/js/scenarios.js" defer></script>
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>
     <script src="/js/seo.js" defer></script>
+    <script src="/js/breadcrumbs.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
   </body>
 </html>

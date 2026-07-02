@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -11,6 +11,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://reg-point.ru/articles/docker-vps/" />
     <meta property="og:image" content="https://reg-point.ru/img/articles/cover-self-hosted.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker для event-платформы: требования к VPS", "description": "Рег.Поинт разворачивается через Docker-compose. Разбираем минимальные и рекомендуемые требования к VPS, выбор хостинга в РФ и типичные проблемы деплоя.", "datePublished": "2026-06-15", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-self-hosted.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/docker-vps/"}}</script>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли использовать shared-хостинг?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Docker требует root-доступа или как минимум привилегированного пользователя. Только VPS/VDS."}}, {"@type": "Question", "name": "Нужен ли выделенный сервер для каждого заказчика?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. Одна лицензия — один инстанс / одно юрлицо. Несколько заказчиков можно обслуживать через роли director, изолируя данные на уровне приложения. Физически разные серверы — только если требования ИБ клиента это предписывают."}}]}</script>
@@ -55,11 +56,12 @@
           <a href="/contacts/">Контакты</a>
         </nav>
         <div class="site-header__actions">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
-          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          -->
           <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
         </div>
         <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
@@ -86,10 +88,12 @@
         <a class="site-drawer__link" href="/articles/">Статьи</a>
         <a class="site-drawer__link" href="/contacts/">Контакты</a>
         <div class="site-drawer__footer">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
+          -->
           <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
         </div>
       </div>
@@ -155,7 +159,7 @@
             <h2 class="article-cta__title font-heading">Нужна помощь с деплоем на ваш сервер?</h2>
             <p class="article-cta__desc">Рег.Поинт — коробочная платформа. Данные на вашем сервере, 152-ФЗ из коробки.</p>
             <div class="article-cta__actions">
-              <button type="button" class="btn btn--primary" data-action="jivo">Запросить КП / Демо →</button>
+              <button type="button" class="btn btn--primary" data-action="demo">Запросить КП / Демо →</button>
               <a class="btn btn--secondary" href="/articles/">← Все статьи</a>
             </div>
           </div>
@@ -217,6 +221,7 @@
               <p class="site-footer__col-title">Правовое</p>
               <ul class="site-footer__links">
                 <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/privacy/marketing-consent/">Согласие на маркетинговые рассылки</a></li>
                 <li><a href="/contacts/">Контакты</a></li>
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/scenarios/">Сценарии</a></li>
@@ -225,6 +230,7 @@
           </div>
           <div class="site-footer__bottom">
             <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__legal">ИП Мельникова Ксения Антоновна · ИНН 644917769371 · ОГРНИП 325508100578539</p>
             <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
           </div>
         </div>
@@ -235,7 +241,7 @@
         <p class="cookie-banner__text">
           Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
           <a href="/privacy/">Политике конфиденциальности</a>.
-          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
+          Обращения в чате обрабатываются через Jivo (ООО «Живой Сайт», РФ).
         </p>
         <div class="cookie-banner__actions">
           <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
@@ -244,14 +250,16 @@
       </div>
     </div>
 
-
-                <script src="/js/config.js"></script>
+    <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>
+    -->
     <script src="/js/contact.js" defer></script>
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>
+    <script src="/js/breadcrumbs.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
   </body>
 </html>

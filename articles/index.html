@@ -11,7 +11,9 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://reg-point.ru/articles/" />
     <meta property="og:image" content="https://reg-point.ru/img/hero.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Статьи Рег.Поинт","itemListElement":[{"@type":"ListItem","position":1,"url":"https://reg-point.ru/articles/152fz-checklist/"},{"@type":"ListItem","position":2,"url":"https://reg-point.ru/articles/consent-pd/"},{"@type":"ListItem","position":3,"url":"https://reg-point.ru/articles/cost-of-registration/"},{"@type":"ListItem","position":4,"url":"https://reg-point.ru/articles/docker-vps/"},{"@type":"ListItem","position":5,"url":"https://reg-point.ru/articles/event-registration-no-queues/"},{"@type":"ListItem","position":6,"url":"https://reg-point.ru/articles/import-participants/"},{"@type":"ListItem","position":7,"url":"https://reg-point.ru/articles/ocr-fallback/"},{"@type":"ListItem","position":8,"url":"https://reg-point.ru/articles/promo-fns/"},{"@type":"ListItem","position":9,"url":"https://reg-point.ru/articles/promo-receipt-automation/"},{"@type":"ListItem","position":10,"url":"https://reg-point.ru/articles/qr-check-in/"},{"@type":"ListItem","position":11,"url":"https://reg-point.ru/articles/self-hosted-vs-saas/"},{"@type":"ListItem","position":12,"url":"https://reg-point.ru/articles/tickets-yukassa/"}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -53,11 +55,12 @@
           <a href="/contacts/">Контакты</a>
         </nav>
         <div class="site-header__actions">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
-          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          -->
           <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
         </div>
         <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
@@ -84,10 +87,12 @@
         <a class="site-drawer__link" href="/articles/">Статьи</a>
         <a class="site-drawer__link" href="/contacts/">Контакты</a>
         <div class="site-drawer__footer">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
+          -->
           <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
         </div>
       </div>
@@ -105,17 +110,17 @@
       </section>
       <section class="section section--muted">
         <div class="container">
-          <div class="filter-chips" role="group" aria-label="Фильтр по тегу">
-            <button type="button" class="filter-chip is-active" data-filter="all">Все (10)</button>
-            <button type="button" class="filter-chip" data-filter="152-ФЗ">152-ФЗ (2)</button>
-            <button type="button" class="filter-chip" data-filter="check-in">check-in (2)</button>
-            <button type="button" class="filter-chip" data-filter="promo">promo (2)</button>
-            <button type="button" class="filter-chip" data-filter="self-hosted">self-hosted (2)</button>
-            <button type="button" class="filter-chip" data-filter="билеты">билеты (1)</button>
-            <button type="button" class="filter-chip" data-filter="цены">цены (1)</button>
+          <div class="filter-chips" role="group" aria-label="Фильтр по тегу" data-filter-group="articles-tags">
+            <button type="button" class="filter-chip is-active" data-filter="all" data-filter-value="all">Все (12)</button>
+            <button type="button" class="filter-chip" data-filter="152-ФЗ" data-filter-value="152-ФЗ">152-ФЗ (2)</button>
+            <button type="button" class="filter-chip" data-filter="check-in" data-filter-value="check-in">check-in (3)</button>
+            <button type="button" class="filter-chip" data-filter="promo" data-filter-value="promo">promo (3)</button>
+            <button type="button" class="filter-chip" data-filter="self-hosted" data-filter-value="self-hosted">self-hosted (2)</button>
+            <button type="button" class="filter-chip" data-filter="билеты" data-filter-value="билеты">билеты (1)</button>
+            <button type="button" class="filter-chip" data-filter="цены" data-filter-value="цены">цены (1)</button>
           </div>
           <div class="card-grid card-grid--3" id="articles-grid">
-            <a class="article-card article-card--listing" href="/articles/self-hosted-vs-saas/" data-tag="self-hosted">
+            <a class="article-card article-card--listing" href="/articles/self-hosted-vs-saas/" data-tag="self-hosted" data-filter-item="self-hosted">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -126,7 +131,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/152fz-checklist/" data-tag="152-ФЗ">
+            <a class="article-card article-card--listing" href="/articles/152fz-checklist/" data-tag="152-ФЗ" data-filter-item="152-ФЗ">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -137,7 +142,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/qr-check-in/" data-tag="check-in">
+            <a class="article-card article-card--listing" href="/articles/qr-check-in/" data-tag="check-in" data-filter-item="check-in">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -148,7 +153,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/import-participants/" data-tag="check-in">
+            <a class="article-card article-card--listing" href="/articles/import-participants/" data-tag="check-in" data-filter-item="check-in">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -159,7 +164,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/promo-fns/" data-tag="promo">
+            <a class="article-card article-card--listing" href="/articles/promo-fns/" data-tag="promo" data-filter-item="promo">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -170,7 +175,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/ocr-fallback/" data-tag="promo">
+            <a class="article-card article-card--listing" href="/articles/ocr-fallback/" data-tag="promo" data-filter-item="promo">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -181,7 +186,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/docker-vps/" data-tag="self-hosted">
+            <a class="article-card article-card--listing" href="/articles/docker-vps/" data-tag="self-hosted" data-filter-item="self-hosted">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -192,7 +197,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/consent-pd/" data-tag="152-ФЗ">
+            <a class="article-card article-card--listing" href="/articles/consent-pd/" data-tag="152-ФЗ" data-filter-item="152-ФЗ">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -203,7 +208,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/tickets-yukassa/" data-tag="билеты">
+            <a class="article-card article-card--listing" href="/articles/tickets-yukassa/" data-tag="билеты" data-filter-item="билеты">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -214,7 +219,7 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
-            <a class="article-card article-card--listing" href="/articles/cost-of-registration/" data-tag="цены">
+            <a class="article-card article-card--listing" href="/articles/cost-of-registration/" data-tag="цены" data-filter-item="цены">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -225,8 +230,30 @@
                 <span class="article-card__read">Читать →</span>
               </div>
             </a>
+            <a class="article-card article-card--listing" href="/articles/promo-receipt-automation/" data-tag="promo" data-filter-item="promo">
+              <div class="article-card__bar" aria-hidden="true"></div>
+              <div class="article-card__body">
+                <div class="article-card__meta">
+                  <span class="article-card__tag article-card__tag--accent">promo</span>
+                  <span class="article-card__date">2 июля 2026 · 8 мин</span>
+                </div>
+                <h2 class="article-card__title">Промо-акция с чеком: как убрать очереди и получить точные данные</h2>
+                <span class="article-card__read">Читать →</span>
+              </div>
+            </a>
+            <a class="article-card article-card--listing" href="/articles/event-registration-no-queues/" data-tag="check-in" data-filter-item="check-in">
+              <div class="article-card__bar" aria-hidden="true"></div>
+              <div class="article-card__body">
+                <div class="article-card__meta">
+                  <span class="article-card__tag article-card__tag--accent">check-in</span>
+                  <span class="article-card__date">2 июля 2026 · 7 мин</span>
+                </div>
+                <h2 class="article-card__title">Регистрация на мероприятие без очередей: от онлайн-записи до QR check-in</h2>
+                <span class="article-card__read">Читать →</span>
+              </div>
+            </a>
           </div>
-          <p class="articles-empty" id="articles-empty" hidden>Нет статей по выбранному тегу. <button type="button" class="articles-empty__reset">Показать все</button></p>
+          <p class="articles-empty" id="articles-empty" hidden>Нет статей по выбранному тегу. <button type="button" class="articles-empty__reset" data-filter-reset="all">Показать все</button></p>
         </div>
       </section>
     </main>
@@ -272,6 +299,7 @@
               <p class="site-footer__col-title">Правовое</p>
               <ul class="site-footer__links">
                 <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/privacy/marketing-consent/">Согласие на маркетинговые рассылки</a></li>
                 <li><a href="/contacts/">Контакты</a></li>
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/scenarios/">Сценарии</a></li>
@@ -280,6 +308,7 @@
           </div>
           <div class="site-footer__bottom">
             <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__legal">ИП Мельникова Ксения Антоновна · ИНН 644917769371 · ОГРНИП 325508100578539</p>
             <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
           </div>
         </div>
@@ -290,7 +319,7 @@
         <p class="cookie-banner__text">
           Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
           <a href="/privacy/">Политике конфиденциальности</a>.
-          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
+          Обращения в чате обрабатываются через Jivo (ООО «Живой Сайт», РФ).
         </p>
         <div class="cookie-banner__actions">
           <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
@@ -299,15 +328,18 @@
       </div>
     </div>
 
-
-                <script src="/js/config.js"></script>
+    <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>
+    -->
     <script src="/js/contact.js" defer></script>
+    <script src="/js/filter.js" defer></script>
     <script src="/js/articles.js" defer></script>
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>
+    <script src="/js/breadcrumbs.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
   </body>
 </html>

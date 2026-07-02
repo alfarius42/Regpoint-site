@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Импорт участников из Excel и CSV без ошибок — Рег.Поинт</title>
-    <meta name="description" content="Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что дел…" />
-    <link rel="canonical" href="https://reg-point.ru/articles/import-participants/" />
-    <meta property="og:title" content="Импорт участников из Excel и CSV без ошибок — Рег.Поинт" />
-    <meta property="og:description" content="Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что дел…" />
+    <title>Регистрация на мероприятие без очередей: от онлайн-записи до QR check-in — Рег.Поинт</title>
+    <meta name="description" content="Конференция на 500 человек с бумажным списком на входе — это очередь, ошибки и нервы у волонтёров. Онлайн-регистрация и QR check-in сокращают время на вход…" />
+    <link rel="canonical" href="https://reg-point.ru/articles/event-registration-no-queues/" />
+    <meta property="og:title" content="Регистрация на мероприятие без очередей: от онлайн-записи до QR check-in — Рег.Поинт" />
+    <meta property="og:description" content="Конференция на 500 человек с бумажным списком на входе — это очередь, ошибки и нервы у волонтёров. Онлайн-регистрация и QR check-in сокращают время на вход…" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://reg-point.ru/articles/import-participants/" />
+    <meta property="og:url" content="https://reg-point.ru/articles/event-registration-no-queues/" />
     <meta property="og:image" content="https://reg-point.ru/img/articles/cover-check-in.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Импорт участников из Excel и CSV без ошибок", "description": "Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что делать, если структура нестандартная.", "datePublished": "2026-06-01", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-check-in.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/import-participants/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли обновить запись, если участник уже зарегистрировался онлайн?", "acceptedAnswer": {"@type": "Answer", "text": "Нет автоматического слияния. Дубль по email пропускается. Изменить данные можно вручную в карточке участника."}}, {"@type": "Question", "name": "Сколько участников можно импортировать за раз?", "acceptedAnswer": {"@type": "Answer", "text": "До 10 000 строк в одном файле. Для больших мероприятий рекомендуется разбивать на пакеты."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Регистрация на мероприятие без очередей: от онлайн-записи до QR check-in", "description": "Конференция на 500 человек с бумажным списком на входе — это очередь, ошибки и нервы у волонтёров. Онлайн-регистрация и QR check-in сокращают время на входе в 3–5 раз и дают точный отчёт «кто пришёл» сразу после event.", "datePublished": "2026-07-02", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-check-in.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/event-registration-no-queues/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Нужен ли программист для установки?", "acceptedAnswer": {"@type": "Answer", "text": "Docker-compose и runbook; при отсутствии DevOps — услуга turnkey-внедрения."}}, {"@type": "Question", "name": "Работает ли check-in без интернета?", "acceptedAnswer": {"@type": "Answer", "text": "Да, offline-режим с последующей синхронизацией."}}, {"@type": "Question", "name": "Можно ли импортировать 5 000 участников?", "acceptedAnswer": {"@type": "Answer", "text": "До 10 000 строк за файл; для больших event — пакетная загрузка."}}, {"@type": "Question", "name": "Как оформить согласие на ПД?", "acceptedAnswer": {"@type": "Answer", "text": "Текст согласия и срок хранения настраиваются на каждое мероприятие в compliance-блоке."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="/css/components.css" />
     <link rel="stylesheet" href="/css/pages.css" />
   </head>
-  <body data-page="article-import-participants">
+  <body data-page="article-event-registration-no-queues">
 <header class="site-header">
       <div class="site-header__inner container">
         <a class="site-header__logo" href="/">
@@ -111,48 +111,60 @@
           <a class="article-back" href="/articles/">← Все статьи</a>
           <div class="article-header__meta">
             <span class="article-card__tag article-card__tag--accent">check-in</span>
-            <span class="article-header__date">1 июня 2026</span>
-            <span class="article-header__time">· 5 мин</span>
+            <span class="article-header__date">2 июля 2026</span>
+            <span class="article-header__time">· 7 мин</span>
           </div>
-          <h1 class="article-header__title font-heading">Импорт участников из Excel и CSV без ошибок</h1>
-          <p class="article-lead">Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что делать, если структура нестандартная.</p>
+          <h1 class="article-header__title font-heading">Регистрация на мероприятие без очередей: от онлайн-записи до QR check-in</h1>
+          <p class="article-lead">Конференция на 500 человек с бумажным списком на входе — это очередь, ошибки и нервы у волонтёров. Онлайн-регистрация и QR check-in сокращают время на входе в 3–5 раз и дают точный отчёт «кто пришёл» сразу после event.</p>
         </div>
       </section>
       <section class="article-body">
         <div class="container container--article">
           <div class="article-sections">
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Какой формат принимает Рег.Поинт</h2>
-              <p class="article-section__body">CSV (UTF-8 или Windows-1251) и XLSX/XLS. Минимальный набор колонок: имя (или отдельно имя/фамилия), email. Телефон, должность, компания и любые кастомные поля добавляются опционально. Порядок колонок — произвольный: при загрузке вы указываете соответствие полей через интерфейс маппинга.</p>
+              <h2 class="article-section__title font-heading">Боли классической регистрации</h2>
+              <p class="article-section__body">Участники заполняют формы в разных каналах — данные разрозненны. На входе — ручной поиск в Excel или распечатанном списке. Нет актуальной картины явки в реальном времени. Персональные данные в мессengers и таблицах без единого compliance. Для корпоративных и regulated-заказчиков — риск хранения ПД у стороннего SaaS.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Подготовка файла: типичные ошибки</h2>
-              <p class="article-section__body">1) Разные форматы телефона в одном файле (+7, 8, без кода) — нормализуйте к единому перед загрузкой. 2) Email с пробелами или опечатками — система выделяет невалидные. 3) Дубликаты по email — по умолчанию дубли пропускаются, оригинальная запись сохраняется. 4) Кириллица в заголовках колонок — допустима, но лучше использовать латиницу для надёжности.</p>
+              <h2 class="article-section__title font-heading">Цифровой путь участника</h2>
+              <p class="article-section__body">Рег.Поинт выстраивает простой сценарий: участник регистрируется онлайн с телефона или ноутбука; получает подтверждение и QR-код на e-mail; на площадке показывает QR — волонтёр сканирует, видит имя, статус, категорию; check-in занимает секунды, очередь на входе не растёт. Для закрытых мероприятий список можно импортировать из CSV/Excel — участники получают те же QR без публичной формы.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Процесс импорта шаг за шагом</h2>
-              <p class="article-section__body">Перейдите в мероприятие → вкладка «Участники» → «Импорт». Загрузите файл, укажите соответствие колонок, просмотрите превью (первые 5 строк), подтвердите. Система покажет статистику: добавлено, пропущено (дубли), ошибки (невалидный email). Частичный импорт не откатывается — убедитесь в качестве файла заранее.</p>
+              <h2 class="article-section__title font-heading">Что получает организатор</h2>
+              <p class="article-section__body">Публичная страница регистрации с брендингом event; импорт участников — маппинг колонок, контроль дублей по e-mail; QR check-in и ручная отметка на площадке; многодневный check-in — отдельные сессии по дням; offline-режим — check-in без интернета, синхронизация при восстановлении связи; роли — director видит всё, менеджеры — только check-in без полных ПД; 152-ФЗ — согласие на каждое мероприятие, шифрование, audit log.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Что происходит с ПД при импорте</h2>
-              <p class="article-section__body">Импортированные данные сразу шифруются AES-256-GCM на сервере клиента. Audit log фиксирует факт импорта: кто, когда, сколько записей. Менеджеры видят только маскированные данные — полный доступ только у director.</p>
+              <h2 class="article-section__title font-heading">Self-hosted: зачем коробка</h2>
+              <p class="article-section__body">Для B2B, банков, pharma и корпоративных ивентов критично, где лежат данные. Рег.Поинт разворачивается на VPS заказчика: оператор ПД — заказчик или агентство, не SaaS-провайдер; offline check-in на площадке; при 4+ мероприятиях в год коробка часто окупается за 2–3 сезона по сравнению с поштучной подпиской.</p>
+            </section>
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Типовые сценарии</h2>
+              <p class="article-section__body">Конференции и форумы — открытая регистрация и check-in на нескольких входах. Корпоративы и закрытые встречи — импорт списка сотрудников, строгий compliance. Деловые breakfast и workshop — быстрая форма, отчёт явки для заказчика. Многодневные event — check-in по дням, накопленная статистика. С Тикет.Поинт — продажа билетов через ЮKassa и тот же QR для входа.</p>
             </section>
           </div>
           <div class="article-faq">
             <h2 class="article-faq__title font-heading">FAQ</h2>
             <div class="article-faq__list">
               <div class="article-faq__item">
-                <p class="article-faq__q font-heading">Можно ли обновить запись, если участник уже зарегистрировался онлайн?</p>
-                <p class="article-faq__a">Нет автоматического слияния. Дубль по email пропускается. Изменить данные можно вручную в карточке участника.</p>
+                <p class="article-faq__q font-heading">Нужен ли программист для установки?</p>
+                <p class="article-faq__a">Docker-compose и runbook; при отсутствии DevOps — услуга turnkey-внедрения.</p>
               </div>
               <div class="article-faq__item">
-                <p class="article-faq__q font-heading">Сколько участников можно импортировать за раз?</p>
-                <p class="article-faq__a">До 10 000 строк в одном файле. Для больших мероприятий рекомендуется разбивать на пакеты.</p>
+                <p class="article-faq__q font-heading">Работает ли check-in без интернета?</p>
+                <p class="article-faq__a">Да, offline-режим с последующей синхронизацией.</p>
+              </div>
+              <div class="article-faq__item">
+                <p class="article-faq__q font-heading">Можно ли импортировать 5 000 участников?</p>
+                <p class="article-faq__a">До 10 000 строк за файл; для больших event — пакетная загрузка.</p>
+              </div>
+              <div class="article-faq__item">
+                <p class="article-faq__q font-heading">Как оформить согласие на ПД?</p>
+                <p class="article-faq__a">Текст согласия и срок хранения настраиваются на каждое мероприятие в compliance-блоке.</p>
               </div>
             </div>
           </div>
           <div class="article-cta">
-            <h2 class="article-cta__title font-heading">Нужен импорт участников на вашем сервере?</h2>
+            <h2 class="article-cta__title font-heading">Нужна регистрация и check-in на вашем сервере?</h2>
             <p class="article-cta__desc">Рег.Поинт — коробочная платформа. Данные на вашем сервере, 152-ФЗ из коробки.</p>
             <div class="article-cta__actions">
               <button type="button" class="btn btn--primary" data-action="demo">Запросить КП / Демо →</button>

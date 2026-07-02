@@ -17,7 +17,9 @@ CHROME_TAIL = template[footer_start:script_start]
 SCRIPTS_BASE = """    <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>
+    -->
     <script src="/js/contact.js" defer></script>"""
 
 SCRIPTS_END = """
@@ -185,21 +187,21 @@ COMPLIANCE_MAIN = """    <main>
         <div class="container">
           <p class="section-label section-label--light">Правовое</p>
           <h1 class="page-hero__title font-heading page-hero__title--on-dark">Персональные данные на мероприятиях и <span class="page-hero__title-accent">152-ФЗ</span></h1>
-          <p class="page-hero__lead page-hero__lead--on-dark">Регистрация участников — обработка ПД. Рег.Поинт проектируется с compliance-by-design: не как дополнительный тариф, а как базовая функция каждого модуля.</p>
+          <p class="page-hero__lead page-hero__lead--on-dark">На мероприятиях и в промоакциях персональные данные часто собирают через Google Forms и другие зарубежные SaaS-формы. Для организатора это не «просто анкета», а полноценная обработка ПД: согласие, цели, роли доступа, место хранения и контроль передачи данных. Рег.Поинт помогает выстроить этот контур на инфраструктуре заказчика.</p>
         </div>
       </section>
       <section class="section">
         <div class="container">
           <div class="card-grid card-grid--2 content-intro-grid">
             <div class="content-intro">
-              <p class="section-label">Фундамент</p>
-              <h2 class="content-intro__title font-heading">Self-hosted — фундамент compliance</h2>
-              <p class="content-intro__text">Когда база на VPS заказчика, вы определяете: где физически хранятся данные, кто администратор, как устроены бэкапы и доступ. Это принципиально иной уровень контроля, чем SaaS с мультиарендностью.</p>
+              <p class="section-label">Риск SaaS-форм</p>
+              <h2 class="content-intro__title font-heading">Почему Google Forms опасны для ивентов и промо</h2>
+              <p class="content-intro__text">Когда промоутер или координатор собирает ФИО, телефон и email в Google Forms, оператор часто получает сразу несколько рисков: нет отдельного информированного согласия на обработку ПД, нет контроля над доступом к базе, а сама инфраструктура находится вне контура заказчика. На практике это означает не только организационный хаос, но и правовой риск по 152-ФЗ.</p>
             </div>
             <div class="content-intro">
-              <p class="section-label">Договор</p>
-              <h2 class="content-intro__title font-heading">Соглашение об обработке ПД на мероприятие</h2>
-              <p class="content-intro__text">Организатор указывает оператора ПД, цели обработки, ссылки на политику — для каждого event. Система не подставляет «общую» политику vendor'а.</p>
+              <p class="section-label">Фундамент</p>
+              <h2 class="content-intro__title font-heading">Self-hosted — это контроль, а не формальность</h2>
+              <p class="content-intro__text">Когда база участников и промо-данные находятся на VPS заказчика, вы контролируете место хранения, роли доступа, резервные копии, экспорт и сроки хранения. Это принципиально отличается от сценария, где данные «утекают» в случайные таблицы, аккаунты подрядчиков или зарубежные формы.</p>
             </div>
           </div>
         </div>
@@ -207,8 +209,50 @@ COMPLIANCE_MAIN = """    <main>
       <section class="section section--muted">
         <div class="container">
           <div class="pricing-block-head">
+            <p class="section-label">Специфика отрасли</p>
+            <h2 class="pricing-block__title font-heading">Какие ПД реально собирают на мероприятиях и в промо</h2>
+          </div>
+          <div class="card-grid card-grid--2 card-grid--4 tech-card-grid">
+            <article class="tech-card">
+              <h3 class="tech-card__title font-heading">Регистрация на событие</h3>
+              <ul class="tech-card__list">
+                <li>ФИО, email, телефон, компания, должность</li>
+                <li>Сегментация по категориям участников и билетам</li>
+                <li>Согласие на обработку ПД до отправки формы</li>
+              </ul>
+            </article>
+            <article class="tech-card">
+              <h3 class="tech-card__title font-heading">Check-in и onsite</h3>
+              <ul class="tech-card__list">
+                <li>QR-код участника и факт посещения мероприятия</li>
+                <li>Доступ сотрудников стойки только к нужным полям</li>
+                <li>Журнал действий и разграничение ролей</li>
+              </ul>
+            </article>
+            <article class="tech-card">
+              <h3 class="tech-card__title font-heading">Промоакции и чеки</h3>
+              <ul class="tech-card__list">
+                <li>Контакты участника, данные покупки, номер чека</li>
+                <li>Проверка условий акции и хранение истории заявок</li>
+                <li>Отдельные риски при выдаче призов и работе с подрядчиками</li>
+              </ul>
+            </article>
+            <article class="tech-card">
+              <h3 class="tech-card__title font-heading">Полевой сбор промоутерами</h3>
+              <ul class="tech-card__list">
+                <li>Сбор ПД «в точке» часто ведут временные сотрудники</li>
+                <li>Без роли, сценария согласия и единой базы риск кратно выше</li>
+                <li>Нужен контролируемый интерфейс, а не личный аккаунт подрядчика</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section section--muted">
+        <div class="container">
+          <div class="pricing-block-head">
             <p class="section-label">В каждом модуле</p>
-            <h2 class="pricing-block__title font-heading">Что входит в compliance-стек</h2>
+            <h2 class="pricing-block__title font-heading">Что именно снижает риск в Рег.Поинт</h2>
           </div>
           <div class="table-scroll">
             <table class="pricing-table pricing-table--compliance">
@@ -220,17 +264,33 @@ COMPLIANCE_MAIN = """    <main>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>Шифрование</td><td>AES-256-GCM для чувствительных полей</td></tr>
-                <tr><td>Audit log</td><td>Журнал доступа к ПД (access_logs)</td></tr>
-                <tr><td>Согласие</td><td>Текст согласия на каждое мероприятие — ручной ввод оператора</td></tr>
-                <tr><td>Удаление</td><td>Публичный запрос участника на удаление ПД</td></tr>
-                <tr><td>Роли</td><td>Маскирование ПД для manager</td></tr>
-                <tr><td>Retention</td><td>Настраиваемый срок хранения</td></tr>
+                <tr><td>Локализация</td><td>База участников и промо-данные хранятся на инфраструктуре заказчика, а не в случайной зарубежной форме</td></tr>
+                <tr><td>Согласие</td><td>Оператор сам задаёт текст согласия, цели обработки и ссылку на политику для конкретного event или акции</td></tr>
+                <tr><td>Роли и доступ</td><td>Промоутеры, менеджеры и стойка регистрации получают только тот объём доступа, который им нужен</td></tr>
+                <tr><td>Audit log</td><td>Журнал действий с ПД помогает разбирать инциденты, запросы субъекта и внутренние проверки</td></tr>
+                <tr><td>Удаление и retention</td><td>Есть процедуры удаления, блокирования и настройки сроков хранения по сценарию заказчика</td></tr>
+                <tr><td>Экспорт под контролем</td><td>Выгрузки и интеграции происходят в управляемом контуре, а не через личные таблицы подрядчиков</td></tr>
               </tbody>
             </table>
           </div>
+          <div class="compliance-alert">
+            <h3 class="compliance-alert__title font-heading">Штрафы — это уже не теоретический риск</h3>
+            <p class="compliance-alert__text">По статье 13.11 КоАП РФ нарушения в области персональных данных влекут административные штрафы для юридических лиц в десятках и сотнях тысяч рублей. По отдельным составам, включая обработку без надлежащего согласия, штраф для юридического лица может достигать 300&nbsp;000&nbsp;руб., а для должностных лиц — до 100&nbsp;000&nbsp;руб. Отдельно оцениваются вопросы локализации, состава обрабатываемых данных и законности их передачи.</p>
+          </div>
+          <div class="content-intro-grid compliance-context-grid">
+            <div class="content-intro">
+              <p class="section-label">Практика рынка</p>
+              <h3 class="content-intro__title font-heading">Где чаще всего срывается compliance</h3>
+              <p class="content-intro__text">Типовой сценарий выглядит так: агентство наняло промоутеров, промоутеры собирают контакты в Google Forms, согласие дано «по умолчанию» или не дано вовсе, доступ к базе есть у нескольких подрядчиков, а выгрузки разлетаются по таблицам и чатам. Для regulated-сегментов это слабое место, которое видно и службе ИБ, и юристам заказчика.</p>
+            </div>
+            <div class="content-intro">
+              <p class="section-label">Коммерческий вывод</p>
+              <h3 class="content-intro__title font-heading">Почему это продаёт self-hosted лучше, чем обещания</h3>
+              <p class="content-intro__text">Рег.Поинт не «делает 152-ФЗ автоматически» вместо оператора, но убирает самый частый инфраструктурный провал: сбор ПД в чужих формах и на неподконтрольной платформе. Для клиента это аргумент не только про безопасность, но и про сокращение риска штрафов, претензий и потери доверия к бренду акции или события.</p>
+            </div>
+          </div>
           <div class="section-cta">
-            <a class="btn btn--primary" href="/contacts/#demo" data-action="demo">Обсудить compliance для вашей отрасли</a>
+            <a class="btn btn--primary" href="/contacts/#demo" data-action="demo">Обсудить сбор ПД без Google Forms</a>
           </div>
         </div>
       </section>
@@ -421,7 +481,7 @@ def scenario_cards_html() -> str:
     parts = []
     for s in SCENARIOS:
         details = "".join(f"<li>{d}</li>" for d in s["details"])
-        parts.append(f"""            <article class="scenario-card" data-module="{s['module']}">
+        parts.append(f"""            <article class="scenario-card" data-module="{s['module']}" data-filter-item="{s['module']}">
               <div class="scenario-card__grid">
                 <div class="scenario-card__col scenario-card__col--title">
                   <p class="scenario-card__tag">{s['tag']}</p>
@@ -463,17 +523,17 @@ SCENARIOS_MAIN = f"""    <main>
       </section>
       <section class="section section--muted">
         <div class="container">
-          <div class="filter-chips" role="group" aria-label="Фильтр по модулю">
-            <button type="button" class="filter-chip is-active" data-filter="all">Все сценарии</button>
-            <button type="button" class="filter-chip" data-filter="Рег.Поинт">Рег.Поинт</button>
-            <button type="button" class="filter-chip" data-filter="Промо.Поинт">Промо.Поинт</button>
-            <button type="button" class="filter-chip" data-filter="Промо.Про">Промо.Про</button>
-            <button type="button" class="filter-chip" data-filter="Тикет.Поинт">Тикет.Поинт</button>
+          <div class="filter-chips" role="group" aria-label="Фильтр по модулю" data-filter-group="scenarios-modules">
+            <button type="button" class="filter-chip is-active" data-filter="all" data-filter-value="all">Все сценарии</button>
+            <button type="button" class="filter-chip" data-filter="Рег.Поинт" data-filter-value="Рег.Поинт">Рег.Поинт</button>
+            <button type="button" class="filter-chip" data-filter="Промо.Поинт" data-filter-value="Промо.Поинт">Промо.Поинт</button>
+            <button type="button" class="filter-chip" data-filter="Промо.Про" data-filter-value="Промо.Про">Промо.Про</button>
+            <button type="button" class="filter-chip" data-filter="Тикет.Поинт" data-filter-value="Тикет.Поинт">Тикет.Поинт</button>
           </div>
           <div class="scenario-list" id="scenario-list">
 {scenario_cards_html()}
           </div>
-          <p class="scenario-empty" id="scenario-empty" hidden>Нет сценариев для выбранного модуля. <button type="button" class="scenario-empty__reset" data-filter="all">Показать все</button></p>
+          <p class="scenario-empty" id="scenario-empty" hidden>Нет сценариев для выбранного модуля. <button type="button" class="scenario-empty__reset" data-filter="all" data-filter-reset="all">Показать все</button></p>
           <div class="module-matrix-wrap">
             <div class="module-matrix-wrap__head">
               <h2 class="module-matrix-wrap__title font-heading">Быстрый выбор модуля по задаче</h2>
@@ -614,6 +674,10 @@ CONTACTS_MAIN = """    <main>
                     <input type="checkbox" id="cf-consent" name="consent" required />
                     <label for="cf-consent">Согласен с <a href="/privacy/">обработкой персональных данных</a> согласно Политике конфиденциальности *</label>
                   </div>
+                  <div class="contacts-form__consent">
+                    <input type="checkbox" id="cf-marketing-consent" name="marketing-consent" />
+                    <label for="cf-marketing-consent">Согласен на получение маркетинговых рассылок согласно <a href="/privacy/marketing-consent/">тексту согласия</a> — необязательно</label>
+                  </div>
                   <button type="submit" class="btn btn--primary btn--block contacts-form__submit">Отправить заявку</button>
                 </form>
               </div>
@@ -692,7 +756,7 @@ PAGES = [
         "desc": "Как event-агентства и организаторы используют модули Рег.Поинт: конференции, BTL-акции, промо с чеками, продажа билетов.",
         "canonical": "https://reg-point.ru/scenarios/",
         "og_title": "Сценарии использования Рег.Поинт — конференции, промо, билеты",
-    }, '\n    <script src="/js/scenarios.js" defer></script>'),
+    }, '\n    <script src="/js/filter.js" defer></script>\n    <script src="/js/scenarios.js" defer></script>'),
     ("faq/index.html", "faq", FAQ_MAIN, {
         "title": "FAQ — частые вопросы о Рег.Поинт",
         "desc": "Ответы: SaaS или коробка, где данные, цены, модули, 152-ФЗ, обновления, поддержка.",

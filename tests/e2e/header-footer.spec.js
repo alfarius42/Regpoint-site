@@ -27,11 +27,9 @@ test.describe('Header & Footer — Sprint 1', () => {
     await expect(menu.getByRole('link', { name: 'Промо.Про' })).toBeVisible();
   });
 
-  test('lang switcher shows RU and EN', async ({ page }) => {
+  test('lang switcher is temporarily hidden', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
-    const lang = page.locator('.site-header__actions .site-header__lang');
-    await expect(lang.getByRole('link', { name: 'RU' })).toBeVisible();
-    await expect(lang.getByRole('link', { name: 'EN' })).toHaveAttribute('href', '/en/');
+    await expect(page.locator('.site-header__actions .site-header__lang')).toHaveCount(0);
   });
 
   test('desktop header uses centered nav layout', async ({ page }) => {
@@ -97,11 +95,11 @@ test.describe('Header & Footer — Sprint 1', () => {
     await page.setViewportSize({ width: 1280, height: 900 });
     const cta = page.locator('.site-footer__cta');
     await expect(cta.getByRole('button', { name: 'Запросить КП / Демо', exact: true })).toBeVisible();
-    await expect(page.locator('#chat-fab')).toBeVisible();
   });
 
   test('footer product links point to product pages', async ({ page }) => {
     await expect(page.locator('.site-footer a[href="/products/promo-pro/"]')).toBeVisible();
     await expect(page.locator('.site-footer a[href="/privacy/"]')).toBeVisible();
+    await expect(page.locator('.site-footer a[href="/privacy/marketing-consent/"]')).toBeVisible();
   });
 });

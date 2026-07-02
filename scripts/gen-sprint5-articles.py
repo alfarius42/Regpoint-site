@@ -18,19 +18,26 @@ script_start = template.rindex('<script src="/js/config.js">')
 
 CHROME_HEAD = template[template.index("<header"):main_start]
 CHROME_TAIL = template[footer_start:script_start]
+_cookie_idx = CHROME_TAIL.find('<div class="cookie-banner"')
+if _cookie_idx != -1:
+    CHROME_TAIL = CHROME_TAIL[:_cookie_idx].rstrip() + "\n"
 
 SCRIPTS_BASE = """    <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>
+    -->
     <script src="/js/contact.js" defer></script>"""
 
 SCRIPTS_ARTICLES = """
+    <script src="/js/filter.js" defer></script>
     <script src="/js/articles.js" defer></script>"""
 
 SCRIPTS_END = """
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>
+    <script src="/js/breadcrumbs.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
   </body>
 </html>
@@ -48,6 +55,20 @@ CSS_LINKS = """    <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="/css/components.css" />
     <link rel="stylesheet" href="/css/pages.css" />"""
+
+COOKIE_BANNER = """    <div class="cookie-banner" id="cookie-banner" hidden>
+      <div class="container cookie-banner__inner">
+        <p class="cookie-banner__text">
+          Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
+          <a href="/privacy/">Политике конфиденциальности</a>.
+          Обращения в чате обрабатываются через Jivo (ООО «Живой Сайт», РФ).
+        </p>
+        <div class="cookie-banner__actions">
+          <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
+          <button type="button" class="btn btn--outline-on-dark btn--cookie" id="cookie-essential">Только необходимые</button>
+        </div>
+      </div>
+    </div>"""
 
 TAG_CLASS = {
     "self-hosted": "article-card__tag--dark",
@@ -141,7 +162,9 @@ def build_page(path: str, meta: dict, body_page: str, main: str, extra_scripts: 
   <body data-page="{body_page}">
 {CHROME_HEAD}
 {main}
-{CHROME_TAIL}{SCRIPTS_BASE}{extra_scripts}{SCRIPTS_END}
+{CHROME_TAIL}{COOKIE_BANNER}
+
+{SCRIPTS_BASE}{extra_scripts}{SCRIPTS_END}
 """
     out = ROOT / path
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -152,7 +175,7 @@ def build_page(path: str, meta: dict, body_page: str, main: str, extra_scripts: 
 def listing_card(item: dict) -> str:
     slug = item["slug"]
     tag = item["tag"]
-    return f"""            <a class="article-card article-card--listing" href="/articles/{slug}/" data-tag="{esc(tag)}">
+    return f"""            <a class="article-card article-card--listing" href="/articles/{slug}/" data-tag="{esc(tag)}" data-filter-item="{esc(tag)}">
               <div class="article-card__bar" aria-hidden="true"></div>
               <div class="article-card__body">
                 <div class="article-card__meta">
@@ -171,11 +194,11 @@ def build_listing() -> None:
     tags = sorted(tag_counts.keys())
 
     chips = [
-        f'<button type="button" class="filter-chip is-active" data-filter="all">Все ({len(listing)})</button>'
+        f'<button type="button" class="filter-chip is-active" data-filter="all" data-filter-value="all">Все ({len(listing)})</button>'
     ]
     for tag in tags:
         chips.append(
-            f'<button type="button" class="filter-chip" data-filter="{esc(tag)}">{esc(tag)} ({tag_counts[tag]})</button>'
+            f'<button type="button" class="filter-chip" data-filter="{esc(tag)}" data-filter-value="{esc(tag)}">{esc(tag)} ({tag_counts[tag]})</button>'
         )
 
     cards = "\n".join(listing_card(item) for item in listing)
@@ -189,13 +212,13 @@ def build_listing() -> None:
       </section>
       <section class="section section--muted">
         <div class="container">
-          <div class="filter-chips" role="group" aria-label="Фильтр по тегу">
+          <div class="filter-chips" role="group" aria-label="Фильтр по тегу" data-filter-group="articles-tags">
             {'\n            '.join(chips)}
           </div>
           <div class="card-grid card-grid--3" id="articles-grid">
 {cards}
           </div>
-          <p class="articles-empty" id="articles-empty" hidden>Нет статей по выбранному тегу. <button type="button" class="articles-empty__reset">Показать все</button></p>
+          <p class="articles-empty" id="articles-empty" hidden>Нет статей по выбранному тегу. <button type="button" class="articles-empty__reset" data-filter-reset="all">Показать все</button></p>
         </div>
       </section>
     </main>"""
@@ -344,17 +367,77 @@ def build_detail(article: dict, all_articles: list) -> None:
 
 def update_sitemap() -> None:
     sitemap_path = ROOT / "sitemap.xml"
-    text = sitemap_path.read_text(encoding="utf-8")
-    marker = "  <url>\n    <loc>https://reg-point.ru/privacy/"
-    if marker in text:
-        text = text[: text.index(marker)]
-
     entries = [
+        """  <url>
+    <loc>https://reg-point.ru/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/products/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/products/reg-point/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/products/promo-point/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/products/promo-pro/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/products/ticket-point/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/pricing/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/technology/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/compliance-152fz/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/how-it-works/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/scenarios/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/faq/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>""",
+        """  <url>
+    <loc>https://reg-point.ru/contacts/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>""",
         """  <url>
     <loc>https://reg-point.ru/articles/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>"""
+  </url>""",
     ]
     for item in DATA["listing"]:
         entries.append(
@@ -365,14 +448,19 @@ def update_sitemap() -> None:
   </url>"""
         )
 
-    tail = """  <url>
+    entries.append("""  <url>
     <loc>https://reg-point.ru/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-  </url>
-</urlset>
-"""
-    sitemap_path.write_text(text + "\n".join(entries) + "\n" + tail, encoding="utf-8")
+  </url>""")
+    body = "\n".join(entries)
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + body
+        + "\n</urlset>\n"
+    )
+    sitemap_path.write_text(sitemap, encoding="utf-8")
     print("Updated sitemap.xml")
 
 

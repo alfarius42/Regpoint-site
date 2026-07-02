@@ -4,14 +4,15 @@ test.describe('Privacy & cookies — Sprint 4', () => {
   test('P-01 privacy page hero and sections', async ({ page }) => {
     await page.goto('/privacy/');
     await expect(page.locator('main h1')).toHaveText('Политика конфиденциальности');
-    await expect(page.locator('.privacy-section')).toHaveCount(8);
+    await expect(page.locator('.privacy-section')).toHaveCount(9);
   });
 
   test('P-02 privacy operator details', async ({ page }) => {
     await page.goto('/privacy/');
-    await expect(page.getByText('644917769371')).toBeVisible();
-    await expect(page.getByText('325508100578539')).toBeVisible();
-    await expect(page.getByText('Мельникова Ксения Антоновна')).toBeVisible();
+    const main = page.locator('main');
+    await expect(main.getByText('644917769371')).toBeVisible();
+    await expect(main.getByText('325508100578539')).toBeVisible();
+    await expect(main.getByText('Мельникова Ксения Антоновна')).toBeVisible();
   });
 
   test('P-03 privacy has no GA4 mention', async ({ page }) => {
@@ -22,14 +23,70 @@ test.describe('Privacy & cookies — Sprint 4', () => {
 
   test('P-03b privacy routes withdrawal to Jivo chat', async ({ page }) => {
     await page.goto('/privacy/');
-    await expect(page.getByText('необходимо обратиться в онлайн-чат Jivo')).toBeVisible();
+    await expect(page.locator('.privacy-section').nth(7)).toContainText('необходимо обратиться в онлайн-чат Jivo');
     await expect(page.locator('main')).not.toContainText('форму на странице Контакты');
+  });
+
+  test('P-07 privacy marketing consent section', async ({ page }) => {
+    await page.goto('/privacy/');
+    await expect(page.getByRole('heading', { name: '7. Маркетинговые рассылки' })).toBeVisible();
+    await expect(page.getByText('статьёй 15 Федерального закона №152-ФЗ')).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Согласие на обработку персональных данных в маркетинговых целях' })).toHaveAttribute('href', '/privacy/marketing-consent/');
+  });
+
+  test('P-08 marketing consent page content', async ({ page }) => {
+    await page.goto('/privacy/marketing-consent/');
+    await expect(page.locator('main h1')).toContainText('маркетинговых целях');
+    await expect(page.locator('.privacy-section')).toHaveCount(7);
+    await expect(page.locator('main').getByRole('link', { name: 'Политике конфиденциальности' })).toHaveAttribute('href', '/privacy/');
+    await expect(page.locator('.site-footer__links a[aria-current="page"]')).toHaveText('Согласие на маркетинговые рассылки');
+  });
+
+  test('JC-01 jivo consent modal requires PD checkbox', async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem('cookie-consent', 'accepted');
+      localStorage.removeItem('jivo-pd-consent');
+      localStorage.removeItem('jivo-marketing-consent');
+      window.__jivoOpenCount = 0;
+      window.jivo_api = { open: () => { window.__jivoOpenCount += 1; } };
+    });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Запросить КП / Демо' }).first().click();
+    await expect(page.locator('#jivo-consent-modal')).toBeVisible();
+    await expect(page.locator('#jivo-consent-pd')).not.toBeChecked();
+    await expect(page.locator('#jivo-consent-marketing')).not.toBeChecked();
+    await page.locator('#jivo-consent-form button[type="submit"]').click();
+    await expect(page.evaluate(() => window.__jivoOpenCount)).resolves.toBe(0);
+  });
+
+  test('JC-02 jivo consent modal opens chat and stores marketing opt-in', async ({ page }) => {
+    await page.addInitScript(() => {
+      localStorage.setItem('cookie-consent', 'accepted');
+      localStorage.removeItem('jivo-pd-consent');
+      localStorage.removeItem('jivo-marketing-consent');
+      window.__jivoOpenCount = 0;
+      window.jivo_api = { open: () => { window.__jivoOpenCount += 1; } };
+    });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Запросить КП / Демо' }).first().click();
+    await page.locator('#jivo-consent-pd').check();
+    await page.locator('#jivo-consent-marketing').check();
+    await page.locator('#jivo-consent-form button[type="submit"]').click();
+    await expect(page.locator('#jivo-consent-modal')).toBeHidden();
+    await expect(page.evaluate(() => window.__jivoOpenCount)).resolves.toBe(1);
+    const stored = await page.evaluate(() => ({
+      pd: localStorage.getItem('jivo-pd-consent'),
+      marketing: localStorage.getItem('jivo-marketing-consent'),
+    }));
+    expect(stored.pd).toBe('1');
+    expect(stored.marketing).toBe('1');
   });
 
   test('P-04 privacy cookie table rows', async ({ page }) => {
     await page.goto('/privacy/');
     await expect(page.locator('.privacy-table tbody tr')).toHaveCount(3);
-    await expect(page.getByRole('cell', { name: 'Яндекс.Метрика — подсчёт посещений, вебвизор' })).toBeVisible();
+    await expect(page.getByRole('cell', { name: /Яндекс\.Метрика \(ООО «Яндекс»\), счётчик № 110315704/ })).toBeVisible();
+    await expect(page.getByRole('cell', { name: /Jivo \(ООО «Живой Сайт»\)/ })).toBeVisible();
   });
 
   test('P-05 footer privacy link works', async ({ page }) => {

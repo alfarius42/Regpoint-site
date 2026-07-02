@@ -11,7 +11,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://reg-point.ru/faq/" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Рег.Поинт — это SaaS?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Это коробочная лицензия: приложение разворачивается на VPS клиента через Docker. Данные хранятся в MySQL на сервере заказчика."}}, {"@type": "Question", "name": "Чем отличается от Eventbrite / Timepad / SaaS-регистраторов?", "acceptedAnswer": {"@type": "Answer", "text": "Те — multi-tenant SaaS: база участников на стороне провайдера. Рег.Поинт — single-tenant на инфраструктуре клиента. Персональные данные не покидают ваш сервер."}}, {"@type": "Question", "name": "Какие модули нужны для конференции?", "acceptedAnswer": {"@type": "Answer", "text": "Обычно достаточно Рег.Поинт: онлайн-запись + check-in. Если нужны платные билеты — добавьте Тикет.Поинт."}}, {"@type": "Question", "name": "Как обстоят дела с 152-ФЗ?", "acceptedAnswer": {"@type": "Answer", "text": "Compliance-стек в каждом модуле без доплат. Шифрование AES-256-GCM, audit log, согласия per-event, маскирование для менеджеров, запрос удаления ПД участником."}}, {"@type": "Question", "name": "Нужен ли отдельный сервер?", "acceptedAnswer": {"@type": "Answer", "text": "Linux VPS от 2 GB RAM, Docker. Требования — в документации / по запросу. Turnkey внедрение — опциональная услуга от 45 000 ₽."}}, {"@type": "Question", "name": "Как проходят обновления?", "acceptedAnswer": {"@type": "Answer", "text": "Подписка со 2-го года; патчи безопасности и новые версии Docker-образов. 1-й год включён в лицензию."}}, {"@type": "Question", "name": "Можно ли интегрировать с нашей CRM?", "acceptedAnswer": {"@type": "Answer", "text": "REST API; кастомные интеграции — SKU внедрения (Bitrix, amo и др. от 80 000 ₽)."}}, {"@type": "Question", "name": "Где хранятся данные с формы на этом сайте?", "acceptedAnswer": {"@type": "Answer", "text": "Заявки и переписка обрабатываются через Jivo (ООО «Живой Сайт», РФ) согласно Политике конфиденциальности."}}]}</script>
+    <meta property="og:image" content="https://reg-point.ru/img/hero.svg" />
+    <meta property="og:image:alt" content="Рег.Поинт — регистрация на мероприятия на вашем сервере" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Рег.Поинт — это SaaS?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Это коробочная лицензия: приложение разворачивается на VPS клиента через Docker. Данные хранятся в MySQL на сервере заказчика. Платформа состоит из модулей — Рег.Поинт, Промо.Поинт, Промо.Про и Тикет.Поинт; лицензия покупается по модулям, можно начать с одного."}}, {"@type": "Question", "name": "Чем отличается от Eventbrite / Timepad / SaaS-регистраторов?", "acceptedAnswer": {"@type": "Answer", "text": "Те — multi-tenant SaaS: база участников на стороне провайдера. Рег.Поинт — single-tenant на инфраструктуре клиента. Персональные данные не покидают ваш сервер. Нет комиссии с билетов, есть offline check-in и встроенный compliance 152-ФЗ — удобно для корпоративных и промо-сценариев в торговых центрах."}}, {"@type": "Question", "name": "Какие модули нужны для конференции?", "acceptedAnswer": {"@type": "Answer", "text": "Обычно достаточно Рег.Поинт: онлайн-запись, импорт участников, QR check-in и роли director/manager. Если нужны платные билеты — добавьте Тикет.Поинт. Для промоакций в ритейле — Промо.Поинт (без проверки чека) или Промо.Про (с верификацией чека по ФНС)."}}, {"@type": "Question", "name": "Как обстоят дела с 152-ФЗ?", "acceptedAnswer": {"@type": "Answer", "text": "Compliance-стек в каждом модуле без доплат. Шифрование AES-256-GCM, audit log, согласия per-event, маскирование для менеджеров, запрос удаления ПД участником. Оператор персональных данных — вы (заказчик), данные обрабатываются на сервере в РФ."}}, {"@type": "Question", "name": "Нужен ли отдельный сервер?", "acceptedAnswer": {"@type": "Answer", "text": "Да, Linux VPS от 2 GB RAM с Docker. Рекомендуем российские хостеры с датацентрами в РФ. Развёртывание — Docker-compose и runbook; turnkey-внедрение — опциональная услуга от 45 000 ₽."}}, {"@type": "Question", "name": "Как проходят обновления?", "acceptedAnswer": {"@type": "Answer", "text": "Первый год обновлений, патчей безопасности и базовой поддержки включён в лицензию. Со 2-го года — подписка: новые версии Docker-образов и security-патчи на вашем сервере."}}, {"@type": "Question", "name": "Можно ли интегрировать с нашей CRM?", "acceptedAnswer": {"@type": "Answer", "text": "Есть REST API для выгрузки участников и статусов. Кастомные интеграции — SKU внедрения: Bitrix24, amoCRM и другие системы от 80 000 ₽."}}, {"@type": "Question", "name": "Где хранятся данные переписки с сайта?", "acceptedAnswer": {"@type": "Answer", "text": "Заявки и переписка в чате обрабатываются через Jivo (ООО «Живой Сайт», РФ) согласно Политике конфиденциальности. Данные участников мероприятий хранятся только на VPS заказчика с Рег.Поинт."}}, {"@type": "Question", "name": "Как проходит регистрация в промоакции?", "acceptedAnswer": {"@type": "Answer", "text": "Посетитель сканирует QR на промо-стойке или экране ТЦ, вводит минимальные данные и согласие по 152-ФЗ, сканирует чек камерой. В Промо.Про чек проверяется автоматически через ФНС; повторная регистрация одного чека исключена. Подтверждение приходит на e-mail — без очередей и ручного ввода."}}, {"@type": "Question", "name": "Что входит в Промо.Поинт из коробки?", "acceptedAnswer": {"@type": "Answer", "text": "Фильтр арендаторов и категорий, порог минимальной суммы чека, онлайн-мониторинг в реальном времени, неограниченное число участников, программы лояльности, опросы аудитории и детализированные отчёты. Для проверки чеков по ФНС подключайте модуль Промо.Про."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -53,11 +56,12 @@
           <a href="/contacts/">Контакты</a>
         </nav>
         <div class="site-header__actions">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
-          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          -->
           <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
         </div>
         <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
@@ -84,10 +88,12 @@
         <a class="site-drawer__link" href="/articles/">Статьи</a>
         <a class="site-drawer__link" href="/contacts/">Контакты</a>
         <div class="site-drawer__footer">
+          <!-- Language switcher (RU/EN) disabled temporarily.
           <div class="site-header__lang" role="group" aria-label="Язык">
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
+          -->
           <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
         </div>
       </div>
@@ -104,62 +110,77 @@
       </section>
       <section class="section section--muted">
         <div class="container container--faq">
+          <h2 class="visually-hidden">Вопросы и ответы</h2>
           <div class="accordion accordion--faq">
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-0" aria-controls="faq-panel-0">
                 <span>Рег.Поинт — это SaaS?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">Нет. Это коробочная лицензия: приложение разворачивается на VPS клиента через Docker. Данные хранятся в MySQL на сервере заказчика.</div>
+              <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">Нет. Это коробочная лицензия: приложение разворачивается на VPS клиента через Docker. Данные хранятся в MySQL на сервере заказчика. Платформа состоит из модулей — <a href="/products/reg-point/">Рег.Поинт</a>, <a href="/products/promo-point/">Промо.Поинт</a>, <a href="/products/promo-pro/">Промо.Про</a> и <a href="/products/ticket-point/">Тикет.Поинт</a>; лицензия покупается по модулям, можно начать с одного.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-1" aria-controls="faq-panel-1">
                 <span>Чем отличается от Eventbrite / Timepad / SaaS-регистраторов?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">Те — multi-tenant SaaS: база участников на стороне провайдера. Рег.Поинт — single-tenant на инфраструктуре клиента. Персональные данные не покидают ваш сервер.</div>
+              <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">Те — multi-tenant SaaS: база участников на стороне провайдера. Рег.Поинт — single-tenant на инфраструктуре клиента. Персональные данные не покидают ваш сервер. Нет комиссии с билетов, есть offline check-in на площадке и встроенный compliance 152-ФЗ — удобно для корпоративных, банковских и промо-сценариев в торговых центрах.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-2" aria-controls="faq-panel-2">
                 <span>Какие модули нужны для конференции?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">Обычно достаточно Рег.Поинт: онлайн-запись + check-in. Если нужны платные билеты — добавьте Тикет.Поинт.</div>
+              <div class="accordion__panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2">Обычно достаточно <a href="/products/reg-point/">Рег.Поинт</a>: онлайн-запись, импорт участников, QR check-in и роли director/manager. Если нужны платные билеты — добавьте <a href="/products/ticket-point/">Тикет.Поинт</a>. Для промоакций и розыгрышей в ритейле — <a href="/products/promo-point/">Промо.Поинт</a> (без проверки чека) или <a href="/products/promo-pro/">Промо.Про</a> (с автоматической верификацией чека по ФНС).</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-3" aria-controls="faq-panel-3">
                 <span>Как обстоят дела с 152-ФЗ?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">Compliance-стек в каждом модуле без доплат. Шифрование AES-256-GCM, audit log, согласия per-event, маскирование для менеджеров, запрос удаления ПД участником.</div>
+              <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">Compliance-стек в каждом модуле без доплат. Шифрование AES-256-GCM, audit log, согласия per-event, маскирование для менеджеров, запрос удаления ПД участником. Оператор персональных данных — вы (заказчик), данные обрабатываются на сервере в РФ. Подробнее — на странице <a href="/compliance-152fz/">152-ФЗ</a>.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-4" aria-controls="faq-panel-4">
                 <span>Нужен ли отдельный сервер?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">Linux VPS от 2 GB RAM, Docker. Требования — в документации / по запросу. Turnkey внедрение — опциональная услуга от 45 000 ₽.</div>
+              <div class="accordion__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">Да, Linux VPS от 2 GB RAM с Docker. Рекомендуем российские хостеры (Selectel, Timeweb Cloud, Beget VPS и др.) — датацентры в РФ для соответствия 152-ФЗ. Развёртывание — Docker-compose и runbook; turnkey-внедрение — опциональная услуга от 45 000 ₽. Требования к инфраструктуре — по запросу или в <a href="/technology/">документации</a>.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-5" aria-controls="faq-panel-5">
                 <span>Как проходят обновления?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">Подписка со 2-го года; патчи безопасности и новые версии Docker-образов. 1-й год включён в лицензию.</div>
+              <div class="accordion__panel" id="faq-panel-5" role="region" aria-labelledby="faq-trigger-5">Первый год обновлений, патчей безопасности и базовой поддержки включён в лицензию. Со 2-го года — подписка на обновления: новые версии Docker-образов и security-патчи. Обновление выполняется на вашем сервере по инструкции или с помощью нашей команды. Подробнее о стоимости — на странице <a href="/pricing/">Цены</a>.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-6" aria-controls="faq-panel-6">
                 <span>Можно ли интегрировать с нашей CRM?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6">REST API; кастомные интеграции — SKU внедрения (Bitrix, amo и др. от 80 000 ₽).</div>
+              <div class="accordion__panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6">Есть REST API для выгрузки участников и статусов. Кастомные интеграции — SKU внедрения: Bitrix24, amoCRM и другие системы от 80 000 ₽. Данные из регистрации поступают напрямую в вашу CRM без промежуточных SaaS-провайдеров.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-7" aria-controls="faq-panel-7">
                 <span>Где хранятся данные переписки с сайта?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-7" role="region" aria-labelledby="faq-trigger-7">Переписка в чате Jivo обрабатывается через Jivo (ООО «Живой Сайт», РФ) согласно Политике конфиденциальности.</div>
+              <div class="accordion__panel" id="faq-panel-7" role="region" aria-labelledby="faq-trigger-7">Заявки и переписка в чате обрабатываются через Jivo (ООО «Живой Сайт», РФ) согласно <a href="/privacy/">Политике конфиденциальности</a>. Это отдельно от данных участников мероприятий — те хранятся только на VPS заказчика с Рег.Поинт.</div>
+            </div>
+            <div class="accordion__item">
+              <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-8" aria-controls="faq-panel-8">
+                <span>Как проходит регистрация в промоакции?</span>
+                <span class="accordion__icon" aria-hidden="true">▾</span>
+              </button>
+              <div class="accordion__panel" id="faq-panel-8" role="region" aria-labelledby="faq-trigger-8">Посетитель сканирует QR на промо-стойке, тейбл-тенте или экране ТЦ → переходит на брендированную страницу акции → вводит телефон, имя, e-mail и даёт согласие по 152-ФЗ → сканирует кассовый чек камерой смартфона. В <a href="/products/promo-pro/">Промо.Про</a> система автоматически проверяет QR чека через ФНС (дата, ИНН, сумма) и исключает повторную регистрацию. Участник получает подтверждение на e-mail — без очередей, бумажных купонов и ручного ввода данных промоутером.</div>
+            </div>
+            <div class="accordion__item">
+              <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-9" aria-controls="faq-panel-9">
+                <span>Что входит в Промо.Поинт из коробки?</span>
+                <span class="accordion__icon" aria-hidden="true">▾</span>
+              </button>
+              <div class="accordion__panel" id="faq-panel-9" role="region" aria-labelledby="faq-trigger-9">Фильтр арендаторов и категорий товаров, порог минимальной суммы чека, онлайн-мониторинг регистраций в реальном времени, неограниченное число участников и чеков, программы лояльности и накопительные баллы, опросы аудитории, детализированные отчёты и выгрузки. Для автоматической проверки чеков по ФНС подключайте модуль <a href="/products/promo-pro/">Промо.Про</a>.</div>
             </div>
           </div>
         </div>
@@ -207,6 +228,7 @@
               <p class="site-footer__col-title">Правовое</p>
               <ul class="site-footer__links">
                 <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/privacy/marketing-consent/">Согласие на маркетинговые рассылки</a></li>
                 <li><a href="/contacts/">Контакты</a></li>
                 <li><a href="/faq/">FAQ</a></li>
                 <li><a href="/scenarios/">Сценарии</a></li>
@@ -215,6 +237,7 @@
           </div>
           <div class="site-footer__bottom">
             <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__legal">ИП Мельникова Ксения Антоновна · ИНН 644917769371 · ОГРНИП 325508100578539</p>
             <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
           </div>
         </div>
@@ -225,7 +248,7 @@
         <p class="cookie-banner__text">
           Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
           <a href="/privacy/">Политике конфиденциальности</a>.
-          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
+          Обращения в чате обрабатываются через Jivo (ООО «Живой Сайт», РФ).
         </p>
         <div class="cookie-banner__actions">
           <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
@@ -237,12 +260,15 @@
             <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
+    <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>
+    -->
     <script src="/js/contact.js" defer></script>
     <script src="/js/faq.js" defer></script>
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>
     <script src="/js/seo.js" defer></script>
+    <script src="/js/breadcrumbs.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
   </body>
 </html>

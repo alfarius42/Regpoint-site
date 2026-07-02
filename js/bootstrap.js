@@ -12,5 +12,6 @@
     if (window.SiteAnalytics) window.SiteAnalytics.init();
     if (window.SiteCookies) window.SiteCookies.init();
     if (window.SiteSeo) window.SiteSeo.init();
+    if (window.SiteBreadcrumbs) window.SiteBreadcrumbs.init();
   });
 })();
