@@ -12,7 +12,7 @@
 |--------|-------|------------------|--------|
 | 0 | Docs, CI, skeleton | ~15% | 🟡 logo/favicon baseline; email — позже |
 | 1 | Chrome: header, footer, home | ~20% | ✅ |
-| 2 | Products + pricing | ~40% | ⬜ |
+| 2 | Products + pricing | ~40% | ✅ |
 | 3 | Content pages + contacts | ~55% | ⬜ |
 | 4 | Privacy, legal, shared JS | ~65% | ⬜ |
 | 5 | Articles + SEO | ~80% | ⬜ |
@@ -88,28 +88,28 @@
 **Источник:** `ProductsPage`, `ProductPage`, `PricingPage`, `PricingStickyBar`.
 
 ### 2.1 `/products/`
-- [ ] Hero + intro
-- [ ] 4 module cards + prices
-- [ ] Feature matrix table (responsive: scroll/card на mobile)
-- [ ] CTA «Запросить консультацию»
+- [x] Hero + intro
+- [x] 4 module cards + prices
+- [x] Feature matrix table (responsive: scroll/card на mobile)
+- [x] CTA «Запросить консультацию»
 
 ### 2.2 Product pages (×4)
-- [ ] `/products/reg-point/` — features, notIncluded, price
-- [ ] `/products/promo-point/` — upsell → Promo.Pro
-- [ ] `/products/promo-pro/` — FNS/OCR stack
-- [ ] `/products/ticket-point/` — status «в разработке», notify email (stub или Jivo)
-- [ ] Related articles block (`PRODUCT_ARTICLES`)
-- [ ] Meta title/desc из `PAGE_TITLES` / `META_DESC`
+- [x] `/products/reg-point/` — features, notIncluded, price
+- [x] `/products/promo-point/` — upsell → Promo.Pro
+- [x] `/products/promo-pro/` — FNS/OCR stack
+- [x] `/products/ticket-point/` — status «в разработке», notify email (stub или Jivo)
+- [x] Related articles block (`PRODUCT_ARTICLES`)
+- [x] Meta title/desc из `PAGE_TITLES` / `META_DESC`
 
 ### 2.3 `/pricing/`
-- [ ] Все блоки §7.7: лицензии, апгрейды, внедрение, доработки, обучение, 152-FZ консалтинг
-- [ ] Disclaimer под H1
-- [ ] Pricing FAQ accordion + FAQPage schema
-- [ ] Sticky bar mobile (`PricingStickyBar`)
-- [ ] Таблицы → mobile stack layout
+- [x] Все блоки §7.7: лицензии, апгрейды, внедрение, доработки, обучение, 152-FZ консалтинг
+- [x] Disclaimer под H1
+- [x] Pricing FAQ accordion + FAQPage schema
+- [x] Sticky bar mobile (`PricingStickyBar`)
+- [x] Таблицы → mobile stack layout
 
 ### 2.4 Tests
-- [ ] e2e: products routing, pricing tables visible, CTA links to `/contacts/#demo`
+- [x] e2e: products routing, pricing tables visible, CTA links to `/contacts/#demo`
 
 **Sprint 2 DoD:** все product URLs + pricing; internal links работают.
 

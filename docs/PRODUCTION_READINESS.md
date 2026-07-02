@@ -91,4 +91,4 @@
 | EN | 10% |
 | QA + deploy | 10% |
 
-Текущая оценка: **~20%** (Sprint 1: chrome + home RU).
+Текущая оценка: **~40%** (Sprint 1: chrome + home RU; Sprint 2: products + pricing RU).

@@ -31,12 +31,12 @@
 | URL | Компонент прототипа | Title (RU) | Production HTML |
 |-----|---------------------|------------|-----------------|
 | `/` | `HomePage` | § PAGE_TITLES.home | `index.html` — skeleton |
-| `/products/` | `ProductsPage` | products | ⏳ |
-| `/products/reg-point/` | `ProductPage` | reg-point | ⏳ |
-| `/products/promo-point/` | `ProductPage` | promo-point | ⏳ |
-| `/products/promo-pro/` | `ProductPage` | promo-pro | ⏳ |
-| `/products/ticket-point/` | `ProductPage` | ticket-point | ⏳ |
-| `/pricing/` | `PricingPage` | pricing | ⏳ |
+| `/products/` | `ProductsPage` | products | ✅ |
+| `/products/reg-point/` | `ProductPage` | reg-point | ✅ |
+| `/products/promo-point/` | `ProductPage` | promo-point | ✅ |
+| `/products/promo-pro/` | `ProductPage` | promo-pro | ✅ |
+| `/products/ticket-point/` | `ProductPage` | ticket-point | ✅ |
+| `/pricing/` | `PricingPage` | pricing | ✅ |
 | `/technology/` | `TechnologyPage` | technology | ⏳ |
 | `/compliance-152fz/` | `CompliancePage` | compliance | ⏳ |
 | `/how-it-works/` | `HowItWorksPage` | how-it-works | ⏳ |

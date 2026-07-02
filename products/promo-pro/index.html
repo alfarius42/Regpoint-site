@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Промо.Про — промоакции с проверкой чека ФНС и OCR | Рег.Поинт</title>
+    <meta name="description" content="Полный стек: мероприятия + промо + API ФНС + OCR чеков. Коробка на VPS клиента. 152-ФЗ. 180 000 ₽." />
+    <link rel="canonical" href="https://reg-point.ru/products/promo-pro/" />
+    <meta property="og:title" content="Промо.Про — промоакции с проверкой чека ФНС и OCR | Рег.Поинт" />
+    <meta property="og:description" content="Полный стек: мероприятия + промо + API ФНС + OCR чеков. Коробка на VPS клиента. 152-ФЗ. 180 000 ₽." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://reg-point.ru/products/promo-pro/" />
+    <meta property="og:locale" content="ru_RU" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Промо.Про", "description": "Полный стек: мероприятия + промо + API ФНС + OCR чеков. Self-hosted на VPS клиента.", "brand": {"@type": "Organization", "name": "Рег.Поинт", "url": "https://reg-point.ru"}, "offers": {"@type": "Offer", "priceCurrency": "RUB", "price": "180000", "availability": "https://schema.org/InStock", "priceValidUntil": "2026-12-31", "seller": {"@type": "Organization", "name": "Рег.Поинт", "url": "https://reg-point.ru"}}, "url": "https://reg-point.ru/products/promo-pro/"}</script>
+    <link rel="icon" href="/img/favicon.ico" sizes="any" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="theme-color" content="#243954" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+  </head>
+  <body data-page="promo-pro">
+<header class="site-header">
+      <div class="site-header__inner container">
+        <a class="site-header__logo" href="/">
+          <span class="site-header__logo-text">Рег.Поинт</span>
+        </a>
+        <nav class="site-header__nav" aria-label="Основная навигация">
+          <div class="site-header__dropdown" id="nav-products">
+            <button type="button" class="site-header__nav-toggle" id="nav-products-toggle" aria-expanded="false" aria-controls="nav-products-menu">
+              Продукты ▾
+            </button>
+            <div class="site-header__dropdown-menu" id="nav-products-menu" hidden>
+              <a href="/products/">Все модули — обзор</a>
+              <a href="/products/reg-point/">Рег.Поинт</a>
+              <a href="/products/promo-point/">Промо.Поинт</a>
+              <a href="/products/promo-pro/">Промо.Про</a>
+              <a href="/products/ticket-point/">Тикет.Поинт</a>
+            </div>
+          </div>
+          <a href="/pricing/">Цены</a>
+          <a href="/technology/">Технологии</a>
+          <a href="/compliance-152fz/">152-ФЗ</a>
+          <a href="/how-it-works/">Как работает</a>
+          <a href="/scenarios/">Сценарии</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/articles/">Статьи</a>
+          <a href="/contacts/">Контакты</a>
+        </nav>
+        <div class="site-header__actions">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="site-header__contact-link" data-action="contact">Связаться</button>
+          <a class="btn btn--white btn--header-demo" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
+        </div>
+        <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
+          <img class="site-header__burger-icon" src="/img/icons/icon-menu.svg" width="22" height="22" alt="" />
+        </button>
+      </div>
+    </header>
+
+    <div class="site-drawer" id="site-drawer" hidden>
+      <div class="site-drawer__panel">
+        <button type="button" data-drawer-close aria-label="Закрыть меню" class="btn btn--ghost-on-dark" style="margin-bottom: 1rem">✕</button>
+        <a class="site-drawer__link" href="/">Главная</a>
+        <a class="site-drawer__link" href="/products/">Продукты</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/reg-point/">Рег.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-point/">Промо.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-pro/">Промо.Про</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/ticket-point/">Тикет.Поинт</a>
+        <a class="site-drawer__link" href="/pricing/">Цены</a>
+        <a class="site-drawer__link" href="/technology/">Технологии</a>
+        <a class="site-drawer__link" href="/compliance-152fz/">152-ФЗ</a>
+        <a class="site-drawer__link" href="/how-it-works/">Как работает</a>
+        <a class="site-drawer__link" href="/scenarios/">Сценарии</a>
+        <a class="site-drawer__link" href="/faq/">FAQ</a>
+        <a class="site-drawer__link" href="/articles/">Статьи</a>
+        <a class="site-drawer__link" href="/contacts/">Контакты</a>
+        <div class="site-drawer__footer">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="btn btn--white" data-action="contact">Связаться</button>
+          <a class="btn btn--secondary" href="/contacts/#demo">КП / Демо</a>
+        </div>
+      </div>
+    </div>
+
+    
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <a class="product-back" href="/products/">← Все продукты</a>
+          <div class="product-layout">
+            <div>
+              <h1 class="page-hero__title font-heading">Промо.Про</h1>
+              <p class="product-tagline">Промоакции с проверкой чеков ФНС</p>
+              <p class="product-intro">Для акций «купи — зарегистрируй чек — получи приз». Автоматическая верификация через API ФНС (kkt-online) с OCR fallback.</p>
+              <h2 class="product-subtitle font-heading">Возможности</h2>
+              <ul class="check-list">
+                  <li>Всё из Рег.Поинт и Промо.Поинт</li>
+                  <li>Проверка чека через API ФНС</li>
+                  <li>OCR fallback (Tesseract.js)</li>
+                  <li>QR-сканер чека, валидация ИНН, дат, суммы</li>
+                  <li>Правило: один телефон — одна регистрация на акцию</li>
+              </ul>
+            </div>
+            <aside class="product-sidebar">
+              <div class="product-sidebar__price">180 000 ₽</div>
+              <p class="product-sidebar__note">лицензия, 1-й год поддержки включён</p>
+              <div class="product-sidebar__actions">
+                <a class="btn btn--primary" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
+                <a class="btn btn--secondary" href="/pricing/">Все цены и апгрейды</a>
+              </div>
+              <div class="product-sidebar__trust">
+                <div class="product-sidebar__trust-item">1-й год поддержки включён</div>
+                <div class="product-sidebar__trust-item">Self-hosted на VPS клиента</div>
+                <div class="product-sidebar__trust-item">152-ФЗ из коробки</div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+      <section class="section section--muted">
+        <div class="container">
+          <h2 class="product-subtitle font-heading">Статьи по теме</h2>
+          <div class="card-grid card-grid--3">
+            <a class="article-card" href="/articles/promo-fns/">
+              <div class="article-card__meta">
+                <span class="article-card__tag article-card__tag--blue">promo</span>
+                <span class="article-card__date">5 июня 2026 · 8 мин</span>
+              </div>
+              <h3 class="article-card__title">Промоакция с чеком: как работает проверка ФНС</h3>
+              <span class="article-card__read">Читать →</span>
+            </a>
+            <a class="article-card" href="/articles/ocr-fallback/">
+              <div class="article-card__meta">
+                <span class="article-card__tag article-card__tag--blue">promo</span>
+                <span class="article-card__date">10 июня 2026 · 6 мин</span>
+              </div>
+              <h3 class="article-card__title">OCR чеков в промо: когда нужен fallback</h3>
+              <span class="article-card__read">Читать →</span>
+            </a>
+            <a class="article-card" href="/articles/cost-of-registration/">
+              <div class="article-card__meta">
+                <span class="article-card__tag article-card__tag--muted">цены</span>
+                <span class="article-card__date">25 июня 2026 · 6 мин</span>
+              </div>
+              <h3 class="article-card__title">Сколько стоит программа регистрации на мероприятие</h3>
+              <span class="article-card__read">Читать →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+<footer class="site-footer">
+      <div class="site-footer__cta">
+        <div class="container site-footer__cta-inner">
+          <div>
+            <h2 class="site-footer__cta-title font-heading">Готовы обсудить ваш сценарий?</h2>
+            <p class="site-footer__cta-desc">Подберём модули и услуги внедрения — пришлём КП в течение 1–2 рабочих дней.</p>
+          </div>
+          <div class="site-footer__cta-actions">
+            <a class="btn btn--white btn--footer-demo" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
+            <button type="button" class="btn btn--footer-outline" data-action="contact">Связаться</button>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__body">
+        <div class="container">
+          <div class="site-footer__grid">
+            <div class="site-footer__col site-footer__col--brand">
+              <p class="site-footer__brand-name">Рег.Поинт</p>
+              <p class="site-footer__brand-desc">Коробочная платформа для регистрации на мероприятия и промоакции. Self-hosted на VPS клиента.</p>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Продукты</p>
+              <ul class="site-footer__links">
+                <li><a href="/products/reg-point/">Рег.Поинт</a></li>
+                <li><a href="/products/promo-point/">Промо.Поинт</a></li>
+                <li><a href="/products/promo-pro/">Промо.Про</a></li>
+                <li><a href="/products/ticket-point/">Тикет.Поинт</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Компания</p>
+              <ul class="site-footer__links">
+                <li><a href="/pricing/">Цены</a></li>
+                <li><a href="/technology/">Технологии</a></li>
+                <li><a href="/compliance-152fz/">152-ФЗ</a></li>
+                <li><a href="/how-it-works/">Как работает</a></li>
+                <li><a href="/articles/">Статьи</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Правовое</p>
+              <ul class="site-footer__links">
+                <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/contacts/">Контакты</a></li>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/scenarios/">Сценарии</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__bottom">
+            <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal" id="contact-modal" hidden role="dialog" aria-labelledby="contact-modal-title" aria-modal="true">
+      <div class="modal__backdrop"></div>
+      <div class="modal__dialog">
+        <div class="modal__header">
+          <h2 class="modal__title font-heading" id="contact-modal-title">Написать в поддержку</h2>
+          <button type="button" class="modal__close" data-modal-close aria-label="Закрыть">✕</button>
+        </div>
+        <div class="modal__body">
+          <button type="button" class="modal__option" data-action="jivo-chat">
+            <span>
+              <span class="modal__option-title">💬 Онлайн-чат</span>
+              <span class="modal__option-desc">Ответим в рабочее время</span>
+            </span>
+          </button>
+          <button type="button" class="modal__option" data-action="telegram">
+            <span>
+              <span class="modal__option-title">✈️ Telegram</span>
+              <span class="modal__option-desc">@ZaharMishiev</span>
+            </span>
+          </button>
+          <div style="border-top: 1px solid var(--color-border); padding-top: var(--space-3); margin-top: var(--space-2)">
+            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: var(--space-3)">Нужно КП или демо?</p>
+            <button type="button" class="modal__option modal__option--primary" data-action="demo-modal">
+              <span>
+                <span class="modal__option-title">📄 Запросить КП / Демо</span>
+              </span>
+            </button>
+          </div>
+          <p class="modal__footer-note">Вне рабочих часов — ответим в течение 4 часов в следующий рабочий день</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <div class="container cookie-banner__inner">
+        <p class="cookie-banner__text">
+          Мы используем cookie и Яндекс.Метрику для аналитики. Продолжая, вы соглашаетесь с
+          <a href="/privacy/">политикой конфиденциальности</a>.
+        </p>
+        <button type="button" class="btn btn--primary" id="cookie-accept">Принять</button>
+      </div>
+    </div>
+
+        <script src="/js/config.js"></script>
+    <script src="/js/jivo.js"></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/lang.js" defer></script>
+    <script src="/js/contact.js" defer></script>
+    <script src="/js/analytics.js" defer></script>
+    <script src="/js/cookies.js" defer></script>
+    <script src="/js/bootstrap.js" defer></script>
+  </body>
+</html>
+
