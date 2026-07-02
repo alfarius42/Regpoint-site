@@ -42,18 +42,22 @@ regpoint-site.zip      ← архив для FTP (генерируется ск�
 ## Поток работы
 
 1. Коммиты разработки — в **`develop`**
-2. PR `develop` → `main` после прохождения CI (см. `docs/PR_WORKFLOW.md`)
-3. На `main`: `python scripts/build-prod.py` → `dist/` + `regpoint-site.zip`
-4. Деплой на хостинг — содержимое **`dist/`** или zip по FTP
+2. PR `develop` → `main` после CI
+3. **Деплой FTP:** статика с `main` напрямую (без сборки)
+4. **Опционально:** `python scripts/build-prod.py` → `dist/` + zip перед заливкой
 
 ## Секреты
 
-- Реальные ID Яндекс.Метрики, Jivo widget — только локально или в `.env` (не в git)
-- В репозитории — placeholder в `js/config.js`
+- **Jivo widget ID** — публичный, в `js/config.js` (виден в HTML страницы)
+- **Яндекс.Метрика ID** — **`110315704`**, после cookie-баннера
+- FTP-пароли Masterhost — **не в git** (локально или панель хостинга)
 
-## FTP-деплой (будущее)
+## Деплой на Masterhost
 
-1. Checkout `main`
-2. `python scripts/build-prod.py`
-3. Загрузить содержимое `dist/` или `regpoint-site.zip` на shared-хостинг RU
+**Способ:** вручную через панель — загрузка **`regpoint-site.zip`**, распаковка в корень `reg-point.ru`.  
+Подробно: **`docs/DEPLOY_MASTERHOST.md`**.
+
+1. Checkout `main` (после PR)
+2. `python scripts/build-prod.py` → `dist/` + `regpoint-site.zip`
+3. Панель Masterhost → загрузить zip → распаковать
 4. Проверить HTTPS, `robots.txt`, `sitemap.xml`

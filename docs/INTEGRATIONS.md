@@ -9,7 +9,9 @@
 | Параметр | Значение |
 |----------|----------|
 | Vendor | [jivo.ru](https://www.jivo.ru) (РФ, 152-ФЗ) |
-| Script | `<script src="//code.jivosite.com/widget/XXXXX" async></script>` |
+| Widget ID | **`COp1zDxNwg`** |
+| Script | `<script src="//code.jivo.ru/widget/COp1zDxNwg" async></script>` — только фронт |
+| Загрузка | `js/jivo.js` читает `config.jivoWidgetId`, inject в `<body>` |
 | Онлайн-чат | `window.jivo_api.open()` |
 | Форма demo | Embed на `/contacts#demo` |
 | Config | `js/config.js` → `jivoWidgetId` |
@@ -27,10 +29,11 @@
 
 ---
 
-## Telegram (опционально)
+## Telegram
 
-- Ссылка `t.me/…` в модалке и footer
-- Config: `js/config.js` → `telegramUrl`
+- Ссылка **[@ZaharMishiev](https://t.me/ZaharMishiev)** — личный аккаунт; посетители пишут напрямую
+- Config: `js/config.js` → `telegramUrl`, `telegramHandle`
+- Модалка «Связаться», footer, `/contacts/`
 - Не обрабатывает ПД на сайте — внешний мессенджер
 
 ---
@@ -39,8 +42,10 @@
 
 | Параметр | Значение |
 |----------|----------|
-| Config | `js/config.js` → `yandexMetrikaId` |
+| Config | `js/config.js` → `yandexMetrikaId: '110315704'` |
+| Статус | ✅ подключено |
 | Consent | `metrikaRequiresConsent: true` — загрузка после cookie-баннера |
+| Init | webvisor, clickmap, ecommerce `dataLayer`, trackLinks, accurateTrackBounce |
 | Реализация | `js/analytics.js`, `js/cookies.js` |
 
 ### Рекомендуемые цели

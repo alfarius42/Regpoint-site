@@ -1,0 +1,56 @@
+---
+description: prototype/ — источник логики, дизайна, вёрстки и поведения; без копирования кода
+alwaysApply: true
+---
+
+# Prototype (`prototype/`) — источник поведения и UX
+
+Интерактивный React-прототип (Figma Make) в **`prototype/`** (локально: `C:\Regpoint-site\prototype`).
+
+## Роль прототипа
+
+Прототип — **источник правды**:
+
+- **Тексты RU** — `App.tsx`: copy, `PAGE_TITLES`, `META_DESC`, `ARTICLES`, FAQ, pricing tables
+- **Изображения (до экспорта Figma)** — URL в `App.tsx` (hero, article covers); финал → `img/` из Figma
+- **Бизнес-логика UI** — CTA, формы, modals, сценарии
+- **Поведение** — drawer, dropdown, accordion, tag filters
+- **Вёрстка-референс** — breakpoints, grid, компоненты
+
+Production переписывает на **MPA HTML + CSS + JS**. **Тексты переносить из прототипа**, не выдумывать заново.
+
+## Запрещено (строго)
+
+- Копировать **код**: TSX/JSX, Tailwind, shadcn, hooks, React state
+- Переносить **архитектуру**: SPA-роутер, component tree, Vite/npm в корень сайта
+- Импортировать файлы из `prototype/` в production (`css/`, `js/`, HTML)
+- Редактировать `prototype/` при задачах по production (кроме явной просьбы)
+
+## Обязательно
+
+- Читать **`prototype/src/app/App.tsx`** — все страницы, тексты, интерактив
+- **`prototype/guidelines/HANDOFF.md`** — маршруты MPA, breakpoints, UX-потоки
+- Запуск для сверки (PowerShell):
+
+```powershell
+cd prototype
+npm install
+npm run dev
+```
+- Визуал дополнительно сверять с **Figma** (`.cursor/rules/figma-design.mdc`)
+
+## Как переносить в production
+
+| Из прототипа | В production (MPA) |
+|--------------|-------------------|
+| Tailwind breakpoints | `@media (min-width: …)` + `css/tokens.css` |
+| ContactModal / DemoModal | `js/contact.js` + семантический HTML |
+| React `page` state | отдельные HTML-файлы + `<a href>` |
+| Inline colors `#243954` | CSS custom properties |
+| `jivo_api.open()` stub | реальный вызов в `js/contact.js` |
+
+## Приоритет при расхождениях
+
+1. **`MARKETING_SITE_SPEC.md`** — тексты, SEO, интеграции, цены
+2. **Figma** — визуал (pixel-perfect)
+3. **Прототип** — поведение и UX, если в Figma не детализировано

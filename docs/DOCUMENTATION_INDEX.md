@@ -10,7 +10,7 @@
 - **MARKETING_SITE_SPEC.md** — **главный источник знаний** (тексты, SEO, интеграции, карта сайта).
 - **CURSOR_CONTEXT.md** — лёгкий индекс для AI (начинать с него).
 - **AGENTS.md** — инструкции для AI-агента.
-- **.cursor/rules/** — правила Cursor (стек, git, адаптивность, PR).
+- **.cursor/rules/** — правила Cursor (MPA, Figma MCP, prototype, адаптивность, PR).
 
 ---
 
@@ -20,7 +20,14 @@
 - **BRANCHES.md** — `develop` / `main`, FTP, `dist/`, zip.
 - **PR_WORKFLOW.md** — правила PR, CI gates, responsive checklist.
 - **SPRINTS.md** — roadmap и статус спринтов.
-- **INTEGRATIONS.md** — Jivo, Яндекс.Метрика, Telegram.
+- **ARCHITECTURE.md** — MPA без сборки.
+- **CONTENT_SOURCES.md** — Figma + прототип = канон текстов и изображений.
+- **SITE_MAP.md** — все URL и статус страниц.
+- **PRODUCTION_READINESS.md** — Definition of Done 100%.
+- **OPEN_QUESTIONS.md** — блокеры (Metrika ID, email, FTP Masterhost).
+- **LEGAL_ENTITY.md** — ИП Мельникова, реквизиты, контакты.
+- **DEPLOY_MASTERHOST.md** — деплой zip через панель Masterhost.
+- **LOCAL_DEV.md** — PowerShell команды.
 - **MEDIA.md** — медиа, OG, favicon.
 
 ---

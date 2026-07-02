@@ -4,11 +4,12 @@ alwaysApply: false
 globs: "{index.html,robots.txt,**/*.html,scripts/**}"
 ---
 
-# Деплой (FTP / shared hosting)
+# Деплой (Masterhost / shared hosting)
 
 - Статический сайт без бэкенда
 - MPA: директории страниц (`products/`, `pricing/`, …), `404.html`
-- Production domain: TBD (placeholder `https://reg.point` в config)
+- Production domain: **https://reg-point.ru**
+- **Masterhost:** загрузка **`regpoint-site.zip`** вручную через панель → распаковать в корень. См. `docs/DEPLOY_MASTERHOST.md`.
 
 ## Ветки
 

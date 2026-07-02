@@ -5,7 +5,7 @@
 window.SITE_CONFIG = {
   siteName: 'Рег.Поинт',
   siteNameEn: 'Reg.Point',
-  siteUrl: 'https://reg.point',
+  siteUrl: 'https://reg-point.ru',
 
   brand: {
     taglineRu: 'Регистрация на мероприятия на вашем сервере',
@@ -13,13 +13,14 @@ window.SITE_CONFIG = {
   },
 
   /** Jivo widget — пустая строка = не подключать script */
-  jivoWidgetId: '',
+  jivoWidgetId: 'COp1zDxNwg',
 
-  /** Telegram — опционально */
-  telegramUrl: 'https://t.me/regpoint',
+  /** Telegram — личный аккаунт */
+  telegramUrl: 'https://t.me/ZaharMishiev',
+  telegramHandle: '@ZaharMishiev',
 
   /** Яндекс.Метрика — пустая строка = не инициализировать */
-  yandexMetrikaId: '',
+  yandexMetrikaId: '110315704',
   metrikaRequiresConsent: true,
 
   nav: [
@@ -38,4 +39,7 @@ window.SITE_CONFIG = {
   ],
 
   demoUrl: '/contacts/#demo',
+
+  /** Email оператора для privacy — заполнить когда будет создан */
+  privacyEmail: '',
 };

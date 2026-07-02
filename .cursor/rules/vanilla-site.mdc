@@ -6,6 +6,13 @@ alwaysApply: false
 
 # Vanilla site standards
 
+## Без сборки (обязательно)
+
+- Production — **готовые** `.html`, `.css`, `.js`; не добавлять bundler в корень
+- Нет `import` из npm в production; скрипты — `<script src="/js/…">`
+- Локально: `npx serve .` — без `npm run build`
+- `scripts/build-prod.py` — только опциональный релиз (minify + zip), не dev-сборка
+
 ## CSS
 
 - Токены только в `css/tokens.css` (цвета Рег.Поинт: `--color-primary: #243954`, `--color-accent: #e1eff2`)
@@ -13,10 +20,11 @@ alwaysApply: false
 - Grid/Flex по умолчанию; см. **`.cursor/rules/responsive-layout.mdc`**
 - CTA primary: navy фон, white text; secondary: accent фон, navy text
 
-## JavaScript
+## Архитектура (MPA)
 
-- Vanilla JS, IIFE или `<script defer>` — как в существующих файлах
-- MPA: обычные `<a href>`, без SPA-роутера
+- MPA: физические HTML-страницы, `<a href>`, без SPA
+- JS: vanilla, `js/contact.js` → Jivo + Telegram
+- Сверка UI: Figma MCP + `prototype/` (поведение)
 - i18n: `i18n/ru.json`, `i18n/en.json` + `js/i18n.js` (Sprint 4)
 - Jivo: `js/contact.js` → `jivo_api.open()`
 - Аналитика: `js/analytics.js`; не вызывать `ym()` до cookie consent

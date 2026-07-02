@@ -8,12 +8,17 @@
       name="description"
       content="Коробочная платформа для регистрации участников, check-in и промо с чеками ФНС. Данные на VPS клиента, 152-ФЗ из коробки. Запросите демо."
     />
-    <link rel="canonical" href="https://reg.point/" />
+    <link rel="canonical" href="https://reg-point.ru/" />
     <meta property="og:title" content="Рег.Поинт — регистрация на мероприятия на вашем сервере" />
     <meta property="og:description" content="Коробочная платформа для регистрации участников, check-in и промо с чеками ФНС. Данные на VPS клиента, 152-ФЗ из коробки." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://reg.point/" />
+    <meta property="og:url" content="https://reg-point.ru/" />
     <meta property="og:locale" content="ru_RU" />
+    <link rel="icon" href="/img/favicon.ico" sizes="any" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="theme-color" content="#243954" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/tokens.css" />
@@ -26,7 +31,8 @@
       <div class="site-header__inner container">
         <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">☰</button>
         <a class="site-header__logo" href="/">
-          <span>Рег.Поинт</span>
+          <img class="site-header__logo-mark" src="/img/logo-mark.svg" width="32" height="32" alt="" />
+          <span class="site-header__logo-text">Рег.Поинт</span>
         </a>
         <nav class="site-header__nav" aria-label="Основная навигация">
           <a href="/products/">Продукты</a>
@@ -140,7 +146,7 @@
           <button type="button" class="modal__option" data-action="telegram">
             <span>
               <span class="modal__option-title">✈️ Telegram</span>
-              <span class="modal__option-desc">t.me/regpoint</span>
+              <span class="modal__option-desc">@ZaharMishiev</span>
             </span>
           </button>
           <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 1rem">Нужно КП или демо? <a href="/contacts/#demo">Запросить КП / Демо</a></p>
@@ -159,6 +165,7 @@
     </div>
 
     <script src="/js/config.js"></script>
+    <script src="/js/jivo.js"></script>
     <script src="/js/header.js" defer></script>
     <script src="/js/contact.js" defer></script>
     <script src="/js/analytics.js" defer></script>

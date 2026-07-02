@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://reg.point/sitemap.xml
+Sitemap: https://reg-point.ru/sitemap.xml

@@ -4,7 +4,8 @@
 > **Репозиторий сайта:** https://github.com/alfarius42/Regpoint-site (статика HTML/CSS/JS).  
 > **Канон имён и продуктов:** ESC-Promo → `docs/active/PRODUCT_LINE.md`, `src/constants/product.ts`.  
 > **Цвета продукта:** ESC-Promo → `docs/active/UI_DESIGN_SYSTEM.md`, `src/styles/globals.css`.  
-> **UX-референс:** `prototype/guidelines/HANDOFF.md`, `prototype/src/app/App.tsx`.
+> **UX-референс:** `prototype/` — бизнес-логика, поведение, вёрстка (не код).  
+> **Figma (визуал):** [Регпоинтинг](https://www.figma.com/design/mV4djwXG8q7KnkaTq9rRAy/) — MCP, pixel-perfect.
 
 ---
 
@@ -23,6 +24,7 @@
 | 9 | SEO | Продающие тексты + meta/OG/schema с первого дня |
 | 10 | Блог | Раздел **«Статьи»** — органический трафик, экспертиза 152-ФЗ |
 | 11 | Адаптивность | **Обязательна** на всех страницах: mobile-first, breakpoints 640 / 768 / 1024 / 1280 px; QA 375 / 768 / 1280 |
+| 12 | Сборка сайта | **Нет.** MPA: правим HTML/CSS/JS в корне; деплой — статика на FTP. npm/Vite **только** в `prototype/` и `tests/` |
 
 ---
 
@@ -81,16 +83,23 @@
 
 ## 4. Технологии и интеграции
 
-### 4.1 Стек сайта
+### 4.1 Стек и архитектура сайта
+
+**Архитектура:** MPA (Multi-Page Application) — **vanilla HTML + CSS + JavaScript, без сборки и без бэкенда.**
 
 | Слой | Технология |
 |------|------------|
 | Разметка | HTML5, семантические теги (`header`, `main`, `article`, `section`) |
-| Стили | CSS3, CSS-переменные; без фреймворка или лёгкий reset |
-| Скрипты | Vanilla JS (ES modules): i18n, модалка, lazy-load, cookie-баннер |
-| Сборка (опц.) | `scripts/build-prod.py` → `dist/` + `regpoint-site.zip` для FTP |
-| Хостинг | Shared-хостинг RU или Cloudflare Pages / GitHub Pages + домен `.ru` |
+| Стили | CSS3, CSS-переменные (`css/tokens.css`); **без** Tailwind/Bootstrap в production |
+| Скрипты | Vanilla JS в `js/*.js`; **без** bundler, **без** `npm` в корне |
+| Навигация | Физические HTML-страницы, `<a href>` (не SPA) |
+| Сборка для dev/prod | **Не используется** — файлы отдаются как есть |
+| Интеграции | **Jivo** (чат + форма), **Telegram** (ссылка), Яндекс.Метрика |
+| Упаковка релиза (опц.) | `scripts/build-prod.py` — копия + минификация в `dist/` + zip для FTP |
+| Хостинг | Shared-хостинг RU, загрузка статики по FTP |
 | HTTPS | Обязательно (Let's Encrypt) |
+
+Подробнее: `docs/ARCHITECTURE.md`.
 
 ### 4.2 Jivo — чат и формы (единый сервис)
 
@@ -98,7 +107,7 @@
 
 | Параметр | Значение |
 |----------|----------|
-| Подключение | `<script src="//code.jivosite.com/widget/XXXXX" async></script>` в `<body>` |
+| Подключение | `<script src="//code.jivo.ru/widget/COp1zDxNwg" async></script>` в `<body>` (через `js/jivo.js`) |
 | Онлайн-чат | `jivo_api.open()` — кнопка «Связаться», умная модалка |
 | Форма «КП / Демо» | **Jivo contact form** на `/contacts#demo`: embed или вызов формы из виджета; поля настраиваются в кабинете Jivo |
 | Offline | Та же форма Jivo, когда операторы offline → уведомление на email оператора |
@@ -897,7 +906,9 @@ A: Заявки и переписка обрабатываются через **
 
 ### 13.5 Приоритет источников
 
-1. **`MARKETING_SITE_SPEC.md`** (этот файл) — тексты, SEO, интеграции
-2. **`prototype/guidelines/HANDOFF.md`** — layout, breakpoints, UX-потоки
-3. **`prototype/src/app/App.tsx`** — детали блоков и copy (если нет в §7)
-4. ESC-Promo docs — продуктовый канон (цены, модули)
+1. **[Figma](https://www.figma.com/design/mV4djwXG8q7KnkaTq9rRAy/)** — визуал, pixel-perfect; тексты/картинки если в макете
+2. **`prototype/src/app/App.tsx`** — **канон текстов RU**, ARTICLES, meta, placeholder images
+3. **`MARKETING_SITE_SPEC.md`** — SEO, интеграции, legal; синхронизировать с п.1–2
+4. ESC-Promo docs — цены, модули (если не противоречат прототипу)
+
+Детали: `docs/CONTENT_SOURCES.md`, `docs/SITE_MAP.md`.

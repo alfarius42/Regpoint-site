@@ -1,8 +1,9 @@
 # HANDOFF — прототип → production (vanilla HTML/CSS/JS)
 
-> **Статус:** референс из Figma Make. Production — корень репо, не этот каталог.  
-> **Канон текстов:** `../MARKETING_SITE_SPEC.md` (корень Regpoint-site).  
-> **Приоритет:** HANDOFF → MARKETING_SITE_SPEC → `App.tsx`.
+> **Figma (канон визуала):** [Регпоинтинг](https://www.figma.com/design/mV4djwXG8q7KnkaTq9rRAy/) — сверка через MCP, pixel-perfect.  
+> **Прототип:** источник бизнес-логики, поведения и UX; код в production **не переносится**.  
+> **Канон текстов:** `../MARKETING_SITE_SPEC.md`.  
+> **Production:** MPA HTML + CSS + JS; интеграции Jivo + Telegram.
 
 ---
 

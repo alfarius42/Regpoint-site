@@ -8,7 +8,7 @@ alwaysApply: true
 ## Workflow
 
 1. Работа в feature-ветке или `develop`
-2. Локально: `cd tests && npm test`
+2. Локально (PowerShell): `cd tests; npm test`
 3. PR → `develop`; релиз PR → `main`
 4. Детали: `docs/PR_WORKFLOW.md`
 

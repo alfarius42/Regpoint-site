@@ -11,9 +11,9 @@
 ### При начале работы
 
 1. **`MARKETING_SITE_SPEC.md`** — канон: тексты RU/EN, Jivo, SEO, карта сайта, цены.
-2. **`.cursor/rules/`** — правила проекта (в т.ч. **обязательная адаптивная вёрстка**).
-3. **`AGENTS.md`** — инструкции для AI-агента.
-4. **`js/config.js`** — placeholder ID интеграций, навигация, бренд.
+2. **Figma** — [Регпоинтинг](https://www.figma.com/design/mV4djwXG8q7KnkaTq9rRAy/) — визуал, MCP, pixel-perfect.
+3. **`.cursor/rules/`** — правила (адаптивность, Figma, prototype).
+4. **`AGENTS.md`**, **`js/config.js`**.
 
 ### Продуктовый контекст (ESC-Promo, отдельный репо)
 
@@ -32,9 +32,12 @@
 
 ### Спецификация и контент
 
-- **`MARKETING_SITE_SPEC.md`** — **главный источник знаний**; обновлять при каждом изменении текстов, интеграций, SEO.
-- **`docs/INTEGRATIONS.md`** — Jivo (`jivo_api.open()`), Яндекс.Метрика, Telegram.
-- **`docs/MEDIA.md`** — медиа-ассеты, OG-изображения.
+- **`MARKETING_SITE_SPEC.md`** — SEO, интеграции, legal framework.
+- **`docs/CONTENT_SOURCES.md`** — **канон текстов/изображений:** Figma + прототип.
+- **`docs/SITE_MAP.md`** — MPA URL и статус.
+- **`docs/PRODUCTION_READINESS.md`** — DoD 100%.
+- **`docs/OPEN_QUESTIONS.md`** — блокеры (email, Metrika, FTP).
+- **`docs/LEGAL_ENTITY.md`** — ИП, реквизиты, Jivo/Telegram.
 
 ### Процесс и Git
 
@@ -42,10 +45,15 @@
 - **`docs/PR_WORKFLOW.md`** — правила PR, CI, responsive gate.
 - **`docs/SPRINTS.md`** — roadmap и статус спринтов.
 
-### Визуальный референс
+### Дизайн и архитектура
 
-- **`prototype/guidelines/HANDOFF.md`** — ТЗ прототипа, breakpoints, компоненты.
-- **`prototype/src/app/App.tsx`** — все страницы SPA-прототипа (не копировать в production).
+- **`docs/ARCHITECTURE.md`** — MPA без сборки (HTML/CSS/JS).
+- **Figma** — [Регпоинтинг](https://www.figma.com/design/mV4djwXG8q7KnkaTq9rRAy/).
+
+- **Figma** — [Регпоинтинг](https://www.figma.com/design/mV4djwXG8q7KnkaTq9rRAy/) (`fileKey`: `mV4djwXG8q7KnkaTq9rRAy`). Правило: `.cursor/rules/figma-design.mdc`.
+- **`prototype/`** — React-прототип: бизнес-логика, поведение, вёрстка-референс. Правило: `.cursor/rules/prototype-source.mdc`.
+- **`prototype/guidelines/HANDOFF.md`** — маршруты MPA, breakpoints, UX-потоки.
+- **`prototype/src/app/App.tsx`** — все экраны и интерактив (не копировать код).
 
 ### CI и качество
 

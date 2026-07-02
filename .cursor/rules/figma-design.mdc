@@ -1,0 +1,42 @@
+---
+description: Figma — канон визуального дизайна; сверка через MCP и pixel-perfect
+alwaysApply: true
+---
+
+# Figma — дизайн проекта
+
+**Канонический макет:** [Регпоинтинг (Figma)](https://www.figma.com/design/mV4djwXG8q7KnkaTq9rRAy/%D0%A0%D0%B5%D0%B3%D0%BF%D0%BE%D0%B8%D0%BD%D0%B3?node-id=0-1)
+
+| Параметр | Значение |
+|----------|----------|
+| fileKey | `mV4djwXG8q7KnkaTq9rRAy` |
+| Корневой node | `0:1` (из `node-id=0-1`) |
+
+## Когда обращаться к Figma (обязательно)
+
+- Любая **вёрстка** новой секции, страницы или компонента
+- **Дизайн** — цвета, типографика, отступы, сетка, состояния hover/focus
+- **Pixel-perfect** — финальная сверка перед merge PR с UI-изменениями
+- Расхождение между прототипом и production — **Figma решает спор** (если не противоречит `MARKETING_SITE_SPEC.md` по текстам)
+
+## Workflow через Figma MCP
+
+1. **`get_design_context`** — `fileKey` + `nodeId` страницы/фрейма → структура, tokens, подсказки
+2. **`get_screenshot`** — визуальный этalon для pixel-perfect сравнения
+3. **`get_metadata`** — обзор страниц/фреймов, если nodeId неизвестен
+4. Адаптировать вывод MCP под **MPA HTML/CSS/JS** — не копировать React/Tailwind из ответа MCP буквально
+
+## Pixel-perfect
+
+- Сверять spacing, font-size/weight, colors с Figma (допуск ±2px на fluid/responsive)
+- Breakpoints — из макета + `.cursor/rules/responsive-layout.mdc`
+- После вёрстки: screenshot Figma vs локальный `npx serve` или Playwright screenshot
+
+## Приоритет источников (дизайн и контент)
+
+1. **Figma** — визуал, spacing, **финальные тексты/картинки если есть в макете**
+2. **`prototype/src/app/App.tsx`** — **канон текстов RU**, структура блоков, placeholder images
+3. **`MARKETING_SITE_SPEC.md`** — SEO meta-шаблоны, интеграции; обновлять при переносе из прототипа
+4. `css/tokens.css` — реализация tokens в production
+
+Подробно: `docs/CONTENT_SOURCES.md`.

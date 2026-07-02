@@ -1,49 +1,40 @@
 # Рег.Поинт Site — инструкции для AI-агента
 
-## Проект
+## Архитектура (критично)
 
-Маркетинговый сайт **Рег.Поинт** (Reg.Point) — коробочная платформа для регистрации на мероприятия, промоакций, проверки чеков и билетов. Production — **vanilla HTML/CSS/JS** в корне репозитория. Продуктовый монолит — `C:\ESC-Promo` (отдельный репо).
+**MPA без сборки:** HTML + CSS + JS в корне репо. Нет `package.json`, Vite, Webpack в production. Файлы отдаются как есть; FTP — напрямую статика. npm только в `prototype/` и `tests/`.
+
+Интеграции: **Jivo**, **Telegram**, Яндекс.Метрика — client-side в `js/`.
+
+См. `docs/ARCHITECTURE.md`.
 
 ## Перед работой
 
-1. Прочитать **`MARKETING_SITE_SPEC.md`** — главный источник текстов, маршрутов, интеграций.
-2. При задачах по UI/UX — `prototype/guidelines/HANDOFF.md` и `prototype/src/app/App.tsx` (**не копировать код**, см. `.cursor/rules/prototype-reference.mdc`).
-3. Константы и placeholder-ID — в `js/config.js`.
-4. **Адаптивная вёрстка обязательна** — см. `.cursor/rules/responsive-layout.mdc`.
+1. `MARKETING_SITE_SPEC.md` — тексты, SEO, интеграции.
+2. Figma MCP — `.cursor/rules/figma-design.mdc`.
+3. `prototype/` — UX/поведение, не код — `.cursor/rules/prototype-source.mdc`.
+4. `js/config.js` — ID интеграций.
 
-## Репозиторий
+## Локальный просмотр (PowerShell)
 
-- GitHub: https://github.com/alfarius42/Regpoint-site
-- **develop** — разработка (полный репо)
-- **main** — production-only
-- Подробнее: `docs/BRANCHES.md`, `docs/PR_WORKFLOW.md`
-- Коммит и push — **только по запросу** пользователя
-
-## Локальный просмотр
-
-```bash
+```powershell
+# Production — без сборки
+cd C:\Regpoint-site
 npx --yes serve .
+
+# Прототип — отдельно
+cd C:\Regpoint-site\prototype
+npm install
+npm run dev
 ```
 
-Для корректной проверки URL нужен HTTP-сервер (не `file://`).
+Не использовать `&&` в примерах для PowerShell 5 — только `;` или многострочно.
 
-## Прототип (опционально)
+## CI
 
-```bash
-cd prototype && npm i && npm run dev
+```powershell
+cd C:\Regpoint-site\tests
+npm test
 ```
 
-Только для визуальной сверки; production не зависит от npm.
-
-## CI перед merge
-
-На ветке `develop` перед PR:
-
-```bash
-cd tests && npm i && npx playwright install chromium && npm test
-python scripts/build-prod.py   # при изменениях production-файлов
-```
-
-## Чеклист перед деплоем
-
-`MARKETING_SITE_SPEC.md` §10 + `docs/SPRINTS.md` + responsive-тесты на 375 / 768 / 1280 px.
+`build-prod.py` — только опциональная упаковка релиза, не часть dev-цикла.

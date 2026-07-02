@@ -1,88 +1,143 @@
 # Рег.Поинт — маркетинговый сайт
 
-Статический маркетинговый сайт коробочной платформы **Рег.Поинт** (Reg.Point): регистрация на мероприятия, промоакции, проверка чеков ФНС, продажа билетов. Продуктовая техбаза — репозиторий [ESC-Promo](https://github.com/alfarius42/ESC-Promo).
+
+
+Статический маркетинговый сайт коробочной платформы **Рег.Поинт** (Reg.Point). Продуктовая техбаза — [ESC-Promo](https://github.com/alfarius42/ESC-Promo).
+
+
 
 ## О проекте
 
-- **Production:** vanilla HTML + CSS + JS (без React и сборщиков в корне).
-- **Архитектура:** MPA — отдельные HTML-страницы и обычные ссылки.
-- **Прототип:** `prototype/` — React-референс из Figma Make; код оттуда в production **не копируется**.
 
-**Статус:** Sprint 0 — документация, правила, CI, скелет сайта. Верстка страниц — в следующих спринтах.
+
+- **Архитектура:** **MPA без сборки** — vanilla HTML + CSS + JS в корне репо; правите файлы → сразу на сервер / в браузер. **Нет** Vite/Webpack/npm для сайта.
+
+- **Интеграции:** Jivo (чат + форма КП/Демо), Telegram (опц.), Яндекс.Метрика.
+
+- **Figma:** [Регпоинтинг](https://www.figma.com/design/mV4djwXG8q7KnkaTq9rRAy/) — канон визуала.
+
+- **Прототип:** `prototype/` — React+Vite **только для сверки UX**; код в production не переносится.
+
+
+
+Подробнее: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+
+
+## Быстрый старт (PowerShell)
+
+
+
+**Production-сайт** (из корня, без сборки):
+
+
+
+```powershell
+
+cd C:\Regpoint-site
+
+npx --yes serve .
+
+```
+
+
+
+**Прототип** (отдельно, с npm):
+
+
+
+```powershell
+
+cd C:\Regpoint-site\prototype
+
+npm install
+
+npm run dev
+
+```
+
+
+
+> В PowerShell 5.x не работает `&&` — используйте `;` или отдельные команды. См. [docs/LOCAL_DEV.md](docs/LOCAL_DEV.md).
+
+
 
 ## Источники и документы
 
+
+
 | Документ | Назначение |
+
 |----------|------------|
-| [MARKETING_SITE_SPEC.md](MARKETING_SITE_SPEC.md) | **Главный источник знаний** — тексты, интеграции, SEO, карта сайта |
-| [docs/SPRINTS.md](docs/SPRINTS.md) | Дорожная карта и чеклисты |
-| [docs/BRANCHES.md](docs/BRANCHES.md) | Ветки `develop` / `main`, деплой FTP |
-| [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md) | Jivo, Яндекс.Метрика, Telegram |
-| [CURSOR_CONTEXT.md](CURSOR_CONTEXT.md) | Лёгкий индекс для AI-агента |
-| [docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md) | Полный индекс документации |
 
-### Приоритет источников
+| [MARKETING_SITE_SPEC.md](MARKETING_SITE_SPEC.md) | Тексты, SEO, интеграции, карта сайта |
 
-1. `MARKETING_SITE_SPEC.md`
-2. Документы `docs/` и этот README
-3. Правила `.cursor/rules/` и `AGENTS.md`
-4. `prototype/` и `prototype/guidelines/HANDOFF.md` — только визуальный/UX референс
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | MPA без сборки, интеграции |
+
+| [docs/LOCAL_DEV.md](docs/LOCAL_DEV.md) | Команды Windows / PowerShell |
+
+| [docs/SPRINTS.md](docs/SPRINTS.md) | Roadmap |
+
+| [CURSOR_CONTEXT.md](CURSOR_CONTEXT.md) | Индекс для AI |
+
+
 
 ## Ветки и деплой
 
-- **`develop`** — основная ветка разработки (полный репозиторий).
-- **`main`** — production-only (публичный сайт без `prototype/`, `docs/`, `.cursor/`).
-- Релиз: `python scripts/build-prod.py` → `dist/` + `regpoint-site.zip` для FTP.
 
-Подробнее: [docs/BRANCHES.md](docs/BRANCHES.md).
 
-## Быстрый старт
+- **`develop`** — разработка (полный репо).
 
-```bash
-# Локальный просмотр production-сайта
-npx --yes serve .
+- **`main`** — production-only для FTP.
 
-# Прототип (визуальная сверка)
-cd prototype && npm i && npm run dev
-```
+- **Деплой:** залить статику с `main` (`index.html`, `css/`, `js/`, …) **без сборки**.
 
-## Автотесты (Playwright)
+- **Опционально:** `python scripts/build-prod.py` → `dist/` + zip (минификация перед релизом).
 
-```bash
-cd tests
-npm i
+
+
+## Автотесты
+
+
+
+```powershell
+
+cd C:\Regpoint-site\tests
+
+npm install
+
 npx playwright install chromium
+
 npm test
+
 ```
 
-## Структура репозитория
+
+
+## Структура
+
+
 
 ```text
-index.html              главная (RU)
-404.html
-products/  pricing/  contacts/  privacy/  en/  …
-css/                    reset, tokens, layout, components, pages
-js/                     config, header, contact, analytics, cookies, i18n
-i18n/                   ru.json, en.json
-img/
-docs/                   спецификации и процесс
-tests/                  Playwright e2e (+ responsive)
-scripts/                build dist, sync main
-prototype/              референс из Figma Make
-MARKETING_SITE_SPEC.md  канон текстов и интеграций
+
+index.html  css/  js/  img/  i18n/     ← production MPA (без npm)
+
+products/  pricing/  contacts/  …
+
+prototype/                              ← React-прототип (npm + Vite)
+
+tests/                                  ← Playwright (только CI)
+
+docs/  MARKETING_SITE_SPEC.md
+
 ```
+
+
 
 ## Конфигурация
 
-Ключевые данные — в `js/config.js`:
 
-- бренд, URL сайта, навигация;
-- ID **Яндекс.Метрики** (`yandexMetrikaId`);
-- **Jivo** widget ID (`jivoWidgetId`);
-- **Telegram** (`telegramUrl`) — опционально.
 
-## Полезное
+`js/config.js` — Jivo, Telegram, Яндекс.Метрика, навигация.
 
-- Правила агента: `.cursor/rules/`
-- Инструкции для AI: [AGENTS.md](AGENTS.md)
-- PR и CI: [docs/PR_WORKFLOW.md](docs/PR_WORKFLOW.md)
+

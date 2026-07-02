@@ -7,29 +7,49 @@ alwaysApply: true
 
 Статический сайт коробочной платформы **Рег.Поинт** (Reg.Point): регистрация на мероприятия, промоакции, проверка чеков ФНС, билеты. Продукт — `ESC-Promo` (отдельный репо).
 
+## Архитектура
+
+**MPA без сборки** — vanilla **HTML + CSS + JavaScript** в корне репо:
+
+- Каждая страница — отдельный HTML; навигация — `<a href>`
+- **Нет** npm, Vite, Webpack, `npm run build` для production-сайта
+- **Нет бэкенда** — static hosting / FTP
+- Редактирование → сразу `npx serve .` или заливка на FTP
+
+**Интеграции (client-side):** Jivo (`jivo_api.open()`, embed `#demo`), Telegram (ссылка), Яндекс.Метрика (после cookie).
+
+`scripts/build-prod.py` — **опциональная** упаковка (копия + minify → `dist/`), не сборка приложения.
+
+Подробнее: `docs/ARCHITECTURE.md`.
+
 ## Стек production-сайта
 
-- **Vanilla HTML + CSS + JS** — без React, без сборщиков, без бэкенда
-- **MPA**: отдельные HTML-страницы с чистыми URL
-- **Интеграции:** Jivo (`jivo_api.open()`), Telegram (опц.), Яндекс.Метрика
+| Слой | Технология |
+|------|------------|
+| Разметка | HTML5 |
+| Стили | CSS3, `css/tokens.css` |
+| Скрипты | Vanilla JS, `js/*.js` |
+| Сборка | **Нет** |
+| Релиз (опц.) | Python → `dist/` + zip |
 
 ## Структура репозитория
 
 ```
-/                 ← production-сайт (работаем здесь)
+/                 ← production MPA (работаем здесь)
   index.html  404.html
   products/  pricing/  contacts/  privacy/  en/  …
   css/  js/  img/  i18n/
-/prototype/       ← React-прототип — только референс
-/docs/            ← процесс, интеграции (не на main)
-MARKETING_SITE_SPEC.md  ← главный источник знаний
+/prototype/       ← React-прототип: логика, UX, поведение (не код!)
+/docs/            ← процесс (не на main)
+MARKETING_SITE_SPEC.md  ← тексты, SEO, интеграции
 ```
 
 ## Источники истины
 
-1. **`MARKETING_SITE_SPEC.md`** — тексты, SEO, интеграции, карта сайта (обновлять при каждом изменении)
-2. **Визуал и UX:** `prototype/src/app/App.tsx` — сверять макет; **адаптивность обязательна**
-3. **Конфиг:** `js/config.js` — Jivo, Метрика, Telegram, навигация
+1. **Figma** — визуал, **тексты и изображения если в макете** (MCP, pixel-perfect) → `.cursor/rules/figma-design.mdc`
+2. **`prototype/`** — **канон текстов RU**, UX, поведение, placeholder-медиа → `.cursor/rules/prototype-source.mdc`, `docs/CONTENT_SOURCES.md`
+3. **`MARKETING_SITE_SPEC.md`** — SEO, интеграции, legal framework; синхронизировать с прототипом
+4. **`js/config.js`** — Jivo, Telegram, Метрика, навигация
 
 ## Git
 
