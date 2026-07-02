@@ -96,8 +96,8 @@ test.describe('Header & Footer — Sprint 1', () => {
   test('footer CTA buttons match reference labels', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     const cta = page.locator('.site-footer__cta');
-    await expect(cta.getByRole('link', { name: 'Запросить КП / Демо', exact: true })).toBeVisible();
-    await expect(cta.getByRole('button', { name: 'Связаться' })).toBeVisible();
+    await expect(cta.getByRole('button', { name: 'Запросить КП / Демо', exact: true })).toBeVisible();
+    await expect(page.locator('#chat-fab')).toBeVisible();
   });
 
   test('footer product links point to product pages', async ({ page }) => {

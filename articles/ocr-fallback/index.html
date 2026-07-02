@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OCR чеков в промо: когда нужен fallback — Рег.Поинт</title>
+    <meta name="description" content="API ФНС недоступен в среднем 2–5% времени. Без fallback это потерянные регистрации и негатив участников. Разбираем, как OCR на Tesseract.js решает проблему…" />
+    <link rel="canonical" href="https://reg-point.ru/articles/ocr-fallback/" />
+    <meta property="og:title" content="OCR чеков в промо: когда нужен fallback — Рег.Поинт" />
+    <meta property="og:description" content="API ФНС недоступен в среднем 2–5% времени. Без fallback это потерянные регистрации и негатив участников. Разбираем, как OCR на Tesseract.js решает проблему…" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://reg-point.ru/articles/ocr-fallback/" />
+    <meta property="og:image" content="https://reg-point.ru/img/articles/cover-promo.jpg" />
+    <meta property="og:locale" content="ru_RU" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "OCR чеков в промо: когда нужен fallback", "description": "API ФНС недоступен в среднем 2–5% времени. Без fallback это потерянные регистрации и негатив участников. Разбираем, как OCR на Tesseract.js решает проблему и какие у него ограничения.", "datePublished": "2026-06-10", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-promo.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/ocr-fallback/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "OCR обрабатывается на сервере клиента или на стороннем?", "acceptedAnswer": {"@type": "Answer", "text": "Tesseract.js работает в браузере участника (WASM). Фото чека передаётся только на сервер клиента для хранения и ручной проверки. Никаких сторонних OCR-сервисов."}}, {"@type": "Question", "name": "Можно ли отключить OCR и оставить только API ФНС?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Fallback включается/выключается в настройках акции."}}]}</script>
+    <link rel="icon" href="/img/favicon.ico" sizes="any" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="theme-color" content="#243954" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+  </head>
+  <body data-page="article-ocr-fallback">
+<header class="site-header">
+      <div class="site-header__inner container">
+        <a class="site-header__logo" href="/">
+          <span class="site-header__logo-text">Рег.Поинт</span>
+        </a>
+        <nav class="site-header__nav" aria-label="Основная навигация">
+          <div class="site-header__dropdown" id="nav-products">
+            <button type="button" class="site-header__nav-toggle" id="nav-products-toggle" aria-expanded="false" aria-controls="nav-products-menu">
+              Продукты ▾
+            </button>
+            <div class="site-header__dropdown-menu" id="nav-products-menu" hidden>
+              <a href="/products/">Все модули — обзор</a>
+              <a href="/products/reg-point/">Рег.Поинт</a>
+              <a href="/products/promo-point/">Промо.Поинт</a>
+              <a href="/products/promo-pro/">Промо.Про</a>
+              <a href="/products/ticket-point/">Тикет.Поинт</a>
+            </div>
+          </div>
+          <a href="/pricing/">Цены</a>
+          <a href="/technology/">Технологии</a>
+          <a href="/compliance-152fz/">152-ФЗ</a>
+          <a href="/how-it-works/">Как работает</a>
+          <a href="/scenarios/">Сценарии</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/articles/">Статьи</a>
+          <a href="/contacts/">Контакты</a>
+        </nav>
+        <div class="site-header__actions">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
+        </div>
+        <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
+          <img class="site-header__burger-icon" src="/img/icons/icon-menu.svg" width="22" height="22" alt="" />
+        </button>
+      </div>
+    </header>
+
+    <div class="site-drawer" id="site-drawer" hidden>
+      <div class="site-drawer__panel">
+        <button type="button" data-drawer-close aria-label="Закрыть меню" class="btn btn--ghost-on-dark" style="margin-bottom: 1rem">✕</button>
+        <a class="site-drawer__link" href="/">Главная</a>
+        <a class="site-drawer__link" href="/products/">Продукты</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/reg-point/">Рег.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-point/">Промо.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-pro/">Промо.Про</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/ticket-point/">Тикет.Поинт</a>
+        <a class="site-drawer__link" href="/pricing/">Цены</a>
+        <a class="site-drawer__link" href="/technology/">Технологии</a>
+        <a class="site-drawer__link" href="/compliance-152fz/">152-ФЗ</a>
+        <a class="site-drawer__link" href="/how-it-works/">Как работает</a>
+        <a class="site-drawer__link" href="/scenarios/">Сценарии</a>
+        <a class="site-drawer__link" href="/faq/">FAQ</a>
+        <a class="site-drawer__link" href="/articles/">Статьи</a>
+        <a class="site-drawer__link" href="/contacts/">Контакты</a>
+        <div class="site-drawer__footer">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
+        </div>
+      </div>
+    </div>
+
+    
+    
+    
+    <main>
+      <div class="article-cover">
+        <img src="/img/articles/cover-promo.jpg" alt="" width="1200" height="400" class="article-cover__img" />
+      </div>
+      <section class="article-header">
+        <div class="container container--article">
+          <a class="article-back" href="/articles/">← Все статьи</a>
+          <div class="article-header__meta">
+            <span class="article-card__tag article-card__tag--accent">promo</span>
+            <span class="article-header__date">10 июня 2026</span>
+            <span class="article-header__time">· 6 мин</span>
+          </div>
+          <h1 class="article-header__title font-heading">OCR чеков в промо: когда нужен fallback</h1>
+          <p class="article-lead">API ФНС недоступен в среднем 2–5% времени. Без fallback это потерянные регистрации и негатив участников. Разбираем, как OCR на Tesseract.js решает проблему и какие у него ограничения.</p>
+        </div>
+      </section>
+      <section class="article-body">
+        <div class="container container--article">
+          <div class="article-sections">
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Проблема: API ФНС нестабилен</h2>
+              <p class="article-section__body">API kkt-online (tax.gov.ru) имеет регламентное обслуживание по ночам и периодические таймауты в пиковые часы. Если ваша акция активна в выходные (высокая нагрузка на ФНС), вероятность ошибки выше. Без fallback участник получает «ошибку проверки» и уходит — негатив в соцсетях, жалобы на горячую линию.</p>
+            </section>
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Как работает OCR fallback в Промо.Про</h2>
+              <p class="article-section__body">При таймауте API ФНС пользователю предлагается сфотографировать чек. Фото обрабатывается Tesseract.js (WASM, выполняется в браузере — данные не уходят на сторонний сервер). Распознаются: номер ФД, ФН, ФП, сумма, дата, время, ИНН. Запись ставится в статус «на верификации» — повторный запрос к ФНС идёт автоматически каждые 30 минут в течение 24 часов.</p>
+            </section>
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Точность OCR и типичные проблемы</h2>
+              <p class="article-section__body">Tesseract.js хорошо работает с термочеками стандартного формата. Проблемы: смятый или влажный чек (точность падает до 60–70%), ручная касса с нестандартным шрифтом, QR-код не читается из-за бликов. Рекомендации для акции: инструкция «сфотографируйте чек на белом фоне при хорошем освещении», ограничение на 2 попытки OCR.</p>
+            </section>
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Модерация сложных случаев</h2>
+              <p class="article-section__body">Записи с низкой уверенностью OCR (confidence &lt; 80%) помечаются флагом для ручной проверки оператором в кабинете. Director видит фото чека и поля, может подтвердить или отклонить вручную. Полный trail в audit log.</p>
+            </section>
+          </div>
+          <div class="article-faq">
+            <h2 class="article-faq__title font-heading">FAQ</h2>
+            <div class="article-faq__list">
+              <div class="article-faq__item">
+                <p class="article-faq__q font-heading">OCR обрабатывается на сервере клиента или на стороннем?</p>
+                <p class="article-faq__a">Tesseract.js работает в браузере участника (WASM). Фото чека передаётся только на сервер клиента для хранения и ручной проверки. Никаких сторонних OCR-сервисов.</p>
+              </div>
+              <div class="article-faq__item">
+                <p class="article-faq__q font-heading">Можно ли отключить OCR и оставить только API ФНС?</p>
+                <p class="article-faq__a">Да. Fallback включается/выключается в настройках акции.</p>
+              </div>
+            </div>
+          </div>
+          <div class="article-cta">
+            <h2 class="article-cta__title font-heading">Нужна промоакция с надёжной проверкой чеков?</h2>
+            <p class="article-cta__desc">Рег.Поинт — коробочная платформа. Данные на вашем сервере, 152-ФЗ из коробки.</p>
+            <div class="article-cta__actions">
+              <button type="button" class="btn btn--primary" data-action="jivo">Запросить КП / Демо →</button>
+              <a class="btn btn--secondary" href="/articles/">← Все статьи</a>
+            </div>
+          </div>
+          <div class="article-related">
+            <h2 class="article-related__title font-heading">Читайте также</h2>
+            <div class="article-related__grid">
+            <a class="article-related-card" href="/articles/self-hosted-vs-saas/">
+              <p class="article-related-card__meta">self-hosted · 7 мин</p>
+              <h3 class="article-related-card__title font-heading">Self-hosted vs SaaS: как выбрать регистрацию на мероприятие</h3>
+            </a>
+            <a class="article-related-card" href="/articles/152fz-checklist/">
+              <p class="article-related-card__meta">152-ФЗ · 9 мин</p>
+              <h3 class="article-related-card__title font-heading">152-ФЗ на мероприятии: чеклист для организатора</h3>
+            </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+<footer class="site-footer">
+      <div class="site-footer__cta">
+        <div class="container site-footer__cta-inner">
+          <div>
+            <h2 class="site-footer__cta-title font-heading">Готовы обсудить ваш сценарий?</h2>
+            <p class="site-footer__cta-desc">Подберём модули и услуги внедрения — пришлём КП в течение 1–2 рабочих дней.</p>
+          </div>
+          <div class="site-footer__cta-actions">
+            <button type="button" class="btn btn--white btn--footer-demo" data-action="jivo">Запросить КП / Демо</button>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__body">
+        <div class="container">
+          <div class="site-footer__grid">
+            <div class="site-footer__col site-footer__col--brand">
+              <p class="site-footer__brand-name">Рег.Поинт</p>
+              <p class="site-footer__brand-desc">Коробочная платформа для регистрации на мероприятия и промоакции. Self-hosted на VPS клиента.</p>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Продукты</p>
+              <ul class="site-footer__links">
+                <li><a href="/products/reg-point/">Рег.Поинт</a></li>
+                <li><a href="/products/promo-point/">Промо.Поинт</a></li>
+                <li><a href="/products/promo-pro/">Промо.Про</a></li>
+                <li><a href="/products/ticket-point/">Тикет.Поинт</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Компания</p>
+              <ul class="site-footer__links">
+                <li><a href="/pricing/">Цены</a></li>
+                <li><a href="/technology/">Технологии</a></li>
+                <li><a href="/compliance-152fz/">152-ФЗ</a></li>
+                <li><a href="/how-it-works/">Как работает</a></li>
+                <li><a href="/articles/">Статьи</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Правовое</p>
+              <ul class="site-footer__links">
+                <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/contacts/">Контакты</a></li>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/scenarios/">Сценарии</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__bottom">
+            <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <div class="container cookie-banner__inner">
+        <p class="cookie-banner__text">
+          Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
+          <a href="/privacy/">Политике конфиденциальности</a>.
+          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
+        </p>
+        <div class="cookie-banner__actions">
+          <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
+          <button type="button" class="btn btn--outline-on-dark btn--cookie" id="cookie-essential">Только необходимые</button>
+        </div>
+      </div>
+    </div>
+
+
+                <script src="/js/config.js"></script>
+    <script src="/js/jivo.js"></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/lang.js" defer></script>
+    <script src="/js/contact.js" defer></script>
+    <script src="/js/analytics.js" defer></script>
+    <script src="/js/cookies.js" defer></script>
+    <script src="/js/bootstrap.js" defer></script>
+  </body>
+</html>
+

@@ -18,7 +18,7 @@
 - [ ] Все тексты RU — из `App.tsx` / Figma (см. `docs/CONTENT_SOURCES.md`)
 - [ ] 10 статей — полный текст из `ARTICLES[]`
 - [ ] Meta title + description на каждой странице
-- [ ] Privacy — юридически согласовано (не только stub из прототипа)
+- [x] Privacy — `/privacy/` live (ИП Мельникова; email — позже)
 - [ ] EN: scope выполнен по решению заказчика
 
 ---
@@ -37,7 +37,7 @@
 - [x] Header: nav, dropdown продуктов, RU/EN, CTA (прототип)
 - [x] Footer: 4 col + CTA band
 - [x] Contact modal → Jivo + Telegram
-- [ ] Cookie banner
+- [x] Cookie banner
 - [ ] Responsive 375 / 768 / 1280 — без horizontal scroll
 - [ ] Pixel-perfect сверка ключевых страниц с Figma
 
@@ -91,4 +91,4 @@
 | EN | 10% |
 | QA + deploy | 10% |
 
-Текущая оценка: **~40%** (Sprint 1: chrome + home RU; Sprint 2: products + pricing RU).
+Текущая оценка: **~55%** (Sprint 1–2: chrome, home, products, pricing; Sprint 3: content pages + contacts RU).

@@ -1,10 +1,20 @@
 import { test, expect } from '@playwright/test';
 
+async function mockJivo(page) {
+  await page.addInitScript(() => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    window.__jivoOpenCount = 0;
+    window.jivo_api = {
+      open: () => {
+        window.__jivoOpenCount += 1;
+      },
+    };
+  });
+}
+
 test.describe('Home — Sprint 1', () => {
   test.beforeEach(async ({ page }) => {
-    await page.addInitScript(() => {
-      localStorage.setItem('cookie-consent', 'accepted');
-    });
+    await mockJivo(page);
     await page.goto('/');
   });
 
@@ -12,7 +22,7 @@ test.describe('Home — Sprint 1', () => {
     await expect(page.locator('main h1')).toHaveCount(1);
     await expect(page.locator('main h1')).toContainText('вашем');
     await expect(page.getByText('Self-hosted · Docker · 152-ФЗ')).toBeVisible();
-    await expect(page.getByRole('link', { name: 'Запросить КП / Демо' }).first()).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Запросить КП / Демо' }).first()).toBeVisible();
   });
 
   test('trust block has three items with Figma icons', async ({ page }) => {
@@ -45,11 +55,15 @@ test.describe('Home — Sprint 1', () => {
     await expect(page.getByRole('link', { name: /Self-hosted vs SaaS/ })).toBeVisible();
   });
 
-  test('contact modal opens and shows demo option', async ({ page }) => {
-    await page.getByRole('button', { name: 'Связаться' }).first().click();
-    await expect(page.locator('#contact-modal')).toBeVisible();
-    await expect(page.locator('#contact-modal')).toContainText('Онлайн-чат');
-    await expect(page.locator('#contact-modal')).toContainText('Запросить КП / Демо');
+  test('header demo button opens Jivo chat', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.getByRole('button', { name: 'Запросить КП / Демо' }).first().click();
+    await expect(page.evaluate(() => window.__jivoOpenCount)).resolves.toBe(1);
+  });
+
+  test('chat fab opens Jivo chat', async ({ page }) => {
+    await page.locator('#chat-fab').click();
+    await expect(page.evaluate(() => window.__jivoOpenCount)).resolves.toBe(1);
   });
 
   test('hero image visible on desktop', async ({ page }) => {

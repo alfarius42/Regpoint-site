@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>152-ФЗ в Рег.Поинт — персональные данные на вашем сервере</title>
+    <meta name="description" content="Шифрование ПД, audit log, согласия per-event, запрос удаления, self-hosted. Как Рег.Поинт помогает соблюдать 152-ФЗ на мероприятиях." />
+    <link rel="canonical" href="https://reg-point.ru/compliance-152fz/" />
+    <meta property="og:title" content="152-ФЗ в Рег.Поинт — персональные данные на вашем сервере" />
+    <meta property="og:description" content="Шифрование ПД, audit log, согласия per-event, запрос удаления, self-hosted. Как Рег.Поинт помогает соблюдать 152-ФЗ на мероприятиях." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://reg-point.ru/compliance-152fz/" />
+    <meta property="og:locale" content="ru_RU" />
+    <link rel="icon" href="/img/favicon.ico" sizes="any" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="theme-color" content="#243954" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+  </head>
+  <body data-page="compliance">
+<header class="site-header">
+      <div class="site-header__inner container">
+        <a class="site-header__logo" href="/">
+          <span class="site-header__logo-text">Рег.Поинт</span>
+        </a>
+        <nav class="site-header__nav" aria-label="Основная навигация">
+          <div class="site-header__dropdown" id="nav-products">
+            <button type="button" class="site-header__nav-toggle" id="nav-products-toggle" aria-expanded="false" aria-controls="nav-products-menu">
+              Продукты ▾
+            </button>
+            <div class="site-header__dropdown-menu" id="nav-products-menu" hidden>
+              <a href="/products/">Все модули — обзор</a>
+              <a href="/products/reg-point/">Рег.Поинт</a>
+              <a href="/products/promo-point/">Промо.Поинт</a>
+              <a href="/products/promo-pro/">Промо.Про</a>
+              <a href="/products/ticket-point/">Тикет.Поинт</a>
+            </div>
+          </div>
+          <a href="/pricing/">Цены</a>
+          <a href="/technology/">Технологии</a>
+          <a href="/compliance-152fz/">152-ФЗ</a>
+          <a href="/how-it-works/">Как работает</a>
+          <a href="/scenarios/">Сценарии</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/articles/">Статьи</a>
+          <a href="/contacts/">Контакты</a>
+        </nav>
+        <div class="site-header__actions">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
+        </div>
+        <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
+          <img class="site-header__burger-icon" src="/img/icons/icon-menu.svg" width="22" height="22" alt="" />
+        </button>
+      </div>
+    </header>
+
+    <div class="site-drawer" id="site-drawer" hidden>
+      <div class="site-drawer__panel">
+        <button type="button" data-drawer-close aria-label="Закрыть меню" class="btn btn--ghost-on-dark" style="margin-bottom: 1rem">✕</button>
+        <a class="site-drawer__link" href="/">Главная</a>
+        <a class="site-drawer__link" href="/products/">Продукты</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/reg-point/">Рег.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-point/">Промо.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-pro/">Промо.Про</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/ticket-point/">Тикет.Поинт</a>
+        <a class="site-drawer__link" href="/pricing/">Цены</a>
+        <a class="site-drawer__link" href="/technology/">Технологии</a>
+        <a class="site-drawer__link" href="/compliance-152fz/">152-ФЗ</a>
+        <a class="site-drawer__link" href="/how-it-works/">Как работает</a>
+        <a class="site-drawer__link" href="/scenarios/">Сценарии</a>
+        <a class="site-drawer__link" href="/faq/">FAQ</a>
+        <a class="site-drawer__link" href="/articles/">Статьи</a>
+        <a class="site-drawer__link" href="/contacts/">Контакты</a>
+        <div class="site-drawer__footer">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
+        </div>
+      </div>
+    </div>
+
+    
+    
+    <main>
+      <section class="page-hero page-hero--navy">
+        <div class="container">
+          <p class="section-label section-label--light">Правовое</p>
+          <h1 class="page-hero__title font-heading page-hero__title--on-dark">Персональные данные на мероприятиях и <span class="page-hero__title-accent">152-ФЗ</span></h1>
+          <p class="page-hero__lead page-hero__lead--on-dark">Регистрация участников — обработка ПД. Рег.Поинт проектируется с compliance-by-design: не как дополнительный тариф, а как базовая функция каждого модуля.</p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="card-grid card-grid--2 content-intro-grid">
+            <div class="content-intro">
+              <p class="section-label">Фундамент</p>
+              <h2 class="content-intro__title font-heading">Self-hosted — фундамент compliance</h2>
+              <p class="content-intro__text">Когда база на VPS заказчика, вы определяете: где физически хранятся данные, кто администратор, как устроены бэкапы и доступ. Это принципиально иной уровень контроля, чем SaaS с мультиарендностью.</p>
+            </div>
+            <div class="content-intro">
+              <p class="section-label">Договор</p>
+              <h2 class="content-intro__title font-heading">Соглашение об обработке ПД на мероприятие</h2>
+              <p class="content-intro__text">Организатор указывает оператора ПД, цели обработки, ссылки на политику — для каждого event. Система не подставляет «общую» политику vendor'а.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section--muted">
+        <div class="container">
+          <div class="pricing-block-head">
+            <p class="section-label">В каждом модуле</p>
+            <h2 class="pricing-block__title font-heading">Что входит в compliance-стек</h2>
+          </div>
+          <div class="table-scroll">
+            <table class="pricing-table pricing-table--compliance">
+              <caption class="visually-hidden">Функции compliance в Рег.Поинт</caption>
+              <thead>
+                <tr>
+                  <th>Функция</th>
+                  <th>Описание</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Шифрование</td><td>AES-256-GCM для чувствительных полей</td></tr>
+                <tr><td>Audit log</td><td>Журнал доступа к ПД (access_logs)</td></tr>
+                <tr><td>Согласие</td><td>Текст согласия на каждое мероприятие — ручной ввод оператора</td></tr>
+                <tr><td>Удаление</td><td>Публичный запрос участника на удаление ПД</td></tr>
+                <tr><td>Роли</td><td>Маскирование ПД для manager</td></tr>
+                <tr><td>Retention</td><td>Настраиваемый срок хранения</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="section-cta">
+            <button type="button" class="btn btn--primary" data-action="jivo">Обсудить compliance для вашей отрасли</button>
+          </div>
+        </div>
+      </section>
+    </main>
+<footer class="site-footer">
+      <div class="site-footer__cta">
+        <div class="container site-footer__cta-inner">
+          <div>
+            <h2 class="site-footer__cta-title font-heading">Готовы обсудить ваш сценарий?</h2>
+            <p class="site-footer__cta-desc">Подберём модули и услуги внедрения — пришлём КП в течение 1–2 рабочих дней.</p>
+          </div>
+          <div class="site-footer__cta-actions">
+            <button type="button" class="btn btn--white btn--footer-demo" data-action="jivo">Запросить КП / Демо</button>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__body">
+        <div class="container">
+          <div class="site-footer__grid">
+            <div class="site-footer__col site-footer__col--brand">
+              <p class="site-footer__brand-name">Рег.Поинт</p>
+              <p class="site-footer__brand-desc">Коробочная платформа для регистрации на мероприятия и промоакции. Self-hosted на VPS клиента.</p>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Продукты</p>
+              <ul class="site-footer__links">
+                <li><a href="/products/reg-point/">Рег.Поинт</a></li>
+                <li><a href="/products/promo-point/">Промо.Поинт</a></li>
+                <li><a href="/products/promo-pro/">Промо.Про</a></li>
+                <li><a href="/products/ticket-point/">Тикет.Поинт</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Компания</p>
+              <ul class="site-footer__links">
+                <li><a href="/pricing/">Цены</a></li>
+                <li><a href="/technology/">Технологии</a></li>
+                <li><a href="/compliance-152fz/">152-ФЗ</a></li>
+                <li><a href="/how-it-works/">Как работает</a></li>
+                <li><a href="/articles/">Статьи</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Правовое</p>
+              <ul class="site-footer__links">
+                <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/contacts/">Контакты</a></li>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/scenarios/">Сценарии</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__bottom">
+            <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <div class="container cookie-banner__inner">
+        <p class="cookie-banner__text">
+          Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
+          <a href="/privacy/">Политике конфиденциальности</a>.
+          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
+        </p>
+        <div class="cookie-banner__actions">
+          <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
+          <button type="button" class="btn btn--outline-on-dark btn--cookie" id="cookie-essential">Только необходимые</button>
+        </div>
+      </div>
+
+
+            <script src="/js/config.js"></script>
+    <script src="/js/jivo.js"></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/lang.js" defer></script>
+    <script src="/js/contact.js" defer></script>
+    <script src="/js/analytics.js" defer></script>
+    <script src="/js/cookies.js" defer></script>
+    <script src="/js/seo.js" defer></script>
+    <script src="/js/bootstrap.js" defer></script>
+  </body>
+</html>
+

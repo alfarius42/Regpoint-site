@@ -13,8 +13,8 @@
 | 0 | Docs, CI, skeleton | ~15% | 🟡 logo/favicon baseline; email — позже |
 | 1 | Chrome: header, footer, home | ~20% | ✅ |
 | 2 | Products + pricing | ~40% | ✅ |
-| 3 | Content pages + contacts | ~55% | ⬜ |
-| 4 | Privacy, legal, shared JS | ~65% | ⬜ |
+| 3 | Content pages + contacts | ~55% | ✅ |
+| 4 | Privacy, legal, shared JS | ~65% | 🟡 |
 | 5 | Articles + SEO | ~80% | ⬜ |
 | 6 | EN + i18n | ~88% | ⬜ |
 | 7 | Integrations prod | ~93% | ⬜ |
@@ -119,16 +119,16 @@
 
 **Источник:** `TechnologyPage`, `CompliancePage`, `HowItWorksPage`, `ScenariosPage`, `FaqPage`, `ContactsPage`.
 
-- [ ] `/technology/` — infra, backend, frontend, integrations blocks
-- [ ] `/compliance-152fz/` — compliance table + per-event PD
-- [ ] `/how-it-works/` — 6 steps timeline
-- [ ] `/scenarios/` — scenarios table
-- [ ] `/faq/` — 8 accordion items (full list from `FaqPage`)
-- [ ] `/contacts/` — sidebar + `#demo` block layout
-- [ ] Contacts: support vs presales sections
-- [ ] Duplicate header/footer on all pages
-- [ ] `sitemap.xml` — добавить новые URL
-- [ ] e2e smoke per page (h1 + main CTA)
+- [x] `/technology/` — infra, backend, frontend, integrations blocks
+- [x] `/compliance-152fz/` — compliance table + per-event PD
+- [x] `/how-it-works/` — 6 steps timeline
+- [x] `/scenarios/` — scenarios table
+- [x] `/faq/` — 8 accordion items (full list from `FaqPage`)
+- [x] `/contacts/` — sidebar + `#demo` block layout
+- [x] Contacts: support vs presales sections
+- [x] Duplicate header/footer on all pages
+- [x] `sitemap.xml` — добавить новые URL
+- [x] e2e smoke per page (h1 + main CTA)
 
 **Sprint 3 DoD:** все информационные страницы RU кроме articles/privacy/en.
 
@@ -136,13 +136,13 @@
 
 ## Sprint 4 — Privacy, cookie, shared modules
 
-- [ ] `/privacy/` — ИП Мельникова К.А., ИНН 644917769371, ОГРНИП 325508100578539; без GA4; Jivo + Метрика (когда ID)
+- [x] `/privacy/` — ИП Мельникова К.А., ИНН 644917769371, ОГРНИП 325508100578539; без GA4; Jivo + Метрика (когда ID)
 - [ ] Карточка ИП (ОГРН, адрес, email) — по мере поступления
-- [ ] Cookie banner на всех страницах
-- [ ] `js/cookies.js` + `js/analytics.js` wired
-- [ ] Refactor: общий блок `<head>` meta pattern (copy template)
-- [ ] `js/seo.js` — optional JSON-LD inject per page type
-- [ ] e2e `privacy-cookies.spec.js`
+- [x] Cookie banner на всех страницах
+- [x] `js/cookies.js` + `js/analytics.js` wired
+- [x] Refactor: общий блок `<head>` meta pattern (copy template)
+- [x] `js/seo.js` — optional JSON-LD inject per page type
+- [x] e2e `privacy-cookies.spec.js`
 
 **Sprint 4 DoD:** legal page live; cookie flow complete (Metrika deferred).
 
@@ -153,25 +153,25 @@
 **Источник:** `ArticlesPage`, `ARTICLES[]`, `ArticleDetailPage`.
 
 ### 5.1 Listing `/articles/`
-- [ ] Tag filter UI (6 tags)
-- [ ] 10 cards grid
-- [ ] «скоро» badge logic (N/A — all have content in prototype)
+- [x] Tag filter UI (6 tags)
+- [x] 10 cards grid
+- [x] «скоро» badge logic (N/A — all have content in prototype)
 
 ### 5.2 Article pages (×10)
-- [ ] HTML per slug with full text from `ARTICLES`
-- [ ] Cover image from `img/articles/` (Figma/tag map)
-- [ ] FAQ block + Article schema
-- [ ] CTA footer + productRef link
-- [ ] Related articles (2)
+- [x] HTML per slug with full text from `ARTICLES`
+- [x] Cover image from `img/articles/` (Figma/tag map)
+- [x] FAQ block + Article schema
+- [x] CTA footer + productRef link
+- [x] Related articles (2)
 
 ### 5.3 SEO infra
-- [ ] `sitemap.xml` — all articles
+- [x] `sitemap.xml` — all articles
 - [ ] OG images `img/og/articles/{slug}.png`
 - [ ] Schema: Organization (home), FAQPage, Product offers (pricing)
 - [ ] `robots.txt` verify
 
 ### 5.4 Tests
-- [ ] e2e: articles list, open 2 articles, internal links
+- [x] e2e: articles list, open 2 articles, internal links
 
 **Sprint 5 DoD:** organic content live; SEO baseline complete RU.
 

@@ -37,11 +37,14 @@ test.describe('Products & Pricing — Sprint 2', () => {
     await expect(page.locator('.article-card')).toHaveCount(3);
   });
 
-  test('ticket-point notify form shows success on submit', async ({ page }) => {
+  test('ticket-point notify CTA opens Jivo', async ({ page }) => {
+    await page.addInitScript(() => {
+      window.__jivoOpenCount = 0;
+      window.jivo_api = { open: () => { window.__jivoOpenCount += 1; } };
+    });
     await page.goto('/products/ticket-point/');
-    await page.locator('.notify-form__input').fill('test@example.com');
-    await page.locator('.notify-form').evaluate((form) => form.requestSubmit());
-    await expect(page.locator('.notify-form__success')).toBeVisible();
+    await page.getByRole('button', { name: 'Уведомить в чате' }).click();
+    await expect(page.evaluate(() => window.__jivoOpenCount)).resolves.toBe(1);
   });
 
   test('pricing page has title and license table', async ({ page }) => {
@@ -59,9 +62,14 @@ test.describe('Products & Pricing — Sprint 2', () => {
     await expect(page.locator('.accordion__item.is-open .accordion__panel').first()).toContainText('коробочная лицензия');
   });
 
-  test('pricing page has demo CTA to contacts', async ({ page }) => {
+  test('pricing page has demo CTA that opens Jivo', async ({ page }) => {
+    await page.addInitScript(() => {
+      window.__jivoOpenCount = 0;
+      window.jivo_api = { open: () => { window.__jivoOpenCount += 1; } };
+    });
     await page.goto('/pricing/');
-    await expect(page.locator('a[href="/contacts/#demo"]').first()).toBeVisible();
+    await page.locator('[data-action="jivo"]').first().click();
+    await expect(page.evaluate(() => window.__jivoOpenCount)).resolves.toBe(1);
   });
 
   test('pricing sticky bar appears after scroll', async ({ page }) => {

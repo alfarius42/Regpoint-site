@@ -124,7 +124,8 @@
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: var(--space-1);
+  margin-top: 0;
+  padding-top: var(--space-1);
   min-width: 14rem;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -441,6 +442,11 @@
 
 .site-footer__col a:hover {
   color: var(--color-text-on-dark);
+}
+
+.site-footer__links a[aria-current="page"] {
+  color: #fff;
+  font-weight: 600;
 }
 
 .site-footer__bottom {

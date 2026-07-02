@@ -30,3 +30,4 @@ Thumbs.db
 
 # Image sources before optimization
 ImageSources/
+.firecrawl/

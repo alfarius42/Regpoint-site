@@ -50,12 +50,41 @@
     var menu = qs('#nav-products-menu');
     if (!wrap || !toggle || !menu) return;
 
-    wrap.addEventListener('mouseenter', openProductsMenu);
-    wrap.addEventListener('mouseleave', closeProductsMenu);
+    var closeTimer = null;
+    var CLOSE_DELAY_MS = 120;
+
+    function scheduleClose() {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(closeProductsMenu, CLOSE_DELAY_MS);
+    }
+
+    function cancelClose() {
+      clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+
+    function openOnHover() {
+      cancelClose();
+      openProductsMenu();
+    }
+
+    wrap.addEventListener('mouseenter', openOnHover);
+    menu.addEventListener('mouseenter', openOnHover);
+
+    wrap.addEventListener('mouseleave', function (e) {
+      if (menu.contains(e.relatedTarget)) return;
+      scheduleClose();
+    });
+
+    menu.addEventListener('mouseleave', function (e) {
+      if (wrap.contains(e.relatedTarget)) return;
+      scheduleClose();
+    });
 
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
+      cancelClose();
       if (menu.hidden) openProductsMenu();
       else closeProductsMenu();
     });

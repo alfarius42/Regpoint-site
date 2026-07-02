@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Технологии Рег.Поинт — Docker, REST API, модульный монолит</title>
+    <meta name="description" content="Node.js, React, MySQL 8, Docker-compose. Модульный монолит с REST API. Развёртывание на Linux VPS. Без vendor lock-in SaaS." />
+    <link rel="canonical" href="https://reg-point.ru/technology/" />
+    <meta property="og:title" content="Технологии Рег.Поинт — Docker, REST API, модульный монолит" />
+    <meta property="og:description" content="Node.js, React, MySQL 8, Docker-compose. Модульный монолит с REST API. Развёртывание на Linux VPS. Без vendor lock-in SaaS." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://reg-point.ru/technology/" />
+    <meta property="og:locale" content="ru_RU" />
+    <link rel="icon" href="/img/favicon.ico" sizes="any" />
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <meta name="theme-color" content="#243954" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/pages.css" />
+  </head>
+  <body data-page="technology">
+<header class="site-header">
+      <div class="site-header__inner container">
+        <a class="site-header__logo" href="/">
+          <span class="site-header__logo-text">Рег.Поинт</span>
+        </a>
+        <nav class="site-header__nav" aria-label="Основная навигация">
+          <div class="site-header__dropdown" id="nav-products">
+            <button type="button" class="site-header__nav-toggle" id="nav-products-toggle" aria-expanded="false" aria-controls="nav-products-menu">
+              Продукты ▾
+            </button>
+            <div class="site-header__dropdown-menu" id="nav-products-menu" hidden>
+              <a href="/products/">Все модули — обзор</a>
+              <a href="/products/reg-point/">Рег.Поинт</a>
+              <a href="/products/promo-point/">Промо.Поинт</a>
+              <a href="/products/promo-pro/">Промо.Про</a>
+              <a href="/products/ticket-point/">Тикет.Поинт</a>
+            </div>
+          </div>
+          <a href="/pricing/">Цены</a>
+          <a href="/technology/">Технологии</a>
+          <a href="/compliance-152fz/">152-ФЗ</a>
+          <a href="/how-it-works/">Как работает</a>
+          <a href="/scenarios/">Сценарии</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/articles/">Статьи</a>
+          <a href="/contacts/">Контакты</a>
+        </nav>
+        <div class="site-header__actions">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
+        </div>
+        <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
+          <img class="site-header__burger-icon" src="/img/icons/icon-menu.svg" width="22" height="22" alt="" />
+        </button>
+      </div>
+    </header>
+
+    <div class="site-drawer" id="site-drawer" hidden>
+      <div class="site-drawer__panel">
+        <button type="button" data-drawer-close aria-label="Закрыть меню" class="btn btn--ghost-on-dark" style="margin-bottom: 1rem">✕</button>
+        <a class="site-drawer__link" href="/">Главная</a>
+        <a class="site-drawer__link" href="/products/">Продукты</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/reg-point/">Рег.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-point/">Промо.Поинт</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/promo-pro/">Промо.Про</a>
+        <a class="site-drawer__link site-drawer__sub" href="/products/ticket-point/">Тикет.Поинт</a>
+        <a class="site-drawer__link" href="/pricing/">Цены</a>
+        <a class="site-drawer__link" href="/technology/">Технологии</a>
+        <a class="site-drawer__link" href="/compliance-152fz/">152-ФЗ</a>
+        <a class="site-drawer__link" href="/how-it-works/">Как работает</a>
+        <a class="site-drawer__link" href="/scenarios/">Сценарии</a>
+        <a class="site-drawer__link" href="/faq/">FAQ</a>
+        <a class="site-drawer__link" href="/articles/">Статьи</a>
+        <a class="site-drawer__link" href="/contacts/">Контакты</a>
+        <div class="site-drawer__footer">
+          <div class="site-header__lang" role="group" aria-label="Язык">
+            <a href="/" aria-current="true" data-lang="ru">RU</a>
+            <a href="/en/" data-lang="en">EN</a>
+          </div>
+          <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
+        </div>
+      </div>
+    </div>
+
+    
+    
+    <main>
+      <section class="page-hero page-hero--content">
+        <div class="container">
+          <p class="section-label">Архитектура</p>
+          <h1 class="page-hero__title font-heading">Технологии и архитектура</h1>
+          <p class="page-hero__lead"><strong>Рег.Поинт</strong> — модульный монолит: одно deployable-приложение (SPA + API), доменные модули изолированы, контракт — HTTP REST.</p>
+        </div>
+      </section>
+      <section class="section section--muted">
+        <div class="container">
+          <div class="card-grid card-grid--2 card-grid--4 tech-card-grid">
+            <article class="tech-card">
+              <img class="tech-card__icon" src="/img/icons/trust-server.svg" width="22" height="22" alt="" />
+              <h2 class="tech-card__title font-heading">Инфраструктура</h2>
+              <ul class="tech-card__list">
+                <li>Docker-compose на Linux VPS (2+ GB RAM)</li>
+                <li>MySQL 8 — данные на сервере клиента</li>
+                <li>HTTPS, runbook деплоя</li>
+              </ul>
+            </article>
+            <article class="tech-card">
+              <img class="tech-card__icon" src="/img/icons/trust-package.svg" width="22" height="22" alt="" />
+              <h2 class="tech-card__title font-heading">Backend</h2>
+              <ul class="tech-card__list">
+                <li>Node.js 20, Express 4</li>
+                <li>REST API (/api/…), публичные /api/public/*</li>
+                <li>AES-256-GCM для ПД, audit log</li>
+              </ul>
+            </article>
+            <article class="tech-card">
+              <img class="tech-card__icon" src="/img/icons/trust-shield.svg" width="22" height="22" alt="" />
+              <h2 class="tech-card__title font-heading">Frontend</h2>
+              <ul class="tech-card__list">
+                <li>React 18, TypeScript, Vite</li>
+                <li>Публичные страницы регистрации</li>
+                <li>SSR-ready static</li>
+              </ul>
+            </article>
+            <article class="tech-card">
+              <img class="tech-card__icon" src="/img/icons/trust-server.svg" width="22" height="22" alt="" />
+              <h2 class="tech-card__title font-heading">Интеграции</h2>
+              <ul class="tech-card__list">
+                <li>API ФНС kkt-online (Промо.Про)</li>
+                <li>ЮKassa (Тикет.Поинт)</li>
+                <li>OCR Tesseract.js (fallback)</li>
+              </ul>
+            </article>
+          </div>
+          <div class="client-benefits">
+            <div class="client-benefits__head">
+              <h2 class="client-benefits__title font-heading">Что это значит для вас как заказчика</h2>
+            </div>
+            <div class="client-benefits__grid">
+              <div class="client-benefits__col">
+                <h3 class="client-benefits__name font-heading">Без vendor lock-in</h3>
+                <p class="client-benefits__text">Docker-образ разворачивается на любом Linux VPS — у вашего хостера в РФ или на корпоративной инфраструктуре. Нет привязки к облаку конкретного вендора. Смена сервера — перевыпуск лицензии (15 000 ₽).</p>
+              </div>
+              <div class="client-benefits__col">
+                <h3 class="client-benefits__name font-heading">Данные остаются у вас</h3>
+                <p class="client-benefits__text">MySQL 8 хранит базу участников физически на вашем сервере. Рег.Поинт не имеет доступа к вашим данным после деплоя — нет «звонка домой», нет синхронизации в облако вендора.</p>
+              </div>
+              <div class="client-benefits__col">
+                <h3 class="client-benefits__name font-heading">Стандартный стек — нет чёрных ящиков</h3>
+                <p class="client-benefits__text">Node.js + MySQL + Docker — технологии, которые ваш DevOps уже знает. Runbook для деплоя прилагается к лицензии. REST API задокументирован — интеграции с вашей CRM через стандартные HTTP-запросы.</p>
+              </div>
+            </div>
+          </div>
+          <div class="tech-vps-grid">
+            <div class="vps-spec">
+              <h2 class="vps-spec__title font-heading">Минимальные требования к VPS</h2>
+              <ul class="vps-spec__list">
+                <li><span class="vps-spec__param">ОС</span><span>Ubuntu 22.04 LTS или Debian 12</span></li>
+                <li><span class="vps-spec__param">CPU</span><span>2 vCPU (4 vCPU рекомендуется)</span></li>
+                <li><span class="vps-spec__param">RAM</span><span>2 GB (4 GB для Промо.Про с OCR)</span></li>
+                <li><span class="vps-spec__param">Диск</span><span>20 GB SSD (50 GB для production)</span></li>
+                <li><span class="vps-spec__param">Сеть</span><span>Статический IP или домен с A-записью</span></li>
+                <li><span class="vps-spec__param">HTTPS</span><span>Let's Encrypt — настраивается в runbook</span></li>
+              </ul>
+              <p class="vps-spec__foot">Хостеры РФ: Selectel, Timeweb Cloud, Beget VPS, МТС Cloud, Яндекс Cloud</p>
+            </div>
+            <div class="tech-vps-side">
+              <div class="turnkey-card">
+                <h3 class="turnkey-card__title font-heading">Нет своего DevOps?</h3>
+                <p class="turnkey-card__text">Услуга «Turnkey» — развернём Рег.Поинт на вашем VPS, настроим HTTPS, проведём smoke-test. Всё, что нужно — предоставить SSH-доступ.</p>
+                <div class="turnkey-card__price font-heading">45 000 ₽</div>
+                <p class="turnkey-card__note">Turnkey-внедрение под ключ</p>
+              </div>
+              <button type="button" class="btn btn--primary btn--block" data-action="jivo">Запросить технические требования (PDF) →</button>
+            </div>
+          </div>
+          <div class="api-block">
+            <h2 class="api-block__title font-heading">REST API для интеграций</h2>
+            <p class="api-block__text">Публичные endpoints <code class="api-block__code">/api/public/*</code> позволяют интегрировать Рег.Поинт с вашей CRM, сайтом или мобильным приложением. Кастомные интеграции — отдельный SKU внедрения.</p>
+            <div class="api-tags">
+              <span class="api-tag">Bitrix24</span>
+              <span class="api-tag">amoCRM</span>
+              <span class="api-tag">1С</span>
+              <span class="api-tag">Telegram Bot</span>
+              <span class="api-tag">Email / SMS</span>
+              <span class="api-tag">Webhook</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+<footer class="site-footer">
+      <div class="site-footer__cta">
+        <div class="container site-footer__cta-inner">
+          <div>
+            <h2 class="site-footer__cta-title font-heading">Готовы обсудить ваш сценарий?</h2>
+            <p class="site-footer__cta-desc">Подберём модули и услуги внедрения — пришлём КП в течение 1–2 рабочих дней.</p>
+          </div>
+          <div class="site-footer__cta-actions">
+            <button type="button" class="btn btn--white btn--footer-demo" data-action="jivo">Запросить КП / Демо</button>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__body">
+        <div class="container">
+          <div class="site-footer__grid">
+            <div class="site-footer__col site-footer__col--brand">
+              <p class="site-footer__brand-name">Рег.Поинт</p>
+              <p class="site-footer__brand-desc">Коробочная платформа для регистрации на мероприятия и промоакции. Self-hosted на VPS клиента.</p>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Продукты</p>
+              <ul class="site-footer__links">
+                <li><a href="/products/reg-point/">Рег.Поинт</a></li>
+                <li><a href="/products/promo-point/">Промо.Поинт</a></li>
+                <li><a href="/products/promo-pro/">Промо.Про</a></li>
+                <li><a href="/products/ticket-point/">Тикет.Поинт</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Компания</p>
+              <ul class="site-footer__links">
+                <li><a href="/pricing/">Цены</a></li>
+                <li><a href="/technology/">Технологии</a></li>
+                <li><a href="/compliance-152fz/">152-ФЗ</a></li>
+                <li><a href="/how-it-works/">Как работает</a></li>
+                <li><a href="/articles/">Статьи</a></li>
+              </ul>
+            </div>
+            <div class="site-footer__col">
+              <p class="site-footer__col-title">Правовое</p>
+              <ul class="site-footer__links">
+                <li><a href="/privacy/">Политика конфиденциальности</a></li>
+                <li><a href="/contacts/">Контакты</a></li>
+                <li><a href="/faq/">FAQ</a></li>
+                <li><a href="/scenarios/">Сценарии</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="site-footer__bottom">
+            <p class="site-footer__copy">© 2026 Рег.Поинт. Все права защищены.</p>
+            <p class="site-footer__tech">Self-hosted · Docker · MySQL · 152-ФЗ</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="cookie-banner" id="cookie-banner" hidden>
+      <div class="container cookie-banner__inner">
+        <p class="cookie-banner__text">
+          Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
+          <a href="/privacy/">Политике конфиденциальности</a>.
+          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
+        </p>
+        <div class="cookie-banner__actions">
+          <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
+          <button type="button" class="btn btn--outline-on-dark btn--cookie" id="cookie-essential">Только необходимые</button>
+        </div>
+      </div>
+
+
+            <script src="/js/config.js"></script>
+    <script src="/js/jivo.js"></script>
+    <script src="/js/header.js" defer></script>
+    <script src="/js/lang.js" defer></script>
+    <script src="/js/contact.js" defer></script>
+    <script src="/js/analytics.js" defer></script>
+    <script src="/js/cookies.js" defer></script>
+    <script src="/js/seo.js" defer></script>
+    <script src="/js/bootstrap.js" defer></script>
+  </body>
+</html>
+

@@ -41,7 +41,7 @@ window.SITE_CONFIG = {
     { label: 'Контакты', href: '/contacts/' },
   ],
 
-  demoUrl: '/contacts/#demo',
+  contactsUrl: '/contacts/',
 
   /** Email оператора для privacy — заполнить когда будет создан */
   privacyEmail: '',

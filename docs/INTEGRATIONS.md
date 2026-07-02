@@ -4,7 +4,7 @@
 
 ---
 
-## Jivo — чат и форма «КП / Демо»
+## Jivo — единственный канал связи
 
 | Параметр | Значение |
 |----------|----------|
@@ -12,29 +12,13 @@
 | Widget ID | **`COp1zDxNwg`** |
 | Script | `<script src="//code.jivo.ru/widget/COp1zDxNwg" async></script>` — только фронт |
 | Загрузка | `js/jivo.js` читает `config.jivoWidgetId`, inject в `<body>` |
-| Онлайн-чат | `window.jivo_api.open()` |
-| Форма demo | Embed на `/contacts#demo` |
+| Открытие чата | `window.jivo_api.open()` |
+| CTA | Все «Связаться», «Запросить КП / Демо», FAB → `data-action="jivo"` → `jivo_api.open()` |
+| `/contacts#demo` | Блок с кнопкой «Написать в чат», без HTML-формы |
 | Config | `js/config.js` → `jivoWidgetId` |
+| Реализация | `js/contact.js` |
 
-### Умная кнопка «Связаться»
-
-```
-[Связаться] → модалка:
-  [💬 Онлайн-чат]  → jivo_api.open()
-  [✈️ Telegram]    → config.telegramUrl (опц.)
-  [Запросить КП / Демо] → /contacts#demo
-```
-
-Реализация: `js/contact.js`
-
----
-
-## Telegram
-
-- Ссылка **[@ZaharMishiev](https://t.me/ZaharMishiev)** — личный аккаунт; посетители пишут напрямую
-- Config: `js/config.js` → `telegramUrl`, `telegramHandle`
-- Модалка «Связаться», footer, `/contacts/`
-- Не обрабатывает ПД на сайте — внешний мессенджер
+**Модалка выбора канала и Telegram на сайте не используются.**
 
 ---
 
@@ -51,14 +35,16 @@
 ### Рекомендуемые цели
 
 - `demo_request` — клик «Запросить КП / Демо»
-- `contact_open` — умная кнопка «Связаться»
-- `jivo_chat` — открытие чата
+- `contact_open` — «Связаться»
+- `jivo_chat` — открытие чата (FAB и CTA)
 - `lang_switch` — смена RU/EN
 
 ---
 
 ## Что не подключаем в v1
 
+- HTML-формы и embed Jivo Contact Form на сайте
+- Выбор Telegram vs Jivo в UI
 - EmailJS (US) — только dev/staging stub
 - Cloudflare Workers / serverless
 - Google Analytics 4 — опционально позже (cookie-баннер)

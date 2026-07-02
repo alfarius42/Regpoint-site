@@ -56,8 +56,8 @@
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
-          <button type="button" class="site-header__contact-link" data-action="contact">Связаться</button>
-          <a class="btn btn--white btn--header-demo" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
+          <button type="button" class="site-header__contact-link" data-action="jivo">Связаться</button>
+          <button type="button" class="btn btn--white btn--header-demo" data-action="jivo">Запросить КП / Демо</button>
         </div>
         <button type="button" class="site-header__burger" id="btn-menu" aria-label="Меню" aria-expanded="false" aria-controls="site-drawer">
           <img class="site-header__burger-icon" src="/img/icons/icon-menu.svg" width="22" height="22" alt="" />
@@ -87,8 +87,7 @@
             <a href="/" aria-current="true" data-lang="ru">RU</a>
             <a href="/en/" data-lang="en">EN</a>
           </div>
-          <button type="button" class="btn btn--white" data-action="contact">Связаться</button>
-          <a class="btn btn--secondary" href="/contacts/#demo">КП / Демо</a>
+          <button type="button" class="btn btn--white" data-action="jivo">Запросить КП / Демо</button>
         </div>
       </div>
     </div>
@@ -204,7 +203,7 @@
           </div>
           <div class="products-cta">
             <p class="products-cta__hint">Не знаете, какой модуль выбрать?</p>
-            <a class="btn btn--primary products-cta__btn" href="/contacts/#demo" data-action="demo">Запросить консультацию</a>
+            <button type="button" class="btn btn--primary products-cta__btn" data-action="jivo">Запросить консультацию</button>
           </div>
         </div>
       </section>
@@ -217,8 +216,7 @@
             <p class="site-footer__cta-desc">Подберём модули и услуги внедрения — пришлём КП в течение 1–2 рабочих дней.</p>
           </div>
           <div class="site-footer__cta-actions">
-            <a class="btn btn--white btn--footer-demo" href="/contacts/#demo" data-action="demo">Запросить КП / Демо</a>
-            <button type="button" class="btn btn--footer-outline" data-action="contact">Связаться</button>
+            <button type="button" class="btn btn--white btn--footer-demo" data-action="jivo">Запросить КП / Демо</button>
           </div>
         </div>
       </div>
@@ -265,49 +263,19 @@
         </div>
       </div>
     </footer>
-
-    <div class="modal" id="contact-modal" hidden role="dialog" aria-labelledby="contact-modal-title" aria-modal="true">
-      <div class="modal__backdrop"></div>
-      <div class="modal__dialog">
-        <div class="modal__header">
-          <h2 class="modal__title font-heading" id="contact-modal-title">Написать в поддержку</h2>
-          <button type="button" class="modal__close" data-modal-close aria-label="Закрыть">✕</button>
-        </div>
-        <div class="modal__body">
-          <button type="button" class="modal__option" data-action="jivo-chat">
-            <span>
-              <span class="modal__option-title">💬 Онлайн-чат</span>
-              <span class="modal__option-desc">Ответим в рабочее время</span>
-            </span>
-          </button>
-          <button type="button" class="modal__option" data-action="telegram">
-            <span>
-              <span class="modal__option-title">✈️ Telegram</span>
-              <span class="modal__option-desc">@ZaharMishiev</span>
-            </span>
-          </button>
-          <div style="border-top: 1px solid var(--color-border); padding-top: var(--space-3); margin-top: var(--space-2)">
-            <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: var(--space-3)">Нужно КП или демо?</p>
-            <button type="button" class="modal__option modal__option--primary" data-action="demo-modal">
-              <span>
-                <span class="modal__option-title">📄 Запросить КП / Демо</span>
-              </span>
-            </button>
-          </div>
-          <p class="modal__footer-note">Вне рабочих часов — ответим в течение 4 часов в следующий рабочий день</p>
-        </div>
-      </div>
-    </div>
-
     <div class="cookie-banner" id="cookie-banner" hidden>
       <div class="container cookie-banner__inner">
         <p class="cookie-banner__text">
-          Мы используем cookie и Яндекс.Метрику для аналитики. Продолжая, вы соглашаетесь с
-          <a href="/privacy/">политикой конфиденциальности</a>.
+          Мы используем cookie для аналитики (Яндекс.Метрика). Данные обрабатываются согласно
+          <a href="/privacy/">Политике конфиденциальности</a>.
+          Заявки обрабатываются через Jivo (РФ, 152-ФЗ).
         </p>
-        <button type="button" class="btn btn--primary" id="cookie-accept">Принять</button>
+        <div class="cookie-banner__actions">
+          <button type="button" class="btn btn--white btn--cookie" id="cookie-accept">Принять</button>
+          <button type="button" class="btn btn--outline-on-dark btn--cookie" id="cookie-essential">Только необходимые</button>
+        </div>
       </div>
-    </div>
+
 
         <script src="/js/config.js"></script>
     <script src="/js/jivo.js"></script>
@@ -317,6 +285,7 @@
     <script src="/js/products.js" defer></script>
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>
+    <script src="/js/seo.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
   </body>
 </html>
