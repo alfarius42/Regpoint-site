@@ -20,9 +20,9 @@
   background: var(--color-bg-muted);
 }
 
-/* ── Section spacing: mobile → tablet → desktop ── */
+/* ── Section spacing: mobile (Figma py-64) → tablet → desktop ── */
 .section {
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 
 @media (min-width: 768px) {
@@ -91,9 +91,9 @@
   color: var(--color-text-muted);
 }
 
-/* ── Home hero ── */
+/* ── Home hero (Figma mobile py-80) ── */
 .home-hero {
-  padding: 3rem 0;
+  padding: 5rem 0;
   background: var(--color-bg);
 }
 

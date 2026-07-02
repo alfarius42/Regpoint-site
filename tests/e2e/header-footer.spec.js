@@ -51,6 +51,39 @@ test.describe('Header & Footer — Sprint 1', () => {
     await expect(drawer.getByRole('link', { name: 'Статьи' })).toBeVisible();
   });
 
+  test('mobile and tablet place logo left, burger right', async ({ page }) => {
+    for (const width of [375, 768]) {
+      await page.setViewportSize({ width, height: 812 });
+      await page.goto('/');
+
+      const logo = page.locator('.site-header__logo');
+      const burger = page.locator('#btn-menu');
+      await expect(logo).toBeVisible();
+      await expect(burger).toBeVisible();
+
+      const logoBox = await logo.boundingBox();
+      const burgerBox = await burger.boundingBox();
+      expect(logoBox).toBeTruthy();
+      expect(burgerBox).toBeTruthy();
+      expect(logoBox.x).toBeLessThan(burgerBox.x);
+      expect(burgerBox.x + burgerBox.width).toBeGreaterThan(width - 80);
+    }
+  });
+
+  test('desktop keeps logo left without burger', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto('/');
+
+    await expect(page.locator('#btn-menu')).toBeHidden();
+    await expect(page.locator('.site-header__nav')).toBeVisible();
+
+    const logoBox = await page.locator('.site-header__logo').boundingBox();
+    const navBox = await page.locator('.site-header__nav').boundingBox();
+    expect(logoBox).toBeTruthy();
+    expect(navBox).toBeTruthy();
+    expect(logoBox.x).toBeLessThan(navBox.x);
+  });
+
   test('footer CTA band and four columns', async ({ page }) => {
     await expect(page.getByRole('heading', { name: 'Готовы обсудить ваш сценарий?' })).toBeVisible();
     await page.setViewportSize({ width: 1280, height: 900 });

@@ -16,6 +16,24 @@
   min-height: var(--header-height);
 }
 
+.site-header__logo {
+  flex-shrink: 0;
+}
+
+.site-header__burger {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1279px) {
+  .site-header__inner {
+    gap: 0;
+  }
+
+  .site-header__logo {
+    margin-right: auto;
+  }
+}
+
 @media (min-width: 1280px) {
   .site-header__inner {
     display: grid;
@@ -56,6 +74,14 @@
   letter-spacing: -0.025em;
   line-height: 1.75rem;
   white-space: nowrap;
+}
+
+@media (max-width: 1279px) {
+  .site-header__logo-text {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: -0.025em;
+  }
 }
 
 .site-header__nav {
@@ -170,7 +196,13 @@
   background: transparent;
   color: inherit;
   cursor: pointer;
-  font-size: 1.25rem;
+  padding: 0;
+}
+
+.site-header__burger-icon {
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem;
 }
 
 .site-header__contact-link {
