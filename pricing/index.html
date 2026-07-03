@@ -14,7 +14,7 @@
     <meta property="og:image" content="https://reg-point.ru/img/hero.svg" />
     <meta property="og:image:alt" content="Рег.Поинт — регистрация на мероприятия на вашем сервере" />
     <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Почему нет помесячной подписки как у SaaS?", "acceptedAnswer": {"@type": "Answer", "text": "Рег.Поинт — коробочная лицензия: вы платите за право установки на свой сервер и владение данными. Подписка со 2-го года — только за обновления и поддержку."}}, {"@type": "Question", "name": "Что входит в первый год?", "acceptedAnswer": {"@type": "Answer", "text": "Лицензия + обновления + базовая поддержка + патчи безопасности."}}, {"@type": "Question", "name": "Можно ли купить только апгрейд без полной лицензии?", "acceptedAnswer": {"@type": "Answer", "text": "Апгрейды — только при уже активной лицензии базового модуля."}}, {"@type": "Question", "name": "Сколько стоит «под ключ» для первого мероприятия?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентир: лицензия Рег.Поинт (100 000 ₽) + turnkey внедрение (45 000 ₽) + обучение (12 000 ₽) ≈ 157 000 ₽ — уточняется в КП."}}, {"@type": "Question", "name": "Есть ли скрытая комиссия с билетов?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Оплата билетов идёт через ЮKassa заказчика; комиссия эквайринга — по договору клиента с ЮKassa."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Почему нет помесячной подписки как у SaaS?", "acceptedAnswer": {"@type": "Answer", "text": "Рег.Поинт — коробочная лицензия: вы платите за право установки на свой сервер и владение данными. Подписка со 2-го года — только за обновления и поддержку."}}, {"@type": "Question", "name": "Что входит в первый год?", "acceptedAnswer": {"@type": "Answer", "text": "Лицензия + обновления + базовая поддержка + патчи безопасности."}}, {"@type": "Question", "name": "Можно ли купить только апгрейд без полной лицензии?", "acceptedAnswer": {"@type": "Answer", "text": "Апгрейды — только при уже активной лицензии базового модуля."}}, {"@type": "Question", "name": "Сколько стоит «под ключ» для первого мероприятия?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентир: лицензия Рег.Поинт (100 000 ₽) + turnkey внедрение (45 000 ₽) + обучение (12 000 ₽) ≈ 157 000 ₽ — уточняется в КП."}}, {"@type": "Question", "name": "Есть ли скрытая комиссия с билетов?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Оплата билетов идёт через ЮKassa заказчика; комиссия эквайринга — по договору клиента с ЮKassa."}}, {"@type": "Question", "name": "Можно ли сначала пройти бесплатный пилот?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Обычно пилот берём на один понятный сценарий: регистрация мероприятия, промо с QR или проверка чеков. Это помогает оценить механику, роли команды и качество данных до полноценного внедрения."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -117,6 +117,18 @@
           <h1 class="page-hero__title font-heading">Цены и лицензии <span class="page-hero__title-accent">Рег.Поинт</span></h1>
           <p class="page-hero__lead">Фиксированные цены на модули — без скрытых платежей SaaS. <strong>1-й год</strong> обновлений и базовой поддержки <strong>включён в лицензию</strong>. Данные на VPS клиента; <strong>152-ФЗ</strong> — во всех пакетах без доплат.</p>
           <p class="page-hero__disclaimer">Цены ориентировочные на 2026 год, не являются публичной офертой. Итоговая стоимость — в коммерческом предложении с учётом выбранных модулей и услуг.</p>
+          <div class="pilot-card pilot-card--pricing">
+            <div>
+              <p class="pilot-card__label">Перед внедрением</p>
+              <h2 class="pilot-card__title font-heading">Можно начать с бесплатного пилота</h2>
+              <p class="pilot-card__text">Пилот помогает проверить механику на одном сценарии: QR-регистрация, согласие на обработку ПД, проверка дублей, выгрузка базы и отчёт для заказчика. После пилота фиксируем состав модулей и финальную смету.</p>
+            </div>
+            <button type="button" class="btn btn--primary" data-action="jivo">Записаться на пилот</button>
+          </div>
+          <div class="section__cta-wrap section-cta--row">
+            <button type="button" class="btn btn--primary" data-action="jivo">Получить расчёт под проект</button>
+            <a class="btn btn--secondary" href="/contacts/#demo">Перейти к контактам</a>
+          </div>
         </div>
       </section>
       <section class="section section--muted">
@@ -284,6 +296,10 @@
               <button type="button" class="accordion__trigger" aria-expanded="false">Есть ли скрытая комиссия с билетов?<span class="accordion__icon" aria-hidden="true">▾</span></button>
               <div class="accordion__panel">Нет. Оплата билетов идёт через ЮKassa заказчика; комиссия эквайринга — по договору клиента с ЮKassa.</div>
             </div>
+            <div class="accordion__item">
+              <button type="button" class="accordion__trigger" aria-expanded="false">Можно ли сначала пройти бесплатный пилот?<span class="accordion__icon" aria-hidden="true">▾</span></button>
+              <div class="accordion__panel">Да. Обычно пилот берём на один понятный сценарий: регистрация мероприятия, промо с QR или проверка чеков. Это помогает оценить механику, роли команды и качество данных до полноценного внедрения.</div>
+            </div>
           </div>
           <div class="pricing-cta-band">
             <div class="pricing-cta-band__inner">
@@ -371,8 +387,8 @@
       </div>
 
 
-        <script src="/js/config.js"></script>
-    <script src="/js/jivo.js"></script>
+        <script src="/js/config.js" defer></script>
+    <script src="/js/jivo.js" defer></script>
     <script src="/js/header.js" defer></script>
     <!-- Language module (RU/EN) disabled temporarily.
     <!-- Language module (RU/EN) disabled temporarily.

@@ -193,7 +193,22 @@
           </div>
           <div class="compliance-alert">
             <h3 class="compliance-alert__title font-heading">Штрафы — это уже не теоретический риск</h3>
-            <p class="compliance-alert__text">По статье 13.11 КоАП РФ нарушения в области персональных данных влекут административные штрафы для юридических лиц в десятках и сотнях тысяч рублей. По отдельным составам, включая обработку без надлежащего согласия, штраф для юридического лица может достигать 300&nbsp;000&nbsp;руб., а для должностных лиц — до 100&nbsp;000&nbsp;руб. Отдельно оцениваются вопросы локализации, состава обрабатываемых данных и законности их передачи.</p>
+            <p class="compliance-alert__text">Для промо и мероприятий риск чаще всего начинается не с «хакерской атаки», а с обычной формы: данные граждан РФ собирают в иностранном SaaS, доступ к таблице есть у подрядчиков, согласие оформлено неявно, а база уезжает за пределы контролируемого контура.</p>
+            <div class="fine-grid" aria-label="Примеры штрафов по персональным данным">
+              <div class="fine-card">
+                <p class="fine-card__amount">до 300&nbsp;000&nbsp;₽</p>
+                <p class="fine-card__text">для юрлица за обработку ПД без надлежащего согласия или с нарушением заявленных целей.</p>
+              </div>
+              <div class="fine-card fine-card--strong">
+                <p class="fine-card__amount">до 6&nbsp;000&nbsp;000&nbsp;₽</p>
+                <p class="fine-card__text">для юрлица, если нарушение связано с локализацией базы ПД граждан РФ или фактическим сбором через иностранную инфраструктуру.</p>
+              </div>
+              <div class="fine-card">
+                <p class="fine-card__amount">до 18&nbsp;000&nbsp;000&nbsp;₽</p>
+                <p class="fine-card__text">для юрлица при повторном нарушении требований локализации персональных данных.</p>
+              </div>
+            </div>
+            <p class="compliance-alert__text">Отдельной универсальной «статьи за любую трансграничную передачу» нет: ответственность зависит от состава нарушения. Но если в схеме используются зарубежные формы, иностранные CRM или облачные таблицы для первичного сбора и хранения ПД граждан РФ, для заказчика и агентства появляется риск по локализации, законности передачи и доступу подрядчиков.</p>
           </div>
           <div class="content-intro-grid compliance-context-grid">
             <div class="content-intro">
@@ -284,8 +299,8 @@
       </div>
 
 
-            <script src="/js/config.js"></script>
-    <script src="/js/jivo.js"></script>
+            <script src="/js/config.js" defer></script>
+    <script src="/js/jivo.js" defer></script>
     <script src="/js/header.js" defer></script>
     <!-- Language module (RU/EN) disabled temporarily.
     <!-- Language module (RU/EN) disabled temporarily.

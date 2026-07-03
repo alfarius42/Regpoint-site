@@ -66,12 +66,12 @@ test.describe('Responsive layout — mandatory gate', () => {
     await expect(cols).toHaveCount(4);
   });
 
-  test('tablet uses 2-column product grid, desktop uses 4', async ({ page }) => {
+  test('tablet uses 2-column mode grid, desktop uses 3', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto('/');
 
-    const cards = page.locator('.product-card');
-    await expect(cards).toHaveCount(4);
+    const cards = page.locator('.home-mode-card');
+    await expect(cards).toHaveCount(3);
 
     const first = cards.first();
     const third = cards.nth(2);
@@ -84,11 +84,11 @@ test.describe('Responsive layout — mandatory gate', () => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.goto('/');
 
-    const box1Desktop = await page.locator('.product-card').first().boundingBox();
-    const box4Desktop = await page.locator('.product-card').nth(3).boundingBox();
+    const box1Desktop = await page.locator('.home-mode-card').first().boundingBox();
+    const box3Desktop = await page.locator('.home-mode-card').nth(2).boundingBox();
     expect(box1Desktop).toBeTruthy();
-    expect(box4Desktop).toBeTruthy();
-    expect(Math.abs(box4Desktop.y - box1Desktop.y)).toBeLessThan(8);
+    expect(box3Desktop).toBeTruthy();
+    expect(Math.abs(box3Desktop.y - box1Desktop.y)).toBeLessThan(8);
   });
 
   test('hero media hidden below desktop, trust bar 3-col from tablet', async ({ page }) => {

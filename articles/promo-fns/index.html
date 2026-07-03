@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="/css/components.css" />
     <link rel="stylesheet" href="/css/pages.css" />
+    <link rel="stylesheet" href="/css/pages-articles.css" />
   </head>
   <body data-page="article-promo-fns">
 <header class="site-header">
@@ -104,7 +105,10 @@
     
     <main>
       <div class="article-cover">
-        <img src="/img/articles/cover-promo.jpg" alt="" width="1200" height="400" class="article-cover__img" />
+        <picture>
+          <source type="image/webp" srcset="/img/articles/cover-promo-640.webp 640w, /img/articles/cover-promo.webp 1200w" sizes="100vw" />
+          <img src="/img/articles/cover-promo.jpg" srcset="/img/articles/cover-promo-640.jpg 640w, /img/articles/cover-promo.jpg 1200w" sizes="100vw" alt="" width="1200" height="400" class="article-cover__img" fetchpriority="high" decoding="async" />
+        </picture>
       </div>
       <section class="article-header">
         <div class="container container--article">
@@ -250,8 +254,8 @@
       </div>
     </div>
 
-    <script src="/js/config.js"></script>
-    <script src="/js/jivo.js"></script>
+    <script src="/js/config.js" defer></script>
+    <script src="/js/jivo.js" defer></script>
     <script src="/js/header.js" defer></script>
     <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>

@@ -54,7 +54,8 @@ test.describe('Content pages & contacts — Sprint 3', () => {
   test('C-04 compliance explains Google Forms risk and fines', async ({ page }) => {
     await page.goto('/compliance-152fz/');
     await expect(page.getByRole('heading', { name: 'Почему Google Forms опасны для ивентов и промо' })).toBeVisible();
-    await expect(page.getByText('штраф для юридического лица может достигать 300')).toBeVisible();
+    await expect(page.getByText('до 6 000 000 ₽')).toBeVisible();
+    await expect(page.getByText('до 18 000 000 ₽')).toBeVisible();
   });
 
   test('H-01 how-it-works steps and tabs', async ({ page }) => {

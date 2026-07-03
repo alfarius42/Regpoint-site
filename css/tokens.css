@@ -55,6 +55,14 @@
   --space-8: 2rem;
   --space-12: 3rem;
   --space-16: 4rem;
+
+  /* Vertical rhythm — секции и абзацы */
+  --space-section-y: 4rem;
+  --space-section-y-desktop: 5rem;
+  --space-section-stack: 3.5rem;
+  --space-section-stack-desktop: 4rem;
+  --space-prose-gap: 1rem;
+  --space-heading-gap: 1rem;
 }
 
 body {

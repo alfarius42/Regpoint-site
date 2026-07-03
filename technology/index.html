@@ -105,7 +105,10 @@
         <div class="container">
           <p class="section-label">Архитектура</p>
           <h1 class="page-hero__title font-heading">Технологии и архитектура</h1>
-          <p class="page-hero__lead"><strong>Рег.Поинт</strong> — модульный монолит: одно deployable-приложение (SPA + API), доменные модули изолированы, контракт — HTTP REST.</p>
+          <p class="page-hero__lead"><strong>Рег.Поинт</strong> — коробочное приложение для контролируемого внедрения: один инстанс на инфраструктуре заказчика, понятная схема деплоя, изолированные доменные модули и REST API для интеграций.</p>
+          <div class="section__cta-wrap">
+            <button type="button" class="btn btn--primary" data-action="jivo">Запросить техническую консультацию</button>
+          </div>
         </div>
       </section>
       <section class="section section--muted">
@@ -148,6 +151,31 @@
               </ul>
             </article>
           </div>
+          <div class="engineering-artifacts">
+            <div class="engineering-artifacts__head">
+              <p class="section-label">Инженерные артефакты</p>
+              <h2 class="engineering-artifacts__title font-heading">Что получает команда заказчика</h2>
+              <p class="engineering-artifacts__lead">Внедрение должно быть проверяемым. Поэтому вместе с инстансом передаются не только доступы, но и материалы, по которым DevOps, ИБ и менеджер проекта понимают, как система устроена и как её сопровождать.</p>
+            </div>
+            <div class="engineering-artifacts__grid">
+              <article class="engineering-artifact">
+                <h3 class="engineering-artifact__title font-heading">Runbook деплоя</h3>
+                <p class="engineering-artifact__text">Команды запуска, переменные окружения, настройка HTTPS, порядок обновления и rollback-план.</p>
+              </article>
+              <article class="engineering-artifact">
+                <h3 class="engineering-artifact__title font-heading">Smoke-чеклист</h3>
+                <p class="engineering-artifact__text">Проверка публичной формы, QR-регистрации, входа в кабинет, выгрузки и ключевых интеграций.</p>
+              </article>
+              <article class="engineering-artifact">
+                <h3 class="engineering-artifact__title font-heading">Схема ролей и доступов</h3>
+                <p class="engineering-artifact__text">Кто видит ПД, кто модерирует заявки, кто выгружает базу и кто отвечает за настройки сценария.</p>
+              </article>
+              <article class="engineering-artifact">
+                <h3 class="engineering-artifact__title font-heading">Описание API</h3>
+                <p class="engineering-artifact__text">Контракты публичных endpoints, webhooks и точки для интеграции с CRM, сайтом или ботом.</p>
+              </article>
+            </div>
+          </div>
           <div class="client-benefits">
             <div class="client-benefits__head">
               <h2 class="client-benefits__title font-heading">Что это значит для вас как заказчика</h2>
@@ -163,7 +191,7 @@
               </div>
               <div class="client-benefits__col">
                 <h3 class="client-benefits__name font-heading">Стандартный стек — нет чёрных ящиков</h3>
-                <p class="client-benefits__text">Node.js + MySQL + Docker — технологии, которые ваш DevOps уже знает. Runbook для деплоя прилагается к лицензии. REST API задокументирован — интеграции с вашей CRM через стандартные HTTP-запросы.</p>
+                <p class="client-benefits__text">Node.js + MySQL + Docker — технологии, которые ваш DevOps уже знает. Runbook, smoke-чеклист и описание API прилагаются к внедрению. Интеграции с CRM идут через стандартные HTTP-запросы.</p>
               </div>
             </div>
           </div>
@@ -276,8 +304,8 @@
       </div>
 
 
-            <script src="/js/config.js"></script>
-    <script src="/js/jivo.js"></script>
+            <script src="/js/config.js" defer></script>
+    <script src="/js/jivo.js" defer></script>
     <script src="/js/header.js" defer></script>
     <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>

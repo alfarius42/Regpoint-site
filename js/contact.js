@@ -47,6 +47,12 @@
       return pendingJivoOpen;
     }
 
+    if (window.SiteJivo && typeof window.SiteJivo.ensureLoaded === 'function') {
+      window.SiteJivo.ensureLoaded(function () {
+        flushPendingJivoOpen();
+      });
+    }
+
     return true;
   }
 

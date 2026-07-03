@@ -105,7 +105,7 @@
         <div class="container">
           <p class="section-label">Применение</p>
           <h1 class="page-hero__title font-heading">Сценарии использования</h1>
-          <p class="page-hero__lead">Как event-агентства и организаторы используют модули Рег.Поинт</p>
+          <p class="page-hero__lead">Живые сценарии: что делает менеджер, что видит участник и как данные остаются в одном контролируемом процессе.</p>
         </div>
       </section>
       <section class="section section--muted">
@@ -126,12 +126,18 @@
                   <a class="scenario-card__module" href="/products/promo-pro/">Промо.Про →</a>
                 </div>
                 <div class="scenario-card__col">
-                  <p class="scenario-card__label">Что даёт</p>
-                  <ul class="check-list check-list--scenario"><li>QR вместо промо-стойки — регистрация со смартфона за минуту</li><li>Автопроверка чека через ФНС: дата, ИНН, сумма, антидубли</li><li>Фильтр заказчиков по ИНН; порог суммы — любой или без порога</li><li>Дашборд регистраций в реальном времени</li><li>152-ФЗ и данные на VPS заказчика, не у SaaS</li></ul>
+                  <p class="scenario-card__label">Как проходит</p>
+                  <ol class="scenario-flow">
+                    <li>Менеджер создаёт акцию: период, правила, минимальную сумму чека, нужные вопросы анкеты и ограничения по участнику.</li>
+                    <li>Система создаёт QR-код. Его размещают на сайте, стойке, витрине, упаковке, экране или в Telegram-канале.</li>
+                    <li>Участник сканирует QR, принимает условия акции и политику обработки ПД, регистрируется со своего телефона.</li>
+                    <li>Загружает чек. Рег.Поинт проверяет данные, отсеивает повторы и показывает статус заявки.</li>
+                    <li>После акции менеджер выгружает чистую базу и отчёт для заказчика.</li>
+                  </ol>
                 </div>
                 <div class="scenario-card__col scenario-card__col--compliance">
                   <p class="scenario-card__label">152-ФЗ / Контроль</p>
-                  <p class="scenario-card__compliance">Без ручного ввода в таблицы — audit trail для отчётности перед заказчиком акции</p>
+                  <p class="scenario-card__compliance">Согласие фиксируется в момент регистрации, а база не разлетается по личным таблицам промоутеров. Видно, кто и когда отправил заявку, какой чек прошёл проверку и что ушло в итоговую выгрузку.</p>
                 </div>
               </div>
             </article>
@@ -143,12 +149,18 @@
                   <a class="scenario-card__module" href="/products/reg-point/">Рег.Поинт →</a>
                 </div>
                 <div class="scenario-card__col">
-                  <p class="scenario-card__label">Что даёт</p>
-                  <ul class="check-list check-list--scenario"><li>Онлайн-регистрация и QR-билет на e-mail</li><li>Check-in на входе в 3–5 раз быстрее бумажного списка</li><li>Импорт CSV/Excel или открытая форма</li><li>Offline check-in при сбое WiFi на площадке</li><li>Отчёт attendance и CSV для заказчика</li></ul>
+                  <p class="scenario-card__label">Как проходит</p>
+                  <ol class="scenario-flow">
+                    <li>Гость регистрируется заранее через QR-код на лендинге, в письме или на афише мероприятия.</li>
+                    <li>В форме он вводит данные и сам ставит галочку согласия на обработку ПД со своего телефона.</li>
+                    <li>После регистрации получает подтверждение и QR-код участника.</li>
+                    <li>На площадке гость показывает QR или экран подтверждения. Хостес сканирует код и сразу видит, что участник прошёл.</li>
+                    <li>Организатор получает attendance-отчёт без сверки бумажных списков после события.</li>
+                  </ol>
                 </div>
                 <div class="scenario-card__col scenario-card__col--compliance">
                   <p class="scenario-card__label">152-ФЗ / Контроль</p>
-                  <p class="scenario-card__compliance">Self-hosted: ПД на инфраструктуре заказчика, согласие per-event</p>
+                  <p class="scenario-card__compliance">Хостес не нужно искать человека в таблице и спрашивать паспорт «на всякий случай». Участник подтверждает согласие сам, а факт посещения фиксируется в системе.</p>
                 </div>
               </div>
             </article>
@@ -160,12 +172,18 @@
                   <a class="scenario-card__module" href="/products/reg-point/">Рег.Поинт →</a>
                 </div>
                 <div class="scenario-card__col">
-                  <p class="scenario-card__label">Что даёт</p>
-                  <ul class="check-list check-list--scenario"><li>Публичная страница регистрации с брендингом</li><li>Импорт VIP-списка из Excel заказчика</li><li>QR check-in на 2–4 входах одновременно</li><li>Offline-режим при нестабильном WiFi на площадке</li><li>Отчёт attendance + экспорт CSV для заказчика</li></ul>
+                  <p class="scenario-card__label">Как проходит</p>
+                  <ol class="scenario-flow">
+                    <li>Команда загружает VIP-список или открывает публичную регистрацию по ссылке.</li>
+                    <li>Участники получают подтверждение и QR-код, а менеджер видит сегменты: гости, спикеры, VIP, партнёры.</li>
+                    <li>В день события несколько входов работают параллельно: каждый сканирует QR и фиксирует прибытие.</li>
+                    <li>Если связь на площадке нестабильна, check-in продолжает работать по подготовленному сценарию.</li>
+                    <li>После события заказчик получает отчёт по явке, категориям и выгрузку базы.</li>
+                  </ol>
                 </div>
                 <div class="scenario-card__col scenario-card__col--compliance">
                   <p class="scenario-card__label">152-ФЗ / Контроль</p>
-                  <p class="scenario-card__compliance">152-ФЗ per-event — критично для банков и госкорпораций</p>
+                  <p class="scenario-card__compliance">Для банков, pharma и госкорпораций важно, что согласие, роли доступа и база участников относятся к конкретному мероприятию, а не лежат в общей SaaS-таблице.</p>
                 </div>
               </div>
             </article>
@@ -177,12 +195,18 @@
                   <a class="scenario-card__module" href="/products/promo-point/">Промо.Поинт →</a>
                 </div>
                 <div class="scenario-card__col">
-                  <p class="scenario-card__label">Что даёт</p>
-                  <ul class="check-list check-list--scenario"><li>Кастомные поля: размер, вкус, предпочтение продукта</li><li>Брендинг страницы под акцию сети</li><li>Ограничение регистраций по региону / городу</li><li>Выгрузка базы участников в CRM агентства</li><li>152-ФЗ: согласие на получение промо-рассылок</li></ul>
+                  <p class="scenario-card__label">Как проходит</p>
+                  <ol class="scenario-flow">
+                    <li>Менеджер собирает анкету под механику: город, точка продаж, интерес к продукту, размер, вкус или другой нужный параметр.</li>
+                    <li>Промоутер показывает QR на стойке или размещает его рядом с материалами акции.</li>
+                    <li>Участник сам заполняет форму и принимает согласие, а промоутер помогает с механикой, не перепечатывая данные.</li>
+                    <li>Менеджер видит регистрации по точкам и понимает, где акция идёт лучше.</li>
+                    <li>После запуска база выгружается для CRM или отчёта заказчику.</li>
+                  </ol>
                 </div>
                 <div class="scenario-card__col scenario-card__col--compliance">
                   <p class="scenario-card__label">152-ФЗ / Контроль</p>
-                  <p class="scenario-card__compliance">Данные на сервере агентства — не у ретейлера и не у SaaS-провайдера</p>
+                  <p class="scenario-card__compliance">Данные собираются через контролируемую форму, а не через личный аккаунт промоутера. Это снижает риск потери базы после окончания смены или проекта.</p>
                 </div>
               </div>
             </article>
@@ -194,12 +218,18 @@
                   <a class="scenario-card__module" href="/products/promo-pro/">Промо.Про →</a>
                 </div>
                 <div class="scenario-card__col">
-                  <p class="scenario-card__label">Что даёт</p>
-                  <ul class="check-list check-list--scenario"><li>Проверка чека через API ФНС (kkt-online)</li><li>OCR fallback при недоступности ФНС</li><li>Белый список ИНН партнёров акции</li><li>Один телефон — N регистраций за период</li><li>Ручная модерация спорных чеков директором</li></ul>
+                  <p class="scenario-card__label">Как проходит</p>
+                  <ol class="scenario-flow">
+                    <li>Менеджер задаёт механику: какие магазины участвуют, какая сумма нужна, сколько заявок может отправить один участник.</li>
+                    <li>Участник сканирует QR, принимает условия акции и загружает чек.</li>
+                    <li>Рег.Поинт проверяет чек, сумму, дату, ИНН продавца и повторные попытки.</li>
+                    <li>Спорные заявки попадают на ручную модерацию, а очевидные дубли не засоряют базу.</li>
+                    <li>В финале остаётся база участников, которую можно защищать перед заказчиком и использовать для розыгрыша.</li>
+                  </ol>
                 </div>
                 <div class="scenario-card__col scenario-card__col--compliance">
                   <p class="scenario-card__label">152-ФЗ / Контроль</p>
-                  <p class="scenario-card__compliance">Полный audit trail для отчётности перед заказчиком акции</p>
+                  <p class="scenario-card__compliance">Антифрод нужен не для усложнения акции, а чтобы не объяснять заказчику, почему один и тот же чек участвовал несколько раз.</p>
                 </div>
               </div>
             </article>
@@ -211,12 +241,18 @@
                   <a class="scenario-card__module" href="/products/ticket-point/">Тикет.Поинт →</a>
                 </div>
                 <div class="scenario-card__col">
-                  <p class="scenario-card__label">Что даёт</p>
-                  <ul class="check-list check-list--scenario"><li>Несколько категорий: стандарт / VIP / онлайн</li><li>Оплата через ЮKassa заказчика (деньги — клиенту)</li><li>Автоматическая отправка билета на email</li><li>QR check-in на входе — тот же, что в Рег.Поинт</li><li>Отчёт по продажам и возвратам</li></ul>
+                  <p class="scenario-card__label">Как проходит</p>
+                  <ol class="scenario-flow">
+                    <li>Организатор создаёт категории билетов: стандарт, VIP, онлайн или отдельные тарифы для партнёров.</li>
+                    <li>Участник выбирает билет, вводит данные, принимает условия и оплачивает через платёжный контур заказчика.</li>
+                    <li>После оплаты получает письмо с билетом и QR-кодом.</li>
+                    <li>На входе QR используется для check-in так же, как в сценарии обычной регистрации.</li>
+                    <li>Менеджер видит продажи, статусы оплат, возвраты и итоговую выгрузку.</li>
+                  </ol>
                 </div>
                 <div class="scenario-card__col scenario-card__col--compliance">
                   <p class="scenario-card__label">152-ФЗ / Контроль</p>
-                  <p class="scenario-card__compliance">Модуль в разработке — запишитесь на уведомление о релизе</p>
+                  <p class="scenario-card__compliance">Сценарий сохраняет тот же принцип: участник сам подтверждает условия, а организатор получает единую базу оплат, билетов и посещений.</p>
                 </div>
               </div>
             </article>
@@ -228,12 +264,18 @@
                   <a class="scenario-card__module" href="/products/reg-point/">Рег.Поинт →</a>
                 </div>
                 <div class="scenario-card__col">
-                  <p class="scenario-card__label">Что даёт</p>
-                  <ul class="check-list check-list--scenario"><li>Данные на корпоративном VPS заказчика</li><li>Соглашение об обработке ПД с указанием DPO</li><li>Роли: director видит всё, manager — только имя + статус</li><li>Шифрование AES-256-GCM + audit log</li><li>Настраиваемый срок хранения (нет фиксированного retention)</li></ul>
+                  <p class="scenario-card__label">Как проходит</p>
+                  <ol class="scenario-flow">
+                    <li>Юристы и ИБ заранее согласуют текст согласия, роли доступа и срок хранения данных.</li>
+                    <li>Инстанс разворачивается на инфраструктуре заказчика или выбранного провайдера в РФ.</li>
+                    <li>Участник регистрируется через брендированную форму и явно подтверждает обработку ПД.</li>
+                    <li>На площадке команда видит только те поля, которые нужны для прохода и статуса.</li>
+                    <li>После мероприятия данные выгружаются или удаляются по согласованной процедуре.</li>
+                  </ol>
                 </div>
                 <div class="scenario-card__col scenario-card__col--compliance">
                   <p class="scenario-card__label">152-ФЗ / Контроль</p>
-                  <p class="scenario-card__compliance">Один DPA — с Рег.Поинт, без цепочки SaaS-провайдеров</p>
+                  <p class="scenario-card__compliance">Такой сценарий особенно важен там, где заказчик не готов отдавать базу участников в зарубежные формы или многоарендный SaaS.</p>
                 </div>
               </div>
             </article>
@@ -343,8 +385,8 @@
       </div>
 
 
-            <script src="/js/config.js"></script>
-    <script src="/js/jivo.js"></script>
+            <script src="/js/config.js" defer></script>
+    <script src="/js/jivo.js" defer></script>
     <script src="/js/header.js" defer></script>
     <!-- Language module (RU/EN) disabled temporarily.
     <script src="/js/lang.js" defer></script>

@@ -339,7 +339,7 @@ body.is-cookie-banner-visible {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent-blue);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .section-label--light {
@@ -352,12 +352,24 @@ body.is-cookie-banner-visible {
   font-size: var(--text-base);
   line-height: 1.6;
   max-width: 42rem;
-  margin-bottom: var(--space-6);
+  margin: 0;
+}
+
+.section__title + .section__subtitle {
+  margin-top: var(--space-prose-gap);
+}
+
+.section__subtitle + .section__prose,
+.section__subtitle + .check-list,
+.section__subtitle + .split-grid {
+  margin-top: var(--space-4);
 }
 
 @media (min-width: 768px) {
-  .section__subtitle {
-    margin-bottom: var(--space-8);
+  .section__subtitle + .section__prose,
+  .section__subtitle + .check-list,
+  .section__subtitle + .split-grid {
+    margin-top: var(--space-6);
   }
 }
 
@@ -747,11 +759,12 @@ body.is-cookie-banner-visible {
 }
 
 .btn--header-demo {
-  padding: 0.5rem 1.25rem;
+  min-height: 1.75rem;
+  padding: 0 1.125rem;
   font-size: var(--text-sm);
   font-weight: 600;
   font-family: var(--font-ui);
-  line-height: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .btn--footer-demo {

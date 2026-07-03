@@ -83,7 +83,7 @@ test.describe('Header & Footer — Sprint 1', () => {
   });
 
   test('footer CTA band and four columns', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Готовы обсудить ваш сценарий?' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Одна система для процессов, которые обычно разорваны' })).toBeVisible();
     await page.setViewportSize({ width: 1280, height: 900 });
     const cols = page.locator('.site-footer__grid > .site-footer__col');
     await expect(cols).toHaveCount(4);
@@ -94,7 +94,7 @@ test.describe('Header & Footer — Sprint 1', () => {
   test('footer CTA buttons match reference labels', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     const cta = page.locator('.site-footer__cta');
-    await expect(cta.getByRole('button', { name: 'Запросить КП / Демо', exact: true })).toBeVisible();
+    await expect(cta.getByRole('button', { name: 'Обсудить внедрение', exact: true })).toBeVisible();
   });
 
   test('footer product links point to product pages', async ({ page }) => {

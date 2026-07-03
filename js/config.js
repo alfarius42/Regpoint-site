@@ -8,7 +8,7 @@ window.SITE_CONFIG = {
   siteUrl: 'https://reg-point.ru',
 
   brand: {
-    taglineRu: 'Регистрация на мероприятия на вашем сервере',
+    taglineRu: 'Регистрация, промо и проверка чеков в одной системе',
     taglineEn: 'Event registration on your own server',
   },
 
