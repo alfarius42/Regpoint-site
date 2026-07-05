@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR check-in на конференции: пошаговое руководство — Рег.Поинт</title>
-    <meta name="description" content="QR check-in ускоряет регистрацию на входе в 3–5 раз по сравнению с бумажными списками. Разбираем, как организовать процесс от импорта участников до выгрузк…" />
+    <meta name="description" content="QR check-in ускоряет вход в 3–5 раз по сравнению с бумажным списком. Как организовать процесс от импорта участников до выгрузки attendance." />
     <link rel="canonical" href="https://reg-point.ru/articles/qr-check-in/" />
     <meta property="og:title" content="QR check-in на конференции: пошаговое руководство — Рег.Поинт" />
-    <meta property="og:description" content="QR check-in ускоряет регистрацию на входе в 3–5 раз по сравнению с бумажными списками. Разбираем, как организовать процесс от импорта участников до выгрузк…" />
+    <meta property="og:description" content="QR check-in ускоряет вход в 3–5 раз по сравнению с бумажным списком. Как организовать процесс от импорта участников до выгрузки attendance." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://reg-point.ru/articles/qr-check-in/" />
     <meta property="og:image" content="https://reg-point.ru/img/articles/cover-check-in.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "QR check-in на конференции: пошаговое руководство", "description": "QR check-in ускоряет регистрацию на входе в 3–5 раз по сравнению с бумажными списками. Разбираем, как организовать процесс от импорта участников до выгрузки отчёта attendance.", "datePublished": "2026-05-28", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-check-in.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/qr-check-in/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Работает ли check-in без интернета?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Offline-режим сохраняет отметки локально и синхронизирует при восстановлении сети."}}, {"@type": "Question", "name": "Можно ли настроить многодневный check-in?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Для каждого дня — отдельная сессия check-in с накопленным отчётом attendance."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "QR check-in на конференции: пошаговое руководство", "description": "QR check-in ускоряет вход в 3–5 раз по сравнению с бумажным списком. Как организовать процесс от импорта участников до выгрузки attendance.", "datePublished": "2026-05-28", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-check-in.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/qr-check-in/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Работает ли check-in без интернета?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Отметки копятся на планшете, синхронизация при появлении сети. В подвале с плохим Wi-Fi это базовая настройка, не опция."}}, {"@type": "Question", "name": "Можно ли настроить многодневный check-in?", "acceptedAnswer": {"@type": "Answer", "text": "Да. На каждый день — отдельная сессия check-in. Сводный attendance собирается в одном CSV."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -120,7 +120,7 @@
             <span class="article-header__time">· 6 мин</span>
           </div>
           <h1 class="article-header__title font-heading">QR check-in на конференции: пошаговое руководство</h1>
-          <p class="article-lead">400 человек на одном входе — это минута на человека с бумажным списком в пике. QR укладывается в секунды, если код нормально напечатан и планшет не зависнет на поиске по фамилии в подвале без Wi‑Fi.</p>
+          <p class="article-lead">Четыреста человек на одном входе — с бумажным списком в пике выходит минута на человека. QR check-in укладывается в секунды, если код нормально напечатан. И если планшет не зависнет на поиске по фамилии в подвале без Wi‑Fi.</p>
         </div>
       </section>
       <section class="article-body">
@@ -128,23 +128,23 @@
           <div class="article-sections">
             <section class="article-section">
               <h2 class="article-section__title font-heading">Как устроен QR check-in</h2>
-              <p class="article-section__body">После регистрации участник получает уникальный QR — в письме или в личном кабинете. На входе волонтёр сканирует код: имя, категория, статус билета. Бумажный список не нужен. Типичный сбой: участник показывает скриншот с низкой яркостью — держите запасной планшет с ручным поиском по фамилии.</p>
+              <p class="article-section__body">После регистрации участник получает уникальный QR в письме или в личном кабинете. На входе волонтёр сканирует код и видит имя, категорию и статус билета. Бумажный список не нужен. Типичный сбой: участник показывает скриншот с низкой яркостью. Держите запасной планшет с ручным поиском по фамилии.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Шаг 1: список участников</h2>
-              <p class="article-section__body">База уже в CRM заказчика — <a class="text-link" href="/articles/import-participants/">импортируйте участников без ошибок</a> из CSV или Excel. Минимум: имя и email. Дубли по email система отсекает сама. Частая ошибка: в файле три формата телефона (+7, 8, без кода) — нормализуйте до загрузки, иначе потом не дозвонитесь на площадке.</p>
+              <p class="article-section__body">База уже в CRM заказчика. Тогда <a class="text-link" href="/articles/import-participants/">импортируйте участников без ошибок</a> из CSV или Excel. Минимум — имя и email. Дубли по email система отсекает сама. Частая ошибка: в файле три формата телефона (+7, 8, без кода). Нормализуйте до загрузки, иначе на площадке не дозвонитесь.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Шаг 2: настройка мероприятия</h2>
-              <p class="article-section__body">Создаёте event, загружаете брендинг, прописываете <a class="text-link" href="/articles/consent-pd/">согласие на обработку ПД</a> и срок хранения. Менеджерам на стойке выдаёте роль check-in — они видят имя и статус, не полный email. Director оставляете себе: он видит выгрузки и audit log.</p>
+              <p class="article-section__body">Создайте event, загрузите брендинг и пропишите <a class="text-link" href="/articles/consent-pd/">согласие на обработку ПД</a> со сроком хранения. Менеджерам на стойке выдайте роль check-in. Они видят имя и статус, не полный email. Роль director оставьте себе: она даёт доступ к выгрузкам и audit log.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Шаг 3: площадка</h2>
-              <p class="article-section__body">Check-in на планшете или телефоне волонтёра. Пропал интернет — offline-режим продолжает принимать коды, синхронизация при восстановлении связи. Тот же принцип, что в статье о <a class="text-link" href="/articles/event-registration-no-queues/">регистрации без очередей</a>. На 500+ человек ставьте 2–3 точки на разных входах — одна очередь к одному планшету снова создаёт bottleneck.</p>
+              <p class="article-section__body">Check-in идёт на планшете или телефоне волонтёра. Пропал интернет — offline-режим продолжает принимать коды. Синхронизация пойдёт при восстановлении связи. Тот же принцип описан в статье о <a class="text-link" href="/articles/event-registration-no-queues/">регистрации без очередей</a>. На пятьсот и более человек поставьте две–три точки на разных входах. Одна очередь к одному планшету снова создаёт bottleneck.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Шаг 4: attendance</h2>
-              <p class="article-section__body">После event — CSV: кто пришёл, время check-in, no-show. HR обычно забирает файл в тот же вечер. Для боевого сценария смотрите <a class="text-link" href="/products/reg-point/">модуль Рег.Поинт</a> — там же многодневный check-in и маскирование ПД для менеджеров.</p>
+              <p class="article-section__body">После event выгружаете CSV: кто пришёл, время check-in, no-show. HR обычно забирает файл в тот же вечер. Для боевого сценария смотрите <a class="text-link" href="/products/reg-point/">модуль Рег.Поинт</a>. Там же многодневный check-in и маскирование ПД для менеджеров.</p>
             </section>
           </div>
           <div class="article-faq">
@@ -156,7 +156,7 @@
               </div>
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Можно ли настроить многодневный check-in?</p>
-                <p class="article-faq__a">Да. Отдельная сессия check-in на каждый день, сводный attendance в CSV.</p>
+                <p class="article-faq__a">Да. На каждый день — отдельная сессия check-in. Сводный attendance собирается в одном CSV.</p>
               </div>
             </div>
           </div>

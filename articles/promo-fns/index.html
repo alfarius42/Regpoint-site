@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Промоакция с чеком: как работает проверка ФНС — Рег.Поинт</title>
-    <meta name="description" content="Акции «купи — зарегистрируй чек — получи приз» требуют верификации чека через ФНС. Разбираем, как устроен API kkt-online, что проверяется и где типичные то…" />
+    <meta name="description" content="Как устроена проверка чека через ФНС в промоакции: белый список ИНН, запрос к kkt-online, типичные отказы и OCR fallback." />
     <link rel="canonical" href="https://reg-point.ru/articles/promo-fns/" />
     <meta property="og:title" content="Промоакция с чеком: как работает проверка ФНС — Рег.Поинт" />
-    <meta property="og:description" content="Акции «купи — зарегистрируй чек — получи приз» требуют верификации чека через ФНС. Разбираем, как устроен API kkt-online, что проверяется и где типичные то…" />
+    <meta property="og:description" content="Как устроена проверка чека через ФНС в промоакции: белый список ИНН, запрос к kkt-online, типичные отказы и OCR fallback." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://reg-point.ru/articles/promo-fns/" />
     <meta property="og:image" content="https://reg-point.ru/img/articles/cover-promo.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Промоакция с чеком: как работает проверка ФНС", "description": "Акции «купи — зарегистрируй чек — получи приз» требуют верификации чека через ФНС. Разбираем, как устроен API kkt-online, что проверяется и где типичные точки отказа.", "datePublished": "2026-06-05", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-promo.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/promo-fns/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Работает ли проверка для чеков из любого магазина?", "acceptedAnswer": {"@type": "Answer", "text": "Только для ИНН, включённых в белый список акции. Стандартная настройка — список ИНН партнёров из условий акции."}}, {"@type": "Question", "name": "Что если ФНС вернул ошибку «чек не найден»?", "acceptedAnswer": {"@type": "Answer", "text": "Возможные причины: чек ещё не попал в реестр (кассы синхронизируются с ФНС с задержкой до 2 часов). Рекомендуем предусмотреть окно ожидания и повторную попытку для пользователя."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Промоакция с чеком: как работает проверка ФНС", "description": "Как устроена проверка чека через ФНС в промоакции: белый список ИНН, запрос к kkt-online, типичные отказы и OCR fallback.", "datePublished": "2026-06-05", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-promo.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/promo-fns/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Работает ли проверка для чеков из любого магазина?", "acceptedAnswer": {"@type": "Answer", "text": "Проверка работает только для ИНН из белого списка акции. Обычно это партнёры по условиям промо, а не любой магазин сети."}}, {"@type": "Question", "name": "Что если ФНС вернул ошибку «чек не найден»?", "acceptedAnswer": {"@type": "Answer", "text": "Часто касса ещё не синхронизировалась с реестром. Задержка может быть до двух часов. Дайте повторную попытку или статус «на проверке», а не жёсткий отказ с первого клика."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -120,7 +120,7 @@
             <span class="article-header__time">· 8 мин</span>
           </div>
           <h1 class="article-header__title font-heading">Промоакция с чеком: как работает проверка ФНС</h1>
-          <p class="article-lead">Без проверки чека участник вбивает что угодно. kkt-online отсекает фейки — но в субботу даёт timeout, а свежий чек может «не найтись» пару часов, пока касса догонит реестр.</p>
+          <p class="article-lead">Без проверки чека участник вбивает что угодно. Сервис kkt-online отсекает фейки, но в субботу часто даёт timeout. Свежий чек может «не найтись» пару часов, пока касса догонит реестр.</p>
         </div>
       </section>
       <section class="article-body">
@@ -128,31 +128,34 @@
           <div class="article-sections">
             <section class="article-section">
               <h2 class="article-section__title font-heading">Зачем сверять с ФНС</h2>
-              <p class="article-section__body">Ручной ввод — поле для накрутки: один чек регистрируют десять раз с разными телефонами.</p>
-              <p class="article-section__body">Верификация через kkt-online подтверждает, что чек в реестре, ИНН продавца в белом списке акции, дата и сумма в диапазоне, чек ещё не использован. Без этого промоутер на стойке вручную сверяет термочек — очередь и ошибки.</p>
+              <p class="article-section__body">При ручном вводе один чек легко зарегистрировать десять раз с разными телефонами. Это прямой путь к накрутке призов и жалобам на горячую линию.</p>
+              <p class="article-section__body">Верификация через kkt-online подтверждает, что чек есть в реестре. Система проверяет ИНН продавца по белому списку, дату, сумму и то, что чек ещё не использован. Без этого промоутер на стойке вручную сверяет термочек. Очередь растёт, ошибки тоже.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Белый список в ТЦ</h2>
-              <p class="article-section__body">Не «любой магазин города», а арендаторы торгового центра — в одном проекте было 15 точек в белом списке по ИНН.</p>
-              <p class="article-section__body">Чек из гипермаркета за пределами ТЦ может подходить по сумме, но ИНН кассы не в списке — отказ корректный. Хуже другая схема: участники шли в Ашан рядом с ТЦ, набирали стопки чеков и пробовали регистрировать их в разные дни. Без проверки FN через ФНС это не отловить.</p>
+              <p class="article-section__body">Белый список — не «любой магазин города». В одном проекте в торговом центре было пятнадцать точек по ИНН арендаторов.</p>
+              <p class="article-section__body">Чек из гипермаркета за пределами ТЦ может подходить по сумме. Но ИНН кассы не в списке, и отказ корректный. Хуже другая схема: участники шли в Ашан рядом с ТЦ и набирали стопки чеков. Потом пробовали регистрировать их в разные дни. Без проверки FN через ФНС это не отловить.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Как идёт запрос к API</h2>
-              <p class="article-section__body">Участник сканирует QR с чека или вводит fn, fd, fp, сумму, дату. Запрос в API ФНС. Ответ: найден / не найден / ошибка сервиса. При «найден» — проверка белого списка ИНН, периода акции, минимальной суммы. Все условия ок — регистрация засчитана. Типичный отказ: чек куплен в соседнем магазине той же сети, но ИНН точки не в списке.</p>
+              <p class="article-section__body">Участник сканирует QR с чека или вводит fn, fd, fp, сумму и дату. Система отправляет запрос в API ФНС. Ответ бывает «найден», «не найден» или «ошибка сервиса».</p>
+              <p class="article-section__body">При ответе «найден» идут проверки белого списка ИНН, периода акции и минимальной суммы. Если все условия выполнены, регистрация засчитывается. Типичный отказ: чек куплен в соседнем магазине той же сети, но ИНН точки не в списке.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">OCR, когда API лежит</h2>
-              <p class="article-section__body">Ночное обслуживание и timeout в субботу — штатная картина. Промо.Про включает <a class="text-link" href="/articles/ocr-fallback/">OCR чеков как fallback</a>: фото чека, Tesseract.js в браузере, статус «на проверке», повтор к ФНС каждые 30 минут. Участник не получает мгновенный отказ — и не уходит в негатив на горячую линию.</p>
+              <p class="article-section__body">Ночное обслуживание и timeout в субботу — штатная картина. Промо.Про включает <a class="text-link" href="/articles/ocr-fallback/">OCR чеков как fallback</a>: участник снимает фото, Tesseract.js работает в браузере, заявка получает статус «на проверке».</p>
+              <p class="article-section__body">Система повторяет запрос к ФНС каждые тридцать минут. Участник не получает мгновенный отказ и не уходит в негатив на горячую линию.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Антифрод</h2>
-              <p class="article-section__body">Один телефон — N чеков за период, один FN — одна регистрация. Серия чеков с одного ИНН за час — флаг «покупка на полку».</p>
-              <p class="article-section__body">Софт не ловит выдуманные контакты. На одной акции промо-агентство забивало придуманные телефоны, чтобы закрыть план по регистрациям — система видит валидный номер, а не «реального участника». Правило «регистрация только с телефона участника» и выборочный аудит заявок иногда важнее, чем ещё один фильтр в интерфейсе.</p>
-              <p class="article-section__body">Как убрать стойку с бумажными анкетами — в статье об <a class="text-link" href="/articles/promo-receipt-automation/">автоматизации промоакции с чеками</a>.</p>
+              <p class="article-section__body">Один телефон не может принять больше N чеков за период. Один FN допускает только одну регистрацию. Серия чеков с одного ИНН за час помечается как «покупка на полку».</p>
+              <p class="article-section__body">Софт не ловит выдуманные контакты. На одной акции промо-агентство забивало придуманные телефоны, чтобы закрыть план по регистрациям. Система видит валидный номер, а не «реального участника». Правило «регистрация только с телефона участника» и выборочный аудит заявок иногда важнее, чем ещё один фильтр в интерфейсе.</p>
+              <p class="article-section__body">Как убрать стойку с бумажными анкетами, описано в статье об <a class="text-link" href="/articles/promo-receipt-automation/">автоматизации промоакции с чеками</a>.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Токен ФНС</h2>
-              <p class="article-section__body">Для kkt-online нужен токен на сайте ФНС, привязан к юрлицу заказчика. Подключение к инстансу — SKU внедрения от 15 000 ₽, в базе <a class="text-link" href="/products/promo-pro/">Промо.Про</a>. Без токена проверка не стартует — закладывайте 3–5 рабочих дней на оформление до старта акции.</p>
+              <p class="article-section__body">Для kkt-online нужен токен на сайте ФНС. Он привязан к юрлицу заказчика. Подключение к инстансу — SKU внедрения от 15 000 ₽, в базе <a class="text-link" href="/products/promo-pro/">Промо.Про</a>.</p>
+              <p class="article-section__body">Без токена проверка не стартует. Закладывайте три–пять рабочих дней на оформление до старта акции.</p>
             </section>
           </div>
           <div class="article-faq">
@@ -160,11 +163,11 @@
             <div class="article-faq__list">
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Работает ли проверка для чеков из любого магазина?</p>
-                <p class="article-faq__a">Только ИНН из белого списка акции — обычно партнёры по условиям промо, не «любой магазин сети».</p>
+                <p class="article-faq__a">Проверка работает только для ИНН из белого списка акции. Обычно это партнёры по условиям промо, а не любой магазин сети.</p>
               </div>
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Что если ФНС вернул ошибку «чек не найден»?</p>
-                <p class="article-faq__a">Часто касса ещё не синхронизировалась — задержка до 2 часов. Дайте повторную попытку или статус «на проверке», не жёсткий отказ с первого клика.</p>
+                <p class="article-faq__a">Часто касса ещё не синхронизировалась с реестром. Задержка может быть до двух часов. Дайте повторную попытку или статус «на проверке», а не жёсткий отказ с первого клика.</p>
               </div>
             </div>
           </div>

@@ -132,6 +132,16 @@ test.describe('Privacy & cookies — Sprint 4', () => {
     expect(metrikaLoaded).toBe(false);
   });
 
+  test('C-03b accepted on localhost skips metrika script', async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem('cookie-consent', 'accepted'));
+    await page.goto('/');
+    await expect(page.locator('#cookie-banner')).toBeHidden();
+    const metrikaLoaded = await page.evaluate(() =>
+      Array.from(document.scripts).some((s) => s.src.includes('mc.yandex.ru/metrika/tag.js'))
+    );
+    expect(metrikaLoaded).toBe(false);
+  });
+
   test('C-04 return visit with accepted hides banner', async ({ page }) => {
     await page.addInitScript(() => localStorage.setItem('cookie-consent', 'accepted'));
     await page.goto('/');

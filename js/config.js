@@ -22,6 +22,8 @@ window.SITE_CONFIG = {
   /** Яндекс.Метрика — пустая строка = не инициализировать */
   yandexMetrikaId: '110315704',
   metrikaRequiresConsent: true,
+  /** Только production-домен; localhost и CI не учитываются */
+  metrikaAllowedHosts: ['reg-point.ru'],
 
   nav: [
     { label: 'Продукты', href: '/products/', children: [

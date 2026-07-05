@@ -10,6 +10,12 @@
     return String(id).trim();
   }
 
+  function isMetrikaAllowed() {
+    var allowed = cfg.metrikaAllowedHosts;
+    if (!allowed || !allowed.length) return false;
+    return allowed.indexOf(location.hostname) !== -1;
+  }
+
   function injectNoscript(id) {
     if (document.querySelector('[data-metrika-noscript]')) return;
     var ns = document.createElement('noscript');
@@ -22,7 +28,7 @@
 
   function loadMetrika() {
     var id = getMetrikaId();
-    if (loaded || !id) return;
+    if (loaded || !id || !isMetrikaAllowed()) return;
     loaded = true;
 
     window.dataLayer = window.dataLayer || [];

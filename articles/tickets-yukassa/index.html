@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Продажа билетов через ЮKassa на своём сервере — Рег.Поинт</title>
-    <meta name="description" content="Тикет.Поинт — add-on модуль для продажи билетов через аккаунт ЮKassa заказчика. Деньги идут напрямую клиенту, комиссия ЮKassa — по его договору. Разбираем …" />
+    <meta name="description" content="Тикет.Поинт подключает магазин ЮKassa заказчика: деньги идут на его счёт, комиссия по его договору. Схема интеграции, webhook и ограничения модуля." />
     <link rel="canonical" href="https://reg-point.ru/articles/tickets-yukassa/" />
     <meta property="og:title" content="Продажа билетов через ЮKassa на своём сервере — Рег.Поинт" />
-    <meta property="og:description" content="Тикет.Поинт — add-on модуль для продажи билетов через аккаунт ЮKassa заказчика. Деньги идут напрямую клиенту, комиссия ЮKassa — по его договору. Разбираем …" />
+    <meta property="og:description" content="Тикет.Поинт подключает магазин ЮKassa заказчика: деньги идут на его счёт, комиссия по его договору. Схема интеграции, webhook и ограничения модуля." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://reg-point.ru/articles/tickets-yukassa/" />
     <meta property="og:image" content="https://reg-point.ru/img/articles/cover-tickets.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Продажа билетов через ЮKassa на своём сервере", "description": "Тикет.Поинт — add-on модуль для продажи билетов через аккаунт ЮKassa заказчика. Деньги идут напрямую клиенту, комиссия ЮKassa — по его договору. Разбираем схему интеграции и ограничения.", "datePublished": "2026-06-20", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-tickets.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/tickets-yukassa/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли продавать билеты без ЮKassa — например, через банковский перевод?", "acceptedAnswer": {"@type": "Answer", "text": "В текущей версии — нет. Тикет.Поинт ориентирован на онлайн-оплату через ЮKassa. Ручной учёт оплат — через статус участника в Рег.Поинт."}}, {"@type": "Question", "name": "Нужна ли онлайн-касса (54-ФЗ) для продажи билетов?", "acceptedAnswer": {"@type": "Answer", "text": "Да. ЮKassa поддерживает передачу данных в ОФД и формирование чеков по 54-ФЗ. Настройка — в кабинете ЮKassa заказчика."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Продажа билетов через ЮKassa на своём сервере", "description": "Тикет.Поинт подключает магазин ЮKassa заказчика: деньги идут на его счёт, комиссия по его договору. Схема интеграции, webhook и ограничения модуля.", "datePublished": "2026-06-20", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-tickets.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/tickets-yukassa/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли продавать билеты без ЮKassa — например, через банковский перевод?", "acceptedAnswer": {"@type": "Answer", "text": "В текущей версии модуль работает только с онлайн-оплатой через ЮKassa. Банковский перевод учитывают вручную через статус участника в Рег.Поинт."}}, {"@type": "Question", "name": "Нужна ли онлайн-касса (54-ФЗ) для продажи билетов?", "acceptedAnswer": {"@type": "Answer", "text": "Да, чеки по 54-ФЗ обязательны. ЮKassa передаёт данные в ОФД, настройку делают в кабинете заказчика, не в модуле регистрации."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -120,7 +120,7 @@
             <span class="article-header__time">· 8 мин</span>
           </div>
           <h1 class="article-header__title font-heading">Продажа билетов через ЮKassa на своём сервере</h1>
-          <p class="article-lead">Оплата идёт через магазин ЮKassa заказчика — деньги на его расчётный счёт. Мы не платёжный агент: так устроена модель, и это нужно заложить в договор с юристами заранее.</p>
+          <p class="article-lead">Оплата идёт через магазин ЮKassa заказчика. Деньги приходят на его расчётный счёт, а не через вендора регистрации. Эту модель стоит заложить в договор с юристами до подключения модуля.</p>
         </div>
       </section>
       <section class="article-body">
@@ -128,23 +128,28 @@
           <div class="article-sections">
             <section class="article-section">
               <h2 class="article-section__title font-heading">Почему свой магазин ЮKassa</h2>
-              <p class="article-section__body">Деньги не проходят через вендора регистрации. Заказчик — продавец билета, свой shop_id, свой договор с ЮKassa (~3,5% на карту онлайн). Комиссия не в лицензии <a class="text-link" href="/products/ticket-point/">Тикет.Поинт</a>. Бухгалтерия клиента видит выплаты как обычный эквайринг, не «агентское удержание».</p>
+              <p class="article-section__body">Деньги не проходят через вендора регистрации. Заказчик остаётся продавцом билета со своим shop_id и договором с ЮKassa. Комиссия около 3,5% на карту онлайн не входит в лицензию <a class="text-link" href="/products/ticket-point/">Тикет.Поинт</a>.</p>
+              <p class="article-section__body">Бухгалтерия клиента видит выплаты как обычный эквайринг. Не нужно объяснять «агентское удержание» в отчётах.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Что подготовить до интеграции</h2>
-              <p class="article-section__body">Магазин в ЮKassa: shop_id, test и prod secret_key. Webhook URL на вашем инстансе — endpoint выдаём при настройке. Активный Рег.Поинт на том же сервере — Тикет.Поинт без базового модуля не ставится. Типичная задержка: согласование ОФД и 54-ФЗ в кабинете ЮKassa — не в день деплоя.</p>
+              <p class="article-section__body">Нужен магазин в ЮKassa с shop_id и secret_key для test и prod. Webhook URL вешают на ваш инстанс, endpoint выдаём при настройке.</p>
+              <p class="article-section__body">Тикет.Поинт ставится поверх активного Рег.Поинт на том же сервере. Без базового модуля add-on не подключить. Согласование ОФД и 54-ФЗ в кабинете ЮKassa часто занимает не один день, не только деплой.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Поток оплаты</h2>
-              <p class="article-section__body">Участник выбирает билет → API ЮKassa от имени магазина клиента → оплата на странице ЮKassa (карта, СБП, ЮMoney) → webhook на инстанс → активация билета и QR. Путь от записи до входа — в статье об <a class="text-link" href="/articles/event-registration-no-queues/">онлайн-записи до check-in</a>. T+1 на расчётный счёт за вычетом комиссии. Сбой: webhook не дошёл — билет «оплачен» в ЮKassa, но не активирован; нужен retry и ручная сверка в кабинете.</p>
+              <p class="article-section__body">Участник выбирает билет, API ЮKassa создаёт платёж от имени магазина клиента. Оплата проходит на странице ЮKassa: карта, СБП или ЮMoney. После webhook на инстанс билет активируется и участник получает QR.</p>
+              <p class="article-section__body">Путь от записи до входа описан в статье об <a class="text-link" href="/articles/event-registration-no-queues/">онлайн-записи до check-in</a>. Деньги приходят на счёт на следующий рабочий день за вычетом комиссии. Если webhook не дошёл, билет «оплачен» в ЮKassa, но не активирован в системе. Нужен retry и ручная сверка в кабинете.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Билет и QR</h2>
-              <p class="article-section__body">Шаблон: логотип, имя, категория, QR, дата, площадка. PDF на сервере клиента, email участнику. Check-in на входе — тот же механизм, что в <a class="text-link" href="/articles/qr-check-in/">QR check-in для билетов</a>. QR не сжимайте в письме — на экране дешёвых телефонов хуже считывается.</p>
+              <p class="article-section__body">Шаблон билета включает логотип, имя, категорию, QR, дату и площадку. PDF генерируется на сервере клиента и уходит участнику на email.</p>
+              <p class="article-section__body">Check-in на входе работает так же, как в материале про <a class="text-link" href="/articles/qr-check-in/">QR check-in для билетов</a>. QR лучше не сжимать в письме. На экране дешёвых телефонов мелкий код считывается хуже.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Статус модуля</h2>
-              <p class="article-section__body">Тикет.Поинт в разработке. Схема с ЮKassa зафиксирована. Запрос через форму — уведомление при релизе и beta-доступ. Для платного воркшопа без онлайн-оплаты сейчас — ручной статус «оплачено» в Рег.Поинт.</p>
+              <p class="article-section__body">Тикет.Поинт сейчас в разработке. Схема с ЮKassa уже зафиксирована. Через форму на сайте можно попасть в список на уведомление о релизе и beta-доступ.</p>
+              <p class="article-section__body">Для платного воркшопа без онлайн-оплаты пока хватает ручного статуса «оплачено» в Рег.Поинт.</p>
             </section>
           </div>
           <div class="article-faq">
@@ -152,11 +157,11 @@
             <div class="article-faq__list">
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Можно ли продавать билеты без ЮKassa — например, через банковский перевод?</p>
-                <p class="article-faq__a">Сейчас — нет, только онлайн через ЮKassa. Банковский перевод — ручной статус участника в Рег.Поинт.</p>
+                <p class="article-faq__a">В текущей версии модуль работает только с онлайн-оплатой через ЮKassa. Банковский перевод учитывают вручную через статус участника в Рег.Поинт.</p>
               </div>
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Нужна ли онлайн-касса (54-ФЗ) для продажи билетов?</p>
-                <p class="article-faq__a">Да. Чеки и ОФД настраиваются в кабинете ЮKassa заказчика — не в модуле регистрации.</p>
+                <p class="article-faq__a">Да, чеки по 54-ФЗ обязательны. ЮKassa передаёт данные в ОФД, настройку делают в кабинете заказчика, не в модуле регистрации.</p>
               </div>
             </div>
           </div>

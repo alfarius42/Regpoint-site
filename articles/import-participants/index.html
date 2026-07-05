@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Импорт участников из Excel и CSV без ошибок — Рег.Поинт</title>
-    <meta name="description" content="Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что дел…" />
+    <meta name="description" content="Как подготовить Excel и CSV для импорта участников: форматы файлов, типичные ошибки, дубли email и порядок загрузки в Рег.Поинт." />
     <link rel="canonical" href="https://reg-point.ru/articles/import-participants/" />
     <meta property="og:title" content="Импорт участников из Excel и CSV без ошибок — Рег.Поинт" />
-    <meta property="og:description" content="Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что дел…" />
+    <meta property="og:description" content="Как подготовить Excel и CSV для импорта участников: форматы файлов, типичные ошибки, дубли email и порядок загрузки в Рег.Поинт." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://reg-point.ru/articles/import-participants/" />
     <meta property="og:image" content="https://reg-point.ru/img/articles/cover-check-in.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Импорт участников из Excel и CSV без ошибок", "description": "Организаторы часто получают списки участников в Excel от заказчика или из внешней CRM. Разбираем, как правильно подготовить файл, избежать дублей и что делать, если структура нестандартная.", "datePublished": "2026-06-01", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-check-in.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/import-participants/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли обновить запись, если участник уже зарегистрировался онлайн?", "acceptedAnswer": {"@type": "Answer", "text": "Нет автоматического слияния. Дубль по email пропускается. Изменить данные можно вручную в карточке участника."}}, {"@type": "Question", "name": "Сколько участников можно импортировать за раз?", "acceptedAnswer": {"@type": "Answer", "text": "До 10 000 строк в одном файле. Для больших мероприятий рекомендуется разбивать на пакеты."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Импорт участников из Excel и CSV без ошибок", "description": "Как подготовить Excel и CSV для импорта участников: форматы файлов, типичные ошибки, дубли email и порядок загрузки в Рег.Поинт.", "datePublished": "2026-06-01", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-check-in.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/import-participants/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли обновить запись, если участник уже зарегистрировался онлайн?", "acceptedAnswer": {"@type": "Answer", "text": "Автоматического слияния нет. Дубль по email пропускается. Данные можно изменить вручную в карточке участника."}}, {"@type": "Question", "name": "Сколько участников можно импортировать за раз?", "acceptedAnswer": {"@type": "Answer", "text": "За один раз можно импортировать до 10 000 строк. На больших мероприятиях лучше разбивать список на пакеты."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -120,7 +120,7 @@
             <span class="article-header__time">· 5 мин</span>
           </div>
           <h1 class="article-header__title font-heading">Импорт участников из Excel и CSV без ошибок</h1>
-          <p class="article-lead">Excel в пятницу вечером, event в понедельник — полдела почистить телефоны и email до загрузки. Иначе на входе всплывают дубли, три формата +7 и люди, которых HR докинул уже после импорта.</p>
+          <p class="article-lead">Заказчик присылает Excel в пятницу вечером, а event уже в понедельник. Полдня уходит на телефоны и email до загрузки. Без этой подготовки на входе всплывают дубли, три формата номера и люди, которых HR добавил уже после импорта.</p>
         </div>
       </section>
       <section class="article-body">
@@ -128,21 +128,24 @@
           <div class="article-sections">
             <section class="article-section">
               <h2 class="article-section__title font-heading">Какие файлы принимаем</h2>
-              <p class="article-section__body">CSV (UTF-8 или Windows-1251) и XLSX. Минимум: имя и email. Телефон, компания, должность — по желанию. Порядок колонок любой: при загрузке маппите поля в интерфейсе. Кириллица в заголовках работает, но латиница надёжнее — особенно если файл гоняли через несколько Excel-версий.</p>
+              <p class="article-section__body">Мы принимаем CSV в кодировке UTF-8 или Windows-1251, а также XLSX. Обязательны имя и email. Телефон, компания и должность можно добавить по желанию.</p>
+              <p class="article-section__body">Порядок колонок не важен. При загрузке вы сопоставите поля в интерфейсе. Кириллица в заголовках работает, но латиница надёжнее, особенно если файл прошёл через несколько версий Excel.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Что ломает импорт</h2>
-              <p class="article-section__body">Телефоны в трёх форматах в одном столбце. Email с пробелом в конце — валидатор отловит, но править придётся вручную.</p>
-              <p class="article-section__body">Финальный список редко финальный. На корпоративе на ~100 человек Excel залили заранее, а за день до event HR докинул ещё сотрудников — проще ручной ввод на входе, чем гонять файл заново.</p>
-              <p class="article-section__body">Дубли email: вторая строка пропускается, первая остаётся — слияния нет, обновляйте карточку участника отдельно. Менеджер случайно залил старый файл поверх нового — отката нет, только ручная чистка.</p>
+              <p class="article-section__body">Частая проблема — телефоны в трёх форматах в одном столбце. Email с пробелом в конце валидатор отловит, но править придётся вручную.</p>
+              <p class="article-section__body">«Финальный» список редко остаётся финальным. На корпоративе на сто человек Excel залили заранее. За день до event HR добавил ещё сотрудников. Проще ввести их на входе, чем гонять файл заново.</p>
+              <p class="article-section__body">При дублях email вторая строка пропускается, первая остаётся. Слияния нет, карточку участника обновляйте отдельно. Если менеджер залил старый файл поверх нового, отката нет. Остаётся только ручная чистка.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Порядок действий</h2>
-              <p class="article-section__body">Мероприятие → «Участники» → «Импорт». Загрузка, маппинг колонок, превью первых пяти строк, подтверждение. Статистика: добавлено, дубли, битые email. После импорта участники получают QR для <a class="text-link" href="/articles/qr-check-in/">check-in на входе</a>. На 8 000 строк лучше два файла по 4 000 — проще поймать ошибку до боевой загрузки.</p>
+              <p class="article-section__body">Откройте мероприятие, раздел «Участники», кнопку «Импорт». Загрузите файл, сопоставьте колонки и проверьте превью первых пяти строк. После подтверждения увидите статистику: добавлено, дубли, битые email.</p>
+              <p class="article-section__body">После импорта участники получают QR для <a class="text-link" href="/articles/qr-check-in/">check-in на входе</a>. На восемь тысяч строк лучше два файла по четыре тысячи. Так проще поймать ошибку до боевой загрузки.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">ПД и доступы</h2>
-              <p class="article-section__body">Данные шифруются на сервере клиента (AES-256-GCM). Audit log пишет: кто импортировал, когда, сколько строк. Менеджер на площадке видит маскированные поля — полный email только у director. Импорт без основания обработки — отдельный риск; см. <a class="text-link" href="/articles/152fz-penalties/">штрафы за нарушение 152-ФЗ</a> и <a class="text-link" href="/articles/152fz-checklist/">чеклист 152-ФЗ для организатора</a>.</p>
+              <p class="article-section__body">Данные шифруются на сервере клиента по AES-256-GCM. Audit log фиксирует, кто импортировал, когда и сколько строк. Менеджер на площадке видит маскированные поля. Полный email доступен только director.</p>
+              <p class="article-section__body">Импорт без основания обработки — отдельный риск. Подробнее — в материале про <a class="text-link" href="/articles/152fz-penalties/">штрафы за нарушение 152-ФЗ</a> и в <a class="text-link" href="/articles/152fz-checklist/">чеклист 152-ФЗ для организатора</a>.</p>
             </section>
           </div>
           <div class="article-faq">
@@ -150,11 +153,11 @@
             <div class="article-faq__list">
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Можно ли обновить запись, если участник уже зарегистрировался онлайн?</p>
-                <p class="article-faq__a">Нет автоматического слияния. Дубль по email пропускается. Изменить данные можно вручную в карточке участника.</p>
+                <p class="article-faq__a">Автоматического слияния нет. Дубль по email пропускается. Данные можно изменить вручную в карточке участника.</p>
               </div>
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Сколько участников можно импортировать за раз?</p>
-                <p class="article-faq__a">До 10 000 строк в одном файле. Для больших мероприятий рекомендуется разбивать на пакеты.</p>
+                <p class="article-faq__a">За один раз можно импортировать до 10 000 строк. На больших мероприятиях лучше разбивать список на пакеты.</p>
               </div>
             </div>
           </div>

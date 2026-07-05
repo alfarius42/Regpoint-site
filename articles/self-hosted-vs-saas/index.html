@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Self-hosted vs SaaS: как выбрать регистрацию на мероприятие — Рег.Поинт</title>
-    <meta name="description" content="SaaS удобен в старте, но хранит базу участников у себя. Self-hosted требует VPS, зато данные под вашим контролем. Разбираем, когда что выбрать — и почему д…" />
+    <meta name="description" content="SaaS удобен на старте, но база участников остаётся у провайдера. Self-hosted требует VPS и администрирования. Когда какой вариант выбирают на практике." />
     <link rel="canonical" href="https://reg-point.ru/articles/self-hosted-vs-saas/" />
     <meta property="og:title" content="Self-hosted vs SaaS: как выбрать регистрацию на мероприятие — Рег.Поинт" />
-    <meta property="og:description" content="SaaS удобен в старте, но хранит базу участников у себя. Self-hosted требует VPS, зато данные под вашим контролем. Разбираем, когда что выбрать — и почему д…" />
+    <meta property="og:description" content="SaaS удобен на старте, но база участников остаётся у провайдера. Self-hosted требует VPS и администрирования. Когда какой вариант выбирают на практике." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://reg-point.ru/articles/self-hosted-vs-saas/" />
     <meta property="og:image" content="https://reg-point.ru/img/articles/cover-self-hosted.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Self-hosted vs SaaS: как выбрать регистрацию на мероприятие", "description": "SaaS удобен в старте, но хранит базу участников у себя. Self-hosted требует VPS, зато данные под вашим контролем. Разбираем, когда что выбрать — и почему для B2B и regulated-отраслей выбор однозначен.", "datePublished": "2026-05-15", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-self-hosted.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/self-hosted-vs-saas/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Нужен ли программист для установки Рег.Поинт?", "acceptedAnswer": {"@type": "Answer", "text": "Docker-compose + подробный runbook. Если нет своего DevOps — есть услуга turnkey-внедрения от 45 000 ₽."}}, {"@type": "Question", "name": "SaaS дешевле на старте — это так?", "acceptedAnswer": {"@type": "Answer", "text": "Да, но при регулярных мероприятиях (4+ в год) совокупная стоимость SaaS-подписки за 2–3 года превышает стоимость лицензии коробки."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Self-hosted vs SaaS: как выбрать регистрацию на мероприятие", "description": "SaaS удобен на старте, но база участников остаётся у провайдера. Self-hosted требует VPS и администрирования. Когда какой вариант выбирают на практике.", "datePublished": "2026-05-15", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-self-hosted.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/self-hosted-vs-saas/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Нужен ли программист для установки Рег.Поинт?", "acceptedAnswer": {"@type": "Answer", "text": "Нужен docker-compose и подробный runbook. Если своего DevOps нет, есть turnkey-внедрение от 45 000 ₽. Сервер при этом остаётся у клиента."}}, {"@type": "Question", "name": "SaaS дешевле на старте — это так?", "acceptedAnswer": {"@type": "Answer", "text": "Да, на старте SaaS обычно дешевле. При четырёх и более мероприятиях в год за 2–3 года подписка часто обгоняет разовую лицензию коробки."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -120,7 +120,7 @@
             <span class="article-header__time">· 7 мин</span>
           </div>
           <h1 class="article-header__title font-heading">Self-hosted vs SaaS: как выбрать регистрацию на мероприятие</h1>
-          <p class="article-lead">На тендере банк спросит: где физически база участников. SaaS — «у нас в облаке». Self-hosted — MySQL на сервере клиента, но нужен VPS и кто-то, кто поднимет compose.</p>
+          <p class="article-lead">На тендере банк первым делом спросит, где физически лежит база гостей. У SaaS-регистратора ответ обычно «в нашем облаке». У self-hosted MySQL на сервере заказчика, но нужен VPS и тот, кто поднимет docker-compose.</p>
         </div>
       </section>
       <section class="article-body">
@@ -128,19 +128,19 @@
           <div class="article-sections">
             <section class="article-section">
               <h2 class="article-section__title font-heading">SaaS-регистратор</h2>
-              <p class="article-section__body">Timepad, Eventbrite и аналоги держат базу в multi-tenant среде. Вы арендуете UI и отчёты — ПД участников физически у провайдера. Для открытого митапа на 200 человек это нормально. Для корпоратива сотрудников банка или pharma-конференции ИБ часто блокирует такую схему на этапе опросника.</p>
+              <p class="article-section__body">Timepad, Eventbrite и похожие сервисы держат базу в общей среде. Вы арендуете интерфейс и отчёты, а персональные данные физически остаются у провайдера. Для открытого митапа на двести человек это часто нормально. На корпоративе сотрудников банка или pharma-конференции ИБ нередко режет такую схему ещё на опроснике.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Self-hosted коробка</h2>
-              <p class="article-section__body">ПО на VPS или VDS заказчика. MySQL, файлы, audit log — на их диске. Вендор решения не оператор ПД ваших гостей и не видит прод-базу без SSH-доступа, который вы сами выдаёте. Компромисс: бэкапы, ротация ключей и патчи — ваша зона. Для агентства без DevOps есть turnkey, но сервер всё равно остаётся у клиента.</p>
+              <p class="article-section__body">Коробка ставится на VPS или VDS заказчика. MySQL, файлы и audit log лежат на их диске. Вендор не оператор ПД ваших гостей и не видит прод-базу без SSH, который вы сами выдадите. Зато бэкапы, ротация ключей и патчи — ваша зона ответственности. Если у агентства нет DevOps, есть turnkey, но сервер всё равно остаётся у клиента.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Когда без self-hosted не обойтись</h2>
-              <p class="article-section__body">Заказчик — банк, pharma, госсектор или корпорация с политикой «данные только на нашей инфраструктуре». Собираете паспортные или медицинские поля. Работаете по <a class="text-link" href="/compliance-152fz/">152-ФЗ на мероприятии</a> и хотите укоротить цепочку обработчиков. Для breakfast на 40 человек без compliance-требований SaaS иногда дешевле и быстрее — честный компромисс.</p>
+              <p class="article-section__body">Self-hosted выбирают, когда заказчик — банк, pharma, госсектор или корпорация с политикой «данные только на нашей инфраструктуре». Тоже нужен, если в форме паспортные или медицинские поля. Или если вы строите процесс по <a class="text-link" href="/compliance-152fz/">152-ФЗ на мероприятии</a> и хотите укоротить цепочку обработчиков. Для breakfast на сорок человек без compliance SaaS иногда дешевле и быстрее. Это честный компромисс.</p>
             </section>
             <section class="article-section">
               <h2 class="article-section__title font-heading">Рег.Поинт в этой схеме</h2>
-              <p class="article-section__body">Docker-compose на VPS клиента — см. <a class="text-link" href="/articles/docker-vps/">требования к серверу</a>. MySQL не уезжает к вендору. 152-ФЗ из коробки: AES-256-GCM, audit log, согласие per-event, endpoint удаления. Процесс внедрения — в разделе <a class="text-link" href="/how-it-works/">как работает Рег.Поинт</a>. TCO на горизонте 2–3 лет — в материале <a class="text-link" href="/articles/cost-of-registration/">сравнение с SaaS за 2–3 года</a>.</p>
+              <p class="article-section__body">Рег.Поинт поднимается docker-compose на VPS клиента. Требования к серверу — в материале про <a class="text-link" href="/articles/docker-vps/">требования к серверу</a>. MySQL не уезжает к вендору. В коробке уже AES-256-GCM, audit log, согласие per-event и endpoint удаления. Процесс внедрения описан в разделе <a class="text-link" href="/how-it-works/">как работает Рег.Поинт</a>. TCO на два–три года — в статье <a class="text-link" href="/articles/cost-of-registration/">сравнение с SaaS за 2–3 года</a>.</p>
               <div class="article-product-ref">
                 <div class="article-product-ref__info">
                   <p class="article-product-ref__name font-heading">Рег.Поинт</p>
@@ -155,11 +155,11 @@
             <div class="article-faq__list">
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Нужен ли программист для установки Рег.Поинт?</p>
-                <p class="article-faq__a">docker-compose и runbook. Без своего DevOps — turnkey от 45 000 ₽, сервер остаётся у клиента.</p>
+                <p class="article-faq__a">Нужен docker-compose и подробный runbook. Если своего DevOps нет, есть turnkey-внедрение от 45 000 ₽. Сервер при этом остаётся у клиента.</p>
               </div>
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">SaaS дешевле на старте — это так?</p>
-                <p class="article-faq__a">Да. При 4+ мероприятиях в год за 2–3 года подписка SaaS часто обгоняет разовую лицензию коробки — без владения данными и без установки на сервер заказчика.</p>
+                <p class="article-faq__a">Да, на старте SaaS обычно дешевле. При четырёх и более мероприятиях в год за два–три года подписка часто обгоняет разовую лицензию коробки. При этом вы не владеете данными и не ставите систему на сервер заказчика.</p>
               </div>
             </div>
           </div>
