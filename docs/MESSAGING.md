@@ -1,15 +1,26 @@
 # Идеология текстов Reg.Point
 
-> **Статус:** принято, v2 (2026-07-05).  
-> **Связано:** `docs/templates/SOLUTION_PAGE.md`, `MARKETING_SITE_SPEC.md` §15.
+> **Статус:** принято, v3 (2026-07-05).  
+> **Структура funnel:** ниже · **Голос и стиль:** [`docs/CONTENT_VOICE.md`](CONTENT_VOICE.md) · **Solution:** [`docs/templates/SOLUTION_PAGE.md`](templates/SOLUTION_PAGE.md)
 
 ---
 
-## 1. Главный принцип
+## 1. Два слоя требований к текстам
 
-**Мы продаём не технологии — мы продаём решение проблемы.**
+| Слой | Документ | Что решает |
+|------|----------|------------|
+| **Структура** | `MESSAGING.md`, `SOLUTION_PAGE.md` | Problem → Solution → … · SEO · hub → child |
+| **Голос** | **`CONTENT_VOICE.md`** | Инженерный тон · опыт · нюансы · компромиссы · editorial links |
 
-Технологии — доказательство на блоке **§4 Technology**, не на первом экране.
+**Оба обязательны.** Keyword в H1 без инженерного lead — не публикуем.
+
+### 1.1 Главный принцип структуры
+
+**Продаём не технологии — решаем проблему.** Tech — блок §4, не первый экран.
+
+### 1.2 Главный принцип голоса
+
+**«Эти люди сами строили такие системы.»** Не SEO-простыня, не ChatGPT, не маркетинговый лендинг.
 
 ---
 
@@ -106,27 +117,37 @@
 5. Мягко: автоматизация + compliance  
 6. CTA → **Solution page**, не дублировать §3–7  
 
+**Важно для compliance-тем:** editorial-ссылки из статей и scenario-блоков про согласия, ПД и legal mistakes ведут на **`/articles/consent-pd/`**, а не на `/privacy/`.  
+`/privacy/` и `/privacy/marketing-consent/` остаются только для системных/legal UI-ссылок.
+
 ---
 
 ## 8. Анти-patterns
 
+**Структура:**
 - ❌ §3 Возможности на первом экране  
 - ❌ §4 Technology в lead  
 - ❌ §5 «преимущества» вместо до/после  
 - ❌ Feature list без §2 «сценария процесса»  
 
+**Голос:** см. `docs/CONTENT_VOICE.md` — «в современном мире», keyword stuffing, определения вместо опыта.
+
 ---
 
 ## 9. Чеклист
 
-**Solution Page (`/scenarios/*`):** см. `docs/templates/SOLUTION_PAGE.md` §Чеклист.
+**Solution Page:** `docs/templates/SOLUTION_PAGE.md` §Чеклист.  
+**Голос и editorial links:** `docs/CONTENT_VOICE.md` §Чеклист.
 
-**Любая commercial-страница:**
+**Любая страница:**
 ```
-[ ] Lead = проблема
+[ ] Lead = проблема (структура)
+[ ] Тон = инженер с опытом (CONTENT_VOICE)
+[ ] ≥1 нюанс или фраза заказчика
+[ ] 1–3 контентные <a> в абзацах с контекстом
+[ ] Editorial-ссылки про ПД/согласия ведут на /articles/consent-pd/
+[ ] primaryKeyword в Title/H1, без stuffing
 [ ] Tech после бизнес-блоков
-[ ] primaryKeyword в Title/H1
-[ ] Нет полного funnel там, где матрица §3 не требует
 ```
 
 ---
@@ -135,6 +156,7 @@
 
 | Документ | Назначение |
 |----------|------------|
+| **`docs/CONTENT_VOICE.md`** | **Голос, стиль, editorial links** |
 | `docs/templates/SOLUTION_PAGE.md` | Канон 14 блоков |
 | `docs/SEO_PORTAL_ROADMAP.md` §8 | SEO + hub |
 | `content/SCHEMA.md` | `pageTemplate`, `problems[]` |

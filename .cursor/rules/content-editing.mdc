@@ -1,0 +1,11 @@
+---
+description: Создание и редактирование контента Reg.Point — см. skill content-writing
+globs: "{**/articles/**,**/products/**,**/scenarios/**,technology/**,compliance-152fz/**,how-it-works/**,faq/**,pricing/**,contacts/**,index.html,MARKETING_SITE_SPEC.md,i18n/**,content/**}"
+alwaysApply: false
+---
+
+# Контент Reg.Point
+
+При создании или правке статей, сценариев, product/hub, FAQ, pricing, hero, `MARKETING_SITE_SPEC.md`, `i18n/`, `content/` — **прочитай и следуй** skill: `.cursor/skills/content-writing/SKILL.md`.
+
+Источники copy (откуда брать тексты, не как писать): `docs/CONTENT_SOURCES.md`.

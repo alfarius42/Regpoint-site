@@ -11,10 +11,11 @@
 
 ```
 1. primaryKeyword уникален в pages.json
-2. Title → H1 → FAQ пишутся ПОД keyword (не наоборот)
-3. Lead и H2 — problem-first: проблема → решение → повторяемость (docs/MESSAGING.md)
-4. Новый URL только если existing hub не владеет keyword
-5. Cap 100 — жёсткий; 101+ только из §Backlog после review
+2. Title → H1 → FAQ — keyword (SEO)
+3. Lead — problem-first (MESSAGING) + engineer voice (CONTENT_VOICE)
+4. Editorial links: 1–3 <a> в абзацах с контекстом (CONTENT_VOICE §Editorial)
+5. Новый URL только если existing hub не владеет keyword
+6. Cap 100 — жёсткий; 101+ только из §Backlog
 ```
 
 ---
@@ -28,6 +29,9 @@
 
 ### 10.1b Internal links
 - [x] `js/internal-links.js` — hub children + conditional children + tag siblings
+- [x] `content/editorial-links.json` — реестр контентных ссылок в теле страниц
+- [x] Контентные `<a class="text-link">` в 12 статьях + hub/product (волна 1–2)
+- [x] e2e: `tests/e2e/editorial-links.spec.js`
 
 ### 10.2 Existing keyword-first refresh (приоритетные 10)
 - [ ] `/` — **сервис регистрации мероприятий**
@@ -212,23 +216,19 @@
 
 ## SEO copy checklist (каждая страница)
 
-> **Идеология:** `docs/MESSAGING.md` · **Solution §1–14:** `docs/templates/SOLUTION_PAGE.md`
+> **Идеология:** `docs/MESSAGING.md` · **Голос:** `docs/CONTENT_VOICE.md` · **Solution:** `docs/templates/SOLUTION_PAGE.md`
 
 ```
-[ ] primaryKeyword в pages.json — unique
-[ ] pageTemplate = solution-full (для /scenarios/*)
-[ ] §1 Проблема — без продукта
-[ ] §2 Решение — сценарий процесса
-[ ] §3 Возможности — после §2
-[ ] §4 Technology — после §3
-[ ] §5 До/после — не «преимущества»
-[ ] §6 Повторяемость
-[ ] §7 Организационный эффект (CEO)
-[ ] Title/H1 = keyword
-[ ] FAQ — риски, не API
-[ ] CTA Jivo
-[ ] hub /scenarios/ + relatedHubs
-[ ] sitemap + e2e
+[ ] primaryKeyword unique · pageTemplate solution-full (scenarios)
+[ ] §1–7 структура Solution
+[ ] Lead — практика, не определение; фраза заказчика
+[ ] ≥1 инж. нюанс (§4 или статья)
+[ ] ≥1 компромисс где уместно
+[ ] 1–3 editorial <a href> в <p> с контекстом
+[ ] Нет запрещённых оборотов (CONTENT_VOICE §Стиль)
+[ ] Title/H1 = keyword; без stuffing
+[ ] FAQ — риски, не «что такое API»
+[ ] hub + relatedHubs · sitemap · e2e
 ```
 
 ---

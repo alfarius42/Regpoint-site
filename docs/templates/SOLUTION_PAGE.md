@@ -3,7 +3,7 @@
 > **URL в production:** `/scenarios/{slug}/` (в nav — **«Решения»** / «Сценарии»).  
 > **Тип в pages.json:** `scenario` · **intent:** `commercial`  
 > **Статус:** канон copy v2, 2026-07-05  
-> **Связано:** `docs/MESSAGING.md`, `docs/SEO_PORTAL_ROADMAP.md` §8
+> **Связано:** `docs/MESSAGING.md`, `docs/CONTENT_VOICE.md`, `docs/SEO_PORTAL_ROADMAP.md` §8
 
 ---
 
@@ -44,7 +44,7 @@
 14. CTA (Jivo)
 ```
 
-**SEO:** Title и H1 = primary keyword. **Lead блока 1** = проблема, не продукт.
+**SEO:** Title и H1 = primary keyword. **Lead блока 1** = проблема из практики (`CONTENT_VOICE.md` §1, §4).
 
 ---
 
@@ -180,6 +180,9 @@
 
 **После блока →** статьи · `/technology/` · `/pricing/` · `/contacts/`
 
+**Важно для compliance-copy:** если в тексте этого блока или FAQ есть ссылка про согласие на обработку ПД, хранение данных или типовые ошибки на форме регистрации, editorial-ссылка должна вести на **`/articles/consent-pd/`**.  
+На `/privacy/` и `/privacy/marketing-consent/` ведём только из checkbox, cookie banner, footer и других системных элементов.
+
 ---
 
 ## 8–12. Перелинковка (авто + финальные блоки)
@@ -233,16 +236,22 @@ Schema: `FAQPage`.
 
 ## Чеклист Solution Page
 
+**Структура + SEO + голос:** `docs/CONTENT_VOICE.md`
+
 ```
-[ ] Title/H1 = primaryKeyword
-[ ] §1 Проблема — без продукта
-[ ] §2 Решение — сценарий процесса
-[ ] §3 Возможности — после §2, ссылки на /features/
-[ ] §4 Technology — после §3, ссылки на /technology/
-[ ] §5 До/после — не bullet «преимущества»
+[ ] Title/H1 = primaryKeyword (SEO)
+[ ] §1 Проблема — ситуация из практики, не определение
+[ ] §1 — фраза как у заказчика (CONTENT_VOICE §4)
+[ ] §2 Решение — сценарий процесса; 1+ editorial <a> в <p>
+[ ] §3 Возможности — после §2; editorial links на /features/
+[ ] §4 Technology — инж. нюанс; links на /technology/
+[ ] §5 До/после — не «преимущества»
 [ ] §6 Повторяемость — agency / enterprise
 [ ] §7 Организационный эффект — для CEO
-[ ] §8–12 перелинковка
-[ ] FAQ + CTA
+[ ] FAQ — один компромисс / граница (CONTENT_VOICE §6)
+[ ] Ссылки про ПД/согласия в тексте ведут на /articles/consent-pd/
+[ ] Нет keyword stuffing; нет «в современном мире»
+[ ] §8–12 nav-перелинковка + editorial в body
+[ ] CTA — Jivo
 [ ] pages.json: type scenario, hub /scenarios/
 ```

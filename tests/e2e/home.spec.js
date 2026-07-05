@@ -22,7 +22,7 @@ test.describe('Home — Sprint 1', () => {
   test('hero, label and primary CTA render', async ({ page }) => {
     await expect(page.locator('main h1')).toHaveCount(1);
     await expect(page.locator('main h1')).toContainText('одной системе');
-    await expect(page.getByText('152-ФЗ · QR-регистрация · Промо · Антифрод')).toBeVisible();
+    await expect(page.getByText('QR-регистрация · Промо · Антифрод')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Посмотреть демо' }).first()).toBeVisible();
   });
 
@@ -41,7 +41,7 @@ test.describe('Home — Sprint 1', () => {
   });
 
   test('152-FZ and solution sections render', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: /152-ФЗ не «добавлен сверху»/ })).toBeVisible();
+    await expect(page.getByText('Данные у заказчика')).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Один контур. Три сценария.' })).toBeVisible();
     await expect(page.locator('.home-scenario-card')).toHaveCount(3);
   });

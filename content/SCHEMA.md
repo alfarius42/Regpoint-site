@@ -131,3 +131,5 @@
 3. Добавить `relatedHubs` (product/article)
 4. Опубликовать HTML + sitemap
 5. Hub и siblings подхватятся автоматически — **ручная правка hub HTML не нужна**
+6. **Editorial links** в body — вручную в `<p>`; правила: `docs/CONTENT_VOICE.md` §Editorial
+7. **Голос текста** — `docs/CONTENT_VOICE.md` перед публикацией

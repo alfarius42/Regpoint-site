@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "schema": "Ручные контентные ссылки в теле страниц (<a class=\"text-link\">). Не nav, не internal-links.js. Согласие/политика ПД на мероприятиях → /articles/consent-pd/. /privacy/ и /privacy/marketing-consent/ — только функциональные (cookie, Jivo, footer).",
+  "links": [
+    { "from": "/articles/event-registration-no-queues/", "to": "/articles/qr-check-in/", "anchor": "QR check-in на конференции", "cluster": "registration" },
+    { "from": "/articles/event-registration-no-queues/", "to": "/articles/import-participants/", "anchor": "импортировать участников из Excel", "cluster": "registration" },
+    { "from": "/articles/event-registration-no-queues/", "to": "/articles/qr-check-in/", "anchor": "offline check-in на площадке", "cluster": "registration" },
+    { "from": "/articles/event-registration-no-queues/", "to": "/articles/self-hosted-vs-saas/", "anchor": "self-hosted на VPS заказчика", "cluster": "technology" },
+    { "from": "/articles/event-registration-no-queues/", "to": "/articles/tickets-yukassa/", "anchor": "продажа билетов через ЮKassa", "cluster": "registration" },
+
+    { "from": "/articles/event-registration-no-queues/", "to": "/articles/consent-pd/", "anchor": "согласие на обработку ПД", "cluster": "compliance" },
+
+    { "from": "/articles/qr-check-in/", "to": "/articles/import-participants/", "anchor": "импортируйте участников без ошибок", "cluster": "registration" },
+    { "from": "/articles/qr-check-in/", "to": "/articles/consent-pd/", "anchor": "согласие на обработку ПД", "cluster": "compliance" },
+    { "from": "/articles/qr-check-in/", "to": "/articles/event-registration-no-queues/", "anchor": "регистрации без очередей", "cluster": "registration" },
+    { "from": "/articles/qr-check-in/", "to": "/products/reg-point/", "anchor": "модуль Рег.Поинт", "cluster": "product" },
+
+    { "from": "/articles/import-participants/", "to": "/articles/qr-check-in/", "anchor": "check-in на входе", "cluster": "registration" },
+    { "from": "/articles/import-participants/", "to": "/articles/152fz-penalties/", "anchor": "штрафы за нарушение 152-ФЗ", "cluster": "compliance" },
+    { "from": "/articles/import-participants/", "to": "/articles/152fz-checklist/", "anchor": "чеклист 152-ФЗ для организатора", "cluster": "compliance" },
+
+    { "from": "/articles/152fz-checklist/", "to": "/articles/152fz-penalties/", "anchor": "штрафы за нарушение 152-ФЗ", "cluster": "compliance" },
+    { "from": "/articles/152fz-checklist/", "to": "/articles/consent-pd/", "anchor": "что указать в согласии на ПД", "cluster": "compliance" },
+    { "from": "/articles/152fz-checklist/", "to": "/articles/qr-check-in/", "anchor": "Check-in через QR", "cluster": "registration" },
+    { "from": "/articles/152fz-checklist/", "to": "/articles/self-hosted-vs-saas/", "anchor": "self-hosted на VPS заказчика", "cluster": "technology" },
+    { "from": "/articles/152fz-checklist/", "to": "/compliance-152fz/", "anchor": "152-ФЗ и персональные данные", "cluster": "compliance" },
+
+    { "from": "/articles/consent-pd/", "to": "/articles/152fz-penalties/", "anchor": "чем грозит нарушение 152-ФЗ", "cluster": "compliance" },
+    { "from": "/articles/consent-pd/", "to": "/articles/152fz-checklist/", "anchor": "чеклист организатора по 152-ФЗ", "cluster": "compliance" },
+    { "from": "/articles/consent-pd/", "to": "/compliance-152fz/", "anchor": "персональные данные на мероприятиях", "cluster": "compliance" },
+
+    { "from": "/articles/self-hosted-vs-saas/", "to": "/compliance-152fz/", "anchor": "152-ФЗ на мероприятии", "cluster": "compliance" },
+    { "from": "/articles/self-hosted-vs-saas/", "to": "/articles/docker-vps/", "anchor": "требования к серверу", "cluster": "technology" },
+    { "from": "/articles/self-hosted-vs-saas/", "to": "/how-it-works/", "anchor": "как работает Рег.Поинт", "cluster": "technology" },
+    { "from": "/articles/self-hosted-vs-saas/", "to": "/articles/cost-of-registration/", "anchor": "сравнение с SaaS за 2–3 года", "cluster": "pricing" },
+
+    { "from": "/articles/docker-vps/", "to": "/articles/self-hosted-vs-saas/", "anchor": "self-hosted vs SaaS", "cluster": "technology" },
+    { "from": "/articles/docker-vps/", "to": "/technology/", "anchor": "технологии и архитектура", "cluster": "technology" },
+    { "from": "/articles/docker-vps/", "to": "/how-it-works/", "anchor": "как работает Рег.Поинт", "cluster": "technology" },
+
+    { "from": "/articles/cost-of-registration/", "to": "/articles/self-hosted-vs-saas/", "anchor": "когда выгоден self-hosted", "cluster": "pricing" },
+    { "from": "/articles/cost-of-registration/", "to": "/articles/docker-vps/", "anchor": "требования к серверу", "cluster": "technology" },
+    { "from": "/articles/docker-vps/", "to": "/articles/cost-of-registration/", "anchor": "сравнение с SaaS за 2–3 года", "cluster": "pricing" },
+    { "from": "/articles/cost-of-registration/", "to": "/pricing/", "anchor": "цены и лицензии", "cluster": "pricing" },
+    { "from": "/articles/cost-of-registration/", "to": "/products/", "anchor": "модулей Рег.Поинт", "cluster": "product" },
+
+    { "from": "/articles/promo-fns/", "to": "/articles/ocr-fallback/", "anchor": "OCR чеков как fallback", "cluster": "promo" },
+    { "from": "/articles/promo-fns/", "to": "/articles/promo-receipt-automation/", "anchor": "автоматизации промоакции с чеками", "cluster": "promo" },
+    { "from": "/articles/promo-fns/", "to": "/products/promo-pro/", "anchor": "Промо.Про", "cluster": "product" },
+
+    { "from": "/articles/ocr-fallback/", "to": "/articles/promo-fns/", "anchor": "проверка чека через API ФНС", "cluster": "promo" },
+    { "from": "/articles/ocr-fallback/", "to": "/articles/promo-receipt-automation/", "anchor": "промо-акции без очередей", "cluster": "promo" },
+
+    { "from": "/articles/promo-receipt-automation/", "to": "/articles/152fz-penalties/", "anchor": "штрафы за персональные данные", "cluster": "compliance" },
+    { "from": "/articles/promo-receipt-automation/", "to": "/articles/promo-fns/", "anchor": "как работает проверка ФНС", "cluster": "promo" },
+    { "from": "/articles/promo-receipt-automation/", "to": "/articles/ocr-fallback/", "anchor": "OCR fallback для чеков", "cluster": "promo" },
+    { "from": "/articles/promo-receipt-automation/", "to": "/compliance-152fz/", "anchor": "152-ФЗ в промоакциях", "cluster": "compliance" },
+
+    { "from": "/articles/tickets-yukassa/", "to": "/articles/qr-check-in/", "anchor": "QR check-in для билетов", "cluster": "registration" },
+    { "from": "/articles/tickets-yukassa/", "to": "/articles/event-registration-no-queues/", "anchor": "онлайн-записи до check-in", "cluster": "registration" },
+    { "from": "/articles/tickets-yukassa/", "to": "/products/ticket-point/", "anchor": "Тикет.Поинт", "cluster": "product" },
+
+    { "from": "/compliance-152fz/", "to": "/articles/152fz-penalties/", "anchor": "чем опасно нарушение 152-ФЗ", "cluster": "compliance" },
+    { "from": "/compliance-152fz/", "to": "/articles/consent-pd/", "anchor": "согласия на странице регистрации", "cluster": "compliance" },
+    { "from": "/compliance-152fz/", "to": "/articles/self-hosted-vs-saas/", "anchor": "статье self-hosted vs SaaS", "cluster": "technology" },
+    { "from": "/compliance-152fz/", "to": "/technology/", "anchor": "Технологиях", "cluster": "technology" },
+    { "from": "/compliance-152fz/", "to": "/articles/152fz-checklist/", "anchor": "чеклист 152-ФЗ", "cluster": "compliance" },
+
+    { "from": "/technology/", "to": "/articles/docker-vps/", "anchor": "требования к серверу", "cluster": "technology" },
+    { "from": "/technology/", "to": "/compliance-152fz/", "anchor": "152-ФЗ и персональные данные", "cluster": "compliance" },
+
+    { "from": "/products/reg-point/", "to": "/articles/qr-check-in/", "anchor": "пошаговом руководстве по QR check-in", "cluster": "registration" },
+    { "from": "/products/reg-point/", "to": "/articles/152fz-penalties/", "anchor": "штрафы за нарушение 152-ФЗ", "cluster": "compliance" },
+    { "from": "/products/reg-point/", "to": "/articles/152fz-checklist/", "anchor": "чеклисте по 152-ФЗ", "cluster": "compliance" },
+
+    { "from": "/products/promo-pro/", "to": "/articles/promo-fns/", "anchor": "промоакция с чеком и ФНС", "cluster": "promo" },
+    { "from": "/products/promo-pro/", "to": "/articles/ocr-fallback/", "anchor": "OCR fallback", "cluster": "promo" },
+
+    { "from": "/products/promo-point/", "to": "/articles/promo-receipt-automation/", "anchor": "промо без очередей на стойке", "cluster": "promo" },
+    { "from": "/products/ticket-point/", "to": "/articles/tickets-yukassa/", "anchor": "ЮKassa на своём сервере", "cluster": "registration" },
+
+    { "from": "/scenarios/", "to": "/articles/event-registration-no-queues/", "anchor": "регистрации без очередей", "cluster": "registration" },
+
+    { "from": "/faq/", "to": "/articles/self-hosted-vs-saas/", "anchor": "self-hosted vs SaaS", "cluster": "technology" },
+
+    { "from": "/", "to": "/how-it-works/", "anchor": "единый контур регистрации", "cluster": "technology" },
+    { "from": "/", "to": "/compliance-152fz/", "anchor": "152-ФЗ", "cluster": "compliance" },
+    { "from": "/", "to": "/articles/qr-check-in/", "anchor": "QR check-in на конференции", "cluster": "registration" },
+    { "from": "/", "to": "/technology/", "anchor": "Технологии", "cluster": "technology" },
+
+    { "from": "/products/", "to": "/pricing/", "anchor": "цены и лицензии", "cluster": "pricing" },
+    { "from": "/products/", "to": "/articles/self-hosted-vs-saas/", "anchor": "когда нужен self-hosted", "cluster": "technology" },
+
+    { "from": "/pricing/", "to": "/articles/cost-of-registration/", "anchor": "сравнение с SaaS за 2–3 года", "cluster": "pricing" },
+    { "from": "/pricing/", "to": "/articles/docker-vps/", "anchor": "требования к серверу", "cluster": "technology" },
+    { "from": "/pricing/", "to": "/how-it-works/", "anchor": "документация по развёртыванию", "cluster": "technology" },
+
+    { "from": "/faq/", "to": "/articles/152fz-penalties/", "anchor": "штрафы за нарушение 152-ФЗ", "cluster": "compliance" },
+    { "from": "/faq/", "to": "/compliance-152fz/", "anchor": "compliance 152-ФЗ", "cluster": "compliance" },
+
+    { "from": "/contacts/", "to": "/how-it-works/", "anchor": "как работает Рег.Поинт", "cluster": "technology" },
+
+    { "from": "/how-it-works/", "to": "/products/promo-point/", "anchor": "Промо.Поинт", "cluster": "product" },
+    { "from": "/how-it-works/", "to": "/products/promo-pro/", "anchor": "Промо.Про", "cluster": "product" },
+    { "from": "/how-it-works/", "to": "/scenarios/", "anchor": "сценариях промо с чеками", "cluster": "promo" },
+    { "from": "/how-it-works/", "to": "/articles/152fz-penalties/", "anchor": "штрафы за нарушение 152-ФЗ", "cluster": "compliance" },
+    { "from": "/how-it-works/", "to": "/articles/consent-pd/", "anchor": "согласие на обработку ПД", "cluster": "compliance" },
+    { "from": "/how-it-works/", "to": "/articles/promo-receipt-automation/", "anchor": "промо без очередей на стойке", "cluster": "promo" },
+    { "from": "/how-it-works/", "to": "/articles/promo-fns/", "anchor": "проверка чека через ФНС", "cluster": "promo" },
+    { "from": "/how-it-works/", "to": "/articles/ocr-fallback/", "anchor": "OCR fallback", "cluster": "promo" },
+    { "from": "/how-it-works/", "to": "/pricing/", "anchor": "цены и лицензии", "cluster": "pricing" },
+    { "from": "/how-it-works/", "to": "/articles/import-participants/", "anchor": "импорт участников из Excel", "cluster": "registration" },
+    { "from": "/how-it-works/", "to": "/articles/event-registration-no-queues/", "anchor": "регистрация без очередей", "cluster": "registration" },
+    { "from": "/how-it-works/", "to": "/articles/qr-check-in/", "anchor": "QR check-in на конференции", "cluster": "registration" },
+    { "from": "/how-it-works/", "to": "/compliance-152fz/", "anchor": "152-ФЗ и персональные данные", "cluster": "compliance" },
+    { "from": "/how-it-works/", "to": "/products/reg-point/", "anchor": "Рег.Поинт", "cluster": "product" },
+    { "from": "/how-it-works/", "to": "/scenarios/", "anchor": "сценарии регистрации", "cluster": "registration" },
+    { "from": "/how-it-works/", "to": "/articles/152fz-checklist/", "anchor": "чеклист по 152-ФЗ", "cluster": "compliance" },
+
+    { "from": "/scenarios/", "to": "/articles/promo-fns/", "anchor": "проверка чека через ФНС", "cluster": "promo" },
+
+    { "from": "/articles/", "to": "/compliance-152fz/", "anchor": "152-ФЗ на мероприятиях", "cluster": "compliance" }
+  ]
+}

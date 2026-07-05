@@ -862,7 +862,7 @@
 
 .split-grid {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-stack);
   align-items: start;
   min-width: 0;
 }
@@ -870,7 +870,6 @@
 @media (min-width: 768px) {
   .split-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-12);
   }
 }
 

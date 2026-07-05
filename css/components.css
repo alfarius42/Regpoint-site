@@ -339,7 +339,7 @@ body.is-cookie-banner-visible {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent-blue);
-  margin-bottom: var(--space-2);
+  margin: 0;
 }
 
 .section-label--light {
@@ -362,15 +362,7 @@ body.is-cookie-banner-visible {
 .section__subtitle + .section__prose,
 .section__subtitle + .check-list,
 .section__subtitle + .split-grid {
-  margin-top: var(--space-4);
-}
-
-@media (min-width: 768px) {
-  .section__subtitle + .section__prose,
-  .section__subtitle + .check-list,
-  .section__subtitle + .split-grid {
-    margin-top: var(--space-6);
-  }
+  margin-top: var(--space-stack);
 }
 
 .check-list {

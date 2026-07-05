@@ -106,7 +106,7 @@
       <section class="page-hero page-hero--content">
         <div class="container">
           <h1 class="page-hero__title font-heading">Частые вопросы</h1>
-          <p class="page-hero__lead">Ответы: SaaS или коробка, где данные, цены, модули, 152-ФЗ, обновления, поддержка.</p>
+          <p class="page-hero__lead">Ответы на частые вопросы: где физически база, кто админит сервер, когда Excel хватит — коротко и ясно.</p>
         </div>
       </section>
       <section class="section section--muted">
@@ -118,14 +118,14 @@
                 <span>Рег.Поинт — это SaaS?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">Нет. Это коробочная лицензия: приложение разворачивается на VPS клиента через Docker. Данные хранятся в MySQL на сервере заказчика. Платформа состоит из модулей — <a href="/products/reg-point/">Рег.Поинт</a>, <a href="/products/promo-point/">Промо.Поинт</a>, <a href="/products/promo-pro/">Промо.Про</a> и <a href="/products/ticket-point/">Тикет.Поинт</a>; лицензия покупается по модулям, можно начать с одного.</div>
+              <div class="accordion__panel" id="faq-panel-0" role="region" aria-labelledby="faq-trigger-0">Нет. Это коробка на VPS заказчика через Docker. Такой подход нужен не всем, но часто становится обязательным, когда у клиента есть требования по ИБ, локализации данных или отдельной схеме доступа. Модули можно подключать по одному: <a href="/products/reg-point/">Рег.Поинт</a>, <a href="/products/promo-point/">Промо.Поинт</a>, <a href="/products/promo-pro/">Промо.Про</a>, <a href="/products/ticket-point/">Тикет.Поинт</a>.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-1" aria-controls="faq-panel-1">
                 <span>Чем отличается от Eventbrite / Timepad / SaaS-регистраторов?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">Те — multi-tenant SaaS: база участников на стороне провайдера. Рег.Поинт — single-tenant на инфраструктуре клиента. Персональные данные не покидают ваш сервер. Нет комиссии с билетов, есть offline check-in на площадке и встроенный compliance 152-ФЗ — удобно для корпоративных, банковских и промо-сценариев в торговых центрах.</div>
+              <div class="accordion__panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1">Те — multi-tenant SaaS: база участников на стороне провайдера. Рег.Поинт — single-tenant на инфраструктуре клиента. Персональные данные не покидают ваш сервер. Нет комиссии с билетов, есть offline check-in на площадке и встроенный compliance 152-ФЗ — удобно для корпоративных, банковских и промо-сценариев в торговых центрах. Сравнение моделей — в статье <a class="text-link" href="/articles/self-hosted-vs-saas/">self-hosted vs SaaS</a>.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-2" aria-controls="faq-panel-2">
@@ -139,14 +139,14 @@
                 <span>Как обстоят дела с 152-ФЗ?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">Compliance-стек в каждом модуле без доплат. Шифрование AES-256-GCM, audit log, согласия per-event, маскирование для менеджеров, запрос удаления ПД участником. Оператор персональных данных — вы (заказчик), данные обрабатываются на сервере в РФ. Подробнее — на странице <a href="/compliance-152fz/">152-ФЗ</a>.</div>
+              <div class="accordion__panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3">На практике здесь важны не красивые слова про compliance, а конкретные вещи: где лежит база, кто видит ПД, какой текст согласия показали участнику и кто выгружал CSV. С 30 мая 2025 за многие нарушения — штрафы по ст. 13.11 КоАП; разбор — в статье <a class="text-link" href="/articles/152fz-penalties/">штрафы за нарушение 152-ФЗ</a> и на странице <a class="text-link" href="/compliance-152fz/">compliance 152-ФЗ</a>. В модулях есть audit log, роли, согласия per-event и настройки retention. Оператор ПД всё равно заказчик.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-4" aria-controls="faq-panel-4">
                 <span>Нужен ли отдельный сервер?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">Да, Linux VPS от 2 GB RAM с Docker. Рекомендуем российские хостеры (Selectel, Timeweb Cloud, Beget VPS и др.) — датацентры в РФ для соответствия 152-ФЗ. Развёртывание — Docker-compose и runbook; turnkey-внедрение — опциональная услуга от 45 000 ₽. Требования к инфраструктуре — по запросу или в <a href="/technology/">документации</a>.</div>
+              <div class="accordion__panel" id="faq-panel-4" role="region" aria-labelledby="faq-trigger-4">Да, нужен Linux VPS. Минимум обычно стартует с 2 GB RAM, но для проектов с OCR и высоким трафиком лучше брать запас. Если своей команды нет, можно отдать первый запуск нам, а дальше оставить сервер у себя. Требования - на странице <a href="/technology/">технологий</a>.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-5" aria-controls="faq-panel-5">
@@ -160,7 +160,7 @@
                 <span>Можно ли интегрировать с нашей CRM?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6">Есть REST API для выгрузки участников и статусов. Кастомные интеграции — SKU внедрения: Bitrix24, amoCRM и другие системы от 80 000 ₽. Данные из регистрации поступают напрямую в вашу CRM без промежуточных SaaS-провайдеров.</div>
+              <div class="accordion__panel" id="faq-panel-6" role="region" aria-labelledby="faq-trigger-6">Да. Чаще всего после первого запуска просят связать регистрацию с CRM, ботом или внутренней формой отчётности. Для этого есть REST API. Если интеграция нетиповая, её лучше сразу считать отдельной задачей, а не “маленькой доработкой в процессе”.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-7" aria-controls="faq-panel-7">
@@ -174,7 +174,7 @@
                 <span>Как проходит регистрация в промоакции?</span>
                 <span class="accordion__icon" aria-hidden="true">▾</span>
               </button>
-              <div class="accordion__panel" id="faq-panel-8" role="region" aria-labelledby="faq-trigger-8">Посетитель сканирует QR на промо-стойке, тейбл-тенте или экране ТЦ → переходит на брендированную страницу акции → вводит телефон, имя, e-mail и даёт согласие по 152-ФЗ → сканирует кассовый чек камерой смартфона. В <a href="/products/promo-pro/">Промо.Про</a> система автоматически проверяет QR чека через ФНС (дата, ИНН, сумма) и исключает повторную регистрацию. Участник получает подтверждение на e-mail — без очередей, бумажных купонов и ручного ввода данных промоутером.</div>
+              <div class="accordion__panel" id="faq-panel-8" role="region" aria-labelledby="faq-trigger-8">Обычно путь такой: QR на стойке или экране, короткая форма, согласие, потом чек. Самое важное происходит уже после отправки: система сверяет чек, ловит дубли и оставляет менеджеру только спорные случаи. Иначе в конце акции вся команда всё равно возвращается к ручной проверке.</div>
             </div>
             <div class="accordion__item">
               <button type="button" class="accordion__trigger" aria-expanded="false" id="faq-trigger-9" aria-controls="faq-panel-9">

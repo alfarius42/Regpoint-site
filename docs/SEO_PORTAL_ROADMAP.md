@@ -247,7 +247,7 @@
 
 ## 8. Solution Page — шаблон «Решения»
 
-> **Канон copy:** `docs/templates/SOLUTION_PAGE.md` · **Идеология:** `docs/MESSAGING.md`  
+> **Канон copy:** `docs/templates/SOLUTION_PAGE.md` · **Идеология:** `docs/MESSAGING.md` · **Голос:** `docs/CONTENT_VOICE.md`  
 > **URL:** `/scenarios/{slug}/` · в nav — **«Решения»**
 
 Страница строится вокруг **процесса принятия решения**, не вокруг функций.

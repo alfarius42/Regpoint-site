@@ -152,6 +152,22 @@
   margin-top: var(--space-prose-gap);
 }
 
+.article-section .table-scroll {
+  margin-top: 0;
+}
+
+.article-section .table-scroll + .article-section__body,
+.article-section__body + .table-scroll {
+  margin-top: var(--space-prose-gap);
+}
+
+.article-table-caption {
+  margin-top: 0.75rem;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
 .article-product-ref {
   display: flex;
   flex-wrap: wrap;

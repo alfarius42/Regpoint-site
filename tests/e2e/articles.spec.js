@@ -7,19 +7,19 @@ test.describe('Articles — Sprint 5', () => {
     });
   });
 
-  test('listing page has hero, 12 cards and tag filters', async ({ page }) => {
+  test('listing page has hero, 13 cards and tag filters', async ({ page }) => {
     await page.goto('/articles/');
     await expect(page.getByRole('heading', { level: 1, name: 'Статьи' })).toBeVisible();
-    await expect(page.locator('.article-card--listing')).toHaveCount(12);
+    await expect(page.locator('.article-card--listing')).toHaveCount(13);
     await expect(page.locator('.filter-chip')).toHaveCount(7);
   });
 
   test('tag filter hides non-matching cards', async ({ page }) => {
     await page.goto('/articles/');
     await page.locator('.filter-chip[data-filter="152-ФЗ"]').click();
-    await expect(page.locator('.article-card--listing:visible')).toHaveCount(2);
+    await expect(page.locator('.article-card--listing:visible')).toHaveCount(3);
     await page.locator('.filter-chip[data-filter="all"]').click();
-    await expect(page.locator('.article-card--listing:visible')).toHaveCount(12);
+    await expect(page.locator('.article-card--listing:visible')).toHaveCount(13);
   });
 
   test('article detail page loads with FAQ and CTA', async ({ page }) => {

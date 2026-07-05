@@ -383,7 +383,13 @@
   function shouldSkipArticleGroup(current) {
     if (hasStaticProductArticles()) return true;
     if (current.type === 'home') return true;
+    if (current.url === '/articles/') return true;
     return false;
+  }
+
+  /** Hub already lists all child articles in main content — skip duplicate children grid. */
+  function shouldSkipChildrenBlock(current) {
+    return current.url === '/articles/';
   }
 
   function init() {
@@ -404,7 +410,9 @@
 
         var hubBlock = null;
         if (current.role === 'hub' || current.type === 'hub' || (current.type === 'product' && current.role === 'hub')) {
-          hubBlock = childrenBlock(pages, current);
+          if (!shouldSkipChildrenBlock(current)) {
+            hubBlock = childrenBlock(pages, current);
+          }
         }
 
         var ranked = rankPages(pages, current);

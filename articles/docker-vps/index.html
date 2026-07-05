@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Docker для event-платформы: требования к VPS — Рег.Поинт</title>
-    <meta name="description" content="Рег.Поинт разворачивается через Docker-compose. Разбираем минимальные и рекомендуемые требования к VPS, выбор хостинга в РФ и типичные проблемы деплоя." />
+    <meta name="description" content="Закупка просит характеристики сервера до тендера. Разбираем требования к серверу для Docker: пилот, production на 3 000 участников, хостинг в РФ и типичные ошибки деплоя." />
     <link rel="canonical" href="https://reg-point.ru/articles/docker-vps/" />
     <meta property="og:title" content="Docker для event-платформы: требования к VPS — Рег.Поинт" />
-    <meta property="og:description" content="Рег.Поинт разворачивается через Docker-compose. Разбираем минимальные и рекомендуемые требования к VPS, выбор хостинга в РФ и типичные проблемы деплоя." />
+    <meta property="og:description" content="Закупка просит характеристики сервера до тендера. Разбираем требования к серверу для Docker: пилот, production на 3 000 участников, хостинг в РФ и типичные ошибки деплоя." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://reg-point.ru/articles/docker-vps/" />
     <meta property="og:image" content="https://reg-point.ru/img/articles/cover-self-hosted.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="og:locale" content="ru_RU" />
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker для event-платформы: требования к VPS", "description": "Рег.Поинт разворачивается через Docker-compose. Разбираем минимальные и рекомендуемые требования к VPS, выбор хостинга в РФ и типичные проблемы деплоя.", "datePublished": "2026-06-15", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-self-hosted.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/docker-vps/"}}</script>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли использовать shared-хостинг?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Docker требует root-доступа или как минимум привилегированного пользователя. Только VPS/VDS."}}, {"@type": "Question", "name": "Нужен ли выделенный сервер для каждого заказчика?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. Одна лицензия — один инстанс / одно юрлицо. Несколько заказчиков можно обслуживать через роли director, изолируя данные на уровне приложения. Физически разные серверы — только если требования ИБ клиента это предписывают."}}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker для event-платформы: требования к VPS", "description": "Требования к серверу для event-платформы на Docker: пилот, production, хостинг в РФ, TCO с VPS и типичные ошибки деплоя.", "datePublished": "2026-06-15", "author": {"@type": "Organization", "name": "Рег.Поинт"}, "publisher": {"@type": "Organization", "name": "Рег.Поинт"}, "image": "https://reg-point.ru/img/articles/cover-self-hosted.jpg", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://reg-point.ru/articles/docker-vps/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли использовать shared-хостинг?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Docker требует root-доступа или привилегированного пользователя. Только VPS/VDS."}}, {"@type": "Question", "name": "Сколько стоит сервер в годовом TCO?", "acceptedAnswer": {"@type": "Answer", "text": "Ориентир 3 000–8 000 ₽/мес — отдельная строка при сравнении с SaaS на 2–3 года."}}, {"@type": "Question", "name": "Нужен ли выделенный сервер для каждого заказчика?", "acceptedAnswer": {"@type": "Answer", "text": "Не обязательно. Одна лицензия — один инстанс на юрлицо. Отдельное железо — только если ИБ клиента это предписывает."}}]}</script>
     <link rel="icon" href="/img/favicon.ico" sizes="any" />
     <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32" />
@@ -119,32 +119,58 @@
             <span class="article-header__date">15 июня 2026</span>
             <span class="article-header__time">· 7 мин</span>
           </div>
-          <h1 class="article-header__title font-heading">Docker для event-платформы: требования к VPS</h1>
-          <p class="article-lead">Рег.Поинт разворачивается через Docker-compose. Разбираем минимальные и рекомендуемые требования к VPS, выбор хостинга в РФ и типичные проблемы деплоя.</p>
+          <h1 class="article-header__title font-heading">Docker для event-платформы: требования к серверу</h1>
+          <p class="article-lead">Linux VPS, Docker-compose — shared-хостинг и Windows не подойдут. Пилот: 2 vCPU, 2–4 GB RAM; production на 3k+ участников — 4 vCPU, 8 GB. Закупка обычно спрашивает это до тендера, не после деплоя.</p>
         </div>
       </section>
       <section class="article-body">
         <div class="container container--article">
           <div class="article-sections">
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Минимальные системные требования</h2>
-              <p class="article-section__body">ОС: Ubuntu 22.04 LTS или Debian 12 (рекомендуется). CPU: 2 vCPU. RAM: 2 GB (минимум), 4 GB рекомендуется для Промо.Про с OCR. Диск: 20 GB SSD (под ОС + Docker-образы + MySQL). Сеть: статический IP или домен с A-записью для HTTPS.</p>
+              <h2 class="article-section__title font-heading">Конфигурации VPS</h2>
+              <div class="table-scroll">
+                <table class="pricing-table pricing-table--compact">
+                  <thead>
+                    <tr>
+                      <th>Параметр</th>
+                      <th>Пилот / первый event</th>
+                      <th>Production 3 000–5 000 участников</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>ОС</td><td colspan="2">Ubuntu 22.04 LTS или Debian 12</td></tr>
+                    <tr><td>CPU</td><td>2 vCPU</td><td>4 vCPU</td></tr>
+                    <tr><td>RAM</td><td>2 GB (4 GB с Промо.Про / OCR)</td><td>8 GB</td></tr>
+                    <tr><td>Диск</td><td>20 GB SSD</td><td>50 GB SSD, MySQL volume отдельно</td></tr>
+                    <tr><td>Сеть</td><td colspan="2">Статический IP или A-запись; HTTPS до открытия регистрации</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="article-table-caption">Staging на втором VPS — если правите форму за сутки до event. Хостинг РФ: Selectel, Timeweb Cloud, Beget VPS, МТС Cloud, Яндекс Cloud VPC.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Рекомендуемая конфигурация для production</h2>
-              <p class="article-section__body">4 vCPU / 8 GB RAM / 50 GB SSD — для мероприятий до 5 000 участников одновременно. MySQL хранит данные в volume на отдельном разделе. Отдельный VPS для staging — опционально, но рекомендуется при активных доработках. Бэкап: cron-скрипт mysqldump + rsync на S3-совместимое хранилище.</p>
+              <h2 class="article-section__title font-heading">Почему не shared-хостинг</h2>
+              <p class="article-section__body">Event-платформа на Docker-compose нуждается в root или привилегированном пользователе, отдельных портах для MySQL и reverse proxy, cron для бэкапов. На shared это либо запрещено, либо ломается при первом обновлении образа.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Российские хостеры: на что обратить внимание</h2>
-              <p class="article-section__body">Для 152-ФЗ данные должны обрабатываться на серверах в РФ. Рекомендуемые хостеры: Selectel, Timeweb Cloud, Beget VPS, МТС Cloud, Яндекс Cloud (VPC). Выбирайте датацентры в Москве или Санкт-Петербурге — более стабильный аптайм. Cloudflare можно использовать только для CDN статики, но не для проксирования API с ПД.</p>
+              <h2 class="article-section__title font-heading">Сервер в годовом бюджете</h2>
+              <p class="article-section__body">VPS 3 000–8 000 ₽/мес — отдельная строка TCO, её нельзя «вшить» в лицензию. Без этой строки коробка кажется дешевле, чем есть на самом деле — см. <a class="text-link" href="/articles/cost-of-registration/">сравнение с SaaS за 2–3 года</a>. Turnkey-внедрение (45 000 ₽) не заменяет ежемесячный хостинг: сервер остаётся у клиента, мы не хостим прод за вас.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Процесс деплоя</h2>
-              <p class="article-section__body">1) Установка Docker и docker-compose (runbook прилагается к лицензии). 2) Клонирование конфигурационного репозитория (приватный, выдаётся при покупке). 3) Настройка .env: DB_PASSWORD, LICENSE_KEY, APP_DOMAIN. 4) docker-compose up -d. 5) Настройка Nginx/Caddy + Let&#x27;s Encrypt для HTTPS. 6) Smoke-test: создать тестовое мероприятие, зарегистрировать участника, выполнить check-in.</p>
+              <h2 class="article-section__title font-heading">Типичные ошибки деплоя</h2>
+              <p class="article-section__body">Диск забит логами Docker — ротируйте journald и container logs до event, не в день check-in. Не открыли webhook-порт для ЮKassa или whitelist IP ФНС — платёж или проверка чека «зависает» в проде, хотя на staging работало. Бэкап mysqldump по cron без проверенного restore — «есть бэкап» не значит «можно восстановиться».</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Turnkey внедрение</h2>
-              <p class="article-section__body">Если нет своего DevOps — Рег.Поинт предоставляет услугу «под ключ» (45 000 ₽): подключаемся к серверу клиента по SSH, выполняем весь деплой, настраиваем HTTPS, запускаем smoke-test. Доступ к серверу остаётся у клиента.</p>
+              <h2 class="article-section__title font-heading">Хостинг в РФ</h2>
+              <p class="article-section__body">Если в договоре с участниками — обработка ПД в России, сервер тоже в РФ. Selectel, Timeweb Cloud, Beget VPS, МТС Cloud, Яндекс Cloud VPC — типичный выбор. ДЦ в Москве или СПб стабильнее по latency для check-in в реальном времени. Cloudflare — только на статику; проксировать API с ПД через CDN нельзя. Зачем вообще свой сервер — в материале <a class="text-link" href="/articles/self-hosted-vs-saas/">self-hosted vs SaaS</a>, юридический контекст — на странице <a class="text-link" href="/compliance-152fz/">152-ФЗ на мероприятиях</a>.</p>
+            </section>
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Деплой: что проверить до боевого event</h2>
+              <p class="article-section__body">Docker + docker-compose по runbook из лицензии. .env: DB_PASSWORD, LICENSE_KEY, APP_DOMAIN. Nginx или Caddy + HTTPS. Smoke-test: тестовый event, регистрация, check-in с планшета. Стек описан в разделе <a class="text-link" href="/technology/">технологии и архитектура</a>, пошаговый сценарий — <a class="text-link" href="/how-it-works/">как работает Рег.Поинт</a>. Частая ошибка: не открыли webhook-порт для ЮKassa или не добавили whitelist IP ФНС — платёж или проверка чека «зависает» в проде, хотя на staging работало.</p>
+            </section>
+            <section class="article-section">
+              <h2 class="article-section__title font-heading">Ограничения</h2>
+              <p class="article-section__body">OCR чеков на слабом VPS (2 GB) может упираться в RAM при пике загрузок. Offline check-in на площадке не отменяет необходимость периодической синхронизации. Бэкап mysqldump по cron — ваша зона ответственности; без проверенного restore «есть бэкап» не значит «можно восстановиться». Нет DevOps — turnkey от 45 000 ₽, root остаётся у клиента.</p>
             </section>
           </div>
           <div class="article-faq">
@@ -152,17 +178,21 @@
             <div class="article-faq__list">
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Можно ли использовать shared-хостинг?</p>
-                <p class="article-faq__a">Нет. Docker требует root-доступа или как минимум привилегированного пользователя. Только VPS/VDS.</p>
+                <p class="article-faq__a">Нет. Docker нужен root или привилегированный пользователь. Только VPS/VDS.</p>
+              </div>
+              <div class="article-faq__item">
+                <p class="article-faq__q font-heading">Сколько стоит сервер в годовом TCO?</p>
+                <p class="article-faq__a">Ориентир 3 000–8 000 ₽/мес. Считайте отдельно — см. <a class="text-link" href="/articles/cost-of-registration/">сравнение с SaaS за 2–3 года</a>.</p>
               </div>
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Нужен ли выделенный сервер для каждого заказчика?</p>
-                <p class="article-faq__a">Не обязательно. Одна лицензия — один инстанс / одно юрлицо. Несколько заказчиков можно обслуживать через роли director, изолируя данные на уровне приложения. Физически разные серверы — только если требования ИБ клиента это предписывают.</p>
+                <p class="article-faq__a">Не обязательно. Одна лицензия — один инстанс на юрлицо. Несколько заказчиков — через роли director и изоляцию на уровне приложения. Отдельное железо — только если ИБ клиента это требует.</p>
               </div>
             </div>
           </div>
           <div class="article-cta">
             <h2 class="article-cta__title font-heading">Нужна помощь с деплоем на ваш сервер?</h2>
-            <p class="article-cta__desc">Рег.Поинт — коробочная платформа. Данные на вашем сервере, 152-ФЗ из коробки.</p>
+            <p class="article-cta__desc">Поднимем compose, HTTPS и smoke-test. Сервер и данные остаются у вас.</p>
             <div class="article-cta__actions">
               <button type="button" class="btn btn--primary" data-action="demo">Запросить КП / Демо →</button>
               <a class="btn btn--secondary" href="/articles/">← Все статьи</a>
@@ -171,13 +201,13 @@
           <div class="article-related">
             <h2 class="article-related__title font-heading">Читайте также</h2>
             <div class="article-related__grid">
+            <a class="article-related-card" href="/articles/cost-of-registration/">
+              <p class="article-related-card__meta">цены · 7 мин</p>
+              <h3 class="article-related-card__title font-heading">Сколько стоит программа регистрации: сравнение с SaaS за 2–3 года</h3>
+            </a>
             <a class="article-related-card" href="/articles/self-hosted-vs-saas/">
               <p class="article-related-card__meta">self-hosted · 7 мин</p>
               <h3 class="article-related-card__title font-heading">Self-hosted vs SaaS: как выбрать регистрацию на мероприятие</h3>
-            </a>
-            <a class="article-related-card" href="/articles/152fz-checklist/">
-              <p class="article-related-card__meta">152-ФЗ · 9 мин</p>
-              <h3 class="article-related-card__title font-heading">152-ФЗ на мероприятии: чеклист для организатора</h3>
             </a>
             </div>
           </div>

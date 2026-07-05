@@ -120,27 +120,27 @@
             <span class="article-header__time">· 6 мин</span>
           </div>
           <h1 class="article-header__title font-heading">OCR чеков в промо: когда нужен fallback</h1>
-          <p class="article-lead">API ФНС недоступен в среднем 2–5% времени. Без fallback это потерянные регистрации и негатив участников. Разбираем, как OCR на Tesseract.js решает проблему и какие у него ограничения.</p>
+          <p class="article-lead">ФНС в выходные лежит — участник видит «ошибку» и звонит на горячую линию. OCR не заменяет реестр, но держит «принято на проверку», пока API снова отвечает.</p>
         </div>
       </section>
       <section class="article-body">
         <div class="container container--article">
           <div class="article-sections">
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Проблема: API ФНС нестабилен</h2>
-              <p class="article-section__body">API kkt-online (tax.gov.ru) имеет регламентное обслуживание по ночам и периодические таймауты в пиковые часы. Если ваша акция активна в выходные (высокая нагрузка на ФНС), вероятность ошибки выше. Без fallback участник получает «ошибку проверки» и уходит — негатив в соцсетях, жалобы на горячую линию.</p>
+              <h2 class="article-section__title font-heading">Когда API ФНС подводит</h2>
+              <p class="article-section__body">kkt-online уходит на обслуживание ночью и таймаутит в субботний пик. Акция в ТЦ как раз в выходные — конверсия падает в самый жаркий день. Без fallback горячая линия тонет в «сайт не принимает чек». Основной путь — <a class="text-link" href="/articles/promo-fns/">проверка чека через API ФНС</a>; OCR — страховка, не замена.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Как работает OCR fallback в Промо.Про</h2>
-              <p class="article-section__body">При таймауте API ФНС пользователю предлагается сфотографировать чек. Фото обрабатывается Tesseract.js (WASM, выполняется в браузере — данные не уходят на сторонний сервер). Распознаются: номер ФД, ФН, ФП, сумма, дата, время, ИНН. Запись ставится в статус «на верификации» — повторный запрос к ФНС идёт автоматически каждые 30 минут в течение 24 часов.</p>
+              <h2 class="article-section__title font-heading">Как устроен fallback в Промо.Про</h2>
+              <p class="article-section__body">При timeout API — предложение сфотографировать чек. Tesseract.js в браузере (WASM), данные не уходят на сторонний OCR-сервис. Распознаются ФД, ФН, ФП, сумма, дата, ИНН. Статус «на верификации», повтор к ФНС каждые 30 минут до 24 часов. Участник видит «принято на проверку», не красный экран.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Точность OCR и типичные проблемы</h2>
-              <p class="article-section__body">Tesseract.js хорошо работает с термочеками стандартного формата. Проблемы: смятый или влажный чек (точность падает до 60–70%), ручная касса с нестандартным шрифтом, QR-код не читается из-за бликов. Рекомендации для акции: инструкция «сфотографируйте чек на белом фоне при хорошем освещении», ограничение на 2 попытки OCR.</p>
+              <h2 class="article-section__title font-heading">Где OCR ошибается</h2>
+              <p class="article-section__body">Термочек стандартного формата — ок. Смятый, мокрый, блик на QR — точность падает до 60–70%. Ручная касса с нестандартным шрифтом — ручная модерация. В условиях акции: «сфотографируйте на белом фоне», лимит 2 попытки OCR. Иначе заливают десять размытых фото — очередь у оператора.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Модерация сложных случаев</h2>
-              <p class="article-section__body">Записи с низкой уверенностью OCR (confidence &lt; 80%) помечаются флагом для ручной проверки оператором в кабинете. Director видит фото чека и поля, может подтвердить или отклонить вручную. Полный trail в audit log.</p>
+              <h2 class="article-section__title font-heading">Ручная модерация</h2>
+              <p class="article-section__body">Confidence &lt; 80% — флаг в кабинете. Director видит фото и поля, подтверждает или отклоняет. Trail в audit log. Полный сценарий без стойки — в статье о <a class="text-link" href="/articles/promo-receipt-automation/">промо-акции без очередей</a>. Компромисс: OCR добавляет операторскую нагрузку в пик — закладывайте смену модератора на воскресенье.</p>
             </section>
           </div>
           <div class="article-faq">
@@ -148,11 +148,11 @@
             <div class="article-faq__list">
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">OCR обрабатывается на сервере клиента или на стороннем?</p>
-                <p class="article-faq__a">Tesseract.js работает в браузере участника (WASM). Фото чека передаётся только на сервер клиента для хранения и ручной проверки. Никаких сторонних OCR-сервисов.</p>
+                <p class="article-faq__a">Tesseract.js в браузере участника. Фото хранится на сервере клиента для модерации. Сторонних OCR API нет.</p>
               </div>
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Можно ли отключить OCR и оставить только API ФНС?</p>
-                <p class="article-faq__a">Да. Fallback включается/выключается в настройках акции.</p>
+                <p class="article-faq__a">Да, в настройках акции. Тогда в timeout участник ждёт восстановления ФНС или повторяет позже.</p>
               </div>
             </div>
           </div>

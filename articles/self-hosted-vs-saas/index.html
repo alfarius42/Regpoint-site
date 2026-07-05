@@ -120,27 +120,27 @@
             <span class="article-header__time">· 7 мин</span>
           </div>
           <h1 class="article-header__title font-heading">Self-hosted vs SaaS: как выбрать регистрацию на мероприятие</h1>
-          <p class="article-lead">SaaS удобен в старте, но хранит базу участников у себя. Self-hosted требует VPS, зато данные под вашим контролем. Разбираем, когда что выбрать — и почему для B2B и regulated-отраслей выбор однозначен.</p>
+          <p class="article-lead">На тендере банк спросит: где физически база участников. SaaS — «у нас в облаке». Self-hosted — MySQL на сервере клиента, но нужен VPS и кто-то, кто поднимет compose.</p>
         </div>
       </section>
       <section class="article-body">
         <div class="container container--article">
           <div class="article-sections">
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Что такое SaaS-регистратор</h2>
-              <p class="article-section__body">Сервисы вроде Timepad, Eventbrite, RegistrationDesk хранят всю базу участников на своих серверах в многопользовательской (multi-tenant) среде. Вы арендуете функционал — но данные ваших гостей физически находятся у провайдера. Для небольших публичных мероприятий это нормально. Для корпоративных, фармацевтических или банковских ивентов это может быть проблемой.</p>
+              <h2 class="article-section__title font-heading">SaaS-регистратор</h2>
+              <p class="article-section__body">Timepad, Eventbrite и аналоги держат базу в multi-tenant среде. Вы арендуете UI и отчёты — ПД участников физически у провайдера. Для открытого митапа на 200 человек это нормально. Для корпоратива сотрудников банка или pharma-конференции ИБ часто блокирует такую схему на этапе опросника.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Что такое self-hosted (коробочное) решение</h2>
-              <p class="article-section__body">Коробочное ПО разворачивается на сервере клиента — вашем VPS или VDS у российского хостера. База участников (MySQL), файлы и логи хранятся там же. Провайдер решения не имеет доступа к вашим данным и не является оператором ПД ваших участников. Вы сами управляете бэкапами, ротацией ключей и сроками хранения.</p>
+              <h2 class="article-section__title font-heading">Self-hosted коробка</h2>
+              <p class="article-section__body">ПО на VPS или VDS заказчика. MySQL, файлы, audit log — на их диске. Вендор решения не оператор ПД ваших гостей и не видит прод-базу без SSH-доступа, который вы сами выдаёте. Компромисс: бэкапы, ротация ключей и патчи — ваша зона. Для агентства без DevOps есть turnkey, но сервер всё равно остаётся у клиента.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Когда важен self-hosted</h2>
-              <p class="article-section__body">Self-hosted критичен, если: ваш заказчик — банк, фарма, госструктура или крупная корпорация с требованиями к локализации ПД; мероприятие собирает чувствительные данные (паспортные данные, медицинские анкеты, данные сотрудников); вы работаете по 152-ФЗ и хотите минимизировать цепочку обработчиков ПД; у клиента есть собственная ИБ-политика, требующая хранения данных только на корпоративной инфраструктуре.</p>
+              <h2 class="article-section__title font-heading">Когда без self-hosted не обойтись</h2>
+              <p class="article-section__body">Заказчик — банк, pharma, госсектор или корпорация с политикой «данные только на нашей инфраструктуре». Собираете паспортные или медицинские поля. Работаете по <a class="text-link" href="/compliance-152fz/">152-ФЗ на мероприятии</a> и хотите укоротить цепочку обработчиков. Для breakfast на 40 человек без compliance-требований SaaS иногда дешевле и быстрее — честный компромисс.</p>
             </section>
             <section class="article-section">
-              <h2 class="article-section__title font-heading">Как помогает Рег.Поинт</h2>
-              <p class="article-section__body">Рег.Поинт — коробочная платформа, которая разворачивается через Docker-compose на VPS клиента или агентства. MySQL-база остаётся на вашем сервере. Compliance-стек 152-ФЗ встроен: шифрование AES-256-GCM, audit log, согласие на обработку ПД на каждое мероприятие, запрос удаления по требованию участника. Стоимость лицензии — от 100 000 ₽, без ежемесячных платежей за каждое мероприятие.</p>
+              <h2 class="article-section__title font-heading">Рег.Поинт в этой схеме</h2>
+              <p class="article-section__body">Docker-compose на VPS клиента — см. <a class="text-link" href="/articles/docker-vps/">требования к серверу</a>. MySQL не уезжает к вендору. 152-ФЗ из коробки: AES-256-GCM, audit log, согласие per-event, endpoint удаления. Процесс внедрения — в разделе <a class="text-link" href="/how-it-works/">как работает Рег.Поинт</a>. TCO на горизонте 2–3 лет — в материале <a class="text-link" href="/articles/cost-of-registration/">сравнение с SaaS за 2–3 года</a>.</p>
               <div class="article-product-ref">
                 <div class="article-product-ref__info">
                   <p class="article-product-ref__name font-heading">Рег.Поинт</p>
@@ -155,11 +155,11 @@
             <div class="article-faq__list">
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">Нужен ли программист для установки Рег.Поинт?</p>
-                <p class="article-faq__a">Docker-compose + подробный runbook. Если нет своего DevOps — есть услуга turnkey-внедрения от 45 000 ₽.</p>
+                <p class="article-faq__a">docker-compose и runbook. Без своего DevOps — turnkey от 45 000 ₽, сервер остаётся у клиента.</p>
               </div>
               <div class="article-faq__item">
                 <p class="article-faq__q font-heading">SaaS дешевле на старте — это так?</p>
-                <p class="article-faq__a">Да, но при регулярных мероприятиях (4+ в год) совокупная стоимость SaaS-подписки за 2–3 года превышает стоимость лицензии коробки.</p>
+                <p class="article-faq__a">Да. При 4+ мероприятиях в год за 2–3 года подписка SaaS часто обгоняет разовую лицензию коробки — без владения данными и без установки на сервер заказчика.</p>
               </div>
             </div>
           </div>
@@ -180,7 +180,7 @@
             </a>
             <a class="article-related-card" href="/articles/cost-of-registration/">
               <p class="article-related-card__meta">цены · 6 мин</p>
-              <h3 class="article-related-card__title font-heading">Сколько стоит программа регистрации на мероприятие</h3>
+              <h3 class="article-related-card__title font-heading">Сколько стоит программа регистрации: сравнение с SaaS за 2–3 года</h3>
             </a>
             </div>
           </div>

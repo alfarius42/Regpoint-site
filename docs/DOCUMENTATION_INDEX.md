@@ -33,7 +33,8 @@
 - **SEO_PORTAL_ROADMAP.md** — ТЗ SEO-портала, кластеры, keyword map, оценка.
 - **SEO_PORTAL_TODO.md** — backlog Sprint 10–17, SEO copy checklist.
 - **content/SCHEMA.md** — hub → child, поля `pages.json`.
-- **MESSAGING.md** — матрица шаблонов по типам страниц.
+- **MESSAGING.md** — матрица шаблонов, funnel, SEO.
+- **CONTENT_VOICE.md** — инженерный голос, стиль, editorial links.
 - **templates/SOLUTION_PAGE.md** — канон §1–14 для `/scenarios/*` (Решения).
 
 ---

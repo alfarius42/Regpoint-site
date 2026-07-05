@@ -185,6 +185,18 @@
       "meta": { "tag": "152-ФЗ", "time": "9 мин" }
     },
     {
+      "url": "/articles/152fz-penalties/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/compliance-152fz/"],
+      "primaryKeyword": "штрафы за нарушение 152 фз",
+      "title": "Чем опасно нарушение 152-ФЗ: штрафы и риски на мероприятиях",
+      "tags": ["152-fz", "security", "events", "promo"],
+      "meta": { "tag": "152-ФЗ", "time": "12 мин" }
+    },
+    {
       "url": "/articles/cost-of-registration/",
       "type": "article",
       "role": "child",

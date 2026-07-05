@@ -1,7 +1,8 @@
 # Источники контента — тексты и изображения
 
 > **Правило проекта:** Figma и `prototype/` — **источники правды** по текстам и изображениям для production.  
-> ESC-Promo docs и старая `MARKETING_SITE_SPEC.md` — вторичны при расхождении с прототипом/Figma.
+> ESC-Promo docs и старая `MARKETING_SITE_SPEC.md` — вторичны при расхождении с прототипом/Figma.  
+> **Как писать и редактировать copy:** `.cursor/skills/content-writing/SKILL.md` (агент) · канон: `docs/CONTENT_EDITING.md` (+ тон: `docs/CONTENT_VOICE.md`).
 
 ---
 
@@ -60,6 +61,7 @@ Meta description для каждой страницы — объект `META_DES
 |------|-----------------|
 | `self-hosted-vs-saas` | ✅ полный |
 | `152fz-checklist` | ✅ полный |
+| `152fz-penalties` | ✅ полный |
 | `cost-of-registration` | ✅ полный |
 | `qr-check-in` | ✅ полный |
 | `import-participants` | ✅ полный |

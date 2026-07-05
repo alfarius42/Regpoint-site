@@ -106,7 +106,7 @@
         <div class="container">
           <p class="section-label">Архитектура</p>
           <h1 class="page-hero__title font-heading">Технологии и архитектура</h1>
-          <p class="page-hero__lead"><strong>Рег.Поинт</strong> — коробочное приложение для контролируемого внедрения: один инстанс на инфраструктуре заказчика, понятная схема деплоя, изолированные доменные модули и REST API для интеграций.</p>
+          <p class="page-hero__lead">Архитектура без SaaS и vendor lock-in. Платформа разворачивается на VPS заказчика, данные остаются в его инфраструктуре, а стек собран из стандартных технологий, которые сможет поддерживать любая DevOps-команда.</p>
           <div class="section__cta-wrap">
             <button type="button" class="btn btn--primary" data-action="jivo">Запросить техническую консультацию</button>
           </div>
@@ -156,7 +156,7 @@
             <div class="engineering-artifacts__head">
               <p class="section-label">Инженерные артефакты</p>
               <h2 class="engineering-artifacts__title font-heading">Что получает команда заказчика</h2>
-              <p class="engineering-artifacts__lead">Внедрение должно быть проверяемым. Поэтому вместе с инстансом передаются не только доступы, но и материалы, по которым DevOps, ИБ и менеджер проекта понимают, как система устроена и как её сопровождать.</p>
+              <p class="engineering-artifacts__lead">На внедрении почти никогда не хватает слов “мы всё настроим”. DevOps хочет runbook, ИБ спрашивает роли и выгрузки, менеджер проекта просит чеклист запуска. Поэтому вместе с инстансом отдаём рабочие артефакты, а не только доступы.</p>
             </div>
             <div class="engineering-artifacts__grid">
               <article class="engineering-artifact">
@@ -179,20 +179,20 @@
           </div>
           <div class="client-benefits">
             <div class="client-benefits__head">
-              <h2 class="client-benefits__title font-heading">Что это значит для вас как заказчика</h2>
+              <h2 class="client-benefits__title font-heading">Почему стек собран именно так</h2>
             </div>
             <div class="client-benefits__grid">
               <div class="client-benefits__col">
                 <h3 class="client-benefits__name font-heading">Без vendor lock-in</h3>
-                <p class="client-benefits__text">Docker-образ разворачивается на любом Linux VPS — у вашего хостера в РФ или на корпоративной инфраструктуре. Нет привязки к облаку конкретного вендора. Смена сервера — перевыпуск лицензии (15 000 ₽).</p>
+                <p class="client-benefits__text">Если через полгода заказчик уходит к другому хостеру, проект не должен переезжать “на авось”. Поэтому образ обычный, без привязки к одному облаку. Данные переносятся стандартно, не через экспорт из закрытого SaaS.</p>
               </div>
               <div class="client-benefits__col">
                 <h3 class="client-benefits__name font-heading">Данные остаются у вас</h3>
-                <p class="client-benefits__text">MySQL 8 хранит базу участников физически на вашем сервере. Рег.Поинт не имеет доступа к вашим данным после деплоя — нет «звонка домой», нет синхронизации в облако вендора.</p>
+                <p class="client-benefits__text">Это важно не для красивой формулировки “данные ваши”. Это важно, когда служба ИБ спрашивает, кто реально может зайти в прод и кто увидит выгрузку участников. После деплоя доступ остаётся под вашим контролем.</p>
               </div>
               <div class="client-benefits__col">
-                <h3 class="client-benefits__name font-heading">Стандартный стек — нет чёрных ящиков</h3>
-                <p class="client-benefits__text">Node.js + MySQL + Docker — технологии, которые ваш DevOps уже знает. Runbook, smoke-чеклист и описание API прилагаются к внедрению. Интеграции с CRM идут через стандартные HTTP-запросы.</p>
+                <h3 class="client-benefits__name font-heading">Стандартный стек</h3>
+                <p class="client-benefits__text">Node.js, MySQL и Docker выбраны не ради модности, а потому что с ними умеют работать почти любые штатные DevOps и интеграторы. Это уменьшает стоимость поддержки после запуска.</p>
               </div>
             </div>
           </div>
@@ -212,7 +212,7 @@
             <div class="tech-vps-side">
               <div class="turnkey-card">
                 <h3 class="turnkey-card__title font-heading">Нет своего DevOps?</h3>
-                <p class="turnkey-card__text">Услуга «Turnkey» — развернём Рег.Поинт на вашем VPS, настроим HTTPS, проведём smoke-test. Всё, что нужно — предоставить SSH-доступ.</p>
+                <p class="turnkey-card__text">Поднимем compose на вашем VPS, HTTPS, smoke-test. Нужен только SSH. Сервер остаётся у вас.</p>
                 <div class="turnkey-card__price font-heading">45 000 ₽</div>
                 <p class="turnkey-card__note">Turnkey-внедрение под ключ</p>
               </div>
@@ -221,7 +221,7 @@
           </div>
           <div class="api-block">
             <h2 class="api-block__title font-heading">REST API для интеграций</h2>
-            <p class="api-block__text">Публичные endpoints <code class="api-block__code">/api/public/*</code> позволяют интегрировать Рег.Поинт с вашей CRM, сайтом или мобильным приложением. Кастомные интеграции — отдельный SKU внедрения.</p>
+            <p class="api-block__text">Интеграции почти всегда появляются после первого запуска: CRM, бот, внутренняя форма, отчётность. Поэтому есть публичные <code class="api-block__code">/api/public/*</code>. Если нужен нестандартный обмен, scope лучше фиксировать отдельно, иначе “маленькая доработка” быстро превращается в отдельный проект.</p>
             <div class="api-tags">
               <span class="api-tag">Bitrix24</span>
               <span class="api-tag">amoCRM</span>

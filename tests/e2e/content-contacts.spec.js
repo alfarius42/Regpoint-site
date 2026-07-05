@@ -61,15 +61,18 @@ test.describe('Content pages & contacts — Sprint 3', () => {
   test('H-01 how-it-works steps and tabs', async ({ page }) => {
     await page.goto('/how-it-works/');
     await expect(page.locator('main h1')).toHaveText('Как это работает');
-    await expect(page.locator('.how-it-works-panel[data-filter-item="promo"] .step-card__num').first()).toHaveText('01');
+    await expect(page.locator('.how-it-works-panel[data-filter-item="promo"] .step-card').first()).toContainText('Создание акции');
+    await expect(page.locator('.how-it-works-panel[data-filter-item="promo"] .step-card')).toHaveCount(5);
     await page.locator('.filter-chip[data-filter-value="events"]').click();
     await expect(page.locator('.how-it-works-panel[data-filter-item="events"]')).toBeVisible();
     await expect(page.locator('.how-it-works-panel[data-filter-item="promo"]')).toBeHidden();
+    await expect(page.locator('.how-it-works-panel[data-filter-item="events"] .step-card').first()).toContainText('Импорт');
+    await expect(page.locator('.how-it-works-panel[data-filter-item="events"] .step-card')).toHaveCount(4);
   });
 
-  test('H-02 comparison table', async ({ page }) => {
+  test('H-02 related technology and compliance links', async ({ page }) => {
     await page.goto('/how-it-works/');
-    await expect(page.getByRole('heading', { name: 'Self-hosted vs SaaS — в чём разница' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Инфраструктура и правовые требования' })).toBeVisible();
   });
 
   test('H-03 link to technology', async ({ page }) => {

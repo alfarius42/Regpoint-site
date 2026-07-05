@@ -108,6 +108,19 @@ test.describe('Internal links — existing pages', () => {
     await expect(page.locator('[data-internal-links] .internal-links')).toBeVisible();
   });
 
+  test('articles hub keeps internal links without duplicate full listing', async ({ page }) => {
+    await page.goto('/articles/');
+    await waitForInternalLinks(page);
+
+    await expect(page.locator('#articles-grid .article-card--listing')).toHaveCount(13);
+    await expect(page.locator('[data-internal-links] .internal-links')).toBeVisible();
+    await expect(page.locator('[data-internal-links] .internal-links__title:text-is("Статьи")')).toHaveCount(0);
+    await expect(
+      page.locator('[data-internal-links] a.internal-links-card[href*="/articles/"]:not([href="/articles/"])')
+    ).toHaveCount(0);
+    await expect(page.locator('[data-internal-links] a.internal-links-card[href="/pricing/"]')).toBeVisible();
+  });
+
   test('article detail refreshes related cards from tag registry', async ({ page }) => {
     await page.goto('/articles/152fz-checklist/');
     await waitForInternalLinks(page);
