@@ -74,3 +74,59 @@ Header/footer — дублирование HTML (как Abrikos) или гене
 - Product pages → upsell links, related articles (`PRODUCT_ARTICLES`)
 - Pricing → sticky CTA bar (`PricingStickyBar`)
 - All pages → footer CTA, header demo/contact
+
+---
+
+## Phase 2 — SEO-портал (cap 100)
+
+> **v2:** keyword-first · сценарии · от existing · `docs/SEO_PORTAL_ROADMAP.md`
+
+### Hub (existing, не менять URL)
+
+| URL | Роль |
+|-----|------|
+| `/scenarios/` | **Hub сценариев** — каталог 52 child |
+| `/technology/` | Tech hub → 8 child |
+| `/articles/` | Information intent (12 статей) |
+
+### Scenarios — `/scenarios/{slug}/` (52 new)
+
+**P0 (Sprint 12):** `event-registration` · `conference-registration` · `exhibition-registration` · `corporate-events` · `check-in` · `qr-accreditation` · `promo` · `receipt-verification` · `fmcg-promo` · `enterprise-compliance` · `event-agency` · `self-hosted-events`
+
+**P1 (Sprint 13):** `forum-registration` · `seminar-registration` · `training-registration` · `webinar-registration` · `guest-registration` · `online-registration` · `hr-events` · `entrance-control` · `onsite-registration` · `receipt-upload` · `promo-automation` · `buy-and-win` · `promo-agency` · `ticketed-event` · `white-label-registration` (+ 3 смежных)
+
+**P2 (Sprint 14):** остальные 22 slug — см. roadmap §5
+
+> **Не создавать** `/solutions/*` — дубль `/scenarios/`
+
+### Technology child (8) — Sprint 15
+
+`self-hosted` · `docker` · `api` · `deployment` · `security` · `import` · `ocr` · `fns`
+
+### Features (8) — Sprint 15
+
+hub + `forms` · `check-in` · `qr` · `ocr` · `fns` · `anti-fraud` · `reports`
+
+### Cases (4) — Sprint 16
+
+hub + `conference-self-hosted` · `promo-fns-retail` · `corporate-hr-event`
+
+### Бюджет
+
+| | URL |
+|---|-----|
+| Existing | 28 |
+| Scenarios new | 52 |
+| Tech + Features + Cases | 20 |
+| **Total** | **100** |
+
+### Backlog (101+)
+
+`/knowledge/*` · оставшиеся features/technology · EN · 300+ scale — `docs/SEO_PORTAL_TODO.md` §Backlog
+
+### Реестр
+
+```
+content/pages.json    — primaryKeyword, tags[], intent
+js/internal-links.js  — автоперелинковка
+```

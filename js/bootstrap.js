@@ -13,5 +13,6 @@
     if (window.SiteCookies) window.SiteCookies.init();
     if (window.SiteSeo) window.SiteSeo.init();
     if (window.SiteBreadcrumbs) window.SiteBreadcrumbs.init();
+    if (window.SiteInternalLinks) window.SiteInternalLinks.init();
   });
 })();

@@ -21,7 +21,7 @@
 | 6 | CTA | **«Запросить КП / Демо»** и **«Связаться»** → открыть чат Jivo (`jivo_api.open()`) |
 | 7 | Позиционирование | **Коробка на VPS клиента**, не SaaS — ключевой месседж на главной |
 | 8 | Языки | RU + EN (переключатель; продуктовые имена и лого — локализованные) |
-| 9 | SEO | Продающие тексты + meta/OG/schema с первого дня |
+| 9 | SEO | Продающие тексты + meta/OG/schema; **problem-first** — см. §15 |
 | 10 | Блог | Раздел **«Статьи»** — органический трафик, экспертиза 152-ФЗ |
 | 11 | Адаптивность | **Обязательна:** mobile-first, **канон breakpoints 375 / 768 / 1280** (fluid между ними); QA только на этих viewport — `docs/BREAKPOINTS.md` |
 | 12 | Сборка сайта | **Нет.** MPA: правим HTML/CSS/JS в корне; деплой — статика на FTP. npm/Vite **только** в `prototype/` и `tests/` |
@@ -874,6 +874,8 @@ A: Заявки и переписка обрабатываются через **
 | `docs/INTEGRATIONS.md` | Jivo, Метрика, Telegram |
 | `prototype/guidelines/HANDOFF.md` | UX/breakpoints прототипа |
 | `docs/SPRINTS.md` | Roadmap реализации |
+| `docs/SEO_PORTAL_ROADMAP.md` | SEO-портал: кластеры, keyword map, Phase 2 |
+| `docs/SEO_PORTAL_TODO.md` | Backlog Sprint 10–17 |
 
 ---
 
@@ -885,6 +887,7 @@ A: Заявки и переписка обрабатываются через **
 | Новая цена / апсейл SKU | §7.7, §5.1, ESC-Promo `BUSINESS_MODEL.md` §3–§5 |
 | Смена chat/form vendor | §4.2, §4.4, `/privacy`, `docs/INTEGRATIONS.md` |
 | Новая статья | §9.3 + sitemap |
+| Новая SEO landing (Phase 2) | `docs/SEO_PORTAL_ROADMAP.md`, `content/pages.json`, sitemap |
 | Изменение layout / breakpoints | `docs/BREAKPOINTS.md`, §13.1, `prototype/guidelines/HANDOFF.md`, `.cursor/rules/responsive-layout.mdc` |
 
 ---
@@ -938,3 +941,104 @@ A: Заявки и переписка обрабатываются через **
 4. ESC-Promo docs — цены, модули (если не противоречат прототипу)
 
 Детали: `docs/CONTENT_SOURCES.md`, `docs/SITE_MAP.md`.
+
+---
+
+## 14. SEO-портал (Phase 2 — cap 100)
+
+> **ТЗ v2:** `docs/SEO_PORTAL_ROADMAP.md` · **Задачи:** `docs/SEO_PORTAL_TODO.md`  
+> **Статус:** принято 2026-07-05, scope v2
+
+### 14.1 Цель
+
+**Keyword-first SEO-портал сценариев.** Cap ближней перспективы — **100 URL** (28 existing + 72 new). Всё сверх — backlog.
+
+| Приоритет | Что |
+|-----------|-----|
+| 1 | **Keyword-first** — primary keyword → Title → H1 → FAQ |
+| 2 | **Сценарии** — 52 новых `/scenarios/{slug}/` |
+| 3 | **От existing** — 28 URL не удаляем; усиливаем SEO; новые только при gap |
+| 4 | **Cap 100** — жёсткий лимит sitemap |
+| 5 | **Problem-first copy** — продаём решение проблемы, не технологии — `docs/MESSAGING.md` |
+
+### 14.2 Бюджет 100 URL
+
+| Слой | Кол-во |
+|------|--------|
+| Existing (keyword refresh) | 28 |
+| `/scenarios/{slug}/` | 52 |
+| `/technology/{slug}/` child | 8 |
+| `/features/{slug}/` | 8 |
+| `/cases/{slug}/` | 4 |
+
+**Не в cap:** `/knowledge/*`, `/solutions/*` (используем `/scenarios/`), 300+ scale.
+
+### 14.3 Кластеры → scenarios
+
+1. **Регистрация** — hub: `/`, `/products/reg-point/`, `/scenarios/`
+2. **QR Check-in** — hub: `/scenarios/check-in/` + `/articles/qr-check-in/`
+3. **Промо** — hub: `/products/promo-pro/`, `/scenarios/promo/`
+4. **Технологии** — hub: `/technology/`, `/how-it-works/`, `/compliance-152fz/`
+
+### 14.4 SEO-требования
+
+- Один **unique primary keyword** на URL в `content/pages.json`
+- Статья = information intent; scenario = commercial intent — **не дублировать keyword**
+- Title: `{keyword} — {benefit} | Reg.Point`
+- Автоперелинковка: `content/pages.json` + `js/internal-links.js` по tags + **hub → child**
+
+### 14.5 Hub → child (existing + дочерние)
+
+- **Existing URL = hub** — не меняются (`/scenarios/`, `/articles/`, `/products/reg-point/` …)
+- **Новые URL = child** — поле `"hub": "/scenarios/"` в `pages.json`
+- **Условные child** — `"relatedHubs": ["/products/reg-point/"]` для product-hub
+- Схема: `content/SCHEMA.md`
+
+### 14.6 Фазы (Sprint 10–16)
+
+| Sprint | Фокус | Cumulative |
+|--------|-------|------------|
+| 10 | pages.json + keyword refresh existing | 28 |
+| 11 | Hub `/scenarios/` | 28 |
+| 12 | Scenarios P0 (12) | 40 |
+| 13 | Scenarios P1 (18) | 58 |
+| 14 | Scenarios P2 (22) | 80 |
+| 15 | Technology 8 + Features 8 | 96 |
+| 16 | Cases 4 + nav + QA | **100** |
+
+### 14.7 Когда обновлять
+
+| Изменение | Обновить |
+|-----------|----------|
+| Новая страница в cap 100 | `content/pages.json`, sitemap, `docs/SITE_MAP.md` |
+| Keyword | Uniqueness check в pages.json |
+| 101+ URL | Только через backlog review |
+
+---
+
+## 15. Идеология текстов (Solution Page)
+
+> **Канон:** `docs/templates/SOLUTION_PAGE.md` · **Матрица по типам:** `docs/MESSAGING.md` §3
+
+### 15.1 Solution Page (`/scenarios/{slug}/`)
+
+Раздел **«Решения»** в nav; URL `/scenarios/`. Полный funnel **§1–14**:
+
+1. Проблема → 2. Решение → 3. Возможности → 4. Technology → 5. Проектный эффект → 6. Повторяемость → 7. Организационный эффект → перелинковка → FAQ → CTA.
+
+Закрывает: **Менеджер → PM → ИТ → CEO**.
+
+### 15.2 Где ещё (сокращённо)
+
+| Страница | Что из шаблона |
+|----------|----------------|
+| `/products/*` | §1–4, §7 кратко |
+| `/` | §1–2 hero |
+| `/articles/*` | §1 information, CTA → scenario |
+| `/features/*`, `/technology/*` | §3 или §4 |
+| `/cases/*` | §5–6 |
+| `/pricing/` | §6–7 |
+
+### 15.3 SEO
+
+Title/H1 = keyword · §1 = проблема · tech не на первом экране.

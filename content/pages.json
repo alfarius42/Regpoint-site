@@ -1,0 +1,308 @@
+{
+  "version": 2,
+  "schema": "content/SCHEMA.md",
+  "pages": [
+    {
+      "url": "/",
+      "type": "home",
+      "role": "root",
+      "intent": "commercial",
+      "primaryKeyword": "сервис регистрации мероприятий",
+      "title": "Рег.Поинт — регистрация, промо и проверка чеков",
+      "tags": ["events", "promo", "qr", "check-in", "152-fz", "self-hosted", "fns"],
+      "cluster": "registration"
+    },
+    {
+      "url": "/products/",
+      "type": "hub",
+      "role": "hub",
+      "intent": "product",
+      "primaryKeyword": "модули регистрации и промо",
+      "title": "Модули Рег.Поинт",
+      "tags": ["events", "promo", "tickets", "self-hosted"],
+      "cluster": "registration"
+    },
+    {
+      "url": "/products/reg-point/",
+      "type": "product",
+      "role": "hub",
+      "intent": "product",
+      "hub": "/products/",
+      "primaryKeyword": "платформа регистрации участников",
+      "title": "Рег.Поинт",
+      "tags": ["events", "qr", "check-in", "conference", "152-fz", "self-hosted"],
+      "cluster": "registration"
+    },
+    {
+      "url": "/products/promo-point/",
+      "type": "product",
+      "role": "child",
+      "intent": "product",
+      "hub": "/products/",
+      "primaryKeyword": "промо регистрация участников",
+      "title": "Промо.Поинт",
+      "tags": ["promo", "qr", "events", "152-fz", "marketing"],
+      "cluster": "promo"
+    },
+    {
+      "url": "/products/promo-pro/",
+      "type": "product",
+      "role": "hub",
+      "intent": "product",
+      "hub": "/products/",
+      "primaryKeyword": "промоакция с чеками",
+      "title": "Промо.Про",
+      "tags": ["promo", "fns", "ocr", "security", "anti-fraud"],
+      "cluster": "promo"
+    },
+    {
+      "url": "/products/ticket-point/",
+      "type": "product",
+      "role": "child",
+      "intent": "product",
+      "hub": "/products/",
+      "primaryKeyword": "продажа билетов на мероприятие",
+      "title": "Тикет.Поинт",
+      "tags": ["events", "tickets", "qr", "check-in"],
+      "cluster": "registration"
+    },
+    {
+      "url": "/pricing/",
+      "type": "conversion",
+      "role": "conversion",
+      "intent": "conversion",
+      "primaryKeyword": "стоимость регистрации на мероприятие",
+      "title": "Цены и лицензии",
+      "tags": ["pricing", "events", "promo", "self-hosted"]
+    },
+    {
+      "url": "/technology/",
+      "type": "hub",
+      "role": "hub",
+      "intent": "technical",
+      "primaryKeyword": "коробочная event-платформа",
+      "title": "Технологии и архитектура",
+      "tags": ["self-hosted", "docker", "security", "api", "152-fz"],
+      "relatedHubs": ["/compliance-152fz/"],
+      "cluster": "technology"
+    },
+    {
+      "url": "/compliance-152fz/",
+      "type": "hub",
+      "role": "hub",
+      "intent": "legal",
+      "primaryKeyword": "152-ФЗ мероприятие",
+      "title": "152-ФЗ и персональные данные",
+      "tags": ["152-fz", "security", "events", "promo", "self-hosted"],
+      "relatedHubs": ["/technology/"],
+      "cluster": "technology"
+    },
+    {
+      "url": "/how-it-works/",
+      "type": "hub",
+      "role": "hub",
+      "intent": "technical",
+      "primaryKeyword": "self hosted регистрация",
+      "title": "Как работает Рег.Поинт",
+      "tags": ["self-hosted", "docker", "events", "promo", "qr"],
+      "cluster": "technology"
+    },
+    {
+      "url": "/scenarios/",
+      "type": "hub",
+      "role": "hub",
+      "intent": "commercial",
+      "primaryKeyword": "сценарии регистрации мероприятий",
+      "title": "Сценарии использования",
+      "tags": ["events", "promo", "conference", "agency", "hr", "marketing", "fmcg"],
+      "cluster": "registration"
+    },
+    {
+      "url": "/faq/",
+      "type": "hub",
+      "role": "hub",
+      "intent": "information",
+      "primaryKeyword": "вопросы регистрация мероприятие",
+      "title": "FAQ",
+      "tags": ["events", "promo", "152-fz", "self-hosted", "pricing"]
+    },
+    {
+      "url": "/articles/",
+      "type": "hub",
+      "role": "hub",
+      "intent": "information",
+      "primaryKeyword": "статьи event-tech",
+      "title": "Статьи",
+      "tags": ["events", "promo", "152-fz", "self-hosted", "check-in"]
+    },
+    {
+      "url": "/contacts/",
+      "type": "conversion",
+      "role": "conversion",
+      "intent": "conversion",
+      "primaryKeyword": "контакты Reg.Point",
+      "title": "Контакты",
+      "tags": ["events", "promo", "pricing"]
+    },
+    {
+      "url": "/privacy/",
+      "type": "legal",
+      "intent": "legal",
+      "primaryKeyword": "политика конфиденциальности",
+      "title": "Политика конфиденциальности",
+      "tags": ["152-fz", "legal"]
+    },
+    {
+      "url": "/privacy/marketing-consent/",
+      "type": "legal",
+      "intent": "legal",
+      "primaryKeyword": "согласие маркетинговые рассылки",
+      "title": "Согласие на маркетинговые рассылки",
+      "tags": ["152-fz", "legal"]
+    },
+    {
+      "url": "/articles/self-hosted-vs-saas/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/how-it-works/", "/scenarios/"],
+      "primaryKeyword": "регистрация мероприятие saas или своя",
+      "title": "Self-hosted vs SaaS: как выбрать регистрацию на мероприятие",
+      "tags": ["self-hosted", "docker", "events", "conference"],
+      "meta": { "tag": "self-hosted", "time": "7 мин" }
+    },
+    {
+      "url": "/articles/152fz-checklist/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/compliance-152fz/"],
+      "primaryKeyword": "152 фз мероприятие персональные данные",
+      "title": "152-ФЗ на мероприятии: чеклист для организатора",
+      "tags": ["152-fz", "security", "events", "conference"],
+      "meta": { "tag": "152-ФЗ", "time": "9 мин" }
+    },
+    {
+      "url": "/articles/cost-of-registration/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/pricing/"],
+      "primaryKeyword": "стоимость программы регистрации",
+      "title": "Сколько стоит программа регистрации на мероприятие",
+      "tags": ["pricing", "events", "self-hosted", "conference"],
+      "meta": { "tag": "цены", "time": "6 мин" }
+    },
+    {
+      "url": "/articles/qr-check-in/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/scenarios/"],
+      "primaryKeyword": "qr check in конференция",
+      "title": "QR check-in на конференции: пошаговое руководство",
+      "tags": ["check-in", "qr", "events", "conference"],
+      "meta": { "tag": "check-in", "time": "6 мин" }
+    },
+    {
+      "url": "/articles/import-participants/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/technology/"],
+      "primaryKeyword": "импорт участников мероприятие excel",
+      "title": "Импорт участников из Excel и CSV без ошибок",
+      "tags": ["check-in", "events", "api", "conference"],
+      "meta": { "tag": "check-in", "time": "5 мин" }
+    },
+    {
+      "url": "/articles/promo-fns/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/products/promo-pro/", "/scenarios/"],
+      "primaryKeyword": "проверка чека фнс промоакция",
+      "title": "Промоакция с чеком: как работает проверка ФНС",
+      "tags": ["promo", "fns", "ocr", "anti-fraud"],
+      "meta": { "tag": "promo", "time": "8 мин" }
+    },
+    {
+      "url": "/articles/ocr-fallback/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/products/promo-pro/"],
+      "primaryKeyword": "ocr чеков акция",
+      "title": "OCR чеков в промо: когда нужен fallback",
+      "tags": ["promo", "ocr", "fns", "anti-fraud"],
+      "meta": { "tag": "promo", "time": "6 мин" }
+    },
+    {
+      "url": "/articles/docker-vps/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/how-it-works/", "/technology/"],
+      "primaryKeyword": "docker мероприятие vps",
+      "title": "Docker для event-платформы: требования к VPS",
+      "tags": ["docker", "self-hosted", "security"],
+      "meta": { "tag": "self-hosted", "time": "7 мин" }
+    },
+    {
+      "url": "/articles/consent-pd/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/compliance-152fz/"],
+      "primaryKeyword": "согласие персональные данные регистрация",
+      "title": "Согласие на обработку ПД: что указать на странице регистрации",
+      "tags": ["152-fz", "security", "events", "promo"],
+      "meta": { "tag": "152-ФЗ", "time": "10 мин" }
+    },
+    {
+      "url": "/articles/tickets-yukassa/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/products/ticket-point/"],
+      "primaryKeyword": "продажа билетов мероприятие юkassa",
+      "title": "Продажа билетов через ЮKassa на своём сервере",
+      "tags": ["tickets", "events", "qr"],
+      "meta": { "tag": "билеты", "time": "8 мин" }
+    },
+    {
+      "url": "/articles/promo-receipt-automation/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/products/promo-pro/", "/scenarios/"],
+      "primaryKeyword": "автоматизация промоакции чеки",
+      "title": "Промо-акция с чеком: как убрать очереди и получить точные данные",
+      "tags": ["promo", "fns", "qr", "anti-fraud"],
+      "meta": { "tag": "promo", "time": "8 мин" }
+    },
+    {
+      "url": "/articles/event-registration-no-queues/",
+      "type": "article",
+      "role": "child",
+      "intent": "information",
+      "hub": "/articles/",
+      "relatedHubs": ["/scenarios/"],
+      "primaryKeyword": "регистрация мероприятие без очередей",
+      "title": "Регистрация на мероприятие без очередей: от онлайн-записи до QR check-in",
+      "tags": ["check-in", "qr", "events", "conference", "self-hosted"],
+      "meta": { "tag": "check-in", "time": "7 мин" }
+    }
+  ]
+}

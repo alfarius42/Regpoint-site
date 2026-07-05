@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/css/components.css" />
     <link rel="stylesheet" href="/css/pages.css" />
     <link rel="stylesheet" href="/css/pages-articles.css" />
+    <link rel="stylesheet" href="/css/internal-links.css" />
   </head>
   <body data-page="articles">
 <header class="site-header">
@@ -257,6 +258,8 @@
           <p class="articles-empty" id="articles-empty" hidden>Нет статей по выбранному тегу. <button type="button" class="articles-empty__reset" data-filter-reset="all">Показать все</button></p>
         </div>
       </section>
+    
+      <section class="section section--muted internal-links-mount" data-internal-links aria-label="Связанные материалы"></section>
     </main>
 <footer class="site-footer">
       <div class="site-footer__cta">
@@ -341,6 +344,7 @@
     <script src="/js/analytics.js" defer></script>
     <script src="/js/cookies.js" defer></script>
     <script src="/js/breadcrumbs.js" defer></script>
+    <script src="/js/internal-links.js" defer></script>
     <script src="/js/bootstrap.js" defer></script>
   </body>
 </html>

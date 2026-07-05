@@ -34,6 +34,7 @@ COPY_PATHS = (
     "contacts",
     "privacy",
     "en",
+    "content",
     "css",
     "js",
     "img",

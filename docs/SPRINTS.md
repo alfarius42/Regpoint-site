@@ -256,6 +256,26 @@
 
 ---
 
+## Phase 2 — SEO-портал (Sprint 10–16, cap 100)
+
+> **ТЗ v2:** `docs/SEO_PORTAL_ROADMAP.md` · **Задачи:** `docs/SEO_PORTAL_TODO.md`
+
+| Sprint | Фокус | Cumulative URL | Статус |
+|--------|-------|----------------|--------|
+| 10 | pages.json + keyword refresh existing 28 | 28 | ⬜ |
+| 11 | Hub `/scenarios/` + прототип → child links | 28 | ⬜ |
+| 12 | Scenarios P0 (12 commercial landings) | 40 | ⬜ |
+| 13 | Scenarios P1 (18) | 58 | ⬜ |
+| 14 | Scenarios P2 (22) | 80 | ⬜ |
+| 15 | Technology 8 + Features 8 | 96 | ⬜ |
+| 16 | Cases 4 + nav + QA | **100** | ⬜ |
+
+**DoD Phase 2:** 100 URL · unique primaryKeyword на каждой · 52 scenarios · auto internal-links.
+
+**Приоритет:** keyword-first → сценарии → от existing. **101+ → backlog.**
+
+---
+
 ## Как обновлять этот файл
 
 При закрытии задачи — `[x]` + дата в commit message. При добавлении страницы — обновить `docs/SITE_MAP.md` и sprint section.

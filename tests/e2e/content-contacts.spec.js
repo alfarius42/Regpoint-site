@@ -69,7 +69,7 @@ test.describe('Content pages & contacts — Sprint 3', () => {
 
   test('H-02 comparison table', async ({ page }) => {
     await page.goto('/how-it-works/');
-    await expect(page.getByText('Self-hosted vs SaaS')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Self-hosted vs SaaS — в чём разница' })).toBeVisible();
   });
 
   test('H-03 link to technology', async ({ page }) => {

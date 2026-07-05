@@ -1,0 +1,110 @@
+/* Auto internal linking — content/pages.json + js/internal-links.js */
+
+.internal-links-mount:empty {
+  display: none;
+}
+
+.internal-links {
+  display: grid;
+  gap: 2rem;
+}
+
+.internal-links__block + .internal-links__block {
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border, #b3b3b3);
+}
+
+.internal-links__title {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary, #243954);
+}
+
+.internal-links__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .internal-links__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .internal-links__grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.internal-links-card {
+  display: block;
+  padding: 1.25rem;
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #b3b3b3);
+  border-radius: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.internal-links-card:hover {
+  border-color: var(--color-primary, #243954);
+  box-shadow: 0 4px 16px rgb(36 57 84 / 8%);
+}
+
+.internal-links-card__meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #525252);
+}
+
+.internal-links-card__title {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--color-primary, #243954);
+}
+
+.internal-links-card:hover .internal-links-card__title {
+  color: var(--color-primary-alt, #314180);
+}
+
+.internal-links-card__tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.6875rem;
+  font-family: var(--font-mono, monospace);
+  border-radius: 0;
+}
+
+.internal-links-card__tag--dark {
+  background: var(--color-primary, #243954);
+  color: #fff;
+}
+
+.internal-links-card__tag--blue {
+  background: #314180;
+  color: #fff;
+}
+
+.internal-links-card__tag--accent {
+  background: var(--color-accent, #e1eff2);
+  color: var(--color-primary, #243954);
+}
+
+.internal-links-card__tag--muted {
+  background: #fff;
+  color: var(--color-text-muted, #525252);
+  border: 1px solid var(--color-border, #b3b3b3);
+}
+
+.internal-links__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
